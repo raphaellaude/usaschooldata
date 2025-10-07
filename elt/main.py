@@ -51,6 +51,27 @@ def membership(school_year: list[str]):
         sql = f"CREATE OR REPLACE TABLE {table_name} AS\n{data_prep_sql}"
         conn.execute(sql)
 
+        write_hive_partition_sql = f"""
+        COPY (
+            SELECT
+                * EXCLUDE(total_indicator, dms_flag)
+            FROM {table_name}
+            -- It's really hard for users to know that the data contains both aggregates
+            -- and raw counts. To provide more analysis ready data, let's normalize the
+            -- student_count column
+            WHERE race_ethnicity <> 'No Category Codes'
+                AND grade <> 'No Category Codes'
+                AND sex <> 'No Category Codes'
+                AND dms_flag = 'Reported'
+        ) TO '{DIRECTORY}/membership' (
+            FORMAT parquet,
+            PARTITION_BY (school_year, state_code),
+            OVERWRITE_OR_IGNORE,
+            COMPRESSION snappy
+        );
+        """
+        conn.execute(write_hive_partition_sql)
+
 
 if __name__ == "__main__":
     cli()

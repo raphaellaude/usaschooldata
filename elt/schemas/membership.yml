@@ -7,6 +7,8 @@ membership:
     race_ethnicity: varchar
     sex: varchar
     student_count: bigint
+    total_indicator: varchar
+    dms_flag: varchar
 raw:
   sy2324:
     table_name: ccd_sch_052_2324
@@ -18,6 +20,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy2223:
     table_name: ccd_sch_052_2223
     mapping:
@@ -28,6 +32,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy2122:
     table_name: ccd_sch_052_2122
     mapping:
@@ -38,6 +44,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy2021:
     table_name: ccd_sch_052_2021
     mapping:
@@ -48,6 +56,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy1920:
     table_name: ccd_sch_052_1920
     mapping:
@@ -58,6 +68,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy1819:
     table_name: ccd_sch_052_1819
     mapping:
@@ -68,6 +80,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy1718:
     table_name: ccd_sch_052_1718
     mapping:
@@ -78,6 +92,8 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy1617:
     table_name: ccd_sch_052_1617
     mapping:
@@ -88,15 +104,16 @@ raw:
       RACE_ETHNICITY: race_ethnicity
       SEX: sex
       STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
   sy1516:
     table_name: ccd_sch_052_1516
     mapping:
       SURVYEAR: school_year
       STABR: state_code
       NCESSCH: ncessch
-    ignore_errors: true
   sy1415:
-    table_name: ccd_sch_052_1516
+    table_name: ccd_sch_052_1415
     mapping:
       SURVYEAR: school_year
       STABR: state_code
