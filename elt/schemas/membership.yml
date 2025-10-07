@@ -1,0 +1,103 @@
+membership:
+  columns:
+    school_year: varchar
+    state_code: varchar
+    ncessch: varchar
+    grade: varchar
+    race_ethnicity: varchar
+    sex: varchar
+    student_count: bigint
+raw:
+  sy2324:
+    table_name: ccd_sch_052_2324
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy2223:
+    table_name: ccd_sch_052_2223
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy2122:
+    table_name: ccd_sch_052_2122
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy2021:
+    table_name: ccd_sch_052_2021
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy1920:
+    table_name: ccd_sch_052_1920
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy1819:
+    table_name: ccd_sch_052_1819
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy1718:
+    table_name: ccd_sch_052_1718
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy1617:
+    table_name: ccd_sch_052_1617
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+  sy1516:
+    table_name: ccd_sch_052_1516
+    mapping:
+      SURVYEAR: school_year
+      STABR: state_code
+      NCESSCH: ncessch
+    ignore_errors: true
+  sy1415:
+    table_name: ccd_sch_052_1516
+    mapping:
+      SURVYEAR: school_year
+      STABR: state_code
+      NCESSCH: ncessch
