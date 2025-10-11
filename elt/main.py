@@ -54,7 +54,10 @@ def membership(school_year: list[str]):
         write_hive_partition_sql = f"""
         COPY (
             SELECT
-                * EXCLUDE(total_indicator, dms_flag)
+                * EXCLUDE(total_indicator, dms_flag),
+                -- Example `020000100206` is state=02 alaska, district_id=00001, full leaid is `0200001`
+                substr(ncessch, 1, 8) as leaid,
+                substr(ncessch, 1, 2) as state_leaid,
             FROM {table_name}
             -- It's really hard for users to know that the data contains both aggregates
             -- and raw counts. To provide more analysis ready data, let's normalize the
@@ -62,10 +65,12 @@ def membership(school_year: list[str]):
             WHERE race_ethnicity <> 'No Category Codes'
                 AND grade <> 'No Category Codes'
                 AND sex <> 'No Category Codes'
-                AND dms_flag = 'Reported'
+                AND dms_flag = 'Reported'\
+            -- Ordering should help with predicate pushdown in order of most queried for attributes
+            ORDER BY school_year, grade, race_ethnicity, sex
         ) TO '{DIRECTORY}/membership' (
             FORMAT parquet,
-            PARTITION_BY (school_year, state_code),
+            PARTITION_BY (school_year, state_leaid),
             OVERWRITE_OR_IGNORE,
             COMPRESSION snappy
         );
