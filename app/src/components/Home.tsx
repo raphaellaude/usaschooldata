@@ -1,4 +1,5 @@
 import { useDuckDB } from "../hooks/useDuckDB";
+import { DEFAULT_SCHOOL_YEAR } from "../constants";
 
 export default function Home() {
   const { isLoading, error, isInitialized } = useDuckDB();
@@ -69,7 +70,7 @@ export default function Home() {
         <p className="text-gray-700 mb-4">
           Profiles follow the pattern:{" "}
           <code className="bg-gray-100 px-2 py-1 rounded text-sm">
-            /profiles/&#123;ncesId&#125;#&#123;section&#125;
+            /profiles/&#123;ncesId&#125;?year=&#123;schoolYear&#125;#&#123;section&#125;
           </code>
         </p>
         <div className="space-y-3">
@@ -80,6 +81,14 @@ export default function Home() {
               <br />
               Examples: <code className="bg-gray-100 px-1 rounded">0100005</code> (district),
               <code className="bg-gray-100 px-1 rounded ml-2">010000500870</code> (school)
+            </p>
+          </div>
+          <div>
+            <h3 className="font-medium text-gray-900">year (optional):</h3>
+            <p className="text-gray-700 text-sm ml-4">
+              School year in format YYYY-YYYY. Defaults to <code className="bg-gray-100 px-1 rounded">{DEFAULT_SCHOOL_YEAR}</code>
+              <br />
+              Example: <code className="bg-gray-100 px-1 rounded">2023-2024</code>
             </p>
           </div>
           <div>
@@ -100,18 +109,18 @@ export default function Home() {
             <h3 className="font-medium text-gray-900 mb-3">District Examples (7 digits)</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/profiles/0100005" className="text-blue-600 hover:text-blue-800 text-sm">
-                  District 0100005 Overview
+                <a href={`/profiles/0100005?year=${DEFAULT_SCHOOL_YEAR}`} className="text-blue-600 hover:text-blue-800 text-sm">
+                  District 0100005 Overview ({DEFAULT_SCHOOL_YEAR})
                 </a>
               </li>
               <li>
-                <a href="/profiles/0100005#demographics" className="text-blue-600 hover:text-blue-800 text-sm">
-                  District 0100005 Demographics
+                <a href={`/profiles/0100005?year=${DEFAULT_SCHOOL_YEAR}#demographics`} className="text-blue-600 hover:text-blue-800 text-sm">
+                  District 0100005 Demographics ({DEFAULT_SCHOOL_YEAR})
                 </a>
               </li>
               <li>
-                <a href="/profiles/0100005#data" className="text-blue-600 hover:text-blue-800 text-sm">
-                  District 0100005 Raw Data
+                <a href={`/profiles/0100005?year=${DEFAULT_SCHOOL_YEAR}#data`} className="text-blue-600 hover:text-blue-800 text-sm">
+                  District 0100005 Raw Data ({DEFAULT_SCHOOL_YEAR})
                 </a>
               </li>
             </ul>
@@ -121,18 +130,18 @@ export default function Home() {
             <h3 className="font-medium text-gray-900 mb-3">School Examples (12 digits)</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/profiles/010000500870" className="text-blue-600 hover:text-blue-800 text-sm">
-                  School 010000500870 Overview
+                <a href={`/profiles/010000500870?year=${DEFAULT_SCHOOL_YEAR}`} className="text-blue-600 hover:text-blue-800 text-sm">
+                  School 010000500870 Overview ({DEFAULT_SCHOOL_YEAR})
                 </a>
               </li>
               <li>
-                <a href="/profiles/010000500870#demographics" className="text-blue-600 hover:text-blue-800 text-sm">
-                  School 010000500870 Demographics
+                <a href={`/profiles/010000500870?year=${DEFAULT_SCHOOL_YEAR}#demographics`} className="text-blue-600 hover:text-blue-800 text-sm">
+                  School 010000500870 Demographics ({DEFAULT_SCHOOL_YEAR})
                 </a>
               </li>
               <li>
-                <a href="/profiles/010000500870#data" className="text-blue-600 hover:text-blue-800 text-sm">
-                  School 010000500870 Raw Data
+                <a href={`/profiles/010000500870?year=${DEFAULT_SCHOOL_YEAR}#data`} className="text-blue-600 hover:text-blue-800 text-sm">
+                  School 010000500870 Raw Data ({DEFAULT_SCHOOL_YEAR})
                 </a>
               </li>
             </ul>

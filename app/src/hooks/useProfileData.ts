@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { dataService, MembershipQueryOptions } from '../services/dataService';
+import { dataService, type MembershipQueryOptions } from '../services/dataService';
 import { useDuckDB } from './useDuckDB';
 
 export interface ProfileData {
@@ -46,7 +46,7 @@ export function useProfileData(
     try {
       if (entityType === 'school') {
         const [summaryData, membershipResults] = await Promise.all([
-          dataService.getSchoolSummary(entityCode),
+          dataService.getSchoolSummary(entityCode, options),
           dataService.querySchoolMembership(entityCode, options)
         ]);
 
@@ -54,7 +54,7 @@ export function useProfileData(
         setMembershipData(membershipResults);
       } else if (entityType === 'district') {
         const [summaryData, membershipResults] = await Promise.all([
-          dataService.getDistrictSummary(entityCode),
+          dataService.getDistrictSummary(entityCode, options),
           dataService.queryDistrictMembership(entityCode, options)
         ]);
 

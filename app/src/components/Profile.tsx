@@ -1,18 +1,22 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useDuckDB } from "../hooks/useDuckDB";
 import { useProfileData } from "../hooks/useProfileData";
 import DoughnutChart from "./charts/DoughnutChart";
 import BarChart from "./charts/BarChart";
+import { DEFAULT_SCHOOL_YEAR } from "../constants";
 
 export default function Profile() {
   const { id } = useParams<{
     id: string;
   }>();
-  const location = useLocation();
+  const [searchParams] = useSearchParams();
   const { isLoading: dbLoading, error: dbError, isInitialized } = useDuckDB();
 
-  // Extract section from hash (e.g., #demographics, #enrollment)
-  const section = location.hash.slice(1) || "overview";
+  // Note: section extraction not needed since we show all sections on one page
+  // const section = location.hash.slice(1) || "overview";
+
+  // Extract year from URL parameters, default to 2023-2024
+  const year = searchParams.get('year') || DEFAULT_SCHOOL_YEAR;
 
   // Use the ID directly as the NCES code
   const ncesCode = id || "";
@@ -22,7 +26,7 @@ export default function Profile() {
   const entityType: "district" | "school" =
     ncesCode.length === 12 ? "school" : "district";
 
-  // Load profile data using the new hook
+  // Load profile data using the new hook with year filter
   const {
     summary,
     membershipData,
@@ -31,7 +35,7 @@ export default function Profile() {
   } = useProfileData(
     entityType,
     ncesCode,
-    {}, // Add filters here based on section if needed
+    { schoolYear: year }, // Pass year as filter
   );
 
   if (!id) {
@@ -224,7 +228,11 @@ export default function Profile() {
         <h1 className="text-2xl font-bold text-gray-900">
           {entityType === "district" ? "District" : "School"} Profile
         </h1>
-        <h2 className="text-lg text-gray-600">NCES ID: {ncesCode}</h2>
+        <div className="flex items-center gap-4 text-lg text-gray-600">
+          <span>NCES ID: {ncesCode}</span>
+          <span>•</span>
+          <span>School Year: {year}</span>
+        </div>
 
         {/* Navigation */}
         <nav className="mt-4 flex space-x-6">

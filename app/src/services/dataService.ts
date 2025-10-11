@@ -56,10 +56,11 @@ export class DataService {
   /**
    * Generate R2 file paths for given state codes and years
    */
-  private generateR2FilePaths(stateCodes: string[]): string[] {
+  private generateR2FilePaths(stateCodes: string[], years?: string[]): string[] {
     const filePaths: string[] = [];
+    const yearsToUse = years || this.availableYears;
 
-    for (const year of this.availableYears) {
+    for (const year of yearsToUse) {
       for (const stateCode of stateCodes) {
         filePaths.push(`'${this.dataDirectory}/membership/school_year=${year}/state_leaid=${stateCode}/data_0.parquet'`);
       }
@@ -75,8 +76,9 @@ export class DataService {
     const stateLeaid = schoolCode.substring(0, 2);
 
     try {
-      // Generate file paths for the relevant state
-      const filePaths = this.generateR2FilePaths([stateLeaid]);
+      // Generate file paths for the relevant state and year (if specified)
+      const years = options.schoolYear ? [options.schoolYear] : undefined;
+      const filePaths = this.generateR2FilePaths([stateLeaid], years);
 
       // Query directly with filtering - no need for intermediate table
       const selectQuery = `
@@ -103,8 +105,9 @@ export class DataService {
     const stateLeaid = districtCode.substring(0, 2);
 
     try {
-      // Generate file paths for the relevant state
-      const filePaths = this.generateR2FilePaths([stateLeaid]);
+      // Generate file paths for the relevant state and year (if specified)
+      const years = options.schoolYear ? [options.schoolYear] : undefined;
+      const filePaths = this.generateR2FilePaths([stateLeaid], years);
 
       // Query directly with filtering and aggregation in DuckDB
       const selectQuery = `
@@ -135,12 +138,13 @@ export class DataService {
   /**
    * Get summary statistics for a school - all aggregated in DuckDB
    */
-  async getSchoolSummary(schoolCode: string): Promise<any> {
+  async getSchoolSummary(schoolCode: string, options: MembershipQueryOptions = {}): Promise<any> {
     const stateLeaid = schoolCode.substring(0, 2);
 
     try {
-      // Generate file paths for the relevant state
-      const filePaths = this.generateR2FilePaths([stateLeaid]);
+      // Generate file paths for the relevant state and year (if specified)
+      const years = options.schoolYear ? [options.schoolYear] : undefined;
+      const filePaths = this.generateR2FilePaths([stateLeaid], years);
 
       // Get all summary stats in a single DuckDB query
       const summaryQuery = `
@@ -217,12 +221,13 @@ export class DataService {
   /**
    * Get summary statistics for a district - all aggregated in DuckDB
    */
-  async getDistrictSummary(districtCode: string): Promise<any> {
+  async getDistrictSummary(districtCode: string, options: MembershipQueryOptions = {}): Promise<any> {
     const stateLeaid = districtCode.substring(0, 2);
 
     try {
-      // Generate file paths for the relevant state
-      const filePaths = this.generateR2FilePaths([stateLeaid]);
+      // Generate file paths for the relevant state and year (if specified)
+      const years = options.schoolYear ? [options.schoolYear] : undefined;
+      const filePaths = this.generateR2FilePaths([stateLeaid], years);
 
       // Get all summary stats in a single DuckDB query
       const summaryQuery = `

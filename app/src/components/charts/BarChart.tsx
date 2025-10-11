@@ -159,7 +159,7 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
           fontSize: "14px",
         }}
       >
-        {filteredData.map(({ label, value }) => (
+        {filteredData.map(({ label }) => (
           <div
             key={label}
             style={{ display: "flex", alignItems: "center", gap: "8px" }}
@@ -173,9 +173,7 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
                 flexShrink: 0,
               }}
             />
-            <span style={{ fontSize: "12px" }}>
-              {label}: {value.toLocaleString()}
-            </span>
+            <span style={{ fontSize: "12px" }}>{label}</span>
           </div>
         ))}
       </div>

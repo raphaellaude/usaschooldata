@@ -1,0 +1,1 @@
+export const DEFAULT_SCHOOL_YEAR = '2023-2024';
