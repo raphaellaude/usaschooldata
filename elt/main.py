@@ -67,7 +67,7 @@ def membership(school_year: list[str]):
                 AND sex <> 'No Category Codes'
                 AND dms_flag = 'Reported'\
             -- Ordering should help with predicate pushdown in order of most queried for attributes
-            ORDER BY school_year, grade, race_ethnicity, sex
+            ORDER BY ncessch, grade, race_ethnicity, sex
         ) TO '{DIRECTORY}/membership' (
             FORMAT parquet,
             PARTITION_BY (school_year, state_leaid),
