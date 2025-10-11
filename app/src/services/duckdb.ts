@@ -38,6 +38,7 @@ class DuckDBService {
             // Create a connection
             this.connection = await this.db.connect();
             await this.connection.query(`INSTALL httpfs; LOAD httpfs;`);
+            console.log(await this.connection.query(`SELECT 1`))
             this.initialized = true;
             console.log('DuckDB initialized successfully');
         } catch (error) {

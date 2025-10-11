@@ -51,18 +51,15 @@ export default function Home() {
         <h2>URL Pattern:</h2>
         <p>
           Profiles follow the pattern:{" "}
-          <code>
-            /profiles/&#123;entityType&#125;/&#123;ncesId&#125;#&#123;section&#125;
-          </code>
+          <code>/profiles/&#123;ncesId&#125;#&#123;section&#125;</code>
         </p>
         <ul>
           <li>
-            <strong>entityType:</strong> <code>district</code> or{" "}
-            <code>school</code>
-          </li>
-          <li>
-            <strong>ncesId:</strong> NCES identifier (e.g., <code>0100005</code>
-            , <code>010000500870</code>)
+            <strong>ncesId:</strong> NCES identifier (7 digits for districts, 12
+            for schools)
+            <br />
+            Examples: <code>0100005</code> (district), <code>010000500870</code>{" "}
+            (school)
           </li>
           <li>
             <strong>section:</strong> <code>overview</code>,{" "}
@@ -82,27 +79,23 @@ export default function Home() {
               borderRadius: "5px",
             }}
           >
-            <h3>District Examples</h3>
+            <h3>District Examples (7 digits)</h3>
             <ul>
               <li>
-                <a href="/profiles/district/0100005">
-                  District 0100005 Overview
-                </a>
+                <a href="/profiles/0100005">District 0100005 Overview</a>
               </li>
               <li>
-                <a href="/profiles/district/0100005#demographics">
+                <a href="/profiles/0100005#demographics">
                   District 0100005 Demographics
                 </a>
               </li>
               <li>
-                <a href="/profiles/district/0100005#enrollment">
+                <a href="/profiles/0100005#enrollment">
                   District 0100005 Enrollment
                 </a>
               </li>
               <li>
-                <a href="/profiles/district/0100005#data">
-                  District 0100005 Raw Data
-                </a>
+                <a href="/profiles/0100005#data">District 0100005 Raw Data</a>
               </li>
             </ul>
           </div>
@@ -114,25 +107,25 @@ export default function Home() {
               borderRadius: "5px",
             }}
           >
-            <h3>School Examples</h3>
+            <h3>School Examples (12 digits)</h3>
             <ul>
               <li>
-                <a href="/profiles/school/010000500870">
+                <a href="/profiles/010000500870">
                   School 010000500870 Overview
                 </a>
               </li>
               <li>
-                <a href="/profiles/school/010000500870#demographics">
+                <a href="/profiles/010000500870#demographics">
                   School 010000500870 Demographics
                 </a>
               </li>
               <li>
-                <a href="/profiles/school/010000500870#enrollment">
+                <a href="/profiles/010000500870#enrollment">
                   School 010000500870 Enrollment
                 </a>
               </li>
               <li>
-                <a href="/profiles/school/010000500870#data">
+                <a href="/profiles/010000500870#data">
                   School 010000500870 Raw Data
                 </a>
               </li>
