@@ -12,12 +12,14 @@ interface DoughnutChartProps {
   data: DoughnutData[];
   width?: number;
   height?: number;
+  colorMapping?: { [key: string]: string };
 }
 
 const DoughnutChartInner = ({
   data,
   width = 300,
   height = 300,
+  colorMapping,
 }: DoughnutChartProps) => {
   const margin = { top: 20, right: 20, bottom: 20, left: 20 };
   const innerWidth = width - margin.left - margin.right;
@@ -46,11 +48,17 @@ const DoughnutChartInner = ({
     );
   }
 
-  // Colors for sex data (similar to Census Reporter)
-  const colorScale = scaleOrdinal({
-    domain: filteredData.map((d) => d.label),
-    range: ["#2563eb", "#dc2626"], // Blue for Male, Red for Female
-  });
+  // Color function - use colorMapping if provided, otherwise default to sex-specific colors
+  const getColor = (label: string) => {
+    if (colorMapping && colorMapping[label]) {
+      return colorMapping[label];
+    }
+    // Default colors for sex data
+    if (label === "Male") return "#5eab46";
+    if (label === "Female") return "#ffd400";
+    // Fallback colors for other labels
+    return label === filteredData[0].label ? "#5eab46" : "#ffd400";
+  };
 
   const total = filteredData.reduce((sum, d) => sum + d.value, 0);
 
@@ -78,7 +86,7 @@ const DoughnutChartInner = ({
                   <g key={`arc-${label}`}>
                     <path
                       d={arcPath}
-                      fill={colorScale(label)}
+                      fill={getColor(label)}
                       stroke="white"
                       strokeWidth={2}
                     />
@@ -145,7 +153,7 @@ const DoughnutChartInner = ({
               style={{
                 width: "12px",
                 height: "12px",
-                backgroundColor: colorScale(label),
+                backgroundColor: getColor(label),
                 borderRadius: "2px",
               }}
             />
@@ -161,9 +169,10 @@ export default function DoughnutChart({
   data,
   width,
   height,
+  colorMapping,
 }: DoughnutChartProps) {
   if (width && height) {
-    return <DoughnutChartInner data={data} width={width} height={height} />;
+    return <DoughnutChartInner data={data} width={width} height={height} colorMapping={colorMapping} />;
   }
 
   return (
@@ -173,6 +182,7 @@ export default function DoughnutChart({
           data={data}
           width={Math.min(width, 400)}
           height={Math.min(height, 300)}
+          colorMapping={colorMapping}
         />
       )}
     </ParentSize>

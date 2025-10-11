@@ -17,7 +17,7 @@ export default function Profile() {
   // const section = location.hash.slice(1) || "overview";
 
   // Extract year from URL parameters, default to 2023-2024
-  const urlRequestedYear = searchParams.get('year') || DEFAULT_SCHOOL_YEAR;
+  const urlRequestedYear = searchParams.get("year") || DEFAULT_SCHOOL_YEAR;
   const [fallbackToDefault, setFallbackToDefault] = React.useState(false);
 
   // Use fallback year if requested year is not available
@@ -48,7 +48,11 @@ export default function Profile() {
 
   // Handle automatic fallback to default year when requested year is not available
   React.useEffect(() => {
-    if (yearNotAvailable && requestedYear !== DEFAULT_SCHOOL_YEAR && !fallbackToDefault) {
+    if (
+      yearNotAvailable &&
+      requestedYear !== DEFAULT_SCHOOL_YEAR &&
+      !fallbackToDefault
+    ) {
       setFallbackToDefault(true);
     }
   }, [yearNotAvailable, requestedYear, fallbackToDefault]);
@@ -76,25 +80,21 @@ export default function Profile() {
         <div className="bg-gray-50 rounded-lg p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex justify-between py-2 border-b border-gray-200">
-              <span className="font-medium text-gray-700">Total Enrollment:</span>
-              <span className="text-gray-900">{summary.totalEnrollment?.toLocaleString() || "N/A"}</span>
-            </div>
-            <div className="flex justify-between py-2 border-b border-gray-200">
-              <span className="font-medium text-gray-700">Latest Data Year:</span>
-              <span className="text-gray-900">{summary.latestYear || "N/A"}</span>
-            </div>
-            <div className="flex justify-between py-2 border-b border-gray-200">
-              <span className="font-medium text-gray-700">School Years Available:</span>
-              <span className="text-gray-900">{summary.schoolYears?.join(", ") || "N/A"}</span>
-            </div>
-            <div className="flex justify-between py-2 border-b border-gray-200">
-              <span className="font-medium text-gray-700">Grades Served:</span>
-              <span className="text-gray-900">{summary.grades?.join(", ") || "N/A"}</span>
+              <span className="font-medium text-gray-700">
+                Total Enrollment:
+              </span>
+              <span className="text-gray-900">
+                {summary.totalEnrollment?.toLocaleString() || "N/A"}
+              </span>
             </div>
             {entityType === "district" && (
               <div className="flex justify-between py-2 border-b border-gray-200">
-                <span className="font-medium text-gray-700">Number of Schools:</span>
-                <span className="text-gray-900">{summary.schoolCount || "N/A"}</span>
+                <span className="font-medium text-gray-700">
+                  Number of Schools:
+                </span>
+                <span className="text-gray-900">
+                  {summary.schoolCount || "N/A"}
+                </span>
               </div>
             )}
           </div>
@@ -140,7 +140,9 @@ export default function Profile() {
 
     return (
       <div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-6">Demographics</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-6">
+          Demographics
+        </h3>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
@@ -149,7 +151,13 @@ export default function Profile() {
               By Gender
             </h4>
             <div className="h-[300px]">
-              <DoughnutChart data={sexData} />
+              <DoughnutChart
+                data={sexData}
+                colorMapping={{
+                  Male: "#5eab46",
+                  Female: "#ffd400",
+                }}
+              />
             </div>
           </div>
 
@@ -167,13 +175,16 @@ export default function Profile() {
     );
   };
 
-
   const renderRawData = () => (
     <div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-6">Raw Membership Data</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mb-6">
+        Raw Membership Data
+      </h3>
       {membershipData.length > 0 ? (
         <div>
-          <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
+          <p className="text-gray-600 mb-4">
+            Showing {membershipData.length} records
+          </p>
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div className="max-h-96 overflow-auto">
               <table className="w-full text-sm">
@@ -203,10 +214,17 @@ export default function Profile() {
                 </thead>
                 <tbody>
                   {membershipData.slice(0, 100).map((row, index) => (
-                    <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                      <td className="px-3 py-2 text-gray-900">{row.school_year}</td>
+                    <tr
+                      key={index}
+                      className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    >
+                      <td className="px-3 py-2 text-gray-900">
+                        {row.school_year}
+                      </td>
                       <td className="px-3 py-2 text-gray-900">{row.grade}</td>
-                      <td className="px-3 py-2 text-gray-900">{row.race_ethnicity}</td>
+                      <td className="px-3 py-2 text-gray-900">
+                        {row.race_ethnicity}
+                      </td>
                       <td className="px-3 py-2 text-gray-900">{row.sex}</td>
                       <td className="px-3 py-2 text-right text-gray-900">
                         {(
@@ -216,7 +234,9 @@ export default function Profile() {
                         ).toLocaleString()}
                       </td>
                       {entityType === "district" && (
-                        <td className="px-3 py-2 text-gray-900">{row.ncessch}</td>
+                        <td className="px-3 py-2 text-gray-900">
+                          {row.ncessch}
+                        </td>
                       )}
                     </tr>
                   ))}
@@ -240,24 +260,37 @@ export default function Profile() {
     <div className="min-h-screen bg-white">
       {/* Fixed Header */}
       <header className="sticky top-0 bg-white border-b border-gray-200 z-10 px-6 py-4">
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
+          <img
+            src="/usaschooldata.svg"
+            alt="USA School Data"
+            className="w-8 h-8"
+          />
           {entityType === "district" ? "District" : "School"} Profile
         </h1>
-        <div className="flex items-center gap-4 text-lg text-gray-600">
+        <div className="flex items-center gap-4 text-sm text-gray-500">
           <span>NCES ID: {ncesCode}</span>
-          <span>•</span>
           <span>School Year: {year}</span>
         </div>
 
         {/* Navigation */}
         <nav className="mt-4 flex space-x-6">
-          <a href="#overview" className="text-blue-600 hover:text-blue-800 font-medium">
+          <a
+            href="#overview"
+            className="text-blue-600 hover:text-blue-800 font-medium"
+          >
             Overview
           </a>
-          <a href="#demographics" className="text-blue-600 hover:text-blue-800 font-medium">
+          <a
+            href="#demographics"
+            className="text-blue-600 hover:text-blue-800 font-medium"
+          >
             Demographics
           </a>
-          <a href="#data" className="text-blue-600 hover:text-blue-800 font-medium">
+          <a
+            href="#data"
+            className="text-blue-600 hover:text-blue-800 font-medium"
+          >
             Raw Data
           </a>
         </nav>
@@ -269,10 +302,11 @@ export default function Profile() {
           <div className="flex">
             <div className="ml-3">
               <p className="text-sm text-amber-700">
-                <span className="font-medium">Note:</span> Data for school year {urlRequestedYear} is not available.
-                Showing data for {DEFAULT_SCHOOL_YEAR} instead.
+                <span className="font-medium">Note:</span> Data for school year{" "}
+                {urlRequestedYear} is not available. Showing data for{" "}
+                {DEFAULT_SCHOOL_YEAR} instead.
                 {availableYears && availableYears.length > 0 && (
-                  <span> Available years: {availableYears.join(', ')}.</span>
+                  <span> Available years: {availableYears.join(", ")}.</span>
                 )}
               </p>
             </div>
@@ -293,12 +327,18 @@ export default function Profile() {
           </div>
         ) : dataError && !yearNotAvailable ? (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-red-800 mb-2">Error Loading Data</h3>
+            <h3 className="text-lg font-semibold text-red-800 mb-2">
+              Error Loading Data
+            </h3>
             <p className="text-red-700 mb-4">{dataError}</p>
             <details className="text-sm">
-              <summary className="font-medium text-red-800 cursor-pointer">Troubleshooting</summary>
+              <summary className="font-medium text-red-800 cursor-pointer">
+                Troubleshooting
+              </summary>
               <ul className="mt-2 text-red-700 space-y-1">
-                <li>• Check that VITE_DATA_DIRECTORY is set correctly in .env</li>
+                <li>
+                  • Check that VITE_DATA_DIRECTORY is set correctly in .env
+                </li>
                 <li>• Verify that parquet files exist at the expected path</li>
                 <li>• Ensure file permissions allow reading</li>
                 <li>• Check browser console for detailed error messages</li>
@@ -308,19 +348,13 @@ export default function Profile() {
         ) : (
           <div className="space-y-12">
             {/* Overview Section */}
-            <section id="overview">
-              {renderOverview()}
-            </section>
+            <section id="overview">{renderOverview()}</section>
 
             {/* Demographics Section */}
-            <section id="demographics">
-              {renderDemographics()}
-            </section>
+            <section id="demographics">{renderDemographics()}</section>
 
             {/* Raw Data Section */}
-            <section id="data">
-              {renderRawData()}
-            </section>
+            <section id="data">{renderRawData()}</section>
           </div>
         )}
       </main>

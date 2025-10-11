@@ -1,6 +1,6 @@
 import { Group } from "@visx/group";
 import { Bar } from "@visx/shape";
-import { scaleLinear, scaleBand, scaleOrdinal } from "@visx/scale";
+import { scaleLinear, scaleBand } from "@visx/scale";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { ParentSize } from "@visx/responsive";
 
@@ -13,9 +13,15 @@ interface BarChartProps {
   data: BarData[];
   width?: number;
   height?: number;
+  colorMapping?: { [key: string]: string };
 }
 
-const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
+const BarChartInner = ({
+  data,
+  width = 600,
+  height = 400,
+  colorMapping,
+}: BarChartProps) => {
   const margin = { top: 20, right: 20, bottom: 80, left: 60 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
@@ -53,19 +59,13 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
     nice: true,
   });
 
-  // Colors similar to Census Reporter
-  const colorScale = scaleOrdinal({
-    domain: filteredData.map((d) => d.label),
-    range: [
-      "#2563eb", // Blue
-      "#dc2626", // Red
-      "#16a34a", // Green
-      "#ca8a04", // Yellow
-      "#9333ea", // Purple
-      "#ea580c", // Orange
-      "#0891b2", // Cyan
-    ],
-  });
+  // Color function - use colorMapping if provided, otherwise default to single color
+  const getColor = (label: string) => {
+    if (colorMapping && colorMapping[label]) {
+      return colorMapping[label];
+    }
+    return "#87789c"; // Default single color
+  };
 
   // Shorten labels for display
   const shortenLabel = (label: string) => {
@@ -99,7 +99,7 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
                   y={barY}
                   width={barWidth}
                   height={barHeight}
-                  fill={colorScale(d.label)}
+                  fill={getColor(d.label)}
                   rx={2}
                 />
                 {/* Value labels on top of bars (only show if value > 0) */}
@@ -148,42 +148,25 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
           />
         </Group>
       </svg>
-
-      {/* Legend */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "8px",
-          marginTop: "20px",
-          fontSize: "14px",
-        }}
-      >
-        {filteredData.map(({ label }) => (
-          <div
-            key={label}
-            style={{ display: "flex", alignItems: "center", gap: "8px" }}
-          >
-            <div
-              style={{
-                width: "12px",
-                height: "12px",
-                backgroundColor: colorScale(label),
-                borderRadius: "2px",
-                flexShrink: 0,
-              }}
-            />
-            <span style={{ fontSize: "12px" }}>{label}</span>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
 
-export default function BarChart({ data, width, height }: BarChartProps) {
+export default function BarChart({
+  data,
+  width,
+  height,
+  colorMapping,
+}: BarChartProps) {
   if (width && height) {
-    return <BarChartInner data={data} width={width} height={height} />;
+    return (
+      <BarChartInner
+        data={data}
+        width={width}
+        height={height}
+        colorMapping={colorMapping}
+      />
+    );
   }
 
   return (
@@ -193,6 +176,7 @@ export default function BarChart({ data, width, height }: BarChartProps) {
           data={data}
           width={Math.min(width, 800)}
           height={Math.min(height, 400)}
+          colorMapping={colorMapping}
         />
       )}
     </ParentSize>
