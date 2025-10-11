@@ -272,7 +272,8 @@ export default function Profile() {
       </div>
 
       {/* Fixed Header */}
-      <header className="sticky top-0 bg-white border-b border-gray-200 z-10 px-6 py-4">
+      <header className="sticky top-0 bg-white border-b border-gray-200 z-10">
+        <div className="max-w-5xl mx-auto px-6 py-4">
         <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
           <img
             src="/usaschooldata.svg"
@@ -307,11 +308,13 @@ export default function Profile() {
             Raw Data
           </a>
         </nav>
+        </div>
       </header>
 
       {/* Year Fallback Notification */}
       {fallbackToDefault && urlRequestedYear !== DEFAULT_SCHOOL_YEAR && (
-        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mx-6 mt-4">
+        <div className="max-w-5xl mx-auto px-6 mt-4">
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4">
           <div className="flex">
             <div className="ml-3">
               <p className="text-sm text-amber-700">
@@ -324,11 +327,12 @@ export default function Profile() {
               </p>
             </div>
           </div>
+          </div>
         </div>
       )}
 
       {/* Content */}
-      <main className="px-6 py-8">
+      <main className="max-w-5xl mx-auto px-6 py-8">
         {!isSystemReady || dataLoading ? (
           <div className="space-y-12">
             {/* Overview Section - Loading Placeholder */}
