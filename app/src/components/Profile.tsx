@@ -52,32 +52,36 @@ export default function Profile() {
 
   const renderOverview = () => (
     <div>
-      <h3>Overview</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
       {summary ? (
-        <div>
-          <p>
-            <strong>Total Enrollment:</strong>{" "}
-            {summary.totalEnrollment?.toLocaleString() || "N/A"}
-          </p>
-          <p>
-            <strong>School Years Available:</strong>{" "}
-            {summary.schoolYears?.join(", ") || "N/A"}
-          </p>
-          <p>
-            <strong>Grades Served:</strong>{" "}
-            {summary.grades?.join(", ") || "N/A"}
-          </p>
-          {entityType === "district" && (
-            <p>
-              <strong>Number of Schools:</strong> {summary.schoolCount || "N/A"}
-            </p>
-          )}
-          <p>
-            <strong>Latest Data Year:</strong> {summary.latestYear || "N/A"}
-          </p>
+        <div className="bg-gray-50 rounded-lg p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex justify-between py-2 border-b border-gray-200">
+              <span className="font-medium text-gray-700">Total Enrollment:</span>
+              <span className="text-gray-900">{summary.totalEnrollment?.toLocaleString() || "N/A"}</span>
+            </div>
+            <div className="flex justify-between py-2 border-b border-gray-200">
+              <span className="font-medium text-gray-700">Latest Data Year:</span>
+              <span className="text-gray-900">{summary.latestYear || "N/A"}</span>
+            </div>
+            <div className="flex justify-between py-2 border-b border-gray-200">
+              <span className="font-medium text-gray-700">School Years Available:</span>
+              <span className="text-gray-900">{summary.schoolYears?.join(", ") || "N/A"}</span>
+            </div>
+            <div className="flex justify-between py-2 border-b border-gray-200">
+              <span className="font-medium text-gray-700">Grades Served:</span>
+              <span className="text-gray-900">{summary.grades?.join(", ") || "N/A"}</span>
+            </div>
+            {entityType === "district" && (
+              <div className="flex justify-between py-2 border-b border-gray-200">
+                <span className="font-medium text-gray-700">Number of Schools:</span>
+                <span className="text-gray-900">{summary.schoolCount || "N/A"}</span>
+              </div>
+            )}
+          </div>
         </div>
       ) : (
-        <p>No overview data available</p>
+        <p className="text-gray-600">No overview data available</p>
       )}
     </div>
   );
@@ -117,32 +121,25 @@ export default function Profile() {
 
     return (
       <div>
-        <h3>Demographics</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-6">Demographics</h3>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-            gap: "40px",
-            marginBottom: "40px",
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
-          <div>
-            <h4 style={{ marginBottom: "20px", textAlign: "center" }}>
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
+            <h4 className="text-lg font-medium text-gray-900 mb-4 text-center">
               By Gender
             </h4>
-            <div style={{ height: "300px" }}>
+            <div className="h-[300px]">
               <DoughnutChart data={sexData} />
             </div>
           </div>
 
           {/* Race/Ethnicity Demographics - Bar Chart */}
-          <div>
-            <h4 style={{ marginBottom: "20px", textAlign: "center" }}>
+          <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-6">
+            <h4 className="text-lg font-medium text-gray-900 mb-4 text-center">
               By Race/Ethnicity
             </h4>
-            <div style={{ height: "300px" }}>
+            <div className="h-[300px]">
               <BarChart data={raceData} />
             </div>
           </div>
@@ -154,157 +151,137 @@ export default function Profile() {
 
   const renderRawData = () => (
     <div>
-      <h3>Raw Membership Data</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mb-6">Raw Membership Data</h3>
       {membershipData.length > 0 ? (
         <div>
-          <p>Showing {membershipData.length} records</p>
-          <div style={{ maxHeight: "400px", overflow: "auto" }}>
-            <table
-              style={{
-                width: "100%",
-                borderCollapse: "collapse",
-                fontSize: "12px",
-              }}
-            >
-              <thead>
-                <tr
-                  style={{
-                    position: "sticky",
-                    top: 0,
-                    backgroundColor: "#f5f5f5",
-                  }}
-                >
-                  <th style={{ border: "1px solid #ddd", padding: "4px" }}>
-                    School Year
-                  </th>
-                  <th style={{ border: "1px solid #ddd", padding: "4px" }}>
-                    Grade
-                  </th>
-                  <th style={{ border: "1px solid #ddd", padding: "4px" }}>
-                    Race/Ethnicity
-                  </th>
-                  <th style={{ border: "1px solid #ddd", padding: "4px" }}>
-                    Sex
-                  </th>
-                  <th style={{ border: "1px solid #ddd", padding: "4px" }}>
-                    Student Count
-                  </th>
-                  {entityType === "district" && (
-                    <th style={{ border: "1px solid #ddd", padding: "4px" }}>
-                      School Code
+          <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="max-h-96 overflow-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50 sticky top-0">
+                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                      School Year
                     </th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {membershipData.slice(0, 100).map((row, index) => (
-                  <tr key={index}>
-                    <td style={{ border: "1px solid #ddd", padding: "4px" }}>
-                      {row.school_year}
-                    </td>
-                    <td style={{ border: "1px solid #ddd", padding: "4px" }}>
-                      {row.grade}
-                    </td>
-                    <td style={{ border: "1px solid #ddd", padding: "4px" }}>
-                      {row.race_ethnicity}
-                    </td>
-                    <td style={{ border: "1px solid #ddd", padding: "4px" }}>
-                      {row.sex}
-                    </td>
-                    <td style={{ border: "1px solid #ddd", padding: "4px" }}>
-                      {(
-                        row.student_count ||
-                        row.total_student_count ||
-                        0
-                      ).toLocaleString()}
-                    </td>
+                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                      Grade
+                    </th>
+                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                      Race/Ethnicity
+                    </th>
+                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                      Sex
+                    </th>
+                    <th className="px-3 py-2 text-right font-medium text-gray-900 border-b border-gray-200">
+                      Student Count
+                    </th>
                     {entityType === "district" && (
-                      <td style={{ border: "1px solid #ddd", padding: "4px" }}>
-                        {row.ncessch}
-                      </td>
+                      <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                        School Code
+                      </th>
                     )}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {membershipData.slice(0, 100).map((row, index) => (
+                    <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="px-3 py-2 text-gray-900">{row.school_year}</td>
+                      <td className="px-3 py-2 text-gray-900">{row.grade}</td>
+                      <td className="px-3 py-2 text-gray-900">{row.race_ethnicity}</td>
+                      <td className="px-3 py-2 text-gray-900">{row.sex}</td>
+                      <td className="px-3 py-2 text-right text-gray-900">
+                        {(
+                          row.student_count ||
+                          row.total_student_count ||
+                          0
+                        ).toLocaleString()}
+                      </td>
+                      {entityType === "district" && (
+                        <td className="px-3 py-2 text-gray-900">{row.ncessch}</td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           {membershipData.length > 100 && (
-            <p>
-              <em>
-                Showing first 100 rows of {membershipData.length} total records
-              </em>
+            <p className="text-gray-600 text-sm mt-4 italic">
+              Showing first 100 rows of {membershipData.length} total records
             </p>
           )}
         </div>
       ) : (
-        <p>No membership data available</p>
+        <p className="text-gray-600">No membership data available</p>
       )}
     </div>
   );
 
-  const renderSection = () => {
-    switch (section) {
-      case "demographics":
-        return renderDemographics();
-      case "data":
-        return renderRawData();
-      case "overview":
-      default:
-        return renderOverview();
-    }
-  };
-
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <header style={{ marginBottom: "20px" }}>
-        <h1>{entityType === "district" ? "District" : "School"} Profile</h1>
-        <h2>NCES ID: {ncesCode}</h2>
+    <div className="min-h-screen bg-white">
+      {/* Fixed Header */}
+      <header className="sticky top-0 bg-white border-b border-gray-200 z-10 px-6 py-4">
+        <h1 className="text-2xl font-bold text-gray-900">
+          {entityType === "district" ? "District" : "School"} Profile
+        </h1>
+        <h2 className="text-lg text-gray-600">NCES ID: {ncesCode}</h2>
+
+        {/* Navigation */}
+        <nav className="mt-4 flex space-x-6">
+          <a href="#overview" className="text-blue-600 hover:text-blue-800 font-medium">
+            Overview
+          </a>
+          <a href="#demographics" className="text-blue-600 hover:text-blue-800 font-medium">
+            Demographics
+          </a>
+          <a href="#data" className="text-blue-600 hover:text-blue-800 font-medium">
+            Raw Data
+          </a>
+        </nav>
       </header>
 
-      <nav
-        style={{
-          marginBottom: "20px",
-          borderBottom: "1px solid #ccc",
-          paddingBottom: "10px",
-        }}
-      >
-        <a href={`#overview`} style={{ marginRight: "15px" }}>
-          Overview
-        </a>
-        <a href={`#demographics`} style={{ marginRight: "15px" }}>
-          Demographics
-        </a>
-        <a href={`#data`} style={{ marginRight: "15px" }}>
-          Raw Data
-        </a>
-      </nav>
-
-      <main>
+      {/* Content */}
+      <main className="px-6 py-8">
         {dataLoading ? (
-          <div>
-            <p>
+          <div className="text-center py-12">
+            <p className="text-lg mb-2">
               🔄 Loading {entityType} data for {ncesCode}...
             </p>
-            <p>
+            <p className="text-gray-600">
               <em>Querying parquet files with hive partitioning...</em>
             </p>
           </div>
         ) : dataError ? (
-          <div style={{ color: "red" }}>
-            <h3>Error Loading Data</h3>
-            <p>{dataError}</p>
-            <details>
-              <summary>Troubleshooting</summary>
-              <ul>
-                <li>Check that VITE_DATA_DIRECTORY is set correctly in .env</li>
-                <li>Verify that parquet files exist at the expected path</li>
-                <li>Ensure file permissions allow reading</li>
-                <li>Check browser console for detailed error messages</li>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-red-800 mb-2">Error Loading Data</h3>
+            <p className="text-red-700 mb-4">{dataError}</p>
+            <details className="text-sm">
+              <summary className="font-medium text-red-800 cursor-pointer">Troubleshooting</summary>
+              <ul className="mt-2 text-red-700 space-y-1">
+                <li>• Check that VITE_DATA_DIRECTORY is set correctly in .env</li>
+                <li>• Verify that parquet files exist at the expected path</li>
+                <li>• Ensure file permissions allow reading</li>
+                <li>• Check browser console for detailed error messages</li>
               </ul>
             </details>
           </div>
         ) : (
-          renderSection()
+          <div className="space-y-12">
+            {/* Overview Section */}
+            <section id="overview">
+              {renderOverview()}
+            </section>
+
+            {/* Demographics Section */}
+            <section id="demographics">
+              {renderDemographics()}
+            </section>
+
+            {/* Raw Data Section */}
+            <section id="data">
+              {renderRawData()}
+            </section>
+          </div>
         )}
       </main>
     </div>

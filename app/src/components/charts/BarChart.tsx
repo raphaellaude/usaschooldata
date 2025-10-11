@@ -1,8 +1,8 @@
-import { Group } from '@visx/group';
-import { Bar } from '@visx/shape';
-import { scaleLinear, scaleBand, scaleOrdinal } from '@visx/scale';
-import { AxisBottom, AxisLeft } from '@visx/axis';
-import { ParentSize } from '@visx/responsive';
+import { Group } from "@visx/group";
+import { Bar } from "@visx/shape";
+import { scaleLinear, scaleBand, scaleOrdinal } from "@visx/scale";
+import { AxisBottom, AxisLeft } from "@visx/axis";
+import { ParentSize } from "@visx/responsive";
 
 interface BarData {
   label: string;
@@ -25,7 +25,15 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
 
   if (filteredData.length === 0) {
     return (
-      <div style={{ width, height, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        style={{
+          width,
+          height,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <p>No data available</p>
       </div>
     );
@@ -33,12 +41,12 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
 
   // Scales
   const xScale = scaleBand({
-    domain: filteredData.map(d => d.label),
+    domain: filteredData.map((d) => d.label),
     range: [0, innerWidth],
     padding: 0.1,
   });
 
-  const maxValue = Math.max(...filteredData.map(d => d.value));
+  const maxValue = Math.max(...filteredData.map((d) => d.value));
   const yScale = scaleLinear({
     domain: [0, maxValue || 1], // Handle case where all values are 0
     range: [innerHeight, 0],
@@ -47,34 +55,34 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
 
   // Colors similar to Census Reporter
   const colorScale = scaleOrdinal({
-    domain: filteredData.map(d => d.label),
+    domain: filteredData.map((d) => d.label),
     range: [
-      '#2563eb', // Blue
-      '#dc2626', // Red
-      '#16a34a', // Green
-      '#ca8a04', // Yellow
-      '#9333ea', // Purple
-      '#ea580c', // Orange
-      '#0891b2', // Cyan
+      "#2563eb", // Blue
+      "#dc2626", // Red
+      "#16a34a", // Green
+      "#ca8a04", // Yellow
+      "#9333ea", // Purple
+      "#ea580c", // Orange
+      "#0891b2", // Cyan
     ],
   });
 
   // Shorten labels for display
   const shortenLabel = (label: string) => {
     const labelMap: { [key: string]: string } = {
-      'White': 'White',
-      'Black or African American': 'Black',
-      'Hispanic/Latino': 'Hispanic',
-      'Asian': 'Asian',
-      'American Indian or Alaska Native': 'Native Am.',
-      'Native Hawaiian or Other Pacific Islander': 'Pacific Isl.',
-      'Two or more races': 'Multiracial',
+      White: "White",
+      "Black or African American": "Black",
+      "Hispanic/Latino": "Hispanic",
+      Asian: "Asian",
+      "American Indian or Alaska Native": "Native Am.",
+      "Native Hawaiian or Other Pacific Islander": "Pacific Isl.",
+      "Two or more races": "Multiracial",
     };
     return labelMap[label] || label;
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       <svg width={width} height={height}>
         <Group top={margin.top} left={margin.left}>
           {/* Bars */}
@@ -118,9 +126,9 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
             tickStroke="#333"
             tickLabelProps={{
               fontSize: 12,
-              textAnchor: 'end',
-              dy: '0.33em',
-              dx: '-0.25em',
+              textAnchor: "end",
+              dy: "0.33em",
+              dx: "-0.25em",
             }}
             tickFormat={(value) => value.toLocaleString()}
           />
@@ -133,8 +141,8 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
             tickStroke="#333"
             tickLabelProps={{
               fontSize: 11,
-              textAnchor: 'middle',
-              dy: '0.33em',
+              textAnchor: "middle",
+              dy: "0.33em",
             }}
             tickFormat={(value) => shortenLabel(value as string)}
           />
@@ -142,25 +150,30 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
       </svg>
 
       {/* Legend */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: '8px',
-        marginTop: '20px',
-        fontSize: '14px'
-      }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "8px",
+          marginTop: "20px",
+          fontSize: "14px",
+        }}
+      >
         {filteredData.map(({ label, value }) => (
-          <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div
+            key={label}
+            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
             <div
               style={{
-                width: '12px',
-                height: '12px',
+                width: "12px",
+                height: "12px",
                 backgroundColor: colorScale(label),
-                borderRadius: '2px',
+                borderRadius: "2px",
                 flexShrink: 0,
               }}
             />
-            <span style={{ fontSize: '12px' }}>
+            <span style={{ fontSize: "12px" }}>
               {label}: {value.toLocaleString()}
             </span>
           </div>
