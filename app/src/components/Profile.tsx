@@ -61,17 +61,8 @@ export default function Profile() {
     return <div>Invalid profile URL</div>;
   }
 
-  if (dbLoading) {
-    return <div>Initializing database...</div>;
-  }
-
-  if (dbError) {
-    return <div>Database error: {dbError}</div>;
-  }
-
-  if (!isInitialized) {
-    return <div>Database not ready</div>;
-  }
+  // Don't show database initialization states - handle them transparently
+  const isSystemReady = !dbLoading && !dbError && isInitialized;
 
   const renderOverview = () => (
     <div>
@@ -147,12 +138,14 @@ export default function Profile() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
           <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <h4 className="text-lg font-medium text-gray-900 mb-4 text-center">
+            <h4 className="text-lg font-medium text-gray-900 mb-4">
               By Gender
             </h4>
-            <div className="h-[300px]">
+            <div className="flex flex-col">
               <DoughnutChart
                 data={sexData}
+                width={280}
+                height={240}
                 colorMapping={{
                   Male: "#5eab46",
                   Female: "#ffd400",
@@ -163,7 +156,7 @@ export default function Profile() {
 
           {/* Race/Ethnicity Demographics - Bar Chart */}
           <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-6">
-            <h4 className="text-lg font-medium text-gray-900 mb-4 text-center">
+            <h4 className="text-lg font-medium text-gray-900 mb-4">
               By Race/Ethnicity
             </h4>
             <div className="h-[300px]">
@@ -316,14 +309,64 @@ export default function Profile() {
 
       {/* Content */}
       <main className="px-6 py-8">
-        {dataLoading ? (
-          <div className="text-center py-12">
-            <p className="text-lg mb-2">
-              🔄 Loading {entityType} data for {ncesCode}...
-            </p>
-            <p className="text-gray-600">
-              <em>Querying parquet files with hive partitioning...</em>
-            </p>
+        {!isSystemReady || dataLoading ? (
+          <div className="space-y-12">
+            {/* Overview Section - Loading Placeholder */}
+            <section id="overview">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
+                <div className="bg-gray-50 rounded-lg p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex justify-between py-2 border-b border-gray-200">
+                      <span className="font-medium text-gray-700">Total Enrollment:</span>
+                      <span className="text-gray-400">Loading...</span>
+                    </div>
+                    {entityType === "district" && (
+                      <div className="flex justify-between py-2 border-b border-gray-200">
+                        <span className="font-medium text-gray-700">Number of Schools:</span>
+                        <span className="text-gray-400">Loading...</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Demographics Section - Loading Placeholder */}
+            <section id="demographics">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">Demographics</h3>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  {/* Sex Demographics Placeholder */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h4 className="text-lg font-medium text-gray-900 mb-4">By Gender</h4>
+                    <div className="flex flex-col items-center justify-center h-[280px] text-gray-400">
+                      <div className="animate-pulse">Loading chart...</div>
+                    </div>
+                  </div>
+
+                  {/* Race/Ethnicity Demographics Placeholder */}
+                  <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-6">
+                    <h4 className="text-lg font-medium text-gray-900 mb-4">By Race/Ethnicity</h4>
+                    <div className="flex items-center justify-center h-[300px] text-gray-400">
+                      <div className="animate-pulse">Loading chart...</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Raw Data Section - Loading Placeholder */}
+            <section id="data">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">Raw Membership Data</h3>
+                <div className="bg-white border border-gray-200 rounded-lg p-6">
+                  <div className="flex items-center justify-center h-32 text-gray-400">
+                    <div className="animate-pulse">Loading data...</div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         ) : dataError && !yearNotAvailable ? (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">

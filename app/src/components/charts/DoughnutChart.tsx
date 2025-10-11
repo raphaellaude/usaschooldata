@@ -63,91 +63,86 @@ const DoughnutChartInner = ({
   const total = filteredData.reduce((sum, d) => sum + d.value, 0);
 
   return (
-    <div style={{ position: "relative" }}>
-      <svg width={width} height={height}>
-        <Group top={centerY + margin.top} left={centerX + margin.left}>
-          <Pie
-            data={filteredData}
-            pieValue={(d) => d.value}
-            outerRadius={radius}
-            innerRadius={radius - donutThickness}
-            cornerRadius={3}
-            padAngle={0.005}
-          >
-            {(pie) => {
-              return pie.arcs.map((arc) => {
-                const { label, value } = arc.data;
-                const [centroidX, centroidY] = pie.path.centroid(arc);
-                const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
-                const arcPath = pie.path(arc) || "";
-                const percentage = ((value / total) * 100).toFixed(1);
+    <div className="flex flex-col h-full">
+      <div className="flex-1 flex items-center justify-center">
+        <svg width={width} height={height}>
+          <Group top={centerY + margin.top} left={centerX + margin.left}>
+            <Pie
+              data={filteredData}
+              pieValue={(d) => d.value}
+              outerRadius={radius}
+              innerRadius={radius - donutThickness}
+              cornerRadius={3}
+              padAngle={0.005}
+            >
+              {(pie) => {
+                return pie.arcs.map((arc) => {
+                  const { label, value } = arc.data;
+                  const [centroidX, centroidY] = pie.path.centroid(arc);
+                  const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
+                  const arcPath = pie.path(arc) || "";
+                  const percentage = ((value / total) * 100).toFixed(1);
 
-                return (
-                  <g key={`arc-${label}`}>
-                    <path
-                      d={arcPath}
-                      fill={getColor(label)}
-                      stroke="white"
-                      strokeWidth={2}
-                    />
-                    {hasSpaceForLabel && (
-                      <text
-                        x={centroidX}
-                        y={centroidY}
-                        dy=".33em"
-                        fontSize={12}
-                        fontWeight="bold"
-                        fill="white"
-                        textAnchor="middle"
-                        pointerEvents="none"
-                      >
-                        {percentage}%
-                      </text>
-                    )}
-                  </g>
-                );
-              });
-            }}
-          </Pie>
-          {/* Center total */}
-          <text
-            x={0}
-            y={0}
-            dy=".33em"
-            fontSize={16}
-            fontWeight="bold"
-            textAnchor="middle"
-            pointerEvents="none"
-          >
-            {total.toLocaleString()}
-          </text>
-          <text
-            x={0}
-            y={18}
-            dy=".33em"
-            fontSize={12}
-            textAnchor="middle"
-            pointerEvents="none"
-            fill="#666"
-          >
-            Total
-          </text>
-        </Group>
-      </svg>
+                  return (
+                    <g key={`arc-${label}`}>
+                      <path
+                        d={arcPath}
+                        fill={getColor(label)}
+                        stroke="white"
+                        strokeWidth={2}
+                      />
+                      {hasSpaceForLabel && (
+                        <text
+                          x={centroidX}
+                          y={centroidY}
+                          dy=".33em"
+                          fontSize={12}
+                          fontWeight="bold"
+                          fill="white"
+                          textAnchor="middle"
+                          pointerEvents="none"
+                        >
+                          {percentage}%
+                        </text>
+                      )}
+                    </g>
+                  );
+                });
+              }}
+            </Pie>
+            {/* Center total */}
+            <text
+              x={0}
+              y={0}
+              dy=".33em"
+              fontSize={16}
+              fontWeight="bold"
+              textAnchor="middle"
+              pointerEvents="none"
+            >
+              {total.toLocaleString()}
+            </text>
+            <text
+              x={0}
+              y={18}
+              dy=".33em"
+              fontSize={12}
+              textAnchor="middle"
+              pointerEvents="none"
+              fill="#666"
+            >
+              Total
+            </text>
+          </Group>
+        </svg>
+      </div>
 
-      {/* Legend */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "10px",
-          gap: "20px",
-        }}
-      >
+      {/* Legend - now part of normal flow */}
+      <div className="flex justify-center mt-4 gap-4 flex-wrap">
         {filteredData.map(({ label }) => (
           <div
             key={label}
-            style={{ display: "flex", alignItems: "center", gap: "5px" }}
+            className="flex items-center gap-2"
           >
             <div
               style={{
@@ -157,7 +152,7 @@ const DoughnutChartInner = ({
                 borderRadius: "2px",
               }}
             />
-            <span style={{ fontSize: "14px" }}>{label} </span>
+            <span className="text-sm">{label}</span>
           </div>
         ))}
       </div>

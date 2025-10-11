@@ -129,6 +129,7 @@ const BarChartInner = ({
               textAnchor: "end",
               dy: "0.33em",
               dx: "-0.25em",
+              fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif",
             }}
             tickFormat={(value) => value.toLocaleString()}
           />
@@ -143,6 +144,7 @@ const BarChartInner = ({
               fontSize: 11,
               textAnchor: "middle",
               dy: "0.33em",
+              fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif",
             }}
             tickFormat={(value) => shortenLabel(value as string)}
           />
