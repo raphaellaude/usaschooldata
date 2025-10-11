@@ -80,7 +80,7 @@ const BarChartInner = ({ data, width = 600, height = 400 }: BarChartProps) => {
           {/* Bars */}
           {filteredData.map((d) => {
             const barWidth = xScale.bandwidth();
-            const barHeight = innerHeight - yScale(d.value);
+            const barHeight = Math.max(0, innerHeight - yScale(d.value));
             const barX = xScale(d.label) || 0;
             const barY = yScale(d.value);
 

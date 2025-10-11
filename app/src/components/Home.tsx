@@ -63,8 +63,7 @@ export default function Home() {
           </li>
           <li>
             <strong>section:</strong> <code>overview</code>,{" "}
-            <code>demographics</code>, <code>enrollment</code>,{" "}
-            <code>data</code>
+            <code>demographics</code>, <code>data</code>
           </li>
         </ul>
       </div>
@@ -90,11 +89,6 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a href="/profiles/0100005#enrollment">
-                  District 0100005 Enrollment
-                </a>
-              </li>
-              <li>
                 <a href="/profiles/0100005#data">District 0100005 Raw Data</a>
               </li>
             </ul>
@@ -117,11 +111,6 @@ export default function Home() {
               <li>
                 <a href="/profiles/010000500870#demographics">
                   School 010000500870 Demographics
-                </a>
-              </li>
-              <li>
-                <a href="/profiles/010000500870#enrollment">
-                  School 010000500870 Enrollment
                 </a>
               </li>
               <li>

@@ -151,27 +151,6 @@ export default function Profile() {
     );
   };
 
-  const renderEnrollment = () => (
-    <div>
-      <h3>Enrollment</h3>
-      {summary?.demographics ? (
-        <div>
-          <h4>By Grade</h4>
-          <ul>
-            {Object.entries(summary.demographics.byGrade).map(
-              ([grade, count]) => (
-                <li key={grade}>
-                  Grade {grade}: {(count as number).toLocaleString()}
-                </li>
-              ),
-            )}
-          </ul>
-        </div>
-      ) : (
-        <p>No enrollment data available</p>
-      )}
-    </div>
-  );
 
   const renderRawData = () => (
     <div>
@@ -267,8 +246,6 @@ export default function Profile() {
     switch (section) {
       case "demographics":
         return renderDemographics();
-      case "enrollment":
-        return renderEnrollment();
       case "data":
         return renderRawData();
       case "overview":
@@ -296,9 +273,6 @@ export default function Profile() {
         </a>
         <a href={`#demographics`} style={{ marginRight: "15px" }}>
           Demographics
-        </a>
-        <a href={`#enrollment`} style={{ marginRight: "15px" }}>
-          Enrollment
         </a>
         <a href={`#data`} style={{ marginRight: "15px" }}>
           Raw Data
