@@ -251,63 +251,43 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen bg-white w-full">
-      {/* Top Brand Strip */}
-      <div className="h-2 flex overflow-hidden">
-        {[
-          "#f04e23",
-          "#ffd400",
-          "#5eab46",
-          "#87789c",
-          "#6b4725",
-          "#2b87c8",
-          "#f181b3",
-          "#c41ec0",
-        ].map((color, index) => (
-          <div
-            key={index}
-            className="flex-1 h-full"
-            style={{ backgroundColor: color }}
-          />
-        ))}
-      </div>
-
       {/* Fixed Header */}
       <header className="sticky top-0 bg-white border-b border-gray-200 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4">
-        <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
-          <img
-            src="/usaschooldata.svg"
-            alt="USA School Data"
-            className="w-8 h-8"
-          />
-          {entityType === "district" ? "District" : "School"} Profile
-        </h1>
-        <div className="flex items-center gap-4 text-sm text-gray-500">
-          <span>NCES ID: {ncesCode}</span>
-          <span>School Year: {year}</span>
-        </div>
+          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
+            <img
+              src="/usaschooldata.svg"
+              alt="USA School Data"
+              className="w-8 h-8"
+            />
+            {entityType === "district" ? "District" : "School"} Profile
+          </h1>
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <span>NCES ID: {ncesCode}</span>
+            <span>School Year: {year}</span>
+          </div>
 
-        {/* Navigation */}
-        <nav className="mt-4 flex space-x-6">
-          <a
-            href="#overview"
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            Overview
-          </a>
-          <a
-            href="#demographics"
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            Demographics
-          </a>
-          <a
-            href="#data"
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            Raw Data
-          </a>
-        </nav>
+          {/* Navigation */}
+          <nav className="mt-4 flex space-x-6">
+            <a
+              href="#overview"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Overview
+            </a>
+            <a
+              href="#demographics"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Demographics
+            </a>
+            <a
+              href="#data"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Raw Data
+            </a>
+          </nav>
         </div>
       </header>
 
@@ -315,18 +295,18 @@ export default function Profile() {
       {fallbackToDefault && urlRequestedYear !== DEFAULT_SCHOOL_YEAR && (
         <div className="max-w-5xl mx-auto px-6 mt-4">
           <div className="bg-amber-50 border-l-4 border-amber-400 p-4">
-          <div className="flex">
-            <div className="ml-3">
-              <p className="text-sm text-amber-700">
-                <span className="font-medium">Note:</span> Data for school year{" "}
-                {urlRequestedYear} is not available. Showing data for{" "}
-                {DEFAULT_SCHOOL_YEAR} instead.
-                {availableYears && availableYears.length > 0 && (
-                  <span> Available years: {availableYears.join(", ")}.</span>
-                )}
-              </p>
+            <div className="flex">
+              <div className="ml-3">
+                <p className="text-sm text-amber-700">
+                  <span className="font-medium">Note:</span> Data for school
+                  year {urlRequestedYear} is not available. Showing data for{" "}
+                  {DEFAULT_SCHOOL_YEAR} instead.
+                  {availableYears && availableYears.length > 0 && (
+                    <span> Available years: {availableYears.join(", ")}.</span>
+                  )}
+                </p>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       )}
