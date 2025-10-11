@@ -45,9 +45,30 @@ export const GRADE_VALUES = [
   'Grade 10'
 ] as const;
 
+export class YearNotAvailableError extends Error {
+  public requestedYear: string;
+  public availableYears: string[];
+
+  constructor(requestedYear: string, availableYears: string[]) {
+    super(`Data for school year ${requestedYear} is not available. Available years: ${availableYears.join(', ')}`);
+    this.name = 'YearNotAvailableError';
+    this.requestedYear = requestedYear;
+    this.availableYears = availableYears;
+  }
+}
+
 export class DataService {
   private dataDirectory: string;
   private availableYears = ['2023-2024']; // Start with just 2023-2024
+
+  /**
+   * Check if an error indicates missing year data
+   */
+  private isYearNotAvailableError(error: any): boolean {
+    const errorMessage = error?.message || error?.toString() || '';
+    return errorMessage.includes('No files found that match the pattern') &&
+           errorMessage.includes('school_year=');
+  }
 
   constructor() {
     this.dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
@@ -94,6 +115,12 @@ export class DataService {
       return await duckDBService.query(selectQuery);
     } catch (error) {
       console.error(`Failed to query school membership for ${schoolCode}:`, error);
+
+      // Check if this is a "year not available" error
+      if (this.isYearNotAvailableError(error) && options.schoolYear) {
+        throw new YearNotAvailableError(options.schoolYear, this.availableYears);
+      }
+
       throw error;
     }
   }
@@ -131,6 +158,12 @@ export class DataService {
       return await duckDBService.query(selectQuery);
     } catch (error) {
       console.error(`Failed to query district membership for ${districtCode}:`, error);
+
+      // Check if this is a "year not available" error
+      if (this.isYearNotAvailableError(error) && options.schoolYear) {
+        throw new YearNotAvailableError(options.schoolYear, this.availableYears);
+      }
+
       throw error;
     }
   }
@@ -214,6 +247,12 @@ export class DataService {
       };
     } catch (error) {
       console.error(`Failed to get school summary for ${schoolCode}:`, error);
+
+      // Check if this is a "year not available" error
+      if (this.isYearNotAvailableError(error) && options.schoolYear) {
+        throw new YearNotAvailableError(options.schoolYear, this.availableYears);
+      }
+
       return null;
     }
   }
@@ -294,6 +333,12 @@ export class DataService {
       };
     } catch (error) {
       console.error(`Failed to get district summary for ${districtCode}:`, error);
+
+      // Check if this is a "year not available" error
+      if (this.isYearNotAvailableError(error) && options.schoolYear) {
+        throw new YearNotAvailableError(options.schoolYear, this.availableYears);
+      }
+
       return null;
     }
   }

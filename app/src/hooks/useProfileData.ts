@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { dataService, type MembershipQueryOptions } from '../services/dataService';
+import { dataService, type MembershipQueryOptions, YearNotAvailableError } from '../services/dataService';
 import { useDuckDB } from './useDuckDB';
 
 export interface ProfileData {
@@ -7,6 +7,9 @@ export interface ProfileData {
   membershipData: any[];
   isLoading: boolean;
   error: string | null;
+  yearNotAvailable: boolean;
+  requestedYear?: string;
+  availableYears?: string[];
 }
 
 export function useProfileData(
@@ -18,6 +21,9 @@ export function useProfileData(
   const [membershipData, setMembershipData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [yearNotAvailable, setYearNotAvailable] = useState(false);
+  const [requestedYear, setRequestedYear] = useState<string | undefined>();
+  const [availableYears, setAvailableYears] = useState<string[] | undefined>();
   const { isInitialized, error: dbError } = useDuckDB();
 
   useEffect(() => {
@@ -42,6 +48,9 @@ export function useProfileData(
   const loadProfileData = async () => {
     setIsLoading(true);
     setError(null);
+    setYearNotAvailable(false);
+    setRequestedYear(undefined);
+    setAvailableYears(undefined);
 
     try {
       if (entityType === 'school') {
@@ -62,8 +71,15 @@ export function useProfileData(
         setMembershipData(membershipResults);
       }
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to load profile data';
-      setError(errorMessage);
+      if (err instanceof YearNotAvailableError) {
+        setYearNotAvailable(true);
+        setRequestedYear(err.requestedYear);
+        setAvailableYears(err.availableYears);
+        setError(`Year ${err.requestedYear} not available`);
+      } else {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to load profile data';
+        setError(errorMessage);
+      }
       console.error('Profile data loading error:', err);
     } finally {
       setIsLoading(false);
@@ -74,6 +90,9 @@ export function useProfileData(
     summary,
     membershipData,
     isLoading,
-    error
+    error,
+    yearNotAvailable,
+    requestedYear,
+    availableYears
   };
 }

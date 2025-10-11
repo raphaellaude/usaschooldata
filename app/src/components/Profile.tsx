@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useDuckDB } from "../hooks/useDuckDB";
 import { useProfileData } from "../hooks/useProfileData";
@@ -16,7 +17,11 @@ export default function Profile() {
   // const section = location.hash.slice(1) || "overview";
 
   // Extract year from URL parameters, default to 2023-2024
-  const year = searchParams.get('year') || DEFAULT_SCHOOL_YEAR;
+  const urlRequestedYear = searchParams.get('year') || DEFAULT_SCHOOL_YEAR;
+  const [fallbackToDefault, setFallbackToDefault] = React.useState(false);
+
+  // Use fallback year if requested year is not available
+  const year = fallbackToDefault ? DEFAULT_SCHOOL_YEAR : urlRequestedYear;
 
   // Use the ID directly as the NCES code
   const ncesCode = id || "";
@@ -32,11 +37,21 @@ export default function Profile() {
     membershipData,
     isLoading: dataLoading,
     error: dataError,
+    yearNotAvailable,
+    requestedYear,
+    availableYears,
   } = useProfileData(
     entityType,
     ncesCode,
     { schoolYear: year }, // Pass year as filter
   );
+
+  // Handle automatic fallback to default year when requested year is not available
+  React.useEffect(() => {
+    if (yearNotAvailable && requestedYear !== DEFAULT_SCHOOL_YEAR && !fallbackToDefault) {
+      setFallbackToDefault(true);
+    }
+  }, [yearNotAvailable, requestedYear, fallbackToDefault]);
 
   if (!id) {
     return <div>Invalid profile URL</div>;
@@ -248,6 +263,23 @@ export default function Profile() {
         </nav>
       </header>
 
+      {/* Year Fallback Notification */}
+      {fallbackToDefault && urlRequestedYear !== DEFAULT_SCHOOL_YEAR && (
+        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mx-6 mt-4">
+          <div className="flex">
+            <div className="ml-3">
+              <p className="text-sm text-amber-700">
+                <span className="font-medium">Note:</span> Data for school year {urlRequestedYear} is not available.
+                Showing data for {DEFAULT_SCHOOL_YEAR} instead.
+                {availableYears && availableYears.length > 0 && (
+                  <span> Available years: {availableYears.join(', ')}.</span>
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Content */}
       <main className="px-6 py-8">
         {dataLoading ? (
@@ -259,7 +291,7 @@ export default function Profile() {
               <em>Querying parquet files with hive partitioning...</em>
             </p>
           </div>
-        ) : dataError ? (
+        ) : dataError && !yearNotAvailable ? (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-red-800 mb-2">Error Loading Data</h3>
             <p className="text-red-700 mb-4">{dataError}</p>
