@@ -94,16 +94,16 @@ export default function Profile() {
 
     // Prepare data for charts - always show all races alphabetically
     const allRaces = [
-      'American Indian or Alaska Native',
-      'Asian',
-      'Black or African American',
-      'Hispanic/Latino',
-      'Native Hawaiian or Other Pacific Islander',
-      'Two or more races',
-      'White'
+      "American Indian or Alaska Native",
+      "Asian",
+      "Black or African American",
+      "Hispanic/Latino",
+      "Native Hawaiian or Other Pacific Islander",
+      "Two or more races",
+      "White",
     ];
 
-    const raceData = allRaces.map(race => ({
+    const raceData = allRaces.map((race) => ({
       label: race,
       value: (summary.demographics.byRaceEthnicity[race] as number) || 0,
     }));
@@ -112,31 +112,37 @@ export default function Profile() {
       ([label, value]) => ({
         label,
         value: value as number,
-      })
+      }),
     );
 
     return (
       <div>
         <h3>Demographics</h3>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '40px',
-          marginBottom: '40px'
-        }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 2fr",
+            gap: "40px",
+            marginBottom: "40px",
+          }}
+        >
           {/* Sex Demographics - Doughnut Chart */}
           <div>
-            <h4 style={{ marginBottom: '20px', textAlign: 'center' }}>By Gender</h4>
-            <div style={{ height: '300px' }}>
+            <h4 style={{ marginBottom: "20px", textAlign: "center" }}>
+              By Gender
+            </h4>
+            <div style={{ height: "300px" }}>
               <DoughnutChart data={sexData} />
             </div>
           </div>
 
           {/* Race/Ethnicity Demographics - Bar Chart */}
           <div>
-            <h4 style={{ marginBottom: '20px', textAlign: 'center' }}>By Race/Ethnicity</h4>
-            <div style={{ height: '300px' }}>
+            <h4 style={{ marginBottom: "20px", textAlign: "center" }}>
+              By Race/Ethnicity
+            </h4>
+            <div style={{ height: "300px" }}>
               <BarChart data={raceData} />
             </div>
           </div>
