@@ -1,6 +1,8 @@
 import { useParams, useLocation } from "react-router-dom";
 import { useDuckDB } from "../hooks/useDuckDB";
 import { useProfileData } from "../hooks/useProfileData";
+import DoughnutChart from "./charts/DoughnutChart";
+import BarChart from "./charts/BarChart";
 
 export default function Profile() {
   const { id } = useParams<{
@@ -80,36 +82,68 @@ export default function Profile() {
     </div>
   );
 
-  const renderDemographics = () => (
-    <div>
-      <h3>Demographics</h3>
-      {summary?.demographics ? (
+  const renderDemographics = () => {
+    if (!summary?.demographics) {
+      return (
         <div>
-          <h4>By Race/Ethnicity</h4>
-          <ul>
-            {Object.entries(summary.demographics.byRaceEthnicity).map(
-              ([race, count]) => (
-                <li key={race}>
-                  {race}: {(count as number).toLocaleString()}
-                </li>
-              ),
-            )}
-          </ul>
-
-          <h4>By Gender</h4>
-          <ul>
-            {Object.entries(summary.demographics.bySex).map(([sex, count]) => (
-              <li key={sex}>
-                {sex}: {(count as number).toLocaleString()}
-              </li>
-            ))}
-          </ul>
+          <h3>Demographics</h3>
+          <p>No demographic data available</p>
         </div>
-      ) : (
-        <p>No demographic data available</p>
-      )}
-    </div>
-  );
+      );
+    }
+
+    // Prepare data for charts - always show all races alphabetically
+    const allRaces = [
+      'American Indian or Alaska Native',
+      'Asian',
+      'Black or African American',
+      'Hispanic/Latino',
+      'Native Hawaiian or Other Pacific Islander',
+      'Two or more races',
+      'White'
+    ];
+
+    const raceData = allRaces.map(race => ({
+      label: race,
+      value: (summary.demographics.byRaceEthnicity[race] as number) || 0,
+    }));
+
+    const sexData = Object.entries(summary.demographics.bySex).map(
+      ([label, value]) => ({
+        label,
+        value: value as number,
+      })
+    );
+
+    return (
+      <div>
+        <h3>Demographics</h3>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '40px',
+          marginBottom: '40px'
+        }}>
+          {/* Sex Demographics - Doughnut Chart */}
+          <div>
+            <h4 style={{ marginBottom: '20px', textAlign: 'center' }}>By Gender</h4>
+            <div style={{ height: '300px' }}>
+              <DoughnutChart data={sexData} />
+            </div>
+          </div>
+
+          {/* Race/Ethnicity Demographics - Bar Chart */}
+          <div>
+            <h4 style={{ marginBottom: '20px', textAlign: 'center' }}>By Race/Ethnicity</h4>
+            <div style={{ height: '300px' }}>
+              <BarChart data={raceData} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   const renderEnrollment = () => (
     <div>
