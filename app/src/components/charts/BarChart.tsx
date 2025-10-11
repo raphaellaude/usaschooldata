@@ -64,7 +64,7 @@ const BarChartInner = ({
     if (colorMapping && colorMapping[label]) {
       return colorMapping[label];
     }
-    return "#87789c"; // Default single color
+    return "#6b6969"; // Default single color
   };
 
   // Shorten labels for display

@@ -147,7 +147,7 @@ export default function Profile() {
                 width={280}
                 height={240}
                 colorMapping={{
-                  Male: "#5eab46",
+                  Male: "#f04e23",
                   Female: "#ffd400",
                 }}
               />
@@ -250,7 +250,27 @@ export default function Profile() {
   );
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white w-full">
+      {/* Top Brand Strip */}
+      <div className="h-2 flex overflow-hidden">
+        {[
+          "#f04e23",
+          "#ffd400",
+          "#5eab46",
+          "#87789c",
+          "#6b4725",
+          "#2b87c8",
+          "#f181b3",
+          "#c41ec0",
+        ].map((color, index) => (
+          <div
+            key={index}
+            className="flex-1 h-full"
+            style={{ backgroundColor: color }}
+          />
+        ))}
+      </div>
+
       {/* Fixed Header */}
       <header className="sticky top-0 bg-white border-b border-gray-200 z-10 px-6 py-4">
         <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
@@ -314,16 +334,22 @@ export default function Profile() {
             {/* Overview Section - Loading Placeholder */}
             <section id="overview">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                  Overview
+                </h3>
                 <div className="bg-gray-50 rounded-lg p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex justify-between py-2 border-b border-gray-200">
-                      <span className="font-medium text-gray-700">Total Enrollment:</span>
+                      <span className="font-medium text-gray-700">
+                        Total Enrollment:
+                      </span>
                       <span className="text-gray-400">Loading...</span>
                     </div>
                     {entityType === "district" && (
                       <div className="flex justify-between py-2 border-b border-gray-200">
-                        <span className="font-medium text-gray-700">Number of Schools:</span>
+                        <span className="font-medium text-gray-700">
+                          Number of Schools:
+                        </span>
                         <span className="text-gray-400">Loading...</span>
                       </div>
                     )}
@@ -335,11 +361,15 @@ export default function Profile() {
             {/* Demographics Section - Loading Placeholder */}
             <section id="demographics">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Demographics</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                  Demographics
+                </h3>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Sex Demographics Placeholder */}
                   <div className="bg-white border border-gray-200 rounded-lg p-6">
-                    <h4 className="text-lg font-medium text-gray-900 mb-4">By Gender</h4>
+                    <h4 className="text-lg font-medium text-gray-900 mb-4">
+                      By Gender
+                    </h4>
                     <div className="flex flex-col items-center justify-center h-[280px] text-gray-400">
                       <div className="animate-pulse">Loading chart...</div>
                     </div>
@@ -347,7 +377,9 @@ export default function Profile() {
 
                   {/* Race/Ethnicity Demographics Placeholder */}
                   <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-6">
-                    <h4 className="text-lg font-medium text-gray-900 mb-4">By Race/Ethnicity</h4>
+                    <h4 className="text-lg font-medium text-gray-900 mb-4">
+                      By Race/Ethnicity
+                    </h4>
                     <div className="flex items-center justify-center h-[300px] text-gray-400">
                       <div className="animate-pulse">Loading chart...</div>
                     </div>
@@ -359,7 +391,9 @@ export default function Profile() {
             {/* Raw Data Section - Loading Placeholder */}
             <section id="data">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Raw Membership Data</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                  Raw Membership Data
+                </h3>
                 <div className="bg-white border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center justify-center h-32 text-gray-400">
                     <div className="animate-pulse">Loading data...</div>
