@@ -75,7 +75,7 @@ export default function Profile() {
             {entityType === 'district' && (
               <div className="flex justify-between py-2 border-b border-gray-200">
                 <span className="font-medium text-gray-700">Number of Schools:</span>
-                <span className="text-gray-900">{summary.schoolCount || 'N/A'}</span>
+                <span className="text-gray-900">{(summary as any)?.schoolCount || 'N/A'}</span>
               </div>
             )}
           </div>

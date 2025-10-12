@@ -2,12 +2,14 @@ import {useState, useEffect} from 'react';
 import {
   dataService,
   type MembershipQueryOptions,
+  type SchoolSummary,
+  type DistrictSummary,
   YearNotAvailableError,
 } from '../services/dataService';
 import {useDuckDB} from './useDuckDB';
 
 export interface ProfileData {
-  summary: any;
+  summary: SchoolSummary | DistrictSummary | null;
   membershipData: any[];
   isLoading: boolean;
   error: string | null;
@@ -21,7 +23,7 @@ export function useProfileData(
   entityCode: string,
   options: MembershipQueryOptions = {}
 ): ProfileData {
-  const [summary, setSummary] = useState<any>(null);
+  const [summary, setSummary] = useState<SchoolSummary | DistrictSummary | null>(null);
   const [membershipData, setMembershipData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -62,7 +64,6 @@ export function useProfileData(
           dataService.getSchoolSummary(entityCode, options),
           dataService.querySchoolMembership(entityCode, options),
         ]);
-
         setSummary(summaryData);
         setMembershipData(membershipResults);
       } else if (entityType === 'district') {
@@ -70,7 +71,6 @@ export function useProfileData(
           dataService.getDistrictSummary(entityCode, options),
           dataService.queryDistrictMembership(entityCode, options),
         ]);
-
         setSummary(summaryData);
         setMembershipData(membershipResults);
       }
