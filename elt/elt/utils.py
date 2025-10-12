@@ -1,10 +1,11 @@
 import subprocess
+import shutil
 from pathlib import Path
 from zipfile import ZipFile, BadZipFile
 
 
 def clean_csv_to_utf8(
-    input_file: str, output_file: str | None = None, replace: bool = True
+    input_file: str | Path, output_file: str | None = None, replace: bool = True
 ) -> None:
     """
     Remove non-UTF8 characters from a CSV file and save it as UTF-8.
@@ -26,7 +27,7 @@ def clean_csv_to_utf8(
 
     if replace:
         Path(input_file).unlink()
-        Path(output_file).rename(input_file)
+        shutil.move(output_file, input_file)
 
 
 def recursive_unzip(
@@ -72,3 +73,29 @@ def recursive_unzip(
 
     for nested_zip in unzipped_dir.rglob("*.zip"):
         recursive_unzip(nested_zip)
+
+
+def get_all_csvs_in_zip(zip_file_path: str | Path) -> list[Path]:
+    """
+    Returns a list of all CSV files found within a zip file.
+
+    Args:
+        zip_file_path: Path to the zip file.
+
+    Returns:
+        List of Path objects representing the CSV files found within the zip file.
+    """
+    zip_file_path = Path(zip_file_path)
+    csv_files: list[Path] = []
+
+    dest_dir = Path("/tmp/" + str(zip_file_path.stem))
+    recursive_unzip(zip_file_path, dest_dir=dest_dir)
+
+    csvs = list(dest_dir.glob("**/*.csv"))
+    # In some cases, txts are used in place of CSVs (e.g. 2014-15 membership)
+    csvs += list(dest_dir.glob("**/*.txt"))
+
+    for csv in csvs:
+        csv_files.append(csv)
+
+    return csv_files

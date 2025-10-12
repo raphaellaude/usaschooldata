@@ -25,6 +25,8 @@ RUN git clone https://github.com/felt/tippecanoe.git /tippecanoe \
     && make install \
     && rm -rf /tippecanoe
 
+ENV DIRECTORY=/data
+
 ADD . /elt
 
 # Sync the project into a new environment, asserting the lockfile is up to date

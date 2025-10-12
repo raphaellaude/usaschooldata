@@ -18,7 +18,7 @@ MEMBERSHIP_ALL_YEARS = [
     "sy1415",
 ]
 DIRECTORY = os.environ.get("DIRECTORY")
-BUCKET = os.environ.get("BUCKET_NAME")
+BUCKET_NAME = os.environ.get("BUCKET_NAME")
 MEMBERSHIP_PREFIX_FORMAT = "membership/year={year}/state={state}/ccd_sch.parquet"
 
 IO_TYPE = "file"

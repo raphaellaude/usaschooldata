@@ -12,6 +12,7 @@ membership:
 raw:
   sy2324:
     table_name: ccd_sch_052_2324
+    zip_name: ccd_sch_052_2324_l_1a_073124.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -24,6 +25,7 @@ raw:
       DMS_FLAG: dms_flag
   sy2223:
     table_name: ccd_sch_052_2223
+    zip_name: ccd_sch_052_2223_l_1a_083023.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -36,6 +38,7 @@ raw:
       DMS_FLAG: dms_flag
   sy2122:
     table_name: ccd_sch_052_2122
+    zip_name: ccd_SCH_052_2122_l_1a_071722.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -48,6 +51,7 @@ raw:
       DMS_FLAG: dms_flag
   sy2021:
     table_name: ccd_sch_052_2021
+    zip_name: ccd_sch_052_2021_l_1a_080621.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -60,6 +64,7 @@ raw:
       DMS_FLAG: dms_flag
   sy1920:
     table_name: ccd_sch_052_1920
+    zip_name: ccd_SCH_052_1920_l_1a_082120.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -72,6 +77,7 @@ raw:
       DMS_FLAG: dms_flag
   sy1819:
     table_name: ccd_sch_052_1819
+    zip_name: ccd_sch_052_1819_l_1a_091019.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -84,6 +90,7 @@ raw:
       DMS_FLAG: dms_flag
   sy1718:
     table_name: ccd_sch_052_1718
+    zip_name: ccd_sch_052_1718_l_1a_083118.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -96,6 +103,7 @@ raw:
       DMS_FLAG: dms_flag
   sy1617:
     table_name: ccd_sch_052_1617
+    zip_name: ccd_sch_052_1617_l_2a_11212017_CSV.zip
     mapping:
       SCHOOL_YEAR: school_year
       ST: state_code
@@ -108,12 +116,14 @@ raw:
       DMS_FLAG: dms_flag
   sy1516:
     table_name: ccd_sch_052_1516
+    zip_name: ccd_sch_052_1516_w_2a_011717_csv.zip
     mapping:
       SURVYEAR: school_year
       STABR: state_code
       NCESSCH: ncessch
   sy1415:
     table_name: ccd_sch_052_1415
+    zip_name: ccd_sch_052_1415_w_0216161a_txt.zip
     mapping:
       SURVYEAR: school_year
       STABR: state_code

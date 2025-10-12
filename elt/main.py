@@ -6,6 +6,7 @@ import logging
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from elt.constants import SQL_DIR, SCHEMAS_DIR, MEMBERSHIP_ALL_YEARS, DIRECTORY
 from pathlib import Path
+from elt.utils import get_all_csvs_in_zip, clean_csv_to_utf8
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -38,12 +39,19 @@ def membership(school_year: list[str]):
         logger.info(f"processing {yr}")
         year_config = config["raw"][yr]
         table_name = year_config["table_name"]
+        zip_name = year_config["zip_name"]
 
         assert DIRECTORY is not None and os.path.exists(DIRECTORY), (
             f"Directory {DIRECTORY} does not exist"
         )
-        directory = Path(DIRECTORY)
-        file_path = directory / "raw" / "membership" / f"{table_name}.csv"
+        source_data_directory = Path(DIRECTORY) / "raw" / "membership"
+
+        zip_path = source_data_directory / zip_name
+        logger.info(f"Processing zip file: {zip_path}")
+        csvs = get_all_csvs_in_zip(zip_path)
+        file_path = csvs[0]
+        clean_csv_to_utf8(file_path)
+        logger.info(f"Found CSV: {file_path}")
 
         data_prep_sql = template.render(
             file_path=file_path, school_year=yr, mapping=year_config["mapping"]

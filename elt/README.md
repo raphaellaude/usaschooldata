@@ -11,10 +11,19 @@
 
 ### Membership
 
-Manual transformations applied to raw data before processing (that honestly aren't worth coding up):
+Transformations:
 
-- Unzip
-- Use 7z on some zipfiles
-- Glob unzipped dirs to find target CSV
+- Unzip (some require 7z)
+- Glob unzipped dirs to find target CSVs
 - Clean up invalid UTF-8 CSVs
-- Standardize filenames
+- Standardize schemas across years
+- Normalize `student_count` field
+
+### Dev set up
+
+Set the following env vars
+
+```
+DIRECTORY=../data # or path to your data mout
+SOURCE_DATA={path to your downloaded data}
+```
