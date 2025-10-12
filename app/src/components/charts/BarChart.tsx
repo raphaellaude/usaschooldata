@@ -1,8 +1,8 @@
-import { Group } from "@visx/group";
-import { Bar } from "@visx/shape";
-import { scaleLinear, scaleBand } from "@visx/scale";
-import { AxisBottom, AxisLeft } from "@visx/axis";
-import { ParentSize } from "@visx/responsive";
+import {Group} from '@visx/group';
+import {Bar} from '@visx/shape';
+import {scaleLinear, scaleBand} from '@visx/scale';
+import {AxisBottom, AxisLeft} from '@visx/axis';
+import {ParentSize} from '@visx/responsive';
 
 interface BarData {
   label: string;
@@ -13,16 +13,11 @@ interface BarChartProps {
   data: BarData[];
   width?: number;
   height?: number;
-  colorMapping?: { [key: string]: string };
+  colorMapping?: {[key: string]: string};
 }
 
-const BarChartInner = ({
-  data,
-  width = 600,
-  height = 400,
-  colorMapping,
-}: BarChartProps) => {
-  const margin = { top: 20, right: 20, bottom: 80, left: 60 };
+const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChartProps) => {
+  const margin = {top: 20, right: 20, bottom: 80, left: 60};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -35,9 +30,9 @@ const BarChartInner = ({
         style={{
           width,
           height,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <p>No data available</p>
@@ -47,12 +42,12 @@ const BarChartInner = ({
 
   // Scales
   const xScale = scaleBand({
-    domain: filteredData.map((d) => d.label),
+    domain: filteredData.map(d => d.label),
     range: [0, innerWidth],
     padding: 0.1,
   });
 
-  const maxValue = Math.max(...filteredData.map((d) => d.value));
+  const maxValue = Math.max(...filteredData.map(d => d.value));
   const yScale = scaleLinear({
     domain: [0, maxValue || 1], // Handle case where all values are 0
     range: [innerHeight, 0],
@@ -64,29 +59,29 @@ const BarChartInner = ({
     if (colorMapping && colorMapping[label]) {
       return colorMapping[label];
     }
-    return "#6b6969"; // Default single color
+    return '#6b6969'; // Default single color
   };
 
   // Shorten labels for display
   const shortenLabel = (label: string) => {
-    const labelMap: { [key: string]: string } = {
-      White: "White",
-      "Black or African American": "Black",
-      "Hispanic/Latino": "Hispanic",
-      Asian: "Asian",
-      "American Indian or Alaska Native": "Native Am.",
-      "Native Hawaiian or Other Pacific Islander": "Pacific Isl.",
-      "Two or more races": "Multiracial",
+    const labelMap: {[key: string]: string} = {
+      White: 'White',
+      'Black or African American': 'Black',
+      'Hispanic/Latino': 'Hispanic',
+      Asian: 'Asian',
+      'American Indian or Alaska Native': 'Native Am.',
+      'Native Hawaiian or Other Pacific Islander': 'Pacific Isl.',
+      'Two or more races': 'Multiracial',
     };
     return labelMap[label] || label;
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{position: 'relative'}}>
       <svg width={width} height={height}>
         <Group top={margin.top} left={margin.left}>
           {/* Bars */}
-          {filteredData.map((d) => {
+          {filteredData.map(d => {
             const barWidth = xScale.bandwidth();
             const barHeight = Math.max(0, innerHeight - yScale(d.value));
             const barX = xScale(d.label) || 0;
@@ -126,12 +121,12 @@ const BarChartInner = ({
             tickStroke="#333"
             tickLabelProps={{
               fontSize: 12,
-              textAnchor: "end",
-              dy: "0.33em",
-              dx: "-0.25em",
-              fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif",
+              textAnchor: 'end',
+              dy: '0.33em',
+              dx: '-0.25em',
+              fontFamily: 'IBM Plex Sans, ui-sans-serif, system-ui, sans-serif',
             }}
-            tickFormat={(value) => value.toLocaleString()}
+            tickFormat={value => value.toLocaleString()}
           />
 
           {/* X Axis */}
@@ -142,11 +137,11 @@ const BarChartInner = ({
             tickStroke="#333"
             tickLabelProps={{
               fontSize: 11,
-              textAnchor: "middle",
-              dy: "0.33em",
-              fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif",
+              textAnchor: 'middle',
+              dy: '0.33em',
+              fontFamily: 'IBM Plex Sans, ui-sans-serif, system-ui, sans-serif',
             }}
-            tickFormat={(value) => shortenLabel(value as string)}
+            tickFormat={value => shortenLabel(value as string)}
           />
         </Group>
       </svg>
@@ -154,26 +149,14 @@ const BarChartInner = ({
   );
 };
 
-export default function BarChart({
-  data,
-  width,
-  height,
-  colorMapping,
-}: BarChartProps) {
+export default function BarChart({data, width, height, colorMapping}: BarChartProps) {
   if (width && height) {
-    return (
-      <BarChartInner
-        data={data}
-        width={width}
-        height={height}
-        colorMapping={colorMapping}
-      />
-    );
+    return <BarChartInner data={data} width={width} height={height} colorMapping={colorMapping} />;
   }
 
   return (
     <ParentSize>
-      {({ width, height }) => (
+      {({width, height}) => (
         <BarChartInner
           data={data}
           width={Math.min(width, 800)}

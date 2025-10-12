@@ -1,9 +1,6 @@
-.venv
 data/
-.DS_Store
 __pycache__
-.ruff_cache/
-.env*
 pyrightconfig.json
 .claude
-tmp/
+Makefile
+.ruff_cache/

@@ -1,7 +1,6 @@
-import { Group } from "@visx/group";
-import { Pie } from "@visx/shape";
-import { scaleOrdinal } from "@visx/scale";
-import { ParentSize } from "@visx/responsive";
+import {Group} from '@visx/group';
+import {Pie} from '@visx/shape';
+import {ParentSize} from '@visx/responsive';
 
 interface DoughnutData {
   label: string;
@@ -12,7 +11,7 @@ interface DoughnutChartProps {
   data: DoughnutData[];
   width?: number;
   height?: number;
-  colorMapping?: { [key: string]: string };
+  colorMapping?: {[key: string]: string};
 }
 
 const DoughnutChartInner = ({
@@ -21,7 +20,7 @@ const DoughnutChartInner = ({
   height = 300,
   colorMapping,
 }: DoughnutChartProps) => {
-  const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+  const margin = {top: 20, right: 20, bottom: 20, left: 20};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
   const radius = Math.min(innerWidth, innerHeight) / 2;
@@ -30,7 +29,7 @@ const DoughnutChartInner = ({
   const donutThickness = 50;
 
   // Filter out zero values
-  const filteredData = data.filter((d) => d.value > 0);
+  const filteredData = data.filter(d => d.value > 0);
 
   if (filteredData.length === 0) {
     return (
@@ -38,9 +37,9 @@ const DoughnutChartInner = ({
         style={{
           width,
           height,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <p>No data available</p>
@@ -54,10 +53,10 @@ const DoughnutChartInner = ({
       return colorMapping[label];
     }
     // Default colors for sex data
-    if (label === "Male") return "#5eab46";
-    if (label === "Female") return "#ffd400";
+    if (label === 'Male') return '#5eab46';
+    if (label === 'Female') return '#ffd400';
     // Fallback colors for other labels
-    return label === filteredData[0].label ? "#5eab46" : "#ffd400";
+    return label === filteredData[0].label ? '#5eab46' : '#ffd400';
   };
 
   const total = filteredData.reduce((sum, d) => sum + d.value, 0);
@@ -69,28 +68,23 @@ const DoughnutChartInner = ({
           <Group top={centerY + margin.top} left={centerX + margin.left}>
             <Pie
               data={filteredData}
-              pieValue={(d) => d.value}
+              pieValue={d => d.value}
               outerRadius={radius}
               innerRadius={radius - donutThickness}
               cornerRadius={3}
               padAngle={0.005}
             >
-              {(pie) => {
-                return pie.arcs.map((arc) => {
-                  const { label, value } = arc.data;
+              {pie => {
+                return pie.arcs.map(arc => {
+                  const {label, value} = arc.data;
                   const [centroidX, centroidY] = pie.path.centroid(arc);
                   const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
-                  const arcPath = pie.path(arc) || "";
+                  const arcPath = pie.path(arc) || '';
                   const percentage = ((value / total) * 100).toFixed(1);
 
                   return (
                     <g key={`arc-${label}`}>
-                      <path
-                        d={arcPath}
-                        fill={getColor(label)}
-                        stroke="white"
-                        strokeWidth={2}
-                      />
+                      <path d={arcPath} fill={getColor(label)} stroke="white" strokeWidth={2} />
                       {hasSpaceForLabel && (
                         <text
                           x={centroidX}
@@ -139,17 +133,14 @@ const DoughnutChartInner = ({
 
       {/* Legend - now part of normal flow */}
       <div className="flex justify-center mt-4 gap-4 flex-wrap">
-        {filteredData.map(({ label }) => (
-          <div
-            key={label}
-            className="flex items-center gap-2"
-          >
+        {filteredData.map(({label}) => (
+          <div key={label} className="flex items-center gap-2">
             <div
               style={{
-                width: "12px",
-                height: "12px",
+                width: '12px',
+                height: '12px',
                 backgroundColor: getColor(label),
-                borderRadius: "2px",
+                borderRadius: '2px',
               }}
             />
             <span className="text-sm">{label}</span>
@@ -160,19 +151,16 @@ const DoughnutChartInner = ({
   );
 };
 
-export default function DoughnutChart({
-  data,
-  width,
-  height,
-  colorMapping,
-}: DoughnutChartProps) {
+export default function DoughnutChart({data, width, height, colorMapping}: DoughnutChartProps) {
   if (width && height) {
-    return <DoughnutChartInner data={data} width={width} height={height} colorMapping={colorMapping} />;
+    return (
+      <DoughnutChartInner data={data} width={width} height={height} colorMapping={colorMapping} />
+    );
   }
 
   return (
     <ParentSize>
-      {({ width, height }) => (
+      {({width, height}) => (
         <DoughnutChartInner
           data={data}
           width={Math.min(width, 400)}

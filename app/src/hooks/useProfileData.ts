@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react';
-import { dataService, type MembershipQueryOptions, YearNotAvailableError } from '../services/dataService';
-import { useDuckDB } from './useDuckDB';
+import {useState, useEffect} from 'react';
+import {
+  dataService,
+  type MembershipQueryOptions,
+  YearNotAvailableError,
+} from '../services/dataService';
+import {useDuckDB} from './useDuckDB';
 
 export interface ProfileData {
   summary: any;
@@ -24,7 +28,7 @@ export function useProfileData(
   const [yearNotAvailable, setYearNotAvailable] = useState(false);
   const [requestedYear, setRequestedYear] = useState<string | undefined>();
   const [availableYears, setAvailableYears] = useState<string[] | undefined>();
-  const { isInitialized, error: dbError } = useDuckDB();
+  const {isInitialized, error: dbError} = useDuckDB();
 
   useEffect(() => {
     if (!entityCode) {
@@ -56,7 +60,7 @@ export function useProfileData(
       if (entityType === 'school') {
         const [summaryData, membershipResults] = await Promise.all([
           dataService.getSchoolSummary(entityCode, options),
-          dataService.querySchoolMembership(entityCode, options)
+          dataService.querySchoolMembership(entityCode, options),
         ]);
 
         setSummary(summaryData);
@@ -64,7 +68,7 @@ export function useProfileData(
       } else if (entityType === 'district') {
         const [summaryData, membershipResults] = await Promise.all([
           dataService.getDistrictSummary(entityCode, options),
-          dataService.queryDistrictMembership(entityCode, options)
+          dataService.queryDistrictMembership(entityCode, options),
         ]);
 
         setSummary(summaryData);
@@ -93,6 +97,6 @@ export function useProfileData(
     error,
     yearNotAvailable,
     requestedYear,
-    availableYears
+    availableYears,
   };
 }

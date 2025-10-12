@@ -1,4 +1,4 @@
-import { duckDBService } from './duckdb';
+import {duckDBService} from './duckdb';
 
 export interface MembershipQueryOptions {
   schoolCode?: string;
@@ -17,13 +17,10 @@ export const RACE_ETHNICITY_VALUES = [
   'Black or African American',
   'American Indian or Alaska Native',
   'Hispanic/Latino',
-  'White'
+  'White',
 ] as const;
 
-export const SEX_VALUES = [
-  'Female',
-  'Male'
-] as const;
+export const SEX_VALUES = ['Female', 'Male'] as const;
 
 export const GRADE_VALUES = [
   'Grade 8',
@@ -42,7 +39,7 @@ export const GRADE_VALUES = [
   'Grade 2',
   'Grade 3',
   'Grade 4',
-  'Grade 10'
+  'Grade 10',
 ] as const;
 
 export class YearNotAvailableError extends Error {
@@ -50,7 +47,9 @@ export class YearNotAvailableError extends Error {
   public availableYears: string[];
 
   constructor(requestedYear: string, availableYears: string[]) {
-    super(`Data for school year ${requestedYear} is not available. Available years: ${availableYears.join(', ')}`);
+    super(
+      `Data for school year ${requestedYear} is not available. Available years: ${availableYears.join(', ')}`
+    );
     this.name = 'YearNotAvailableError';
     this.requestedYear = requestedYear;
     this.availableYears = availableYears;
@@ -66,8 +65,10 @@ export class DataService {
    */
   private isYearNotAvailableError(error: any): boolean {
     const errorMessage = error?.message || error?.toString() || '';
-    return errorMessage.includes('No files found that match the pattern') &&
-           errorMessage.includes('school_year=');
+    return (
+      errorMessage.includes('No files found that match the pattern') &&
+      errorMessage.includes('school_year=')
+    );
   }
 
   constructor() {
@@ -83,7 +84,9 @@ export class DataService {
 
     for (const year of yearsToUse) {
       for (const stateCode of stateCodes) {
-        filePaths.push(`'${this.dataDirectory}/membership/school_year=${year}/state_leaid=${stateCode}/data_0.parquet'`);
+        filePaths.push(
+          `'${this.dataDirectory}/membership/school_year=${year}/state_leaid=${stateCode}/data_0.parquet'`
+        );
       }
     }
 
@@ -93,7 +96,10 @@ export class DataService {
   /**
    * Creates and queries school membership data with optimized filter pushdown
    */
-  async querySchoolMembership(schoolCode: string, options: MembershipQueryOptions = {}): Promise<any[]> {
+  async querySchoolMembership(
+    schoolCode: string,
+    options: MembershipQueryOptions = {}
+  ): Promise<any[]> {
     const stateLeaid = schoolCode.substring(0, 2);
 
     try {
@@ -128,7 +134,10 @@ export class DataService {
   /**
    * Creates and queries district membership data with optimized filter pushdown
    */
-  async queryDistrictMembership(districtCode: string, options: MembershipQueryOptions = {}): Promise<any[]> {
+  async queryDistrictMembership(
+    districtCode: string,
+    options: MembershipQueryOptions = {}
+  ): Promise<any[]> {
     const stateLeaid = districtCode.substring(0, 2);
 
     try {
@@ -231,19 +240,21 @@ export class DataService {
         latestYear: summary.latest_year,
         demographics: {
           byRaceEthnicity: {
-            'White': extractValue(summary.white_count),
+            White: extractValue(summary.white_count),
             'Black or African American': extractValue(summary.black_count),
             'Hispanic/Latino': extractValue(summary.hispanic_count),
-            'Asian': extractValue(summary.asian_count),
+            Asian: extractValue(summary.asian_count),
             'American Indian or Alaska Native': extractValue(summary.native_american_count),
-            'Native Hawaiian or Other Pacific Islander': extractValue(summary.pacific_islander_count),
+            'Native Hawaiian or Other Pacific Islander': extractValue(
+              summary.pacific_islander_count
+            ),
             'Two or more races': extractValue(summary.multiracial_count),
           },
           bySex: {
-            'Male': extractValue(summary.male_count),
-            'Female': extractValue(summary.female_count),
+            Male: extractValue(summary.male_count),
+            Female: extractValue(summary.female_count),
           },
-        }
+        },
       };
     } catch (error) {
       console.error(`Failed to get school summary for ${schoolCode}:`, error);
@@ -260,7 +271,10 @@ export class DataService {
   /**
    * Get summary statistics for a district - all aggregated in DuckDB
    */
-  async getDistrictSummary(districtCode: string, options: MembershipQueryOptions = {}): Promise<any> {
+  async getDistrictSummary(
+    districtCode: string,
+    options: MembershipQueryOptions = {}
+  ): Promise<any> {
     const stateLeaid = districtCode.substring(0, 2);
 
     try {
@@ -317,19 +331,21 @@ export class DataService {
         latestYear: summary.latest_year,
         demographics: {
           byRaceEthnicity: {
-            'White': extractValue(summary.white_count),
+            White: extractValue(summary.white_count),
             'Black or African American': extractValue(summary.black_count),
             'Hispanic/Latino': extractValue(summary.hispanic_count),
-            'Asian': extractValue(summary.asian_count),
+            Asian: extractValue(summary.asian_count),
             'American Indian or Alaska Native': extractValue(summary.native_american_count),
-            'Native Hawaiian or Other Pacific Islander': extractValue(summary.pacific_islander_count),
+            'Native Hawaiian or Other Pacific Islander': extractValue(
+              summary.pacific_islander_count
+            ),
             'Two or more races': extractValue(summary.multiracial_count),
           },
           bySex: {
-            'Male': extractValue(summary.male_count),
-            'Female': extractValue(summary.female_count),
+            Male: extractValue(summary.male_count),
+            Female: extractValue(summary.female_count),
           },
-        }
+        },
       };
     } catch (error) {
       console.error(`Failed to get district summary for ${districtCode}:`, error);
