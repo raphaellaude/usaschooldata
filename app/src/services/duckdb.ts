@@ -39,7 +39,8 @@ class DuckDBService {
       // Create a connection
       this.connection = await this.db.connect();
       await this.connection.query(`INSTALL httpfs; LOAD httpfs;`);
-      console.log(await this.connection.query(`SELECT 1`));
+      await this.connection.query(`SET max_expression_depth TO 20;`);
+      console.log(await this.connection.query(`SELECT 1;`));
       this.initialized = true;
       console.log('DuckDB initialized successfully');
     } catch (error) {
@@ -101,15 +102,6 @@ class DuckDBService {
   }
 
   /**
-   * Helper method to get a single row from an Apache Arrow Table as a plain object
-   * Useful for summary queries that return a single row
-   */
-  getFirstRow(table: arrow.Table): any | null {
-    if (table.numRows === 0) return null;
-    return table.get(0);
-  }
-
-  /**
    * Helper method to extract a scalar value from an Apache Arrow Table column
    * Handles the case where aggregation functions return typed arrays (Uint32Array, etc.)
    * This replaces the old extractValue hack
@@ -138,29 +130,6 @@ class DuckDBService {
     }
 
     return value;
-  }
-
-  /**
-   * Helper method to get all values from a specific column in an Apache Arrow Table
-   * Returns the raw Arrow Vector data as an array
-   */
-  getColumnValues(table: arrow.Table, columnName: string): any[] {
-    const column = table.getChild(columnName);
-    if (!column) return [];
-
-    return column.toArray();
-  }
-
-  async close() {
-    if (this.connection) {
-      await this.connection.close();
-      this.connection = null;
-    }
-    if (this.db) {
-      await this.db.terminate();
-      this.db = null;
-    }
-    this.initialized = false;
   }
 }
 
