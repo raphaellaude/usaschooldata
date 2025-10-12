@@ -49,14 +49,45 @@ class DuckDBService {
 
   async query(sql: string): Promise<any[]> {
     if (!this.connection) {
-      throw new Error('DuckDB not initialized. Call initialize() first.');
+      console.log('DuckDB not initialized, attempting to reinitialize...');
+      try {
+        await this.initialize();
+      } catch (initError) {
+        console.error('Failed to reinitialize DuckDB:', initError);
+        throw new Error('Database connection lost and could not be reestablished');
+      }
     }
 
     try {
-      const result = await this.connection.query(sql);
+      const result = await this.connection!.query(sql);
       return result.toArray().map(row => row.toJSON());
     } catch (error) {
       console.error('Query failed:', error);
+
+      // Check if this is a connection-related error that might be fixed by reinitializing
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      if (
+        errorMessage.includes('connection') ||
+        errorMessage.includes('closed') ||
+        errorMessage.includes('terminated')
+      ) {
+        console.log('Connection error detected, attempting to reinitialize...');
+        try {
+          // Reset the connection state
+          this.connection = null;
+          this.initialized = false;
+
+          // Reinitialize
+          await this.initialize();
+
+          // Retry the query after reinitialization
+          return await this.query(sql);
+        } catch (retryError) {
+          console.error('Failed to reinitialize and retry query:', retryError);
+          throw new Error('Database connection lost and could not be reestablished');
+        }
+      }
+
       throw error;
     }
   }
