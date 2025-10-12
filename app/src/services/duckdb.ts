@@ -1,4 +1,5 @@
 import * as duckdb from '@duckdb/duckdb-wasm';
+import * as arrow from 'apache-arrow';
 import duckdb_wasm from '@duckdb/duckdb-wasm/dist/duckdb-mvp.wasm?url';
 import mvp_worker from '@duckdb/duckdb-wasm/dist/duckdb-browser-mvp.worker.js?url';
 import duckdb_wasm_eh from '@duckdb/duckdb-wasm/dist/duckdb-eh.wasm?url';
@@ -47,7 +48,7 @@ class DuckDBService {
     }
   }
 
-  async query(sql: string): Promise<any[]> {
+  async query(sql: string): Promise<arrow.Table> {
     if (!this.connection) {
       console.log('DuckDB not initialized, attempting to reinitialize...');
       try {
@@ -59,8 +60,7 @@ class DuckDBService {
     }
 
     try {
-      const result = await this.connection!.query(sql);
-      return result.toArray().map(row => row.toJSON());
+      return await this.connection!.query(sql);
     } catch (error) {
       console.error('Query failed:', error);
 
@@ -90,6 +90,65 @@ class DuckDBService {
 
       throw error;
     }
+  }
+
+  /**
+   * Helper method to convert an Apache Arrow Table to an array of plain JavaScript objects
+   * This is useful when you need the old behavior of returning JSON objects
+   */
+  tableToArray(table: arrow.Table): any[] {
+    return table.toArray().map((row: any) => row.toJSON());
+  }
+
+  /**
+   * Helper method to get a single row from an Apache Arrow Table as a plain object
+   * Useful for summary queries that return a single row
+   */
+  getFirstRow(table: arrow.Table): any | null {
+    if (table.numRows === 0) return null;
+    return table.get(0);
+  }
+
+  /**
+   * Helper method to extract a scalar value from an Apache Arrow Table column
+   * Handles the case where aggregation functions return typed arrays (Uint32Array, etc.)
+   * This replaces the old extractValue hack
+   */
+  getScalarValue(table: arrow.Table, rowIndex: number, columnName: string): any {
+    if (table.numRows === 0) return null;
+
+    const row = table.get(rowIndex);
+    if (!row) return null;
+
+    const value = row[columnName];
+
+    // Handle typed arrays (common with aggregation functions)
+    if (
+      value instanceof Uint32Array ||
+      value instanceof Int32Array ||
+      value instanceof Float32Array ||
+      value instanceof Float64Array
+    ) {
+      return value.length > 0 ? value[0] : 0;
+    }
+
+    // Handle regular arrays
+    if (Array.isArray(value)) {
+      return value.length > 0 ? value[0] : null;
+    }
+
+    return value;
+  }
+
+  /**
+   * Helper method to get all values from a specific column in an Apache Arrow Table
+   * Returns the raw Arrow Vector data as an array
+   */
+  getColumnValues(table: arrow.Table, columnName: string): any[] {
+    const column = table.getChild(columnName);
+    if (!column) return [];
+
+    return column.toArray();
   }
 
   async close() {

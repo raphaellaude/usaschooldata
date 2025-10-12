@@ -118,7 +118,8 @@ export class DataService {
         ORDER BY school_year DESC, grade, race_ethnicity, sex
       `;
 
-      return await duckDBService.query(selectQuery);
+      const table = await duckDBService.query(selectQuery);
+      return duckDBService.tableToArray(table);
     } catch (error) {
       console.error(`Failed to query school membership for ${schoolCode}:`, error);
 
@@ -164,7 +165,8 @@ export class DataService {
         ORDER BY school_year DESC, ncessch, grade, race_ethnicity, sex
       `;
 
-      return await duckDBService.query(selectQuery);
+      const table = await duckDBService.query(selectQuery);
+      return duckDBService.tableToArray(table);
     } catch (error) {
       console.error(`Failed to query district membership for ${districtCode}:`, error);
 
@@ -215,44 +217,39 @@ export class DataService {
 
       console.log(summaryQuery);
 
-      const result = await duckDBService.query(summaryQuery);
-      console.log('Raw DuckDB result:', result[0]);
+      const table = await duckDBService.query(summaryQuery);
 
-      if (result.length === 0 || result[0].total_enrollment === 0) {
+      if (table.numRows === 0 || duckDBService.getScalarValue(table, 0, 'total_enrollment') === 0) {
         return null;
       }
 
-      const summary = result[0];
-
-      // Helper function to extract scalar values from potential arrays
-      const extractValue = (val: any) => {
-        if (val instanceof Uint32Array) {
-          return val[0] || 0;
-        }
-        return val || 0;
-      };
-
       return {
         schoolCode,
-        totalEnrollment: extractValue(summary.total_enrollment),
-        schoolYears: summary.school_years,
-        grades: summary.grades,
-        latestYear: summary.latest_year,
+        totalEnrollment: duckDBService.getScalarValue(table, 0, 'total_enrollment'),
+        schoolYears: duckDBService.getScalarValue(table, 0, 'school_years'),
+        grades: duckDBService.getScalarValue(table, 0, 'grades'),
+        latestYear: duckDBService.getScalarValue(table, 0, 'latest_year'),
         demographics: {
           byRaceEthnicity: {
-            White: extractValue(summary.white_count),
-            'Black or African American': extractValue(summary.black_count),
-            'Hispanic/Latino': extractValue(summary.hispanic_count),
-            Asian: extractValue(summary.asian_count),
-            'American Indian or Alaska Native': extractValue(summary.native_american_count),
-            'Native Hawaiian or Other Pacific Islander': extractValue(
-              summary.pacific_islander_count
+            White: duckDBService.getScalarValue(table, 0, 'white_count'),
+            'Black or African American': duckDBService.getScalarValue(table, 0, 'black_count'),
+            'Hispanic/Latino': duckDBService.getScalarValue(table, 0, 'hispanic_count'),
+            Asian: duckDBService.getScalarValue(table, 0, 'asian_count'),
+            'American Indian or Alaska Native': duckDBService.getScalarValue(
+              table,
+              0,
+              'native_american_count'
             ),
-            'Two or more races': extractValue(summary.multiracial_count),
+            'Native Hawaiian or Other Pacific Islander': duckDBService.getScalarValue(
+              table,
+              0,
+              'pacific_islander_count'
+            ),
+            'Two or more races': duckDBService.getScalarValue(table, 0, 'multiracial_count'),
           },
           bySex: {
-            Male: extractValue(summary.male_count),
-            Female: extractValue(summary.female_count),
+            Male: duckDBService.getScalarValue(table, 0, 'male_count'),
+            Female: duckDBService.getScalarValue(table, 0, 'female_count'),
           },
         },
       };
@@ -306,44 +303,40 @@ export class DataService {
         ORDER BY 1 DESC, 2 ASC
       `;
 
-      const result = await duckDBService.query(summaryQuery);
+      const table = await duckDBService.query(summaryQuery);
 
-      if (result.length === 0 || result[0].total_enrollment === 0) {
+      if (table.numRows === 0 || duckDBService.getScalarValue(table, 0, 'total_enrollment') === 0) {
         return null;
       }
 
-      const summary = result[0];
-
-      // Helper function to extract scalar values from potential arrays
-      const extractValue = (val: any) => {
-        if (Array.isArray(val)) {
-          return val[0] || 0;
-        }
-        return val || 0;
-      };
-
       return {
         districtCode,
-        totalEnrollment: extractValue(summary.total_enrollment),
-        schoolCount: extractValue(summary.school_count),
-        schoolYears: summary.school_years,
-        grades: summary.grades,
-        latestYear: summary.latest_year,
+        totalEnrollment: duckDBService.getScalarValue(table, 0, 'total_enrollment'),
+        schoolCount: duckDBService.getScalarValue(table, 0, 'school_count'),
+        schoolYears: duckDBService.getScalarValue(table, 0, 'school_years'),
+        grades: duckDBService.getScalarValue(table, 0, 'grades'),
+        latestYear: duckDBService.getScalarValue(table, 0, 'latest_year'),
         demographics: {
           byRaceEthnicity: {
-            White: extractValue(summary.white_count),
-            'Black or African American': extractValue(summary.black_count),
-            'Hispanic/Latino': extractValue(summary.hispanic_count),
-            Asian: extractValue(summary.asian_count),
-            'American Indian or Alaska Native': extractValue(summary.native_american_count),
-            'Native Hawaiian or Other Pacific Islander': extractValue(
-              summary.pacific_islander_count
+            White: duckDBService.getScalarValue(table, 0, 'white_count'),
+            'Black or African American': duckDBService.getScalarValue(table, 0, 'black_count'),
+            'Hispanic/Latino': duckDBService.getScalarValue(table, 0, 'hispanic_count'),
+            Asian: duckDBService.getScalarValue(table, 0, 'asian_count'),
+            'American Indian or Alaska Native': duckDBService.getScalarValue(
+              table,
+              0,
+              'native_american_count'
             ),
-            'Two or more races': extractValue(summary.multiracial_count),
+            'Native Hawaiian or Other Pacific Islander': duckDBService.getScalarValue(
+              table,
+              0,
+              'pacific_islander_count'
+            ),
+            'Two or more races': duckDBService.getScalarValue(table, 0, 'multiracial_count'),
           },
           bySex: {
-            Male: extractValue(summary.male_count),
-            Female: extractValue(summary.female_count),
+            Male: duckDBService.getScalarValue(table, 0, 'male_count'),
+            Female: duckDBService.getScalarValue(table, 0, 'female_count'),
           },
         },
       };
