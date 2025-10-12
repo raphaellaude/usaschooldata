@@ -45,23 +45,23 @@ export const RACE_ETHNICITY_VALUES = [
 export const SEX_VALUES = ['Female', 'Male'] as const;
 
 export const GRADE_VALUES = [
-  'Grade 8',
   'Pre-Kindergarten',
-  'Ungraded',
-  'Grade 11',
-  'Grade 9',
-  'Grade 12',
   'Kindergarten',
-  'Grade 6',
-  'Grade 7',
-  'Grade 5',
-  'Adult Education',
   'Grade 1',
-  'Grade 13',
   'Grade 2',
   'Grade 3',
   'Grade 4',
+  'Grade 5',
+  'Grade 6',
+  'Grade 7',
+  'Grade 8',
+  'Grade 9',
+  'Grade 11',
+  'Grade 12',
   'Grade 10',
+  'Grade 13',
+  'Ungraded',
+  'Adult Education',
 ] as const;
 
 export class YearNotAvailableError extends Error {
@@ -164,11 +164,36 @@ export class DataService {
 
       // Query the in-memory table with additional filters
       const selectQuery = `
-        SELECT * FROM school_membership_${schoolCode}
-        ${options.grade ? `WHERE grade = '${options.grade}'` : ''}
-        ${options.raceEthnicity ? `${options.grade ? 'AND' : 'WHERE'} race_ethnicity = '${options.raceEthnicity}'` : ''}
-        ${options.sex ? `${options.grade || options.raceEthnicity ? 'AND' : 'WHERE'} sex = '${options.sex}'` : ''}
-        ORDER BY school_year DESC, grade, race_ethnicity, sex
+        WITH grade_ordered AS (
+          SELECT *,
+            CASE grade
+              WHEN 'Pre-Kindergarten' THEN -1
+              WHEN 'Kindergarten' THEN 0
+              WHEN 'Grade 1' THEN 1
+              WHEN 'Grade 2' THEN 2
+              WHEN 'Grade 3' THEN 3
+              WHEN 'Grade 4' THEN 4
+              WHEN 'Grade 5' THEN 5
+              WHEN 'Grade 6' THEN 6
+              WHEN 'Grade 7' THEN 7
+              WHEN 'Grade 8' THEN 8
+              WHEN 'Grade 9' THEN 9
+              WHEN 'Grade 10' THEN 10
+              WHEN 'Grade 11' THEN 11
+              WHEN 'Grade 12' THEN 12
+              WHEN 'Grade 13' THEN 13
+              WHEN 'Ungraded' THEN 20
+              WHEN 'Adult Education' THEN 21
+              ELSE 99
+            END as grade_order
+          FROM school_membership_${schoolCode}
+          ${options.grade ? `WHERE grade = '${options.grade}'` : ''}
+          ${options.raceEthnicity ? `${options.grade ? 'AND' : 'WHERE'} race_ethnicity = '${options.raceEthnicity}'` : ''}
+          ${options.sex ? `${options.grade || options.raceEthnicity ? 'AND' : 'WHERE'} sex = '${options.sex}'` : ''}
+        )
+        SELECT ncessch, leaid, school_year, grade, race_ethnicity, sex, student_count
+        FROM grade_ordered
+        ORDER BY school_year DESC, grade_order, race_ethnicity, sex
       `;
 
       const table = await duckDBService.query(selectQuery);
@@ -228,6 +253,33 @@ export class DataService {
 
       // Query the in-memory table with additional filters and aggregation
       const selectQuery = `
+        WITH grade_ordered AS (
+          SELECT *,
+            CASE grade
+              WHEN 'Pre-Kindergarten' THEN -1
+              WHEN 'Kindergarten' THEN 0
+              WHEN 'Grade 1' THEN 1
+              WHEN 'Grade 2' THEN 2
+              WHEN 'Grade 3' THEN 3
+              WHEN 'Grade 4' THEN 4
+              WHEN 'Grade 5' THEN 5
+              WHEN 'Grade 6' THEN 6
+              WHEN 'Grade 7' THEN 7
+              WHEN 'Grade 8' THEN 8
+              WHEN 'Grade 9' THEN 9
+              WHEN 'Grade 10' THEN 10
+              WHEN 'Grade 11' THEN 11
+              WHEN 'Grade 12' THEN 12
+              WHEN 'Grade 13' THEN 13
+              WHEN 'Ungraded' THEN 20
+              WHEN 'Adult Education' THEN 21
+              ELSE 99
+            END as grade_order
+          FROM district_membership_${districtCode}
+          ${options.grade ? `WHERE grade = '${options.grade}'` : ''}
+          ${options.raceEthnicity ? `${options.grade ? 'AND' : 'WHERE'} race_ethnicity = '${options.raceEthnicity}'` : ''}
+          ${options.sex ? `${options.grade || options.raceEthnicity ? 'AND' : 'WHERE'} sex = '${options.sex}'` : ''}
+        )
         SELECT
           ncessch,
           school_year,
@@ -235,12 +287,9 @@ export class DataService {
           race_ethnicity,
           sex,
           SUM(student_count) as total_student_count
-        FROM district_membership_${districtCode}
-        ${options.grade ? `WHERE grade = '${options.grade}'` : ''}
-        ${options.raceEthnicity ? `${options.grade ? 'AND' : 'WHERE'} race_ethnicity = '${options.raceEthnicity}'` : ''}
-        ${options.sex ? `${options.grade || options.raceEthnicity ? 'AND' : 'WHERE'} sex = '${options.sex}'` : ''}
-        GROUP BY ncessch, school_year, grade, race_ethnicity, sex
-        ORDER BY school_year DESC, ncessch, grade, race_ethnicity, sex
+        FROM grade_ordered
+        GROUP BY ncessch, school_year, grade, race_ethnicity, sex, grade_order
+        ORDER BY school_year DESC, ncessch, grade_order, race_ethnicity, sex
       `;
 
       const table = await duckDBService.query(selectQuery);
