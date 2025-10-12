@@ -4,6 +4,7 @@ import {useDuckDB} from '../hooks/useDuckDB';
 import {useProfileData} from '../hooks/useProfileData';
 import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
+import CopyableWrapper from './CopyableWrapper';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
 
 export default function Profile() {
@@ -122,28 +123,36 @@ export default function Profile() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <h4 className="text-lg font-medium text-gray-900 mb-4">By Gender</h4>
-            <div className="flex flex-col">
-              <DoughnutChart
-                data={sexData}
-                width={280}
-                height={240}
-                colorMapping={{
-                  Male: '#f04e23',
-                  Female: '#ffd400',
-                }}
-              />
+          <CopyableWrapper data={sexData} filename="gender-demographics">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h4 className="text-lg font-medium text-gray-900 mb-4">By Gender</h4>
+              <div className="flex flex-col">
+                <DoughnutChart
+                  data={sexData}
+                  width={280}
+                  height={240}
+                  colorMapping={{
+                    Male: '#f04e23',
+                    Female: '#ffd400',
+                  }}
+                />
+              </div>
             </div>
-          </div>
+          </CopyableWrapper>
 
           {/* Race/Ethnicity Demographics - Bar Chart */}
-          <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-6">
-            <h4 className="text-lg font-medium text-gray-900 mb-4">By Race/Ethnicity</h4>
-            <div className="h-[300px]">
-              <BarChart data={raceData} />
+          <CopyableWrapper
+            data={raceData}
+            filename="race-ethnicity-demographics"
+            className="lg:col-span-2"
+          >
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h4 className="text-lg font-medium text-gray-900 mb-4">By Race/Ethnicity</h4>
+              <div className="h-[300px]">
+                <BarChart data={raceData} />
+              </div>
             </div>
-          </div>
+          </CopyableWrapper>
         </div>
       </div>
     );
@@ -155,52 +164,54 @@ export default function Profile() {
       {membershipData.length > 0 ? (
         <div>
           <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="max-h-96 overflow-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-gray-50 sticky top-0">
-                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
-                      School Year
-                    </th>
-                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
-                      Grade
-                    </th>
-                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
-                      Race/Ethnicity
-                    </th>
-                    <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
-                      Sex
-                    </th>
-                    <th className="px-3 py-2 text-right font-medium text-gray-900 border-b border-gray-200">
-                      Student Count
-                    </th>
-                    {entityType === 'district' && (
+          <CopyableWrapper data={membershipData} filename="membership-data">
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <div className="max-h-96 overflow-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-gray-50 sticky top-0">
                       <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
-                        School Code
+                        School Year
                       </th>
-                    )}
-                  </tr>
-                </thead>
-                <tbody>
-                  {membershipData.slice(0, 100).map((row, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-3 py-2 text-gray-900">{row.school_year}</td>
-                      <td className="px-3 py-2 text-gray-900">{row.grade}</td>
-                      <td className="px-3 py-2 text-gray-900">{row.race_ethnicity}</td>
-                      <td className="px-3 py-2 text-gray-900">{row.sex}</td>
-                      <td className="px-3 py-2 text-right text-gray-900">
-                        {(row.student_count || row.total_student_count || 0).toLocaleString()}
-                      </td>
+                      <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                        Grade
+                      </th>
+                      <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                        Race/Ethnicity
+                      </th>
+                      <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                        Sex
+                      </th>
+                      <th className="px-3 py-2 text-right font-medium text-gray-900 border-b border-gray-200">
+                        Student Count
+                      </th>
                       {entityType === 'district' && (
-                        <td className="px-3 py-2 text-gray-900">{row.ncessch}</td>
+                        <th className="px-3 py-2 text-left font-medium text-gray-900 border-b border-gray-200">
+                          School Code
+                        </th>
                       )}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {membershipData.slice(0, 100).map((row, index) => (
+                      <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                        <td className="px-3 py-2 text-gray-900">{row.school_year}</td>
+                        <td className="px-3 py-2 text-gray-900">{row.grade}</td>
+                        <td className="px-3 py-2 text-gray-900">{row.race_ethnicity}</td>
+                        <td className="px-3 py-2 text-gray-900">{row.sex}</td>
+                        <td className="px-3 py-2 text-right text-gray-900">
+                          {(row.student_count || row.total_student_count || 0).toLocaleString()}
+                        </td>
+                        {entityType === 'district' && (
+                          <td className="px-3 py-2 text-gray-900">{row.ncessch}</td>
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          </CopyableWrapper>
           {membershipData.length > 100 && (
             <p className="text-gray-600 text-sm mt-4 italic">
               Showing first 100 rows of {membershipData.length} total records
