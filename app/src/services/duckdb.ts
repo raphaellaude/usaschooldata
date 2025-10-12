@@ -49,6 +49,18 @@ class DuckDBService {
     }
   }
 
+  async close() {
+    if (this.connection) {
+      await this.connection.close();
+      this.connection = null;
+    }
+    if (this.db) {
+      await this.db.terminate();
+      this.db = null;
+    }
+    this.initialized = false;
+  }
+
   async query(sql: string): Promise<arrow.Table> {
     if (!this.connection) {
       console.log('DuckDB not initialized, attempting to reinitialize...');
