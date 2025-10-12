@@ -1,9 +1,4 @@
-// import { useDuckDB } from "../hooks/useDuckDB";
-// import { DEFAULT_SCHOOL_YEAR } from "../constants";
-
 export default function Home() {
-  // const { isLoading, error, isInitialized } = useDuckDB();
-
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
       <header className="text-center mb-8">
