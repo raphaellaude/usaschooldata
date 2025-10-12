@@ -14,9 +14,6 @@ export default function Profile() {
   const [searchParams] = useSearchParams();
   const {isLoading: dbLoading, error: dbError, isInitialized} = useDuckDB();
 
-  // Note: section extraction not needed since we show all sections on one page
-  // const section = location.hash.slice(1) || "overview";
-
   // Extract year from URL parameters, default to 2023-2024
   const urlRequestedYear = searchParams.get('year') || DEFAULT_SCHOOL_YEAR;
   const [fallbackToDefault, setFallbackToDefault] = React.useState(false);
@@ -132,8 +129,8 @@ export default function Profile() {
                   width={280}
                   height={240}
                   colorMapping={{
-                    Male: '#f04e23',
-                    Female: '#ffd400',
+                    Male: '#525252',
+                    Female: '#9e9e9e',
                   }}
                 />
               </div>
