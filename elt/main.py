@@ -17,7 +17,70 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command(name="directory")
+@click.option(
+    "-y",
+    "--school-year",
+    type=str,
+    multiple=True,
+    default=MEMBERSHIP_ALL_YEARS,
+    required=False,
+)
+def directory(school_year: list[str]):
+    conn = duckdb.connect(":memory:")
+
+    env = Environment(loader=FileSystemLoader(SQL_DIR), undefined=StrictUndefined)
+    template = env.get_template("directory.sql")
+
+    with open(str(SCHEMAS_DIR / "config.yml")) as f:
+        config = yaml.safe_load(f.read())
+
+    for yr in school_year:
+        logger.info(f"processing {yr}")
+        year_config = config["directory"][yr]
+        table_name = year_config["table_name"]
+        zip_name = year_config["zip_name"]
+
+        assert DIRECTORY is not None and os.path.exists(DIRECTORY), (
+            f"Directory {DIRECTORY} does not exist"
+        )
+        source_data_directory = Path(DIRECTORY) / "raw" / "directory"
+
+        zip_path = source_data_directory / zip_name
+        logger.info(f"Processing zip file: {zip_path}")
+        csvs = get_all_csvs_in_zip(zip_path)
+        file_path = csvs[0]
+        clean_csv_to_utf8(file_path)
+        logger.info(f"Found CSV: {file_path}")
+
+        # TODO: issues noticed
+        # - sch level changes from code to text description in 1617
+        data_prep_sql = template.render(
+            file_path=file_path, school_year=yr, mapping=year_config["mapping"]
+        )
+        sql = f"CREATE OR REPLACE TABLE {table_name} AS\n{data_prep_sql}"
+        conn.execute(sql)
+
+        write_sql_template = f"""
+        COPY (
+            SELECT
+                *,
+                substr(ncessch, 1, 8) as leaid,
+                substr(ncessch, 1, 2) as state_leaid,
+            FROM {table_name}
+            ORDER BY ncessch
+        ) TO '{DIRECTORY}/directory/{table_name}.parquet' (
+            FORMAT parquet,
+            OVERWRITE_OR_IGNORE,
+            COMPRESSION snappy
+        );
+        """
+        conn.execute(write_sql_template)
+
+    # TODO: combine into one table / file
+
+
+@cli.command(name="membership")
 @click.option(
     "-y",
     "--school-year",
@@ -32,12 +95,12 @@ def membership(school_year: list[str]):
     env = Environment(loader=FileSystemLoader(SQL_DIR), undefined=StrictUndefined)
     template = env.get_template("membership.sql")
 
-    with open(str(SCHEMAS_DIR / "membership.yml")) as f:
+    with open(str(SCHEMAS_DIR / "config.yml")) as f:
         config = yaml.safe_load(f.read())
 
     for yr in school_year:
         logger.info(f"processing {yr}")
-        year_config = config["raw"][yr]
+        year_config = config["membership"][yr]
         table_name = year_config["table_name"]
         zip_name = year_config["zip_name"]
 

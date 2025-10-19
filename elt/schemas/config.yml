@@ -1,0 +1,430 @@
+membership:
+  sy2324:
+    table_name: ccd_sch_052_2324
+    zip_name: ccd_sch_052_2324_l_1a_073124.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy2223:
+    table_name: ccd_sch_052_2223
+    zip_name: ccd_sch_052_2223_l_1a_083023.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy2122:
+    table_name: ccd_sch_052_2122
+    zip_name: ccd_SCH_052_2122_l_1a_071722.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy2021:
+    table_name: ccd_sch_052_2021
+    zip_name: ccd_sch_052_2021_l_1a_080621.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy1920:
+    table_name: ccd_sch_052_1920
+    zip_name: ccd_SCH_052_1920_l_1a_082120.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy1819:
+    table_name: ccd_sch_052_1819
+    zip_name: ccd_sch_052_1819_l_1a_091019.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy1718:
+    table_name: ccd_sch_052_1718
+    zip_name: ccd_sch_052_1718_l_1a_083118.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy1617:
+    table_name: ccd_sch_052_1617
+    zip_name: ccd_sch_052_1617_l_2a_11212017_CSV.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      GRADE: grade
+      RACE_ETHNICITY: race_ethnicity
+      SEX: sex
+      STUDENT_COUNT: student_count
+      TOTAL_INDICATOR: total_indicator
+      DMS_FLAG: dms_flag
+  sy1516:
+    table_name: ccd_sch_052_1516
+    zip_name: ccd_sch_052_1516_w_2a_011717_csv.zip
+    mapping:
+      SURVYEAR: school_year
+      STABR: state_code
+      NCESSCH: ncessch
+  sy1415:
+    table_name: ccd_sch_052_1415
+    zip_name: ccd_sch_052_1415_w_0216161a_txt.zip
+    mapping:
+      SURVYEAR: school_year
+      STABR: state_code
+      NCESSCH: ncessch
+directory:
+  sy2324:
+    table_name: ccd_sch_0292324
+    zip_name: ccd_sch_029_2324_w_1a_073124.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy2223:
+    table_name: ccd_sch_0292223
+    zip_name: ccd_sch_029_2223_w_1a_083023.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy2122:
+    table_name: ccd_sch_0292122
+    zip_name: ccd_sch_029_2122_w_1a_071722.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy2021:
+    table_name: ccd_sch_0292021
+    zip_name: ccd_sch_029_2021_w_1a_080621.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy1920:
+    table_name: ccd_sch_0291920
+    zip_name: ccd_sch_029_1920_w_1a_082120.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy1819:
+    table_name: ccd_sch_0291819
+    zip_name: ccd_sch_029_1819_w_1a_091019.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy1718:
+    table_name: ccd_sch_0291718
+    zip_name: ccd_sch_029_1718_w_1a_083118.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy1617:
+    table_name: ccd_sch_0291617
+    zip_name: ccd_sch_029_1617_w_1a_11212017_csv.zip
+    mapping:
+      SCHOOL_YEAR: school_year
+      ST: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      G_PK_OFFERED: grade_pk
+      G_KG_OFFERED: grade_kg
+      G_1_OFFERED: grade_01
+      G_2_OFFERED: grade_02
+      G_3_OFFERED: grade_03
+      G_4_OFFERED: grade_04
+      G_5_OFFERED: grade_05
+      G_6_OFFERED: grade_06
+      G_7_OFFERED: grade_07
+      G_8_OFFERED: grade_08
+      G_9_OFFERED: grade_09
+      G_10_OFFERED: grade_10
+      G_11_OFFERED: grade_11
+      G_12_OFFERED: grade_12
+      G_13_OFFERED: grade_13
+      G_UG_OFFERED: grade_ug
+      G_AE_OFFERED: grade_ae
+      # NOGRADES: grade_none
+  sy1516:
+    table_name: ccd_sch_0291516
+    zip_name: ccd_sch_029_1516_w_2a_011717_csv.zip
+    mapping:
+      SURVYEAR: school_year
+      STABR: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      PKOFFERED: grade_pk
+      KGOFFERED: grade_kg
+      G1OFFERED: grade_01
+      G2OFFERED: grade_02
+      G3OFFERED: grade_03
+      G4OFFERED: grade_04
+      G5OFFERED: grade_05
+      G6OFFERED: grade_06
+      G7OFFERED: grade_07
+      G8OFFERED: grade_08
+      G9OFFERED: grade_09
+      G10OFFERED: grade_10
+      G11OFFERED: grade_11
+      G12OFFERED: grade_12
+      G13OFFERED: grade_13
+      UGOFFERED: grade_ug
+      AEOFFERED: grade_ae
+      # no nogrades column
+  sy1415:
+    table_name: ccd_sch_0291415
+    zip_name: ccd_sch_029_1415_w_0216601a_txt.zip
+    mapping:
+      SURVYEAR: school_year
+      STABR: state_code
+      NCESSCH: ncessch
+      SCH_NAME: sch_name
+      SY_STATUS: sy_status
+      UPDATED_STATUS: sy_status_updated
+      SCH_TYPE: sch_type
+      CHARTER_TEXT: charter
+      LEVEL: sch_level
+      PKOFFERED: grade_pk
+      KGOFFERED: grade_kg
+      G1OFFERED: grade_01
+      G2OFFERED: grade_02
+      G3OFFERED: grade_03
+      G4OFFERED: grade_04
+      G5OFFERED: grade_05
+      G6OFFERED: grade_06
+      G7OFFERED: grade_07
+      G8OFFERED: grade_08
+      G9OFFERED: grade_09
+      G10OFFERED: grade_10
+      G11OFFERED: grade_11
+      G12OFFERED: grade_12
+      G13OFFERED: grade_13
+      UGOFFERED: grade_ug
+      AEOFFERED: grade_ae
+      # no nogrades column
