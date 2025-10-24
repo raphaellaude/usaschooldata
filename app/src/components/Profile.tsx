@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams, useSearchParams} from 'react-router-dom';
 import {useDuckDB} from '../hooks/useDuckDB';
 import {useProfileData} from '../hooks/useProfileData';
+import {useSchoolDirectory} from '../hooks/useSchoolDirectory';
 import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import CopyableWrapper from './CopyableWrapper';
@@ -42,6 +43,9 @@ export default function Profile() {
     ncesCode,
     {schoolYear: year} // Pass year as filter
   );
+
+  // Fetch directory information (school name, etc.) for this school and year
+  const {directoryInfo, isLoading: directoryLoading} = useSchoolDirectory(ncesCode, year);
 
   // Handle automatic fallback to default year when requested year is not available
   React.useEffect(() => {
@@ -228,11 +232,23 @@ export default function Profile() {
         <div className="max-w-5xl mx-auto px-6 py-4">
           <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
             <img src="/usaschooldata.svg" alt="USA School Data" className="w-8 h-8" />
-            {entityType === 'district' ? 'District' : 'School'} Profile
+            {directoryLoading ? (
+              <span className="text-gray-400">Loading...</span>
+            ) : directoryInfo ? (
+              directoryInfo.sch_name
+            ) : (
+              `${entityType === 'district' ? 'District' : 'School'} Profile`
+            )}
           </h1>
           <div className="flex items-center gap-4 text-sm text-gray-500">
             <span>NCES ID: {ncesCode}</span>
             <span>School Year: {year}</span>
+            {directoryInfo && directoryInfo.lea_name && (
+              <span>District: {directoryInfo.lea_name}</span>
+            )}
+            {directoryInfo && directoryInfo.city && directoryInfo.state_name && (
+              <span>Location: {directoryInfo.city}, {directoryInfo.state_name}</span>
+            )}
           </div>
 
           {/* Navigation */}
