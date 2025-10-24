@@ -3,7 +3,7 @@ import {duckDBService} from '../services/duckdb';
 
 export interface SchoolSearchResult {
   ncessch: string;
-  school_name: string;
+  sch_name: string;
   lea_name: string;
   city: string;
   state_name: string;
@@ -29,10 +29,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       CREATE OR REPLACE TABLE school_directory AS
       SELECT
         ncessch,
-        school_name,
-        lea_name,
-        city,
-        state_name,
+        sch_name,
         school_year
       FROM read_parquet('${dataDirectory}/directory.parquet')
       WHERE school_year_no = 1
@@ -49,17 +46,12 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       const searchQuerySQL = `
       SELECT
         ncessch,
-        school_name,
-        lea_name,
-        city,
-        state_name,
+        sch_name,
         school_year
       FROM school_directory
       WHERE
-        LOWER(school_name) LIKE LOWER('%${sanitizeQuery(query)}%')
-        OR LOWER(lea_name) LIKE LOWER('%${sanitizeQuery(query)}%')
-        OR LOWER(city) LIKE LOWER('%${sanitizeQuery(query)}%')
-      ORDER BY school_name
+        LOWER(sch_name) LIKE LOWER('%${sanitizeQuery(query)}%')
+      ORDER BY sch_name
       LIMIT 10
     `;
 
