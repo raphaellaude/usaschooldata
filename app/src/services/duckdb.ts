@@ -61,6 +61,10 @@ class DuckDBService {
     this.initialized = false;
   }
 
+  isInitialized(): boolean {
+    return this.initialized;
+  }
+
   async query(sql: string): Promise<arrow.Table> {
     if (!this.connection) {
       console.log('DuckDB not initialized, attempting to reinitialize...');
