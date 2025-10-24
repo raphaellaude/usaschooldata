@@ -2,11 +2,20 @@ import {useState, useEffect} from 'react';
 import {duckDBService} from '../services/duckdb';
 
 export function useDuckDB() {
-  const [isLoading, setIsLoading] = useState(true);
+  // Check if DB is already initialized to avoid unnecessary loading state
+  const initiallyInitialized = duckDBService.isInitialized();
+  const [isLoading, setIsLoading] = useState(!initiallyInitialized);
   const [error, setError] = useState<string | null>(null);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(initiallyInitialized);
 
   useEffect(() => {
+    // If already initialized, no need to do anything
+    if (duckDBService.isInitialized()) {
+      setIsInitialized(true);
+      setIsLoading(false);
+      return;
+    }
+
     async function initDB() {
       try {
         setIsLoading(true);
@@ -22,9 +31,8 @@ export function useDuckDB() {
 
     initDB();
 
-    return () => {
-      duckDBService.close();
-    };
+    // Don't close the database on unmount - it should persist across navigation
+    // The database will be closed when the browser tab/window closes
   }, []);
 
   const query = async (sql: string) => {
