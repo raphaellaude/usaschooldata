@@ -32,7 +32,7 @@ export default function Header() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search schools..."
               className="px-3 py-1.5 w-56 text-sm bg-[#2a2a2a] text-white placeholder-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />

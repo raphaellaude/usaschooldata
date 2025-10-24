@@ -26,14 +26,10 @@ export default function Search() {
         )}
       </div>
 
-      {dbLoading && (
-        <div className="text-gray-600 mb-4">Initializing database...</div>
-      )}
+      {dbLoading && <div className="text-gray-600 mb-4">Initializing database...</div>}
 
       {dbError && (
-        <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">
-          Error: {dbError}
-        </div>
+        <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">Error: {dbError}</div>
       )}
 
       {!isInitialized && !dbLoading && !dbError && (
@@ -48,9 +44,7 @@ export default function Search() {
       )}
 
       {searchError && (
-        <div className="text-red-600 p-4 bg-red-50 rounded-lg">
-          Error: {searchError}
-        </div>
+        <div className="text-red-600 p-4 bg-red-50 rounded-lg">Error: {searchError}</div>
       )}
 
       {searchQuery.length > 0 && searchQuery.length < 3 && (
@@ -70,9 +64,7 @@ export default function Search() {
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {school.sch_name}
-                    </h3>
+                    <h3 className="text-lg font-semibold text-gray-900">{school.sch_name}</h3>
                     <p className="text-sm text-gray-600 mt-1">{school.lea_name}</p>
                     <p className="text-sm text-gray-500 mt-1">
                       {school.city}, {school.state_name}
@@ -80,9 +72,7 @@ export default function Search() {
                   </div>
                   <div className="text-xs text-gray-400">{school.school_year}</div>
                 </div>
-                <div className="mt-2 text-xs text-gray-400">
-                  NCES ID: {school.ncessch}
-                </div>
+                <div className="mt-2 text-xs text-gray-400">NCES ID: {school.ncessch}</div>
               </Link>
             ))}
           </div>
