@@ -53,7 +53,7 @@ export default function Home() {
                   {results.map(school => (
                     <Link
                       key={school.ncessch}
-                      to={`/profiles/${school.ncessch}`}
+                      to={`/profiles/${school.ncessch}?year=${school.school_year}`}
                       className="block px-6 py-4 hover:bg-gray-50 transition-colors"
                     >
                       <div className="flex justify-between items-start">
