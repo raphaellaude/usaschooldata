@@ -16,14 +16,10 @@ export default function Home() {
           Search for schools and districts by name or location
         </p>
 
-        {dbLoading && (
-          <div className="text-gray-600 mb-4">Initializing database...</div>
-        )}
+        {dbLoading && <div className="text-gray-600 mb-4">Initializing database...</div>}
 
         {dbError && (
-          <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">
-            Error: {dbError}
-          </div>
+          <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">Error: {dbError}</div>
         )}
 
         {isInitialized && (
@@ -33,7 +29,7 @@ export default function Home() {
                 type="text"
                 placeholder="Search schools or districts (min 3 characters)..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={e => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               {isSearching && (
@@ -44,21 +40,17 @@ export default function Home() {
             </div>
 
             {searchError && (
-              <div className="mt-4 text-red-600 p-4 bg-red-50 rounded-lg">
-                Error: {searchError}
-              </div>
+              <div className="mt-4 text-red-600 p-4 bg-red-50 rounded-lg">Error: {searchError}</div>
             )}
 
             {searchQuery.length > 0 && searchQuery.length < 3 && (
-              <div className="mt-4 text-gray-500 text-sm">
-                Type at least 3 characters to search
-              </div>
+              <div className="mt-4 text-gray-500 text-sm">Type at least 3 characters to search</div>
             )}
 
             {results.length > 0 && (
               <div className="mt-4 bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="divide-y divide-gray-200">
-                  {results.map((school) => (
+                  {results.map(school => (
                     <Link
                       key={school.ncessch}
                       to={`/profiles/${school.ncessch}`}
@@ -66,23 +58,15 @@ export default function Home() {
                     >
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900">
-                            {school.school_name}
-                          </h3>
-                          <p className="text-sm text-gray-600 mt-1">
-                            {school.lea_name}
-                          </p>
+                          <h3 className="text-lg font-semibold text-gray-900">{school.sch_name}</h3>
+                          <p className="text-sm text-gray-600 mt-1">{school.lea_name}</p>
                           <p className="text-sm text-gray-500 mt-1">
                             {school.city}, {school.state_name}
                           </p>
                         </div>
-                        <div className="text-xs text-gray-400">
-                          {school.school_year}
-                        </div>
+                        <div className="text-xs text-gray-400">{school.school_year}</div>
                       </div>
-                      <div className="mt-2 text-xs text-gray-400">
-                        NCES ID: {school.ncessch}
-                      </div>
+                      <div className="mt-2 text-xs text-gray-400">NCES ID: {school.ncessch}</div>
                     </Link>
                   ))}
                 </div>
