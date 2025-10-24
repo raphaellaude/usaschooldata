@@ -77,7 +77,17 @@ def directory(school_year: list[str]):
         """
         conn.execute(write_sql_template)
 
-    # TODO: combine into one table / file
+    # Combine into one table
+    combine_sql = f"""
+    COPY (
+        SELECT
+            *,
+            ROW_NUMBER() OVER (PARTITION BY ncessch ORDER BY school_year DESC) as school_year_no
+        FROM '{DIRECTORY}/directory/*.parquet'
+        ORDER BY school_year DESC, ncessch
+    ) TO '{DIRECTORY}/directory.parquet'
+    """
+    conn.execute(combine_sql)
 
 
 @cli.command(name="membership")
