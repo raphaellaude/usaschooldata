@@ -45,7 +45,11 @@ export default function Profile() {
   );
 
   // Fetch directory information (school name, etc.) for this school and year
-  const {directoryInfo, isLoading: directoryLoading} = useSchoolDirectory(ncesCode, year);
+  const {
+    directoryInfo,
+    isLoading: directoryLoading,
+    error: directoryError,
+  } = useSchoolDirectory(ncesCode, year);
 
   // Handle automatic fallback to default year when requested year is not available
   React.useEffect(() => {
@@ -287,7 +291,7 @@ export default function Profile() {
 
       {/* Content */}
       <main className="max-w-5xl mx-auto px-6 py-8">
-        {!isSystemReady || dataLoading ? (
+        {!isSystemReady || dataLoading || directoryLoading ? (
           <div className="space-y-12">
             {/* Overview Section - Loading Placeholder */}
             <section id="overview">
@@ -346,10 +350,11 @@ export default function Profile() {
               </div>
             </section>
           </div>
-        ) : dataError && !yearNotAvailable ? (
+        ) : (dataError && !yearNotAvailable) || directoryError ? (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-red-800 mb-2">Error Loading Data</h3>
-            <p className="text-red-700 mb-4">{dataError}</p>
+            {dataError && <p className="text-red-700 mb-2">{dataError}</p>}
+            {directoryError && <p className="text-red-700 mb-2">Directory error: {directoryError}</p>}
             <details className="text-sm">
               <summary className="font-medium text-red-800 cursor-pointer">Troubleshooting</summary>
               <ul className="mt-2 text-red-700 space-y-1">
