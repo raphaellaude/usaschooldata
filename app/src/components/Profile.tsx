@@ -98,10 +98,10 @@ export default function Profile() {
         {summary ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Summary Stats Box */}
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="rounded-lg">
               <div className="space-y-4">
-                <div className="flex justify-between py-2 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Total Enrollment:</span>
+                <div className="flex justify-between py-2">
+                  <span className="font-medium text-gray-700">Total enrollment</span>
                   <span className="text-gray-900">
                     {summary.totalEnrollment?.toLocaleString() || 'N/A'}
                   </span>
@@ -122,8 +122,8 @@ export default function Profile() {
                 filename="students-by-grade"
                 className="lg:col-span-2"
               >
-                <div className="bg-white border border-gray-200 rounded-lg p-6">
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Students by Grade</h4>
+                <div className="rounded-lg">
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">Students by grade</h4>
                   <div className="h-[400px]">
                     <BarChart data={gradeChartData} />
                   </div>
@@ -176,8 +176,8 @@ export default function Profile() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
           <CopyableWrapper data={sexData} filename="gender-demographics">
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h4 className="text-lg font-medium text-gray-900 mb-4">By Gender</h4>
+            <div className="rounded-lg">
+              <h4 className="text-lg font-medium text-gray-900 mb-4">Sex</h4>
               <div className="flex flex-col">
                 <DoughnutChart
                   data={sexData}
@@ -198,8 +198,8 @@ export default function Profile() {
             filename="race-ethnicity-demographics"
             className="lg:col-span-2"
           >
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h4 className="text-lg font-medium text-gray-900 mb-4">By Race/Ethnicity</h4>
+            <div className="rounded-lg">
+              <h4 className="text-lg font-medium text-gray-900 mb-4">Race & Ethnicity</h4>
               <div className="h-[300px]">
                 <BarChart data={raceData} />
               </div>
