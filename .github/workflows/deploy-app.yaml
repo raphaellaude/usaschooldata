@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - claude/deploy-usa-school-data-011CUTEMwNsebWDeMpP3PxPC # Temp
     paths:
       - "app/**"
       - ".github/workflows/deploy-app.yaml"
