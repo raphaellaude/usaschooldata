@@ -97,9 +97,10 @@ export default function Profile() {
       <div>
         <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
         {summary ? (
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Summary Stats Box */}
             <div className="bg-gray-50 rounded-lg p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="font-medium text-gray-700">Total Enrollment:</span>
                   <span className="text-gray-900">
