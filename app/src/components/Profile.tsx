@@ -3,6 +3,7 @@ import {useParams, useSearchParams} from 'react-router-dom';
 import {useDuckDB} from '../hooks/useDuckDB';
 import {useProfileData} from '../hooks/useProfileData';
 import {useSchoolDirectory} from '../hooks/useSchoolDirectory';
+import {dataService} from '../services/dataService';
 import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import CopyableWrapper from './CopyableWrapper';
@@ -28,6 +29,9 @@ export default function Profile() {
   // Auto-detect entity type based on ID length
   // 12 digits = school, 7 digits = district
   const entityType: 'district' | 'school' = ncesCode.length === 12 ? 'school' : 'district';
+
+  // State for grade data
+  const [gradeData, setGradeData] = React.useState<{grade: string; student_count: number}[]>([]);
 
   // Load profile data using the new hook with year filter
   const {
@@ -58,6 +62,23 @@ export default function Profile() {
     }
   }, [yearNotAvailable, requestedYear, fallbackToDefault]);
 
+  // Load grade data for schools only
+  React.useEffect(() => {
+    if (entityType === 'school' && ncesCode && isInitialized && !dbError && !dataLoading) {
+      loadGradeData();
+    }
+  }, [entityType, ncesCode, year, isInitialized, dbError, dataLoading]);
+
+  const loadGradeData = async () => {
+    try {
+      const data = await dataService.getStudentsByGrade(ncesCode, {schoolYear: year});
+      setGradeData(data);
+    } catch (error) {
+      console.error('Failed to load grade data:', error);
+      setGradeData([]);
+    }
+  };
+
   if (!id) {
     return <div>Invalid profile URL</div>;
   }
@@ -65,31 +86,53 @@ export default function Profile() {
   // Don't show database initialization states - handle them transparently
   const isSystemReady = !dbLoading && !dbError && isInitialized;
 
-  const renderOverview = () => (
-    <div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
-      {summary ? (
-        <div className="bg-gray-50 rounded-lg p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex justify-between py-2 border-b border-gray-200">
-              <span className="font-medium text-gray-700">Total Enrollment:</span>
-              <span className="text-gray-900">
-                {summary.totalEnrollment?.toLocaleString() || 'N/A'}
-              </span>
-            </div>
-            {entityType === 'district' && (
-              <div className="flex justify-between py-2 border-b border-gray-200">
-                <span className="font-medium text-gray-700">Number of Schools:</span>
-                <span className="text-gray-900">{(summary as any)?.schoolCount || 'N/A'}</span>
+  const renderOverview = () => {
+    // Prepare grade data for the bar chart
+    const gradeChartData = gradeData.map(item => ({
+      label: item.grade,
+      value: item.student_count,
+    }));
+
+    return (
+      <div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
+        {summary ? (
+          <div className="space-y-6">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex justify-between py-2 border-b border-gray-200">
+                  <span className="font-medium text-gray-700">Total Enrollment:</span>
+                  <span className="text-gray-900">
+                    {summary.totalEnrollment?.toLocaleString() || 'N/A'}
+                  </span>
+                </div>
+                {entityType === 'district' && (
+                  <div className="flex justify-between py-2 border-b border-gray-200">
+                    <span className="font-medium text-gray-700">Number of Schools:</span>
+                    <span className="text-gray-900">{(summary as any)?.schoolCount || 'N/A'}</span>
+                  </div>
+                )}
               </div>
+            </div>
+
+            {/* Students by Grade Chart - only for schools */}
+            {entityType === 'school' && gradeChartData.length > 0 && (
+              <CopyableWrapper data={gradeChartData} filename="students-by-grade">
+                <div className="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">Students by Grade</h4>
+                  <div className="h-[400px]">
+                    <BarChart data={gradeChartData} />
+                  </div>
+                </div>
+              </CopyableWrapper>
             )}
           </div>
-        </div>
-      ) : (
-        <p className="text-gray-600">No overview data available</p>
-      )}
-    </div>
-  );
+        ) : (
+          <p className="text-gray-600">No overview data available</p>
+        )}
+      </div>
+    );
+  };
 
   const renderDemographics = () => {
     if (!summary?.demographics) {
