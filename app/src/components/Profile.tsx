@@ -95,9 +95,8 @@ export default function Profile() {
 
     return (
       <div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
         {summary ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Summary Stats Box */}
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="space-y-4">
@@ -118,7 +117,11 @@ export default function Profile() {
 
             {/* Students by Grade Chart - only for schools */}
             {entityType === 'school' && gradeChartData.length > 0 && (
-              <CopyableWrapper data={gradeChartData} filename="students-by-grade">
+              <CopyableWrapper
+                data={gradeChartData}
+                filename="students-by-grade"
+                className="lg:col-span-2"
+              >
                 <div className="bg-white border border-gray-200 rounded-lg p-6">
                   <h4 className="text-lg font-medium text-gray-900 mb-4">Students by Grade</h4>
                   <div className="h-[400px]">
@@ -402,15 +405,6 @@ export default function Profile() {
             {directoryError && (
               <p className="text-red-700 mb-2">Directory error: {directoryError}</p>
             )}
-            <details className="text-sm">
-              <summary className="font-medium text-red-800 cursor-pointer">Troubleshooting</summary>
-              <ul className="mt-2 text-red-700 space-y-1">
-                <li>• Check that VITE_DATA_DIRECTORY is set correctly in .env</li>
-                <li>• Verify that parquet files exist at the expected path</li>
-                <li>• Ensure file permissions allow reading</li>
-                <li>• Check browser console for detailed error messages</li>
-              </ul>
-            </details>
           </div>
         ) : (
           <div className="space-y-12">
