@@ -4,6 +4,7 @@ primary_region = 'iad'
 [build]
   [build.args]
     VITE_DATA_DIRECTORY = "https://pub-c9b9e78e4b5943ca80c5cea67802617f.r2.dev"
+    NODE_ENV = 'production'
 
 [env]
   PORT = "5173"

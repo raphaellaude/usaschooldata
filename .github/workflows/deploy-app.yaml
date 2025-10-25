@@ -1,0 +1,20 @@
+name: Deploy App
+on:
+  push:
+    branches:
+      - main
+      - claude/deploy-usa-school-data-011CUTEMwNsebWDeMpP3PxPC # Temp
+    paths:
+      - "app/**"
+      - ".github/workflows/deploy-app.yaml"
+jobs:
+  deploy:
+    name: Fly Deploy
+    runs-on: ubuntu-latest
+    concurrency: deploy-group
+    steps:
+      - uses: actions/checkout@v3
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: cd app && flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
