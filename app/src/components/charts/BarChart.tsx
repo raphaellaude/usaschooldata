@@ -72,6 +72,23 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
       'American Indian or Alaska Native': 'Native Am.',
       'Native Hawaiian or Other Pacific Islander': 'Pacific Isl.',
       'Two or more races': 'Multiracial',
+      'Pre-Kindergarten': 'Pre-K',
+      Kindergarten: 'K',
+      'Grade 1': '1',
+      'Grade 2': '2',
+      'Grade 3': '3',
+      'Grade 4': '4',
+      'Grade 5': '5',
+      'Grade 6': '6',
+      'Grade 7': '7',
+      'Grade 8': '8',
+      'Grade 9': '9',
+      'Grade 10': '10',
+      'Grade 11': '11',
+      'Grade 12': '12',
+      'Grade 13': '13',
+      Ungraded: 'Ungr.',
+      'Adult Education': 'Adult Ed.',
     };
     return labelMap[label] || label;
   };

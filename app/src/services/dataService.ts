@@ -301,6 +301,59 @@ export class DataService {
   }
 
   /**
+   * Get student counts by grade for a school
+   */
+  async getStudentsByGrade(
+    schoolCode: string,
+    options: MembershipQueryOptions = {}
+  ): Promise<{grade: string; student_count: number}[]> {
+    try {
+      // Ensure the table exists first
+      await this.createSchoolMembershipTable(schoolCode, options);
+
+      // Query students by grade with proper ordering
+      const gradeQuery = `
+        WITH grade_data AS (
+          SELECT
+            grade,
+            SUM(student_count) as student_count,
+            CASE grade
+              WHEN 'Pre-Kindergarten' THEN -1
+              WHEN 'Kindergarten' THEN 0
+              WHEN 'Grade 1' THEN 1
+              WHEN 'Grade 2' THEN 2
+              WHEN 'Grade 3' THEN 3
+              WHEN 'Grade 4' THEN 4
+              WHEN 'Grade 5' THEN 5
+              WHEN 'Grade 6' THEN 6
+              WHEN 'Grade 7' THEN 7
+              WHEN 'Grade 8' THEN 8
+              WHEN 'Grade 9' THEN 9
+              WHEN 'Grade 10' THEN 10
+              WHEN 'Grade 11' THEN 11
+              WHEN 'Grade 12' THEN 12
+              WHEN 'Grade 13' THEN 13
+              WHEN 'Ungraded' THEN 20
+              WHEN 'Adult Education' THEN 21
+              ELSE 99
+            END as grade_order
+          FROM school_membership_${schoolCode}
+          GROUP BY grade
+        )
+        SELECT grade, student_count
+        FROM grade_data
+        ORDER BY grade_order
+      `;
+
+      const table = await duckDBService.query(gradeQuery);
+      return duckDBService.tableToArray(table);
+    } catch (error) {
+      console.error(`Failed to get students by grade for ${schoolCode}:`, error);
+      return [];
+    }
+  }
+
+  /**
    * Get summary statistics for a school - all aggregated in DuckDB
    */
   async getSchoolSummary(
