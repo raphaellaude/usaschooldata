@@ -1,0 +1,21 @@
+app = 'usa-school-data'
+primary_region = 'iad'
+
+[build]
+  [build.args]
+    VITE_DATA_DIRECTORY = "https://pub-c9b9e78e4b5943ca80c5cea67802617f.r2.dev"
+
+[env]
+  PORT = "5173"
+
+[http_service]
+  internal_port = 5173
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
