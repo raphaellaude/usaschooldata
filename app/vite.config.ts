@@ -27,6 +27,7 @@ export default defineConfig({
     headers: {
       'Cross-Origin-Embedder-Policy': 'require-corp',
       'Cross-Origin-Opener-Policy': 'same-origin'
-    }
+    },
+    allowedHosts: ['localhost', '127.0.0.1', 'usa-school-data.fly.dev']
   }
 })
