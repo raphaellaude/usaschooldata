@@ -346,7 +346,16 @@ export class DataService {
       `;
 
       const table = await duckDBService.query(gradeQuery);
-      return duckDBService.tableToArray(table);
+
+      // Properly extract values using getScalarValue to handle Arrow typed arrays
+      const result: {grade: string; student_count: number}[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          grade: duckDBService.getScalarValue(table, i, 'grade'),
+          student_count: duckDBService.getScalarValue(table, i, 'student_count'),
+        });
+      }
+      return result;
     } catch (error) {
       console.error(`Failed to get students by grade for ${schoolCode}:`, error);
       return [];
