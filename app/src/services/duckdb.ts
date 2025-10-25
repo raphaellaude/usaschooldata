@@ -40,7 +40,6 @@ class DuckDBService {
       this.connection = await this.db.connect();
       await this.connection.query(`INSTALL httpfs; LOAD httpfs;`);
       await this.connection.query(`SET max_expression_depth TO 20;`);
-      console.log(await this.connection.query(`SELECT 1;`));
       this.initialized = true;
       console.log('DuckDB initialized successfully');
     } catch (error) {

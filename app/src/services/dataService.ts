@@ -392,8 +392,6 @@ export class DataService {
         FROM school_membership_${schoolCode}
       `;
 
-      console.log(summaryQuery);
-
       const table = await duckDBService.query(summaryQuery);
 
       if (table.numRows === 0 || duckDBService.getScalarValue(table, 0, 'total_enrollment') === 0) {

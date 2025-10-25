@@ -36,7 +36,6 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
     `;
 
     await duckDBService.query(createTableQuery);
-    console.log('School directory table created');
   }, [dataDirectory]);
 
   const performSearch = useCallback(
