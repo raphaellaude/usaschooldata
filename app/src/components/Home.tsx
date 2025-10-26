@@ -18,23 +18,16 @@ export default function Home() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">USA School Data</h1>
-        <p className="text-lg text-gray-600 mb-6">
-          Search for schools and districts by name or location
-        </p>
-
-        {dbLoading && <div className="text-gray-600 mb-4">Initializing database...</div>}
-
+        {dbLoading && <div className="text-gray-600 mb-4">Settings things up...</div>}
         {dbError && (
           <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">Error: {dbError}</div>
         )}
-
         {isInitialized && (
           <div className="max-w-2xl mx-auto">
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search schools or districts (min 3 characters)..."
+                placeholder="Search for schools by name"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -65,15 +58,13 @@ export default function Home() {
                     >
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900">{school.sch_name}</h3>
-                          <p className="text-sm text-gray-600 mt-1">{school.lea_name}</p>
-                          <p className="text-sm text-gray-500 mt-1">
-                            {school.city}, {school.state_name}
-                          </p>
+                          <h3 className="text-md font-semibold text-gray-900">{school.sch_name}</h3>
                         </div>
-                        <div className="text-xs text-gray-400">{school.school_year}</div>
+                        <div className="text-xs text-gray-400 flex justify-between gap-4">
+                          <span>Scbool year: {school.school_year}</span>
+                          <span>NCES ID: {school.ncessch}</span>
+                        </div>
                       </div>
-                      <div className="mt-2 text-xs text-gray-400">NCES ID: {school.ncessch}</div>
                     </Link>
                   ))}
                 </div>

@@ -23,7 +23,7 @@ export function useDuckDB() {
         await duckDBService.initialize();
         setIsInitialized(true);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to initialize database');
+        setError(err instanceof Error ? err.message : 'Failed to initialize application');
       } finally {
         setIsLoading(false);
       }
