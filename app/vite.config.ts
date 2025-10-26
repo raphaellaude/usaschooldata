@@ -28,6 +28,11 @@ export default defineConfig({
       'Cross-Origin-Embedder-Policy': 'require-corp',
       'Cross-Origin-Opener-Policy': 'same-origin'
     },
-    allowedHosts: ['localhost', '127.0.0.1', 'usa-school-data.fly.dev']
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'usa-school-data.fly.dev',
+      '.fly.dev' // Allow all fly.dev subdomains (including PR previews)
+    ]
   }
 })
