@@ -41,22 +41,18 @@ jobs:
           flyctl apps destroy "$app_name" -y || echo "App $app_name does not exist or already destroyed"
           echo "Resources for PR #${{ github.event.number }} have been destroyed."
 
-      - name: Launch app
+      - name: Create app
         if: github.event.action != 'closed'
         run: |
           app="${{ env.app_name }}"
 
           # Check if the app exists
           if flyctl apps list | grep -q "$app"; then
-            echo "App $app already exists. Skipping launch."
+            echo "App $app already exists. Skipping creation."
           else
-            echo "Launching app $app"
-            flyctl launch \
-              --no-deploy \
-              --copy-config \
-              --name "$app" \
-              --region ${{ env.FLY_REGION }}
-            echo "App $app launched successfully."
+            echo "Creating app $app"
+            flyctl apps create "$app" --org personal --machines
+            echo "App $app created successfully."
           fi
         working-directory: app
 
@@ -65,7 +61,9 @@ jobs:
         run: |
           flyctl deploy \
             --remote-only \
+            --config fly.toml \
             --app "${{ env.app_name }}" \
+            --region ${{ env.FLY_REGION }} \
             --strategy immediate \
             --ha=false \
             --vm-cpu-kind shared \
