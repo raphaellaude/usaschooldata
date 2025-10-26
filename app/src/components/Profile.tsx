@@ -3,9 +3,11 @@ import {useParams, useSearchParams} from 'react-router-dom';
 import {useDuckDB} from '../hooks/useDuckDB';
 import {useProfileData} from '../hooks/useProfileData';
 import {useSchoolDirectory} from '../hooks/useSchoolDirectory';
+import {useHistoricalEnrollment} from '../hooks/useHistoricalEnrollment';
 import {dataService} from '../services/dataService';
 import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
+import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
 import CopyableWrapper from './CopyableWrapper';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
 import {Link1Icon} from '@radix-ui/react-icons';
@@ -39,6 +41,11 @@ export default function Profile() {
     isLoading: directoryLoading,
     error: directoryError,
   } = useSchoolDirectory(ncesCode, year);
+
+  // Load historical enrollment data for schools only (async, doesn't block page load)
+  const historicalEnrollmentData = useHistoricalEnrollment(
+    entityType === 'school' ? ncesCode : ''
+  );
 
   // Handle automatic fallback to default year when requested year is not available
   React.useEffect(() => {
@@ -295,6 +302,63 @@ export default function Profile() {
     </div>
   );
 
+  const renderHistoricalEnrollment = () => {
+    // Only show for schools, not districts
+    if (entityType !== 'school') {
+      return null;
+    }
+
+    return (
+      <div>
+        <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
+          <a
+            href="#historical-enrollment"
+            className="hover:text-gray-900 inline-flex items-center gap-2"
+            onClick={e => {
+              e.preventDefault();
+              copyLinkToClipboard('#historical-enrollment');
+              window.location.hash = 'historical-enrollment';
+            }}
+          >
+            Historical Enrollment
+            <Link1Icon
+              className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${copiedLink === '#historical-enrollment' ? 'text-green-600' : ''}`}
+            />
+          </a>
+        </h3>
+        {historicalEnrollmentData.isLoading ? (
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
+            <div className="flex items-center justify-center h-64 text-gray-400">
+              <div className="animate-pulse">Loading historical enrollment data...</div>
+            </div>
+          </div>
+        ) : historicalEnrollmentData.error ? (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+            <p className="text-red-700">
+              Failed to load historical enrollment data: {historicalEnrollmentData.error}
+            </p>
+          </div>
+        ) : historicalEnrollmentData.byYear.length > 0 ? (
+          <CopyableWrapper
+            data={historicalEnrollmentData.byYear}
+            filename="historical-enrollment"
+          >
+            <div className="rounded-lg">
+              <div className="h-[500px]">
+                <HistoricalEnrollmentChart
+                  historicalData={historicalEnrollmentData}
+                  currentYear={year}
+                />
+              </div>
+            </div>
+          </CopyableWrapper>
+        ) : (
+          <p className="text-gray-600">No historical enrollment data available</p>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-white w-full">
       <header className="border-b border-gray-200 z-10">
@@ -347,6 +411,11 @@ export default function Profile() {
             <a href="#data" className="text-blue-600 hover:text-blue-800 text-sm">
               &rarr; Raw Data
             </a>
+            {entityType === 'school' && (
+              <a href="#historical-enrollment" className="text-blue-600 hover:text-blue-800 text-sm">
+                &rarr; Historical Enrollment
+              </a>
+            )}
           </nav>
         </div>
       </header>
@@ -437,6 +506,9 @@ export default function Profile() {
             <section id="overview">{renderOverview()}</section>
             <section id="demographics">{renderDemographics()}</section>
             <section id="data">{renderRawData()}</section>
+            {entityType === 'school' && (
+              <section id="historical-enrollment">{renderHistoricalEnrollment()}</section>
+            )}
           </div>
         )}
       </main>

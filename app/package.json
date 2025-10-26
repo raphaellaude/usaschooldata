@@ -18,16 +18,17 @@
     "@types/papaparse": "^5.3.16",
     "@visx/axis": "^3.12.0",
     "@visx/group": "^3.12.0",
+    "@visx/legend": "^3.12.0",
     "@visx/responsive": "^3.12.0",
     "@visx/scale": "^3.12.0",
     "@visx/shape": "^3.12.0",
     "@visx/tooltip": "^3.12.0",
+    "@vitejs/plugin-react-swc": "^4.1.0",
     "papaparse": "^5.5.3",
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^7.9.4",
-    "tailwindcss": "^4.1.14",
-    "@vitejs/plugin-react-swc": "^4.1.0"
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

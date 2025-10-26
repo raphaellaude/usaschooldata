@@ -1,0 +1,462 @@
+import {useState, useMemo} from 'react';
+import {Group} from '@visx/group';
+import {Bar, BarStack} from '@visx/shape';
+import {scaleLinear, scaleBand, scaleOrdinal} from '@visx/scale';
+import {AxisBottom, AxisLeft} from '@visx/axis';
+import {LegendOrdinal} from '@visx/legend';
+import {ParentSize} from '@visx/responsive';
+import type {HistoricalEnrollmentData} from '../../hooks/useHistoricalEnrollment';
+
+interface HistoricalEnrollmentChartProps {
+  historicalData: HistoricalEnrollmentData;
+  currentYear?: string;
+  width?: number;
+  height?: number;
+}
+
+type BreakdownType = 'none' | 'race_ethnicity' | 'sex';
+
+// Color palettes for different demographics
+const RACE_ETHNICITY_COLORS: Record<string, string> = {
+  White: '#e8e8e8',
+  'Black or African American': '#525252',
+  'Hispanic/Latino': '#f59e0b',
+  Asian: '#3b82f6',
+  'American Indian or Alaska Native': '#8b5cf6',
+  'Native Hawaiian or Other Pacific Islander': '#ec4899',
+  'Two or more races': '#10b981',
+};
+
+const SEX_COLORS: Record<string, string> = {
+  Male: '#525252',
+  Female: '#9e9e9e',
+};
+
+const DEFAULT_COLOR = '#6b6969';
+
+interface StackedDataPoint {
+  year: string;
+  [key: string]: string | number;
+}
+
+const HistoricalEnrollmentChartInner = ({
+  historicalData,
+  currentYear,
+  width = 800,
+  height = 500,
+}: HistoricalEnrollmentChartProps) => {
+  const [breakdownType, setBreakdownType] = useState<BreakdownType>('none');
+  const [isPercentStacked, setIsPercentStacked] = useState(false);
+
+  const margin = {top: 20, right: 20, bottom: 80, left: 80};
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
+
+  // Transform data based on current breakdown type
+  const {chartData, demographicKeys, colorScale} = useMemo(() => {
+    if (breakdownType === 'none') {
+      // Simple bar chart data
+      const data = historicalData.byYear.map(d => ({
+        year: d.school_year,
+        total: d.total_enrollment,
+      }));
+      return {
+        chartData: data,
+        demographicKeys: [],
+        colorScale: scaleOrdinal<string, string>({
+          domain: [],
+          range: [],
+        }),
+      };
+    } else if (breakdownType === 'race_ethnicity') {
+      // Group by year and create stacked data
+      const yearMap = new Map<string, StackedDataPoint>();
+
+      historicalData.byRaceEthnicity.forEach(d => {
+        if (!yearMap.has(d.school_year)) {
+          yearMap.set(d.school_year, {year: d.school_year});
+        }
+        const yearData = yearMap.get(d.school_year)!;
+        yearData[d.race_ethnicity] = d.student_count;
+      });
+
+      const data = Array.from(yearMap.values()).sort((a, b) =>
+        a.year.localeCompare(b.year)
+      );
+
+      // Get all unique race/ethnicity categories in consistent order
+      const allCategories = Object.keys(RACE_ETHNICITY_COLORS);
+      const keys = allCategories.filter(cat =>
+        data.some(d => (d[cat] as number) > 0)
+      );
+
+      // If using percent stacked, normalize the data
+      if (isPercentStacked) {
+        data.forEach(d => {
+          const total = keys.reduce((sum, key) => sum + ((d[key] as number) || 0), 0);
+          if (total > 0) {
+            keys.forEach(key => {
+              const value = d[key] as number | undefined;
+              d[key] = ((value || 0) / total) * 100;
+            });
+          }
+        });
+      }
+
+      return {
+        chartData: data,
+        demographicKeys: keys,
+        colorScale: scaleOrdinal<string, string>({
+          domain: keys,
+          range: keys.map(k => RACE_ETHNICITY_COLORS[k] || DEFAULT_COLOR),
+        }),
+      };
+    } else {
+      // Sex breakdown
+      const yearMap = new Map<string, StackedDataPoint>();
+
+      historicalData.bySex.forEach(d => {
+        if (!yearMap.has(d.school_year)) {
+          yearMap.set(d.school_year, {year: d.school_year});
+        }
+        const yearData = yearMap.get(d.school_year)!;
+        yearData[d.sex] = d.student_count;
+      });
+
+      const data = Array.from(yearMap.values()).sort((a, b) =>
+        a.year.localeCompare(b.year)
+      );
+
+      const keys = ['Male', 'Female'].filter(cat =>
+        data.some(d => (d[cat] as number) > 0)
+      );
+
+      // If using percent stacked, normalize the data
+      if (isPercentStacked) {
+        data.forEach(d => {
+          const total = keys.reduce((sum, key) => sum + ((d[key] as number) || 0), 0);
+          if (total > 0) {
+            keys.forEach(key => {
+              const value = d[key] as number | undefined;
+              d[key] = ((value || 0) / total) * 100;
+            });
+          }
+        });
+      }
+
+      return {
+        chartData: data,
+        demographicKeys: keys,
+        colorScale: scaleOrdinal<string, string>({
+          domain: keys,
+          range: keys.map(k => SEX_COLORS[k] || DEFAULT_COLOR),
+        }),
+      };
+    }
+  }, [historicalData, breakdownType, isPercentStacked]);
+
+  if (chartData.length === 0) {
+    return (
+      <div>
+        <div className="mb-4 flex gap-2">
+          <ControlButtons
+            breakdownType={breakdownType}
+            setBreakdownType={setBreakdownType}
+            isPercentStacked={isPercentStacked}
+            setIsPercentStacked={setIsPercentStacked}
+          />
+        </div>
+        <div
+          style={{
+            width,
+            height,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <p>No historical enrollment data available</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Scales
+  const xScale = scaleBand({
+    domain: chartData.map(d => d.year),
+    range: [0, innerWidth],
+    padding: 0.2,
+  });
+
+  const maxValue = useMemo(() => {
+    if (breakdownType === 'none') {
+      return Math.max(...chartData.map(d => (d.total as number) || 0));
+    } else if (isPercentStacked) {
+      return 100;
+    } else {
+      // Calculate stack totals
+      return Math.max(
+        ...chartData.map(d => {
+          const dataPoint = d as StackedDataPoint;
+          return demographicKeys.reduce((sum, key) => {
+            const value = dataPoint[key];
+            return sum + (typeof value === 'number' ? value : 0);
+          }, 0);
+        })
+      );
+    }
+  }, [chartData, breakdownType, isPercentStacked, demographicKeys]);
+
+  const yScale = scaleLinear({
+    domain: [0, maxValue || 1],
+    range: [innerHeight, 0],
+    nice: true,
+  });
+
+  return (
+    <div>
+      {/* Control buttons */}
+      <div className="mb-4 flex gap-2 flex-wrap items-center">
+        <ControlButtons
+          breakdownType={breakdownType}
+          setBreakdownType={setBreakdownType}
+          isPercentStacked={isPercentStacked}
+          setIsPercentStacked={setIsPercentStacked}
+        />
+      </div>
+
+      {/* Chart */}
+      <svg width={width} height={height}>
+        <Group top={margin.top} left={margin.left}>
+          {breakdownType === 'none' ? (
+            // Simple bars for default view
+            chartData.map(d => {
+              const barWidth = xScale.bandwidth();
+              const barHeight = Math.max(0, innerHeight - yScale((d.total as number) || 0));
+              const barX = xScale(d.year) || 0;
+              const barY = yScale((d.total as number) || 0);
+
+              return (
+                <Group key={d.year}>
+                  <Bar
+                    x={barX}
+                    y={barY}
+                    width={barWidth}
+                    height={barHeight}
+                    fill={DEFAULT_COLOR}
+                    rx={2}
+                  />
+                  {/* Value label */}
+                  {(d.total as number) > 0 && (
+                    <text
+                      x={barX + barWidth / 2}
+                      y={barY - 5}
+                      textAnchor="middle"
+                      fontSize={11}
+                      fontWeight={d.year === currentYear ? 'bold' : 'normal'}
+                      fill="#333"
+                    >
+                      {isPercentStacked
+                        ? `${(d.total as number).toFixed(0)}%`
+                        : (d.total as number).toLocaleString()}
+                    </text>
+                  )}
+                </Group>
+              );
+            })
+          ) : (
+            // Stacked bars for breakdown views
+            <BarStack
+              data={chartData}
+              keys={demographicKeys}
+              x={d => d.year}
+              xScale={xScale}
+              yScale={yScale}
+              color={colorScale}
+            >
+              {barStacks =>
+                barStacks.map(barStack =>
+                  barStack.bars.map(bar => (
+                    <rect
+                      key={`bar-stack-${barStack.index}-${bar.index}`}
+                      x={bar.x}
+                      y={bar.y}
+                      height={bar.height}
+                      width={bar.width}
+                      fill={bar.color}
+                      rx={2}
+                    />
+                  ))
+                )
+              }
+            </BarStack>
+          )}
+
+          {/* Y Axis */}
+          <AxisLeft
+            scale={yScale}
+            stroke="#333"
+            tickStroke="#333"
+            tickLabelProps={{
+              fontSize: 12,
+              textAnchor: 'end',
+              dy: '0.33em',
+              dx: '-0.25em',
+              fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+            }}
+            tickFormat={value => {
+              if (isPercentStacked) {
+                return `${value}%`;
+              }
+              return value.toLocaleString();
+            }}
+          />
+
+          {/* X Axis */}
+          <AxisBottom
+            top={innerHeight}
+            scale={xScale}
+            stroke="#333"
+            tickStroke="#333"
+            tickLabelProps={tickValue => ({
+              fontSize: 11,
+              textAnchor: 'middle',
+              dy: '0.33em',
+              fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+              // Bold the current year
+              fontWeight: tickValue === currentYear ? 'bold' : 'normal',
+            })}
+            tickFormat={value => {
+              // Show shortened year format (e.g., "2023-2024" -> "23-24")
+              const parts = (value as string).split('-');
+              if (parts.length === 2) {
+                return `${parts[0].slice(2)}-${parts[1].slice(2)}`;
+              }
+              return value as string;
+            }}
+          />
+        </Group>
+      </svg>
+
+      {/* Legend (only show for breakdown views) */}
+      {breakdownType !== 'none' && demographicKeys.length > 0 && (
+        <div className="mt-4 flex justify-center">
+          <LegendOrdinal scale={colorScale} direction="row" labelMargin="0 20px 0 0">
+            {labels => (
+              <div className="flex flex-wrap gap-4 text-sm">
+                {labels.map((label, i) => (
+                  <div key={`legend-${i}`} className="flex items-center gap-2">
+                    <div
+                      style={{
+                        width: 16,
+                        height: 16,
+                        backgroundColor: label.value,
+                        borderRadius: 2,
+                      }}
+                    />
+                    <span>{label.text}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </LegendOrdinal>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Control buttons component
+interface ControlButtonsProps {
+  breakdownType: BreakdownType;
+  setBreakdownType: (type: BreakdownType) => void;
+  isPercentStacked: boolean;
+  setIsPercentStacked: (value: boolean) => void;
+}
+
+const ControlButtons = ({
+  breakdownType,
+  setBreakdownType,
+  isPercentStacked,
+  setIsPercentStacked,
+}: ControlButtonsProps) => {
+  const buttonClass = (isActive: boolean) =>
+    `px-3 py-1.5 text-sm rounded border transition-colors ${
+      isActive
+        ? 'bg-gray-800 text-white border-gray-800'
+        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+    }`;
+
+  return (
+    <>
+      <div className="flex gap-2">
+        <button
+          className={buttonClass(breakdownType === 'none')}
+          onClick={() => setBreakdownType('none')}
+        >
+          Total
+        </button>
+        <button
+          className={buttonClass(breakdownType === 'race_ethnicity')}
+          onClick={() => setBreakdownType('race_ethnicity')}
+        >
+          By Race/Ethnicity
+        </button>
+        <button
+          className={buttonClass(breakdownType === 'sex')}
+          onClick={() => setBreakdownType('sex')}
+        >
+          By Gender
+        </button>
+      </div>
+
+      {/* Show 100% stacked toggle only when breakdown is active */}
+      {breakdownType !== 'none' && (
+        <div className="flex items-center gap-2 ml-4">
+          <input
+            type="checkbox"
+            id="percent-stacked"
+            checked={isPercentStacked}
+            onChange={e => setIsPercentStacked(e.target.checked)}
+            className="w-4 h-4 rounded border-gray-300 text-gray-800 focus:ring-gray-500"
+          />
+          <label htmlFor="percent-stacked" className="text-sm text-gray-700 cursor-pointer">
+            Show as 100% stacked
+          </label>
+        </div>
+      )}
+    </>
+  );
+};
+
+// Wrapper component with responsive sizing
+export default function HistoricalEnrollmentChart({
+  historicalData,
+  currentYear,
+  width,
+  height,
+}: HistoricalEnrollmentChartProps) {
+  if (width && height) {
+    return (
+      <HistoricalEnrollmentChartInner
+        historicalData={historicalData}
+        currentYear={currentYear}
+        width={width}
+        height={height}
+      />
+    );
+  }
+
+  return (
+    <ParentSize>
+      {({width, height}) => (
+        <HistoricalEnrollmentChartInner
+          historicalData={historicalData}
+          currentYear={currentYear}
+          width={Math.min(width, 1000)}
+          height={Math.min(height, 500)}
+        />
+      )}
+    </ParentSize>
+  );
+}

@@ -301,6 +301,154 @@ export class DataService {
   }
 
   /**
+   * Creates a reusable in-memory table for school membership data across all available years
+   * This enables historical trend analysis and multi-year aggregations
+   */
+  async createSchoolMembershipHistoricalTable(schoolCode: string): Promise<void> {
+    const stateLeaid = schoolCode.substring(0, 2);
+
+    try {
+      // Use glob pattern to read all years for this school
+      // The data is partitioned by school_year, so we use ** to match all year partitions
+      const filePattern = `'${this.dataDirectory}/membership/school_year=*/state_leaid=${stateLeaid}/data_0.parquet'`;
+
+      // Create a named table that can be reused
+      const createTableQuery = `
+        CREATE OR REPLACE TABLE school_membership_${schoolCode}_historical AS
+        SELECT * FROM read_parquet([${filePattern}])
+        WHERE ncessch = '${schoolCode}'
+        ORDER BY school_year DESC
+      `;
+
+      await duckDBService.query(createTableQuery);
+    } catch (error) {
+      console.error(
+        `Failed to create historical school membership table for ${schoolCode}:`,
+        error
+      );
+      throw error;
+    }
+  }
+
+  /**
+   * Get enrollment totals by year for a school
+   * This aggregates all students across all demographics for each year
+   */
+  async getHistoricalEnrollmentByYear(
+    schoolCode: string
+  ): Promise<{school_year: string; total_enrollment: number}[]> {
+    try {
+      // Ensure the historical table exists
+      await this.createSchoolMembershipHistoricalTable(schoolCode);
+
+      // Query total enrollment by year
+      const query = `
+        SELECT
+          school_year,
+          SUM(student_count) as total_enrollment
+        FROM school_membership_${schoolCode}_historical
+        GROUP BY school_year
+        ORDER BY school_year ASC
+      `;
+
+      const table = await duckDBService.query(query);
+
+      const result: {school_year: string; total_enrollment: number}[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
+          total_enrollment: duckDBService.getScalarValue(table, i, 'total_enrollment'),
+        });
+      }
+      return result;
+    } catch (error) {
+      console.error(`Failed to get historical enrollment by year for ${schoolCode}:`, error);
+      return [];
+    }
+  }
+
+  /**
+   * Get enrollment by year and race/ethnicity for a school
+   * Returns data suitable for stacked bar charts
+   */
+  async getHistoricalEnrollmentByRaceEthnicity(
+    schoolCode: string
+  ): Promise<{school_year: string; race_ethnicity: string; student_count: number}[]> {
+    try {
+      // Ensure the historical table exists
+      await this.createSchoolMembershipHistoricalTable(schoolCode);
+
+      // Query enrollment by year and race/ethnicity
+      const query = `
+        SELECT
+          school_year,
+          race_ethnicity,
+          SUM(student_count) as student_count
+        FROM school_membership_${schoolCode}_historical
+        GROUP BY school_year, race_ethnicity
+        ORDER BY school_year ASC, race_ethnicity
+      `;
+
+      const table = await duckDBService.query(query);
+
+      const result: {school_year: string; race_ethnicity: string; student_count: number}[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
+          race_ethnicity: duckDBService.getScalarValue(table, i, 'race_ethnicity'),
+          student_count: duckDBService.getScalarValue(table, i, 'student_count'),
+        });
+      }
+      return result;
+    } catch (error) {
+      console.error(
+        `Failed to get historical enrollment by race/ethnicity for ${schoolCode}:`,
+        error
+      );
+      return [];
+    }
+  }
+
+  /**
+   * Get enrollment by year and sex for a school
+   * Returns data suitable for stacked bar charts
+   */
+  async getHistoricalEnrollmentBySex(
+    schoolCode: string
+  ): Promise<{school_year: string; sex: string; student_count: number}[]> {
+    try {
+      // Ensure the historical table exists
+      await this.createSchoolMembershipHistoricalTable(schoolCode);
+
+      // Query enrollment by year and sex
+      const query = `
+        SELECT
+          school_year,
+          sex,
+          SUM(student_count) as student_count
+        FROM school_membership_${schoolCode}_historical
+        GROUP BY school_year, sex
+        ORDER BY school_year ASC, sex
+      `;
+
+      const table = await duckDBService.query(query);
+
+      const result: {school_year: string; sex: string; student_count: number}[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
+          sex: duckDBService.getScalarValue(table, i, 'sex'),
+          student_count: duckDBService.getScalarValue(table, i, 'student_count'),
+        });
+      }
+      return result;
+    } catch (error) {
+      console.error(`Failed to get historical enrollment by sex for ${schoolCode}:`, error);
+      return [];
+    }
+  }
+
+  /**
    * Get student counts by grade for a school
    */
   async getStudentsByGrade(
