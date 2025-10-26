@@ -8,6 +8,7 @@ import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import CopyableWrapper from './CopyableWrapper';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
+import {Link1Icon} from '@radix-ui/react-icons';
 
 export default function Profile() {
   const {id} = useParams<{
@@ -165,8 +166,11 @@ export default function Profile() {
 
     return (
       <div>
-        <h3 className="text-sm font-semibold text-gray-600 mb-6 hover:text-gray-900">
-          <a href="#demographics">Demographics</a>
+        <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
+          <a href="#demographics" className="hover:text-gray-900 inline-flex items-center gap-2">
+            Demographics
+            <Link1Icon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
         </h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
@@ -207,8 +211,11 @@ export default function Profile() {
 
   const renderRawData = () => (
     <div>
-      <h3 className="text-sm font-semibold text-gray-600 mb-6 hover:text-gray-900">
-        <a href="#raw-data">Raw Membership Data</a>
+      <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
+        <a href="#raw-data" className="hover:text-gray-900 inline-flex items-center gap-2">
+          Raw Membership Data
+          <Link1Icon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </a>
       </h3>
       {membershipData.length > 0 ? (
         <div>
@@ -277,12 +284,13 @@ export default function Profile() {
     <div className="min-h-screen bg-white w-full">
       <header className="border-b border-gray-200 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4">
-          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
+          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2 group">
             {directoryLoading ? (
               <span className="text-gray-400">Loading...</span>
             ) : directoryInfo ? (
-              <a href="#" className="hover:text-gray-600">
+              <a href="#" className="hover:text-gray-600 inline-flex items-center gap-2">
                 {directoryInfo.sch_name}
+                <Link1Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             ) : (
               `${entityType === 'district' ? 'District' : 'School'} Profile`
