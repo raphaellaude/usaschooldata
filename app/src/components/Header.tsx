@@ -31,9 +31,9 @@ export default function Header() {
             <span className="text-lg font-bold text-white">USA School Data</span>
           </Link>
 
-          {/* Search Bar - Only on profile pages */}
+          {/* Search Bar - Only on profile pages, hidden on mobile */}
           {showSearchBar && (
-            <form onSubmit={handleSearch} className="flex items-center space-x-2">
+            <form onSubmit={handleSearch} className="hidden md:flex items-center space-x-2">
               <input
                 type="text"
                 value={searchQuery}
