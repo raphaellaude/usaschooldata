@@ -80,7 +80,18 @@ export class YearNotAvailableError extends Error {
 
 export class DataService {
   private dataDirectory: string;
-  private availableYears = ['2023-2024']; // Start with just 2023-2024
+  private availableYears = [
+    '2023-2024',
+    '2022-2023',
+    '2021-2022',
+    '2020-2021',
+    '2019-2020',
+    '2018-2019',
+    '2017-2018',
+    '2016-2017',
+    '2015-2016',
+    '2014-2015',
+  ];
 
   /**
    * Check if an error indicates missing year data
@@ -308,14 +319,14 @@ export class DataService {
     const stateLeaid = schoolCode.substring(0, 2);
 
     try {
-      // Use glob pattern to read all years for this school
-      // The data is partitioned by school_year, so we use ** to match all year partitions
-      const filePattern = `'${this.dataDirectory}/membership/school_year=*/state_leaid=${stateLeaid}/data_0.parquet'`;
+      // Generate file paths for all available years
+      // R2 doesn't support glob patterns, so we enumerate all years explicitly
+      const filePaths = this.generateR2FilePaths([stateLeaid], this.availableYears);
 
       // Create a named table that can be reused
       const createTableQuery = `
         CREATE OR REPLACE TABLE school_membership_${schoolCode}_historical AS
-        SELECT * FROM read_parquet([${filePattern}])
+        SELECT * FROM read_parquet([${filePaths.join(', ')}])
         WHERE ncessch = '${schoolCode}'
         ORDER BY school_year DESC
       `;
