@@ -96,77 +96,29 @@ export default function Profile() {
     return (
       <div>
         {summary ? (
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Hero Stat - Total Enrollment */}
-            <div className="text-center py-8 bg-gray-50 rounded-lg">
-              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-2">
-                Total Enrollment
-              </div>
+            <div className="rounded-lg">
+              <div className="text-lg font-medium text-gray-900 mb-4">Total Enrollment</div>
               <div className="text-6xl font-bold text-gray-900">
                 {summary.totalEnrollment?.toLocaleString() || 'N/A'}
               </div>
             </div>
 
-            {/* Directory Stats Grid */}
-            {directoryInfo && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {directoryInfo.sch_type && (
-                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
-                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
-                      School Type
-                    </div>
-                    <div className="text-lg font-semibold text-gray-900">
-                      {directoryInfo.sch_type}
-                    </div>
-                  </div>
-                )}
-                {directoryInfo.sch_level && (
-                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
-                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
-                      School Level
-                    </div>
-                    <div className="text-lg font-semibold text-gray-900">
-                      {directoryInfo.sch_level}
-                    </div>
-                  </div>
-                )}
-                {directoryInfo.charter && (
-                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
-                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
-                      Charter School
-                    </div>
-                    <div className="text-lg font-semibold text-gray-900">
-                      {directoryInfo.charter}
-                    </div>
-                  </div>
-                )}
-                {directoryInfo.sy_status && (
-                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
-                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
-                      Status
-                    </div>
-                    <div className="text-lg font-semibold text-gray-900">
-                      {directoryInfo.sy_status}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
             {entityType === 'district' && (
               <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
-                  Number of Schools
-                </div>
-                <div className="text-2xl font-bold text-gray-900">
-                  {(summary as any)?.schoolCount || 'N/A'}
-                </div>
+                <div className="font-medium text-gray-700">Number of Schools</div>
+                <div className="text-gray-900">{(summary as any)?.schoolCount || 'N/A'}</div>
               </div>
             )}
 
             {/* Students by Grade Chart - only for schools */}
             {entityType === 'school' && gradeChartData.length > 0 && (
-              <CopyableWrapper data={gradeChartData} filename="students-by-grade">
+              <CopyableWrapper
+                data={gradeChartData}
+                filename="students-by-grade"
+                className="lg:col-span-2"
+              >
                 <div className="rounded-lg">
                   <h4 className="text-lg font-medium text-gray-900 mb-4">Students by grade</h4>
                   <div className="h-[400px]">
@@ -216,8 +168,7 @@ export default function Profile() {
 
     return (
       <div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-6">Demographics</h3>
-
+        <h3 className="text-sm font-semibold text-gray-600 mb-6">Demographics</h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
           <CopyableWrapper data={sexData} filename="gender-demographics">
@@ -257,7 +208,7 @@ export default function Profile() {
 
   const renderRawData = () => (
     <div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-6">Raw Membership Data</h3>
+      <h3 className="text-sm font-semibold text-gray-600 mb-6">Raw Membership Data</h3>
       {membershipData.length > 0 ? (
         <div>
           <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
@@ -335,12 +286,21 @@ export default function Profile() {
               `${entityType === 'district' ? 'District' : 'School'} Profile`
             )}
           </h1>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-sm text-gray-500">
             <span>NCES ID: {ncesCode}</span>
             <span>School Year: {year}</span>
             {directoryInfo && directoryInfo.lea_name && (
               <span>District: {directoryInfo.lea_name}</span>
             )}
+            {/* Directory Stats Grid */}
+            {directoryInfo?.sch_type && <span>School Type: {directoryInfo.sch_type || 'N/A'}</span>}
+            {directoryInfo?.sch_level && (
+              <span>School Level: {directoryInfo.sch_level || 'N/A'}</span>
+            )}
+            {directoryInfo?.charter && (
+              <span>Charter School: {directoryInfo.charter || 'N/A'}</span>
+            )}
+            {directoryInfo?.sy_status && <span>Status: {directoryInfo.sy_status || 'N/A'}</span>}
             {directoryInfo && directoryInfo.city && directoryInfo.state_name && (
               <span>
                 Location: {directoryInfo.city}, {directoryInfo.state_name}
@@ -393,7 +353,9 @@ export default function Profile() {
                 <div className="bg-gray-50 rounded-lg p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex justify-between py-2 border-b border-gray-200">
-                      <span className="font-medium text-gray-700">Total Enrollment:</span>
+                      <span className="text-lg font-medium text-gray-900 mb-4">
+                        Total Enrollment
+                      </span>
                       <span className="text-gray-400">Loading...</span>
                     </div>
                     {entityType === 'district' && (
@@ -407,20 +369,17 @@ export default function Profile() {
               </div>
             </section>
 
-            {/* Demographics Section - Loading Placeholder */}
+            {/* Placeholder */}
             <section id="demographics">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Demographics</h3>
+                <h3 className="text-sm font-semibold text-gray-600 mb-6">Demographics</h3>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  {/* Sex Demographics Placeholder */}
                   <div className="bg-white border border-gray-200 rounded-lg p-6">
                     <h4 className="text-lg font-medium text-gray-900 mb-4">By Gender</h4>
                     <div className="flex flex-col items-center justify-center h-[280px] text-gray-400">
                       <div className="animate-pulse">Loading chart...</div>
                     </div>
                   </div>
-
-                  {/* Race/Ethnicity Demographics Placeholder */}
                   <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-6">
                     <h4 className="text-lg font-medium text-gray-900 mb-4">By Race/Ethnicity</h4>
                     <div className="flex items-center justify-center h-[300px] text-gray-400">
@@ -431,10 +390,10 @@ export default function Profile() {
               </div>
             </section>
 
-            {/* Raw Data Section - Loading Placeholder */}
+            {/* Placeholder */}
             <section id="data">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Raw Membership Data</h3>
+                <h3 className="text-sm font-semibold text-gray-600 mb-6">Raw Membership Data</h3>
                 <div className="bg-white border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center justify-center h-32 text-gray-400">
                     <div className="animate-pulse">Loading data...</div>
