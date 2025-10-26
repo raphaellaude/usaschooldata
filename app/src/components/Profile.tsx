@@ -97,7 +97,6 @@ export default function Profile() {
       <div>
         {summary ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Hero Stat - Total Enrollment */}
             <div className="rounded-lg">
               <div className="text-lg font-medium text-gray-900 mb-4">Total Enrollment</div>
               <div className="text-6xl font-bold text-gray-900">
@@ -112,7 +111,6 @@ export default function Profile() {
               </div>
             )}
 
-            {/* Students by Grade Chart - only for schools */}
             {entityType === 'school' && gradeChartData.length > 0 && (
               <CopyableWrapper
                 data={gradeChartData}
@@ -145,7 +143,6 @@ export default function Profile() {
       );
     }
 
-    // Prepare data for charts - always show all races alphabetically
     const allRaces = [
       'American Indian or Alaska Native',
       'Asian',
@@ -168,7 +165,9 @@ export default function Profile() {
 
     return (
       <div>
-        <h3 className="text-sm font-semibold text-gray-600 mb-6">Demographics</h3>
+        <h3 className="text-sm font-semibold text-gray-600 mb-6 hover:text-gray-900">
+          <a href="#demographics">Demographics</a>
+        </h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
           <CopyableWrapper data={sexData} filename="gender-demographics">
@@ -208,7 +207,9 @@ export default function Profile() {
 
   const renderRawData = () => (
     <div>
-      <h3 className="text-sm font-semibold text-gray-600 mb-6">Raw Membership Data</h3>
+      <h3 className="text-sm font-semibold text-gray-600 mb-6 hover:text-gray-900">
+        <a href="#raw-data">Raw Membership Data</a>
+      </h3>
       {membershipData.length > 0 ? (
         <div>
           <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
@@ -274,14 +275,15 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen bg-white w-full">
-      {/* Fixed Header */}
-      <header className="sticky top-0 bg-white border-b border-gray-200 z-10">
+      <header className="border-b border-gray-200 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4">
           <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
             {directoryLoading ? (
               <span className="text-gray-400">Loading...</span>
             ) : directoryInfo ? (
-              directoryInfo.sch_name
+              <a href="#" className="hover:text-gray-600">
+                {directoryInfo.sch_name}
+              </a>
             ) : (
               `${entityType === 'district' ? 'District' : 'School'} Profile`
             )}
@@ -310,14 +312,11 @@ export default function Profile() {
 
           {/* Navigation */}
           <nav className="mt-4 flex space-x-6">
-            <a href="#overview" className="text-blue-600 hover:text-blue-800 font-medium">
-              Overview
+            <a href="#demographics" className="text-blue-600 hover:text-blue-800 text-sm">
+              &rarr; Demographics
             </a>
-            <a href="#demographics" className="text-blue-600 hover:text-blue-800 font-medium">
-              Demographics
-            </a>
-            <a href="#data" className="text-blue-600 hover:text-blue-800 font-medium">
-              Raw Data
+            <a href="#data" className="text-blue-600 hover:text-blue-800 text-sm">
+              &rarr; Raw Data
             </a>
           </nav>
         </div>
@@ -342,14 +341,12 @@ export default function Profile() {
         </div>
       )}
 
-      {/* Content */}
+      {/* Placeholder content */}
       <main className="max-w-5xl mx-auto px-6 py-8">
         {!isSystemReady || dataLoading || directoryLoading ? (
           <div className="space-y-12">
-            {/* Overview Section - Loading Placeholder */}
             <section id="overview">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Overview</h3>
                 <div className="bg-gray-50 rounded-lg p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex justify-between py-2 border-b border-gray-200">
@@ -368,8 +365,6 @@ export default function Profile() {
                 </div>
               </div>
             </section>
-
-            {/* Placeholder */}
             <section id="demographics">
               <div>
                 <h3 className="text-sm font-semibold text-gray-600 mb-6">Demographics</h3>
@@ -389,8 +384,6 @@ export default function Profile() {
                 </div>
               </div>
             </section>
-
-            {/* Placeholder */}
             <section id="data">
               <div>
                 <h3 className="text-sm font-semibold text-gray-600 mb-6">Raw Membership Data</h3>
@@ -412,13 +405,8 @@ export default function Profile() {
           </div>
         ) : (
           <div className="space-y-12">
-            {/* Overview Section */}
             <section id="overview">{renderOverview()}</section>
-
-            {/* Demographics Section */}
             <section id="demographics">{renderDemographics()}</section>
-
-            {/* Raw Data Section */}
             <section id="data">{renderRawData()}</section>
           </div>
         )}
