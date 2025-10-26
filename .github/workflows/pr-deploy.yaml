@@ -8,6 +8,7 @@ on:
 
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_ORG_TOKEN }}
+  FLY_ORG: ${{ secrets.FLY_ORG }}
   FLY_REGION: "iad"
 
 jobs:
@@ -51,7 +52,7 @@ jobs:
             echo "App $app already exists. Skipping creation."
           else
             echo "Creating app $app"
-            flyctl apps create "$app" --org personal --machines
+            flyctl apps create "$app" --org ${{ env.FLY_ORG }} --machines
             echo "App $app created successfully."
           fi
         working-directory: app
