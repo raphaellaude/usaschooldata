@@ -17,17 +17,24 @@ export default function Home() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
-      <div className="text-center mb-8">
+      <div className="text-left mb-8">
         {dbLoading && <div className="text-gray-600 mb-4">Settings things up...</div>}
         {dbError && (
           <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">Error: {dbError}</div>
         )}
         {isInitialized && (
           <div className="max-w-2xl mx-auto">
+            <div className="text-sm color-gray-600 py-4">
+              <p>
+                USA School Data is a free, open-source project for navigating and visualizing NCES
+                Common Core of Data (CCD) school enrollment data. Enrollment data is available for
+                school years 2014-15 through 2023-24.
+              </p>
+            </div>
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search for schools by name"
+                placeholder="Search for schools by name..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
