@@ -64,7 +64,6 @@ jobs:
             --remote-only \
             --config fly.toml \
             --app "${{ env.app_name }}" \
-            --region ${{ env.FLY_REGION }} \
             --strategy immediate \
             --ha=false \
             --vm-cpu-kind shared \
