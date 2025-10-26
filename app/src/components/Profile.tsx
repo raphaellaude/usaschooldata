@@ -16,25 +16,14 @@ export default function Profile() {
   }>();
   const [searchParams] = useSearchParams();
   const {isLoading: dbLoading, error: dbError, isInitialized} = useDuckDB();
-
-  // Extract year from URL parameters, default to 2023-2024
   const urlRequestedYear = searchParams.get('year') || DEFAULT_SCHOOL_YEAR;
   const [fallbackToDefault, setFallbackToDefault] = React.useState(false);
-
-  // Use fallback year if requested year is not available
   const year = fallbackToDefault ? DEFAULT_SCHOOL_YEAR : urlRequestedYear;
-
-  // Use the ID directly as the NCES code
   const ncesCode = id || '';
-
-  // Auto-detect entity type based on ID length
-  // 12 digits = school, 7 digits = district
   const entityType: 'district' | 'school' = ncesCode.length === 12 ? 'school' : 'district';
-
-  // State for grade data
   const [gradeData, setGradeData] = React.useState<{grade: string; student_count: number}[]>([]);
+  const [copiedLink, setCopiedLink] = React.useState<string | null>(null);
 
-  // Load profile data using the new hook with year filter
   const {
     summary,
     membershipData,
@@ -43,13 +32,8 @@ export default function Profile() {
     yearNotAvailable,
     requestedYear,
     availableYears,
-  } = useProfileData(
-    entityType,
-    ncesCode,
-    {schoolYear: year} // Pass year as filter
-  );
+  } = useProfileData(entityType, ncesCode, {schoolYear: year});
 
-  // Fetch directory information (school name, etc.) for this school and year
   const {
     directoryInfo,
     isLoading: directoryLoading,
@@ -77,6 +61,17 @@ export default function Profile() {
     } catch (error) {
       console.error('Failed to load grade data:', error);
       setGradeData([]);
+    }
+  };
+
+  const copyLinkToClipboard = async (hash: string) => {
+    try {
+      const url = `${window.location.origin}${window.location.pathname}${window.location.search}${hash}`;
+      await navigator.clipboard.writeText(url);
+      setCopiedLink(hash);
+      setTimeout(() => setCopiedLink(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
     }
   };
 
@@ -167,9 +162,19 @@ export default function Profile() {
     return (
       <div>
         <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
-          <a href="#demographics" className="hover:text-gray-900 inline-flex items-center gap-2">
+          <a
+            href="#demographics"
+            className="hover:text-gray-900 inline-flex items-center gap-2"
+            onClick={e => {
+              e.preventDefault();
+              copyLinkToClipboard('#demographics');
+              window.location.hash = 'demographics';
+            }}
+          >
             Demographics
-            <Link1Icon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <Link1Icon
+              className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${copiedLink === '#demographics' ? 'text-green-600' : ''}`}
+            />
           </a>
         </h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -212,9 +217,19 @@ export default function Profile() {
   const renderRawData = () => (
     <div>
       <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
-        <a href="#raw-data" className="hover:text-gray-900 inline-flex items-center gap-2">
+        <a
+          href="#raw-data"
+          className="hover:text-gray-900 inline-flex items-center gap-2"
+          onClick={e => {
+            e.preventDefault();
+            copyLinkToClipboard('#raw-data');
+            window.location.hash = 'raw-data';
+          }}
+        >
           Raw Membership Data
-          <Link1Icon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <Link1Icon
+            className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${copiedLink === '#raw-data' ? 'text-green-600' : ''}`}
+          />
         </a>
       </h3>
       {membershipData.length > 0 ? (
@@ -288,9 +303,18 @@ export default function Profile() {
             {directoryLoading ? (
               <span className="text-gray-400">Loading...</span>
             ) : directoryInfo ? (
-              <a href="#" className="hover:text-gray-600 inline-flex items-center gap-2">
+              <a
+                href="#"
+                className="hover:text-gray-600 inline-flex items-center gap-2"
+                onClick={e => {
+                  e.preventDefault();
+                  copyLinkToClipboard('');
+                }}
+              >
                 {directoryInfo.sch_name}
-                <Link1Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Link1Icon
+                  className={`w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity ${copiedLink === '' ? 'text-green-600' : ''}`}
+                />
               </a>
             ) : (
               `${entityType === 'district' ? 'District' : 'School'} Profile`
