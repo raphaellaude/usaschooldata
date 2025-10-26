@@ -139,6 +139,15 @@ class DuckDBService {
       return value.length > 0 ? value[0] : 0;
     }
 
+    if (typeof value === 'bigint') {
+      // sometimes good old numbers are returned as bigint so try to cast to number
+      try {
+        return Number(value);
+      } catch {
+        return value;
+      }
+    }
+
     // Handle regular arrays
     if (Array.isArray(value)) {
       return value.length > 0 ? value[0] : null;

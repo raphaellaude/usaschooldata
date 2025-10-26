@@ -14,7 +14,8 @@ All data pulled from the [NCES Common Core of Data (CCD)](https://nces.ed.gov/cc
 
 - [ ] Indicate NCES CCD sources on website
 - [ ] Add footer linking to github with icon
-- [ ] Additional directory information: full address, county, school district, grade span, and fix status + school type
+- [ ] Additional directory information: full address, county, school district, grade span
+- [ ] Directory information: fix status + school type
 - [ ] Historical enrollment chart
 - [ ] Historical enrollment by race / ethnicity
 - [ ] Lat/lon for school with small map showing location

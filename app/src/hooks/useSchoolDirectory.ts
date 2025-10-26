@@ -1,14 +1,54 @@
 import {useState, useEffect} from 'react';
 import {duckDBService} from '../services/duckdb';
 
+const SY_STATUS_VALUES = [
+  'Open', // 1
+  'Closed', // 2
+  'New', // 3
+  'Added', // 4
+  'Changed Boundary/Agency', // 5
+  'Inactive', // 6
+  'Future', // 7
+  'Reopened', // 8
+];
+
+const SCH_TYPE_VALUES = [
+  'Regular School', // 1
+  'Special Education School', // 2
+  'Career and Technical School', // 3
+  'Alternative Education School', // 4
+];
+
 export interface SchoolDirectoryInfo {
   ncessch: string;
   sch_name: string;
-  lea_name: string;
-  city: string;
-  state_name: string;
   school_year: string;
-  [key: string]: string | number | null; // Allow additional fields from directory
+  sch_level: string;
+  sch_type: string;
+  sy_status: string;
+  sy_status_updated: string;
+  charter: string;
+  state_code: string;
+  state_leaid: string;
+  // grade_01
+  // grade_02
+  // grade_03
+  // grade_04
+  // grade_05
+  // grade_06
+  // grade_07
+  // grade_08
+  // grade_09
+  // grade_10
+  // grade_11
+  // grade_12
+  // grade_13
+  // grade_ae
+  // grade_kg
+  // grade_pk
+  // grade_ug
+  // leaid
+  [key: string]: string | number | null;
 }
 
 export function useSchoolDirectory(ncessch: string | undefined, schoolYear: string | undefined) {
@@ -46,10 +86,24 @@ export function useSchoolDirectory(ncessch: string | undefined, schoolYear: stri
         `;
 
         const table = await duckDBService.query(query);
-        const results = duckDBService.tableToArray(table);
 
-        if (results.length > 0) {
-          setDirectoryInfo(results[0] as SchoolDirectoryInfo);
+        const results = {
+          sch_name: duckDBService.getScalarValue(table, 0, 'sch_name'),
+          ncessch: duckDBService.getScalarValue(table, 0, 'ncessch'),
+          school_year: duckDBService.getScalarValue(table, 0, 'school_year'),
+          sch_level: duckDBService.getScalarValue(table, 0, 'sch_level'),
+          sch_type: SCH_TYPE_VALUES[duckDBService.getScalarValue(table, 0, 'sch_type') - 1],
+          sy_status: SY_STATUS_VALUES[duckDBService.getScalarValue(table, 0, 'sy_status') - 1],
+          sy_status_updated:
+            SY_STATUS_VALUES[duckDBService.getScalarValue(table, 0, 'sy_status_updated') - 1],
+          charter: duckDBService.getScalarValue(table, 0, 'charter'),
+          state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
+          state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
+        } as SchoolDirectoryInfo;
+        console.log(results);
+
+        if (results) {
+          setDirectoryInfo(results);
         } else {
           setDirectoryInfo(null);
         }

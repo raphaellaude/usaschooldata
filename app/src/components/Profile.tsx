@@ -323,9 +323,6 @@ export default function Profile() {
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-sm text-gray-500">
             <span>NCES ID: {ncesCode}</span>
             <span>School Year: {year}</span>
-            {directoryInfo && directoryInfo.lea_name && (
-              <span>District: {directoryInfo.lea_name}</span>
-            )}
             {/* Directory Stats Grid */}
             {directoryInfo?.sch_type && <span>School Type: {directoryInfo.sch_type || 'N/A'}</span>}
             {directoryInfo?.sch_level && (
