@@ -96,32 +96,77 @@ export default function Profile() {
     return (
       <div>
         {summary ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Summary Stats Box */}
-            <div className="rounded-lg">
-              <div className="space-y-4">
-                <div className="flex justify-between py-2">
-                  <span className="font-medium text-gray-700">Total enrollment</span>
-                  <span className="text-gray-900">
-                    {summary.totalEnrollment?.toLocaleString() || 'N/A'}
-                  </span>
-                </div>
-                {entityType === 'district' && (
-                  <div className="flex justify-between py-2 border-b border-gray-200">
-                    <span className="font-medium text-gray-700">Number of Schools:</span>
-                    <span className="text-gray-900">{(summary as any)?.schoolCount || 'N/A'}</span>
-                  </div>
-                )}
+          <div className="space-y-8">
+            {/* Hero Stat - Total Enrollment */}
+            <div className="text-center py-8 bg-gray-50 rounded-lg">
+              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-2">
+                Total Enrollment
+              </div>
+              <div className="text-6xl font-bold text-gray-900">
+                {summary.totalEnrollment?.toLocaleString() || 'N/A'}
               </div>
             </div>
 
+            {/* Directory Stats Grid */}
+            {directoryInfo && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {directoryInfo.sch_type && (
+                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
+                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                      School Type
+                    </div>
+                    <div className="text-lg font-semibold text-gray-900">
+                      {directoryInfo.sch_type}
+                    </div>
+                  </div>
+                )}
+                {directoryInfo.sch_level && (
+                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
+                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                      School Level
+                    </div>
+                    <div className="text-lg font-semibold text-gray-900">
+                      {directoryInfo.sch_level}
+                    </div>
+                  </div>
+                )}
+                {directoryInfo.charter && (
+                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
+                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                      Charter School
+                    </div>
+                    <div className="text-lg font-semibold text-gray-900">
+                      {directoryInfo.charter}
+                    </div>
+                  </div>
+                )}
+                {directoryInfo.sy_status && (
+                  <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
+                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                      Status
+                    </div>
+                    <div className="text-lg font-semibold text-gray-900">
+                      {directoryInfo.sy_status}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {entityType === 'district' && (
+              <div className="text-center py-4 bg-white border border-gray-200 rounded-lg">
+                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                  Number of Schools
+                </div>
+                <div className="text-2xl font-bold text-gray-900">
+                  {(summary as any)?.schoolCount || 'N/A'}
+                </div>
+              </div>
+            )}
+
             {/* Students by Grade Chart - only for schools */}
             {entityType === 'school' && gradeChartData.length > 0 && (
-              <CopyableWrapper
-                data={gradeChartData}
-                filename="students-by-grade"
-                className="lg:col-span-2"
-              >
+              <CopyableWrapper data={gradeChartData} filename="students-by-grade">
                 <div className="rounded-lg">
                   <h4 className="text-lg font-medium text-gray-900 mb-4">Students by grade</h4>
                   <div className="h-[400px]">
