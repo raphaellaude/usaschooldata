@@ -94,7 +94,7 @@ export default function Profile() {
         {summary ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="rounded-lg">
-              <div className="text-lg font-medium text-gray-900 mb-4">Total Enrollment</div>
+              <div className="text-lg font-medium text-gray-900 mb-4">Total enrollment</div>
               <div className="text-6xl font-bold text-gray-900">
                 {summary.totalEnrollment?.toLocaleString() || 'N/A'}
               </div>
@@ -203,7 +203,7 @@ export default function Profile() {
             className="lg:col-span-2"
           >
             <div className="rounded-lg">
-              <h4 className="text-lg font-medium text-gray-900 mb-4">Race & Ethnicity</h4>
+              <h4 className="text-lg font-medium text-gray-900 mb-4">Race & ethnicity</h4>
               <div className="h-[300px]">
                 <BarChart data={raceData} />
               </div>
@@ -383,7 +383,7 @@ export default function Profile() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-lg font-medium text-gray-900 mb-4">
-                        Total Enrollment
+                        Total enrollment
                       </span>
                       <span className="text-gray-400">Loading...</span>
                     </div>
