@@ -100,7 +100,6 @@ export function useSchoolDirectory(ncessch: string | undefined, schoolYear: stri
           state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
           state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
         } as SchoolDirectoryInfo;
-        console.log(results);
 
         if (results) {
           setDirectoryInfo(results);
