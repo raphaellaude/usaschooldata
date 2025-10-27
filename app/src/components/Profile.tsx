@@ -338,12 +338,10 @@ export default function Profile() {
           </div>
         ) : historicalEnrollmentData.byYear.length > 0 ? (
           <div className="rounded-lg">
-            <div className="h-[500px]">
-              <HistoricalEnrollmentChart
-                historicalData={historicalEnrollmentData}
-                currentYear={year}
-              />
-            </div>
+            <HistoricalEnrollmentChart
+              historicalData={historicalEnrollmentData}
+              currentYear={year}
+            />
           </div>
         ) : (
           <p className="text-gray-600">No historical enrollment data available</p>

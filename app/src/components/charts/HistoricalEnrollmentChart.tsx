@@ -252,9 +252,11 @@ const HistoricalEnrollmentChartInner = ({
       </div>
 
       <CopyableWrapper data={exportData} filename={exportFilename}>
-        {/* Chart */}
-        <svg width={width} height={height}>
-        <Group top={margin.top} left={margin.left}>
+        <div className="pb-8">
+          {/* Chart */}
+          <div style={{minHeight: '500px'}}>
+            <svg width={width} height={height}>
+            <Group top={margin.top} left={margin.left}>
           {breakdownType === 'none' ? (
             // Simple bars for default view
             (chartData as SimpleBarData[]).map(d => {
@@ -361,32 +363,34 @@ const HistoricalEnrollmentChartInner = ({
             }}
           />
         </Group>
-      </svg>
-
-        {/* Legend (only show for breakdown views) */}
-        {breakdownType !== 'none' && demographicKeys.length > 0 && (
-          <div className="mt-4 flex justify-center">
-            <LegendOrdinal scale={colorScale} direction="row" labelMargin="0 20px 0 0">
-              {labels => (
-                <div className="flex flex-wrap gap-4 text-sm">
-                  {labels.map((label, i) => (
-                    <div key={`legend-${i}`} className="flex items-center gap-2">
-                      <div
-                        style={{
-                          width: 16,
-                          height: 16,
-                          backgroundColor: label.value,
-                          borderRadius: 2,
-                        }}
-                      />
-                      <span>{label.text}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </LegendOrdinal>
+            </svg>
           </div>
-        )}
+
+          {/* Legend (only show for breakdown views) */}
+          {breakdownType !== 'none' && demographicKeys.length > 0 && (
+            <div className="mt-4 flex justify-center">
+              <LegendOrdinal scale={colorScale} direction="row" labelMargin="0 20px 0 0">
+                {labels => (
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    {labels.map((label, i) => (
+                      <div key={`legend-${i}`} className="flex items-center gap-2">
+                        <div
+                          style={{
+                            width: 16,
+                            height: 16,
+                            backgroundColor: label.value,
+                            borderRadius: 2,
+                          }}
+                        />
+                        <span>{label.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </LegendOrdinal>
+            </div>
+          )}
+        </div>
       </CopyableWrapper>
     </div>
   );
