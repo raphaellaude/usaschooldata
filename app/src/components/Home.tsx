@@ -24,13 +24,6 @@ export default function Home() {
         )}
         {isInitialized && (
           <div className="max-w-2xl mx-auto">
-            <div className="text-sm color-gray-600 py-4">
-              <p>
-                USA School Data is a free, open-source project for navigating and visualizing NCES
-                Common Core of Data (CCD) school enrollment data. Enrollment data is available for
-                school years 2014-15 through 2023-24.
-              </p>
-            </div>
             <div className="relative">
               <input
                 type="text"
