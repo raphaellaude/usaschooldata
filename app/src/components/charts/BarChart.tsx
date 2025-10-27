@@ -124,7 +124,6 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
                   width={barWidth}
                   height={barHeight}
                   fill={getColor(d.label)}
-                  rx={2}
                 />
                 {/* Value labels on top of bars (only show if value > 0) */}
                 {d.value > 0 && (
