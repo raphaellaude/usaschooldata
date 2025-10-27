@@ -50,6 +50,11 @@ interface StackedDataPoint {
   [key: string]: string | number;
 }
 
+interface SimpleBarData {
+  year: string;
+  total: number;
+}
+
 const HistoricalEnrollmentChartInner = ({
   historicalData,
   currentYear,
@@ -64,10 +69,14 @@ const HistoricalEnrollmentChartInner = ({
   const innerHeight = height - margin.top - margin.bottom;
 
   // Transform data based on current breakdown type
-  const {chartData, demographicKeys, colorScale} = useMemo(() => {
+  const {chartData, demographicKeys, colorScale} = useMemo<{
+    chartData: SimpleBarData[] | StackedDataPoint[];
+    demographicKeys: string[];
+    colorScale: any;
+  }>(() => {
     if (breakdownType === 'none') {
       // Simple bar chart data
-      const data = historicalData.byYear.map(d => ({
+      const data: SimpleBarData[] = historicalData.byYear.map(d => ({
         year: d.school_year,
         total: d.total_enrollment,
       }));
@@ -80,20 +89,17 @@ const HistoricalEnrollmentChartInner = ({
         }),
       };
     } else if (breakdownType === 'race_ethnicity') {
-      // Group by year and create stacked data
-      const yearMap = new Map<string, StackedDataPoint>();
-
-      historicalData.byRaceEthnicity.forEach(d => {
-        if (!yearMap.has(d.school_year)) {
-          yearMap.set(d.school_year, {year: d.school_year});
-        }
-        const yearData = yearMap.get(d.school_year)!;
-        yearData[d.race_ethnicity] = d.student_count;
-      });
-
-      const data = Array.from(yearMap.values()).sort((a, b) =>
-        a.year.localeCompare(b.year)
-      );
+      // Transform the wide-format data into chart format
+      const data: StackedDataPoint[] = historicalData.byRaceEthnicity.map(d => ({
+        year: d.school_year,
+        'American Indian or Alaska Native': d.native_american,
+        Asian: d.asian,
+        'Black or African American': d.black,
+        'Hispanic/Latino': d.hispanic,
+        'Native Hawaiian or Other Pacific Islander': d.pacific_islander,
+        'Two or more races': d.multiracial,
+        White: d.white,
+      }));
 
       // Use the canonical race/ethnicity order (matching Profile.tsx)
       // Only include categories that have data
@@ -123,20 +129,12 @@ const HistoricalEnrollmentChartInner = ({
         }),
       };
     } else {
-      // Sex breakdown
-      const yearMap = new Map<string, StackedDataPoint>();
-
-      historicalData.bySex.forEach(d => {
-        if (!yearMap.has(d.school_year)) {
-          yearMap.set(d.school_year, {year: d.school_year});
-        }
-        const yearData = yearMap.get(d.school_year)!;
-        yearData[d.sex] = d.student_count;
-      });
-
-      const data = Array.from(yearMap.values()).sort((a, b) =>
-        a.year.localeCompare(b.year)
-      );
+      // Sex breakdown - transform the wide-format data into chart format
+      const data: StackedDataPoint[] = historicalData.bySex.map(d => ({
+        year: d.school_year,
+        Male: d.male,
+        Female: d.female,
+      }));
 
       const keys = ['Male', 'Female'].filter(cat =>
         data.some(d => (d[cat] as number) > 0)
@@ -201,16 +199,15 @@ const HistoricalEnrollmentChartInner = ({
 
   const maxValue = useMemo(() => {
     if (breakdownType === 'none') {
-      return Math.max(...chartData.map(d => (d.total as number) || 0));
+      return Math.max(...(chartData as SimpleBarData[]).map(d => d.total || 0));
     } else if (isPercentStacked) {
       return 100;
     } else {
       // Calculate stack totals
       return Math.max(
-        ...chartData.map(d => {
-          const dataPoint = d as StackedDataPoint;
+        ...(chartData as StackedDataPoint[]).map(d => {
           return demographicKeys.reduce((sum, key) => {
-            const value = dataPoint[key];
+            const value = d[key];
             return sum + (typeof value === 'number' ? value : 0);
           }, 0);
         })
@@ -241,11 +238,11 @@ const HistoricalEnrollmentChartInner = ({
         <Group top={margin.top} left={margin.left}>
           {breakdownType === 'none' ? (
             // Simple bars for default view
-            chartData.map(d => {
+            (chartData as SimpleBarData[]).map(d => {
               const barWidth = xScale.bandwidth();
-              const barHeight = Math.max(0, innerHeight - yScale((d.total as number) || 0));
+              const barHeight = Math.max(0, innerHeight - yScale(d.total || 0));
               const barX = xScale(d.year) || 0;
-              const barY = yScale((d.total as number) || 0);
+              const barY = yScale(d.total || 0);
 
               return (
                 <Group key={d.year}>
@@ -258,7 +255,7 @@ const HistoricalEnrollmentChartInner = ({
                     rx={2}
                   />
                   {/* Value label */}
-                  {(d.total as number) > 0 && (
+                  {d.total > 0 && (
                     <text
                       x={barX + barWidth / 2}
                       y={barY - 5}
@@ -267,9 +264,7 @@ const HistoricalEnrollmentChartInner = ({
                       fontWeight={d.year === currentYear ? 'bold' : 'normal'}
                       fill="#333"
                     >
-                      {isPercentStacked
-                        ? `${(d.total as number).toFixed(0)}%`
-                        : (d.total as number).toLocaleString()}
+                      {d.total.toLocaleString()}
                     </text>
                   )}
                 </Group>
@@ -278,7 +273,7 @@ const HistoricalEnrollmentChartInner = ({
           ) : (
             // Stacked bars for breakdown views
             <BarStack
-              data={chartData}
+              data={chartData as StackedDataPoint[]}
               keys={demographicKeys}
               x={d => d.year}
               xScale={xScale}

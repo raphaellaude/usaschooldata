@@ -384,40 +384,61 @@ export class DataService {
    */
   async getHistoricalEnrollmentByRaceEthnicity(
     schoolCode: string
-  ): Promise<{school_year: string; race_ethnicity: string; student_count: number}[]> {
+  ): Promise<
+    {
+      school_year: string;
+      white: number;
+      black: number;
+      hispanic: number;
+      asian: number;
+      native_american: number;
+      pacific_islander: number;
+      multiracial: number;
+    }[]
+  > {
     try {
       // Ensure the historical table exists
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
-      // Query enrollment by year and race/ethnicity
-      // Filter to only include valid race/ethnicity categories to ensure totals match
+      // Query enrollment by year and race/ethnicity using CASE WHEN
+      // This ensures we get a value for every race/ethnicity category in every year
       const query = `
         SELECT
           school_year,
-          race_ethnicity,
-          SUM(student_count) as student_count
+          SUM(CASE WHEN race_ethnicity = 'American Indian or Alaska Native' THEN student_count ELSE 0 END) as native_american,
+          SUM(CASE WHEN race_ethnicity = 'Asian' THEN student_count ELSE 0 END) as asian,
+          SUM(CASE WHEN race_ethnicity = 'Black or African American' THEN student_count ELSE 0 END) as black,
+          SUM(CASE WHEN race_ethnicity = 'Hispanic/Latino' THEN student_count ELSE 0 END) as hispanic,
+          SUM(CASE WHEN race_ethnicity = 'Native Hawaiian or Other Pacific Islander' THEN student_count ELSE 0 END) as pacific_islander,
+          SUM(CASE WHEN race_ethnicity = 'Two or more races' THEN student_count ELSE 0 END) as multiracial,
+          SUM(CASE WHEN race_ethnicity = 'White' THEN student_count ELSE 0 END) as white
         FROM school_membership_${schoolCode}_historical
-        WHERE race_ethnicity IN (
-          'American Indian or Alaska Native',
-          'Asian',
-          'Black or African American',
-          'Hispanic/Latino',
-          'Native Hawaiian or Other Pacific Islander',
-          'Two or more races',
-          'White'
-        )
-        GROUP BY school_year, race_ethnicity
-        ORDER BY school_year ASC, race_ethnicity
+        GROUP BY school_year
+        ORDER BY school_year ASC
       `;
 
       const table = await duckDBService.query(query);
 
-      const result: {school_year: string; race_ethnicity: string; student_count: number}[] = [];
+      const result: {
+        school_year: string;
+        white: number;
+        black: number;
+        hispanic: number;
+        asian: number;
+        native_american: number;
+        pacific_islander: number;
+        multiracial: number;
+      }[] = [];
       for (let i = 0; i < table.numRows; i++) {
         result.push({
           school_year: duckDBService.getScalarValue(table, i, 'school_year'),
-          race_ethnicity: duckDBService.getScalarValue(table, i, 'race_ethnicity'),
-          student_count: duckDBService.getScalarValue(table, i, 'student_count'),
+          white: duckDBService.getScalarValue(table, i, 'white'),
+          black: duckDBService.getScalarValue(table, i, 'black'),
+          hispanic: duckDBService.getScalarValue(table, i, 'hispanic'),
+          asian: duckDBService.getScalarValue(table, i, 'asian'),
+          native_american: duckDBService.getScalarValue(table, i, 'native_american'),
+          pacific_islander: duckDBService.getScalarValue(table, i, 'pacific_islander'),
+          multiracial: duckDBService.getScalarValue(table, i, 'multiracial'),
         });
       }
       return result;
@@ -436,32 +457,31 @@ export class DataService {
    */
   async getHistoricalEnrollmentBySex(
     schoolCode: string
-  ): Promise<{school_year: string; sex: string; student_count: number}[]> {
+  ): Promise<{school_year: string; male: number; female: number}[]> {
     try {
       // Ensure the historical table exists
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
-      // Query enrollment by year and sex
-      // Filter to only include valid sex categories to ensure totals match
+      // Query enrollment by year and sex using CASE WHEN
+      // This ensures we get a value for both Male and Female in every year
       const query = `
         SELECT
           school_year,
-          sex,
-          SUM(student_count) as student_count
+          SUM(CASE WHEN sex = 'Male' THEN student_count ELSE 0 END) as male,
+          SUM(CASE WHEN sex = 'Female' THEN student_count ELSE 0 END) as female
         FROM school_membership_${schoolCode}_historical
-        WHERE sex IN ('Male', 'Female')
-        GROUP BY school_year, sex
-        ORDER BY school_year ASC, sex
+        GROUP BY school_year
+        ORDER BY school_year ASC
       `;
 
       const table = await duckDBService.query(query);
 
-      const result: {school_year: string; sex: string; student_count: number}[] = [];
+      const result: {school_year: string; male: number; female: number}[] = [];
       for (let i = 0; i < table.numRows; i++) {
         result.push({
           school_year: duckDBService.getScalarValue(table, i, 'school_year'),
-          sex: duckDBService.getScalarValue(table, i, 'sex'),
-          student_count: duckDBService.getScalarValue(table, i, 'student_count'),
+          male: duckDBService.getScalarValue(table, i, 'male'),
+          female: duckDBService.getScalarValue(table, i, 'female'),
         });
       }
       return result;
