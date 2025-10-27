@@ -159,7 +159,7 @@ const HistoricalEnrollmentChartInner = ({
         demographicKeys: keys,
         colorScale: scaleOrdinal<string, string>({
           domain: keys,
-          range: keys.map((k, i) => DEFAULT_COLORS[i % DEFAULT_COLORS.length]),
+          range: keys.map((_, i) => DEFAULT_COLORS[i % DEFAULT_COLORS.length]),
         }),
       };
     }
