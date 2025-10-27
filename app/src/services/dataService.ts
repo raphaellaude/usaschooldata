@@ -390,12 +390,22 @@ export class DataService {
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
       // Query enrollment by year and race/ethnicity
+      // Filter to only include valid race/ethnicity categories to ensure totals match
       const query = `
         SELECT
           school_year,
           race_ethnicity,
           SUM(student_count) as student_count
         FROM school_membership_${schoolCode}_historical
+        WHERE race_ethnicity IN (
+          'American Indian or Alaska Native',
+          'Asian',
+          'Black or African American',
+          'Hispanic/Latino',
+          'Native Hawaiian or Other Pacific Islander',
+          'Two or more races',
+          'White'
+        )
         GROUP BY school_year, race_ethnicity
         ORDER BY school_year ASC, race_ethnicity
       `;
@@ -432,12 +442,14 @@ export class DataService {
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
       // Query enrollment by year and sex
+      // Filter to only include valid sex categories to ensure totals match
       const query = `
         SELECT
           school_year,
           sex,
           SUM(student_count) as student_count
         FROM school_membership_${schoolCode}_historical
+        WHERE sex IN ('Male', 'Female')
         GROUP BY school_year, sex
         ORDER BY school_year ASC, sex
       `;
