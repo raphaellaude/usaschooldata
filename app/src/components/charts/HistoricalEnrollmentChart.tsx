@@ -277,7 +277,6 @@ const HistoricalEnrollmentChartInner = ({
                     width={barWidth}
                     height={barHeight}
                     fill={DEFAULT_COLORS[0]}
-                    rx={2}
                   />
                   {/* Value label */}
                   {d.total > 0 && (
@@ -315,7 +314,6 @@ const HistoricalEnrollmentChartInner = ({
                       height={bar.height}
                       width={bar.width}
                       fill={bar.color}
-                      rx={2}
                     />
                   ))
                 )
