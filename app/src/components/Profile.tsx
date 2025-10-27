@@ -234,8 +234,8 @@ export default function Profile() {
       </h3>
       {membershipData.length > 0 ? (
         <div>
-          <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
           <CopyableWrapper data={membershipData} filename="membership-data">
+            <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               <div className="max-h-96 overflow-auto">
                 <table className="w-full text-sm">
