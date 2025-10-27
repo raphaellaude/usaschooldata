@@ -188,15 +188,7 @@ export default function Profile() {
             <div className="rounded-lg">
               <h4 className="text-lg font-medium text-gray-900 mb-4">Sex</h4>
               <div className="flex flex-col">
-                <DoughnutChart
-                  data={sexData}
-                  width={280}
-                  height={240}
-                  colorMapping={{
-                    Male: '#525252',
-                    Female: '#9e9e9e',
-                  }}
-                />
+                <DoughnutChart data={sexData} width={280} height={240} />
               </div>
             </div>
           </CopyableWrapper>

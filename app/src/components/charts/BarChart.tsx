@@ -4,6 +4,17 @@ import {scaleLinear, scaleBand} from '@visx/scale';
 import {AxisBottom, AxisLeft} from '@visx/axis';
 import {ParentSize} from '@visx/responsive';
 
+// Default color palette
+const DEFAULT_COLORS = [
+  '#87789c', // American Indian or Alaska Native
+  '#5eab46', // Asian
+  '#ffd400', // Black or African American
+  '#f181b3', // Hispanic/Latino
+  '#f04e23', // Native Hawaiian or Other Pacific Islander
+  '#6b4725', // Two or more races
+  '#2b87c8', // White
+];
+
 interface BarData {
   label: string;
   value: number;
@@ -54,12 +65,13 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
     nice: true,
   });
 
-  // Color function - use colorMapping if provided, otherwise default to single color
+  // Color function - use colorMapping if provided, otherwise use first default color for all bars
   const getColor = (label: string) => {
     if (colorMapping && colorMapping[label]) {
       return colorMapping[label];
     }
-    return '#6b6969'; // Default single color
+    // Non-stacked bar charts should use a single color
+    return DEFAULT_COLORS[0];
   };
 
   // Shorten labels for display
