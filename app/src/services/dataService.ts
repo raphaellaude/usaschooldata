@@ -382,9 +382,7 @@ export class DataService {
    * Get enrollment by year and race/ethnicity for a school
    * Returns data suitable for stacked bar charts
    */
-  async getHistoricalEnrollmentByRaceEthnicity(
-    schoolCode: string
-  ): Promise<
+  async getHistoricalEnrollmentByRaceEthnicity(schoolCode: string): Promise<
     {
       school_year: string;
       white: number;

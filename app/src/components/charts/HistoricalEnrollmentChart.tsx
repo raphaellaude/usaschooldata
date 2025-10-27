@@ -29,13 +29,13 @@ const RACE_ETHNICITY_ORDER = [
 
 // Color palettes for different demographics
 const RACE_ETHNICITY_COLORS: Record<string, string> = {
-  'American Indian or Alaska Native': '#8b5cf6',
-  Asian: '#3b82f6',
-  'Black or African American': '#525252',
-  'Hispanic/Latino': '#f59e0b',
-  'Native Hawaiian or Other Pacific Islander': '#ec4899',
-  'Two or more races': '#10b981',
-  White: '#e8e8e8',
+  'American Indian or Alaska Native': '#87789c',
+  Asian: '#5eab46',
+  'Black or African American': '#ffd400',
+  'Hispanic/Latino': '#f181b3',
+  'Native Hawaiian or Other Pacific Islander': '#f04e23',
+  'Two or more races': '#6b4725',
+  White: '#2b87c8',
 };
 
 const SEX_COLORS: Record<string, string> = {
@@ -103,9 +103,7 @@ const HistoricalEnrollmentChartInner = ({
 
       // Use the canonical race/ethnicity order (matching Profile.tsx)
       // Only include categories that have data
-      const keys = RACE_ETHNICITY_ORDER.filter(cat =>
-        data.some(d => (d[cat] as number) > 0)
-      );
+      const keys = RACE_ETHNICITY_ORDER.filter(cat => data.some(d => (d[cat] as number) > 0));
 
       // If using percent stacked, normalize the data
       if (isPercentStacked) {
@@ -136,9 +134,7 @@ const HistoricalEnrollmentChartInner = ({
         Female: d.female,
       }));
 
-      const keys = ['Male', 'Female'].filter(cat =>
-        data.some(d => (d[cat] as number) > 0)
-      );
+      const keys = ['Male', 'Female'].filter(cat => data.some(d => (d[cat] as number) > 0));
 
       // If using percent stacked, normalize the data
       if (isPercentStacked) {
