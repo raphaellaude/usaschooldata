@@ -43,9 +43,7 @@ export default function Profile() {
   } = useSchoolDirectory(ncesCode, year);
 
   // Load historical enrollment data for schools only (async, doesn't block page load)
-  const historicalEnrollmentData = useHistoricalEnrollment(
-    entityType === 'school' ? ncesCode : ''
-  );
+  const historicalEnrollmentData = useHistoricalEnrollment(entityType === 'school' ? ncesCode : '');
 
   // Handle automatic fallback to default year when requested year is not available
   React.useEffect(() => {
@@ -339,10 +337,7 @@ export default function Profile() {
             </p>
           </div>
         ) : historicalEnrollmentData.byYear.length > 0 ? (
-          <CopyableWrapper
-            data={historicalEnrollmentData.byYear}
-            filename="historical-enrollment"
-          >
+          <CopyableWrapper data={historicalEnrollmentData.byYear} filename="historical-enrollment">
             <div className="rounded-lg">
               <div className="h-[500px]">
                 <HistoricalEnrollmentChart
@@ -412,7 +407,10 @@ export default function Profile() {
               &rarr; Raw Data
             </a>
             {entityType === 'school' && (
-              <a href="#historical-enrollment" className="text-blue-600 hover:text-blue-800 text-sm">
+              <a
+                href="#historical-enrollment"
+                className="text-blue-600 hover:text-blue-800 text-sm"
+              >
                 &rarr; Historical Enrollment
               </a>
             )}
