@@ -3,12 +3,12 @@ export default function Footer() {
     <footer className="bg-gray-100 border-t border-gray-300 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Icon Links Section */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-start mb-6">
           <a
             href="https://github.com/raphaellaude/usa-school-data"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+            className="flex flex-col items-start gap-2 text-gray-700 hover:text-gray-900 transition-colors"
           >
             <svg
               className="w-6 h-6"
@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
 
         {/* Description Section */}
-        <div className="text-center text-sm text-gray-600 max-w-3xl mx-auto">
+        <div className="text-left text-sm text-gray-600 max-w-3xl">
           <p>
             USA School Data is a free, open-source project for navigating and visualizing NCES
             Common Core of Data (CCD) school enrollment data. Enrollment data is available for
