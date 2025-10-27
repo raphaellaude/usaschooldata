@@ -6,8 +6,17 @@ export type BreakdownType = 'none' | 'race_ethnicity' | 'sex';
 
 export interface HistoricalEnrollmentData {
   byYear: {school_year: string; total_enrollment: number}[];
-  byRaceEthnicity: {school_year: string; race_ethnicity: string; student_count: number}[];
-  bySex: {school_year: string; sex: string; student_count: number}[];
+  byRaceEthnicity: {
+    school_year: string;
+    white: number;
+    black: number;
+    hispanic: number;
+    asian: number;
+    native_american: number;
+    pacific_islander: number;
+    multiracial: number;
+  }[];
+  bySex: {school_year: string; male: number; female: number}[];
   isLoading: boolean;
   error: string | null;
   isTableReady: boolean;
@@ -20,11 +29,18 @@ export interface HistoricalEnrollmentData {
 export function useHistoricalEnrollment(schoolCode: string): HistoricalEnrollmentData {
   const [byYear, setByYear] = useState<{school_year: string; total_enrollment: number}[]>([]);
   const [byRaceEthnicity, setByRaceEthnicity] = useState<
-    {school_year: string; race_ethnicity: string; student_count: number}[]
+    {
+      school_year: string;
+      white: number;
+      black: number;
+      hispanic: number;
+      asian: number;
+      native_american: number;
+      pacific_islander: number;
+      multiracial: number;
+    }[]
   >([]);
-  const [bySex, setBySex] = useState<{school_year: string; sex: string; student_count: number}[]>(
-    []
-  );
+  const [bySex, setBySex] = useState<{school_year: string; male: number; female: number}[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isTableReady, setIsTableReady] = useState(false);
