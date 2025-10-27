@@ -337,16 +337,14 @@ export default function Profile() {
             </p>
           </div>
         ) : historicalEnrollmentData.byYear.length > 0 ? (
-          <CopyableWrapper data={historicalEnrollmentData.byYear} filename="historical-enrollment">
-            <div className="rounded-lg">
-              <div className="h-[500px]">
-                <HistoricalEnrollmentChart
-                  historicalData={historicalEnrollmentData}
-                  currentYear={year}
-                />
-              </div>
+          <div className="rounded-lg">
+            <div className="h-[500px]">
+              <HistoricalEnrollmentChart
+                historicalData={historicalEnrollmentData}
+                currentYear={year}
+              />
             </div>
-          </CopyableWrapper>
+          </div>
         ) : (
           <p className="text-gray-600">No historical enrollment data available</p>
         )}
