@@ -4,6 +4,17 @@ import {scaleLinear, scaleBand} from '@visx/scale';
 import {AxisBottom, AxisLeft} from '@visx/axis';
 import {ParentSize} from '@visx/responsive';
 
+// Default color palette
+const DEFAULT_COLORS = [
+  '#87789c', // American Indian or Alaska Native
+  '#5eab46', // Asian
+  '#ffd400', // Black or African American
+  '#f181b3', // Hispanic/Latino
+  '#f04e23', // Native Hawaiian or Other Pacific Islander
+  '#6b4725', // Two or more races
+  '#2b87c8', // White
+];
+
 interface BarData {
   label: string;
   value: number;
@@ -54,12 +65,12 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
     nice: true,
   });
 
-  // Color function - use colorMapping if provided, otherwise default to single color
-  const getColor = (label: string) => {
+  // Color function - use colorMapping if provided, otherwise cycle through default colors
+  const getColor = (label: string, index: number) => {
     if (colorMapping && colorMapping[label]) {
       return colorMapping[label];
     }
-    return '#6b6969'; // Default single color
+    return DEFAULT_COLORS[index % DEFAULT_COLORS.length];
   };
 
   // Shorten labels for display
@@ -98,7 +109,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
       <svg width={width} height={height}>
         <Group top={margin.top} left={margin.left}>
           {/* Bars */}
-          {filteredData.map(d => {
+          {filteredData.map((d, index) => {
             const barWidth = xScale.bandwidth();
             const barHeight = Math.max(0, innerHeight - yScale(d.value));
             const barX = xScale(d.label) || 0;
@@ -111,7 +122,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
                   y={barY}
                   width={barWidth}
                   height={barHeight}
-                  fill={getColor(d.label)}
+                  fill={getColor(d.label, index)}
                   rx={2}
                 />
                 {/* Value labels on top of bars (only show if value > 0) */}

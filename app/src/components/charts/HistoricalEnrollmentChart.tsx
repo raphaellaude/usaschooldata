@@ -28,6 +28,17 @@ const RACE_ETHNICITY_ORDER = [
   'White',
 ];
 
+// Default color palette (based on historical race/ethnicity colors)
+const DEFAULT_COLORS = [
+  '#87789c', // American Indian or Alaska Native
+  '#5eab46', // Asian
+  '#ffd400', // Black or African American
+  '#f181b3', // Hispanic/Latino
+  '#f04e23', // Native Hawaiian or Other Pacific Islander
+  '#6b4725', // Two or more races
+  '#2b87c8', // White
+];
+
 // Color palettes for different demographics
 const RACE_ETHNICITY_COLORS: Record<string, string> = {
   'American Indian or Alaska Native': '#87789c',
@@ -38,13 +49,6 @@ const RACE_ETHNICITY_COLORS: Record<string, string> = {
   'Two or more races': '#6b4725',
   White: '#2b87c8',
 };
-
-const SEX_COLORS: Record<string, string> = {
-  Male: '#525252',
-  Female: '#9e9e9e',
-};
-
-const DEFAULT_COLOR = '#6b6969';
 
 interface StackedDataPoint {
   year: string;
@@ -124,7 +128,7 @@ const HistoricalEnrollmentChartInner = ({
         demographicKeys: keys,
         colorScale: scaleOrdinal<string, string>({
           domain: keys,
-          range: keys.map(k => RACE_ETHNICITY_COLORS[k] || DEFAULT_COLOR),
+          range: keys.map(k => RACE_ETHNICITY_COLORS[k] || DEFAULT_COLORS[0]),
         }),
       };
     } else {
@@ -155,7 +159,7 @@ const HistoricalEnrollmentChartInner = ({
         demographicKeys: keys,
         colorScale: scaleOrdinal<string, string>({
           domain: keys,
-          range: keys.map(k => SEX_COLORS[k] || DEFAULT_COLOR),
+          range: keys.map((k, i) => DEFAULT_COLORS[i % DEFAULT_COLORS.length]),
         }),
       };
     }
@@ -272,7 +276,7 @@ const HistoricalEnrollmentChartInner = ({
                     y={barY}
                     width={barWidth}
                     height={barHeight}
-                    fill={DEFAULT_COLOR}
+                    fill={DEFAULT_COLORS[0]}
                     rx={2}
                   />
                   {/* Value label */}
