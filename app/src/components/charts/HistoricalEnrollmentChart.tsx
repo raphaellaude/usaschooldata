@@ -5,6 +5,7 @@ import {scaleLinear, scaleBand, scaleOrdinal} from '@visx/scale';
 import {AxisBottom, AxisLeft} from '@visx/axis';
 import {LegendOrdinal} from '@visx/legend';
 import {ParentSize} from '@visx/responsive';
+import CopyableWrapper from '../CopyableWrapper';
 import type {HistoricalEnrollmentData} from '../../hooks/useHistoricalEnrollment';
 
 interface HistoricalEnrollmentChartProps {
@@ -217,6 +218,27 @@ const HistoricalEnrollmentChartInner = ({
     nice: true,
   });
 
+  // Determine the data to export based on current view
+  const exportData = useMemo(() => {
+    if (breakdownType === 'none') {
+      return historicalData.byYear;
+    } else if (breakdownType === 'race_ethnicity') {
+      return historicalData.byRaceEthnicity;
+    } else {
+      return historicalData.bySex;
+    }
+  }, [breakdownType, historicalData]);
+
+  const exportFilename = useMemo(() => {
+    if (breakdownType === 'none') {
+      return 'historical-enrollment';
+    } else if (breakdownType === 'race_ethnicity') {
+      return 'historical-enrollment-by-race-ethnicity';
+    } else {
+      return 'historical-enrollment-by-sex';
+    }
+  }, [breakdownType]);
+
   return (
     <div>
       {/* Control buttons */}
@@ -229,8 +251,9 @@ const HistoricalEnrollmentChartInner = ({
         />
       </div>
 
-      {/* Chart */}
-      <svg width={width} height={height}>
+      <CopyableWrapper data={exportData} filename={exportFilename}>
+        {/* Chart */}
+        <svg width={width} height={height}>
         <Group top={margin.top} left={margin.left}>
           {breakdownType === 'none' ? (
             // Simple bars for default view
@@ -340,30 +363,31 @@ const HistoricalEnrollmentChartInner = ({
         </Group>
       </svg>
 
-      {/* Legend (only show for breakdown views) */}
-      {breakdownType !== 'none' && demographicKeys.length > 0 && (
-        <div className="mt-4 flex justify-center">
-          <LegendOrdinal scale={colorScale} direction="row" labelMargin="0 20px 0 0">
-            {labels => (
-              <div className="flex flex-wrap gap-4 text-sm">
-                {labels.map((label, i) => (
-                  <div key={`legend-${i}`} className="flex items-center gap-2">
-                    <div
-                      style={{
-                        width: 16,
-                        height: 16,
-                        backgroundColor: label.value,
-                        borderRadius: 2,
-                      }}
-                    />
-                    <span>{label.text}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </LegendOrdinal>
-        </div>
-      )}
+        {/* Legend (only show for breakdown views) */}
+        {breakdownType !== 'none' && demographicKeys.length > 0 && (
+          <div className="mt-4 flex justify-center">
+            <LegendOrdinal scale={colorScale} direction="row" labelMargin="0 20px 0 0">
+              {labels => (
+                <div className="flex flex-wrap gap-4 text-sm">
+                  {labels.map((label, i) => (
+                    <div key={`legend-${i}`} className="flex items-center gap-2">
+                      <div
+                        style={{
+                          width: 16,
+                          height: 16,
+                          backgroundColor: label.value,
+                          borderRadius: 2,
+                        }}
+                      />
+                      <span>{label.text}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </LegendOrdinal>
+          </div>
+        )}
+      </CopyableWrapper>
     </div>
   );
 };
