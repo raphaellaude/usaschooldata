@@ -13,7 +13,7 @@ All data pulled from the [NCES Common Core of Data (CCD)](https://nces.ed.gov/cc
 ## Roadmap
 
 - [ ] Indicate NCES CCD sources on website
-- [ ] Add footer linking to github with icon
+- [x] Add footer linking to github with icon
 - [ ] Additional directory information: full address, county, school district, grade span
 - [x] Directory information: fix status + school type
 - [x] Historical enrollment chart
