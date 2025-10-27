@@ -65,12 +65,13 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
     nice: true,
   });
 
-  // Color function - use colorMapping if provided, otherwise cycle through default colors
-  const getColor = (label: string, index: number) => {
+  // Color function - use colorMapping if provided, otherwise use first default color for all bars
+  const getColor = (label: string) => {
     if (colorMapping && colorMapping[label]) {
       return colorMapping[label];
     }
-    return DEFAULT_COLORS[index % DEFAULT_COLORS.length];
+    // Non-stacked bar charts should use a single color
+    return DEFAULT_COLORS[0];
   };
 
   // Shorten labels for display
@@ -109,7 +110,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
       <svg width={width} height={height}>
         <Group top={margin.top} left={margin.left}>
           {/* Bars */}
-          {filteredData.map((d, index) => {
+          {filteredData.map(d => {
             const barWidth = xScale.bandwidth();
             const barHeight = Math.max(0, innerHeight - yScale(d.value));
             const barX = xScale(d.label) || 0;
@@ -122,7 +123,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
                   y={barY}
                   width={barWidth}
                   height={barHeight}
-                  fill={getColor(d.label, index)}
+                  fill={getColor(d.label)}
                   rx={2}
                 />
                 {/* Value labels on top of bars (only show if value > 0) */}
