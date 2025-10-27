@@ -16,15 +16,26 @@ interface HistoricalEnrollmentChartProps {
 
 type BreakdownType = 'none' | 'race_ethnicity' | 'sex';
 
+// Define the canonical order for race/ethnicity categories (matching Profile.tsx)
+const RACE_ETHNICITY_ORDER = [
+  'American Indian or Alaska Native',
+  'Asian',
+  'Black or African American',
+  'Hispanic/Latino',
+  'Native Hawaiian or Other Pacific Islander',
+  'Two or more races',
+  'White',
+];
+
 // Color palettes for different demographics
 const RACE_ETHNICITY_COLORS: Record<string, string> = {
-  White: '#e8e8e8',
+  'American Indian or Alaska Native': '#8b5cf6',
+  Asian: '#3b82f6',
   'Black or African American': '#525252',
   'Hispanic/Latino': '#f59e0b',
-  Asian: '#3b82f6',
-  'American Indian or Alaska Native': '#8b5cf6',
   'Native Hawaiian or Other Pacific Islander': '#ec4899',
   'Two or more races': '#10b981',
+  White: '#e8e8e8',
 };
 
 const SEX_COLORS: Record<string, string> = {
@@ -84,9 +95,9 @@ const HistoricalEnrollmentChartInner = ({
         a.year.localeCompare(b.year)
       );
 
-      // Get all unique race/ethnicity categories in consistent order
-      const allCategories = Object.keys(RACE_ETHNICITY_COLORS);
-      const keys = allCategories.filter(cat =>
+      // Use the canonical race/ethnicity order (matching Profile.tsx)
+      // Only include categories that have data
+      const keys = RACE_ETHNICITY_ORDER.filter(cat =>
         data.some(d => (d[cat] as number) > 0)
       );
 
