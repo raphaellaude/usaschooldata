@@ -28,8 +28,7 @@ export default function GradeBand({directoryInfo, showUngraded = false}: GradeBa
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm text-gray-600 mr-2">Grades:</span>
-      <div className="flex gap-0.5">
+      <div className="flex">
         {GRADES.map(grade => {
           const hasGrade =
             directoryInfo[grade.key] === 'Yes' ||
