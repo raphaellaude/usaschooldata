@@ -1,5 +1,4 @@
-import React from 'react';
-import {SchoolDirectoryInfo} from '../hooks/useSchoolDirectory';
+import type {SchoolDirectoryInfo} from '../hooks/useSchoolDirectory';
 
 interface GradeBandProps {
   directoryInfo: SchoolDirectoryInfo;
