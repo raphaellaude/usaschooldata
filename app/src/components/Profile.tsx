@@ -9,6 +9,7 @@ import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
 import CopyableWrapper from './CopyableWrapper';
+import GradeBand from './GradeBand';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
 import {Link1Icon} from '@radix-ui/react-icons';
 
@@ -385,6 +386,13 @@ export default function Profile() {
               </span>
             )}
           </div>
+
+          {/* Grade Band Visualization */}
+          {entityType === 'school' && directoryInfo && (
+            <div className="mt-4">
+              <GradeBand directoryInfo={directoryInfo} />
+            </div>
+          )}
 
           {/* Navigation */}
           <nav className="mt-4 flex space-x-6">

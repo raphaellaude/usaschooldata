@@ -30,25 +30,24 @@ export interface SchoolDirectoryInfo {
   charter: string;
   state_code: string;
   state_leaid: string;
-  // grade_01
-  // grade_02
-  // grade_03
-  // grade_04
-  // grade_05
-  // grade_06
-  // grade_07
-  // grade_08
-  // grade_09
-  // grade_10
-  // grade_11
-  // grade_12
-  // grade_13
-  // grade_ae
-  // grade_kg
-  // grade_pk
-  // grade_ug
-  // leaid
-  [key: string]: string | number | null;
+  grade_pk?: string | number | null;
+  grade_kg?: string | number | null;
+  grade_01?: string | number | null;
+  grade_02?: string | number | null;
+  grade_03?: string | number | null;
+  grade_04?: string | number | null;
+  grade_05?: string | number | null;
+  grade_06?: string | number | null;
+  grade_07?: string | number | null;
+  grade_08?: string | number | null;
+  grade_09?: string | number | null;
+  grade_10?: string | number | null;
+  grade_11?: string | number | null;
+  grade_12?: string | number | null;
+  grade_13?: string | number | null;
+  grade_ug?: string | number | null;
+  grade_ae?: string | number | null;
+  [key: string]: string | number | null | undefined;
 }
 
 export function useSchoolDirectory(ncessch: string | undefined, schoolYear: string | undefined) {
@@ -99,6 +98,23 @@ export function useSchoolDirectory(ncessch: string | undefined, schoolYear: stri
           charter: duckDBService.getScalarValue(table, 0, 'charter'),
           state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
           state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
+          grade_pk: duckDBService.getScalarValue(table, 0, 'grade_pk'),
+          grade_kg: duckDBService.getScalarValue(table, 0, 'grade_kg'),
+          grade_01: duckDBService.getScalarValue(table, 0, 'grade_01'),
+          grade_02: duckDBService.getScalarValue(table, 0, 'grade_02'),
+          grade_03: duckDBService.getScalarValue(table, 0, 'grade_03'),
+          grade_04: duckDBService.getScalarValue(table, 0, 'grade_04'),
+          grade_05: duckDBService.getScalarValue(table, 0, 'grade_05'),
+          grade_06: duckDBService.getScalarValue(table, 0, 'grade_06'),
+          grade_07: duckDBService.getScalarValue(table, 0, 'grade_07'),
+          grade_08: duckDBService.getScalarValue(table, 0, 'grade_08'),
+          grade_09: duckDBService.getScalarValue(table, 0, 'grade_09'),
+          grade_10: duckDBService.getScalarValue(table, 0, 'grade_10'),
+          grade_11: duckDBService.getScalarValue(table, 0, 'grade_11'),
+          grade_12: duckDBService.getScalarValue(table, 0, 'grade_12'),
+          grade_13: duckDBService.getScalarValue(table, 0, 'grade_13'),
+          grade_ug: duckDBService.getScalarValue(table, 0, 'grade_ug'),
+          grade_ae: duckDBService.getScalarValue(table, 0, 'grade_ae'),
         } as SchoolDirectoryInfo;
 
         if (results) {
