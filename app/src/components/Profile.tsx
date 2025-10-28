@@ -31,7 +31,9 @@ export default function Profile() {
     summary,
     membershipData,
     isLoading: dataLoading,
+    isMembershipLoading,
     error: dataError,
+    membershipError,
     yearNotAvailable,
     requestedYear,
     availableYears,
@@ -230,7 +232,17 @@ export default function Profile() {
           />
         </a>
       </h3>
-      {membershipData.length > 0 ? (
+      {isMembershipLoading ? (
+        <div className="bg-white border border-gray-200 rounded-lg p-6">
+          <div className="flex items-center justify-center h-32 text-gray-400">
+            <div className="animate-pulse">Loading membership data...</div>
+          </div>
+        </div>
+      ) : membershipError ? (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+          <p className="text-red-700">Failed to load membership data: {membershipError}</p>
+        </div>
+      ) : membershipData.length > 0 ? (
         <div>
           <CopyableWrapper data={membershipData} filename="membership-data">
             <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
