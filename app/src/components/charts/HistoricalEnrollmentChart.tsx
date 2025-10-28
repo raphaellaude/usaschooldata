@@ -69,7 +69,7 @@ const HistoricalEnrollmentChartInner = ({
   const [breakdownType, setBreakdownType] = useState<BreakdownType>('none');
   const [isPercentStacked, setIsPercentStacked] = useState(false);
 
-  const margin = {top: 20, right: 20, bottom: 80, left: 80};
+  const margin = {top: 20, right: 0, bottom: 80, left: 80};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
