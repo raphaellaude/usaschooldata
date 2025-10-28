@@ -15,6 +15,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const queryInFlightRef = useRef(false);
   const localTableCreated = useRef(false);
   const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
 
@@ -66,6 +67,15 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       clearTimeout(searchTimeoutRef.current);
     }
 
+    // Cancel any in-flight query
+    if (queryInFlightRef.current) {
+      const cancelled = duckDBService.cancelPendingQuery();
+      if (cancelled) {
+        console.log('Cancelled previous search query');
+      }
+      queryInFlightRef.current = false;
+    }
+
     // If query is less than 3 characters, clear results
     if (searchQuery.length < 3) {
       setResults([]);
@@ -85,6 +95,9 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
           localTableCreated.current = true;
         }
 
+        // Mark that a query is now in-flight
+        queryInFlightRef.current = true;
+
         // Perform the search
         const searchResults = await performSearch(searchQuery);
         setResults(searchResults);
@@ -93,6 +106,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
         setError(err instanceof Error ? err.message : 'Search failed');
         setResults([]);
       } finally {
+        queryInFlightRef.current = false;
         setIsSearching(false);
       }
     }, debounceMs);
@@ -101,6 +115,10 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
     return () => {
       if (searchTimeoutRef.current) {
         clearTimeout(searchTimeoutRef.current);
+      }
+      if (queryInFlightRef.current) {
+        duckDBService.cancelPendingQuery();
+        queryInFlightRef.current = false;
       }
     };
   }, [searchQuery, debounceMs, createSearchTable, performSearch]);
