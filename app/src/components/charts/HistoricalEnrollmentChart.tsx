@@ -306,16 +306,53 @@ const HistoricalEnrollmentChartInner = ({
             >
               {barStacks =>
                 barStacks.map(barStack =>
-                  barStack.bars.map(bar => (
-                    <rect
-                      key={`bar-stack-${barStack.index}-${bar.index}`}
-                      x={bar.x}
-                      y={bar.y}
-                      height={bar.height}
-                      width={bar.width}
-                      fill={bar.color}
-                    />
-                  ))
+                  barStack.bars.map(bar => {
+                    // Calculate total for this year to determine percentage
+                    const yearData = chartData[bar.index] as StackedDataPoint;
+                    const yearTotal = demographicKeys.reduce((sum, key) => {
+                      const value = yearData[key];
+                      return sum + (typeof value === 'number' ? value : 0);
+                    }, 0);
+
+                    // Get the value for this segment
+                    const segmentValue = typeof bar.bar[1] === 'number' && typeof bar.bar[0] === 'number'
+                      ? bar.bar[1] - bar.bar[0]
+                      : 0;
+
+                    // Calculate percentage
+                    const percentage = yearTotal > 0 ? (segmentValue / yearTotal) * 100 : 0;
+
+                    // Only show label if >= 7%
+                    const shouldShowLabel = percentage >= 7;
+
+                    return (
+                      <Group key={`bar-stack-${barStack.index}-${bar.index}`}>
+                        <rect
+                          x={bar.x}
+                          y={bar.y}
+                          height={bar.height}
+                          width={bar.width}
+                          fill={bar.color}
+                        />
+                        {shouldShowLabel && bar.height > 15 && (
+                          <text
+                            x={bar.x + bar.width / 2}
+                            y={bar.y + bar.height / 2}
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fontSize={11}
+                            fontWeight="bold"
+                            fill="white"
+                            pointerEvents="none"
+                          >
+                            {isPercentStacked
+                              ? `${segmentValue.toFixed(1)}%`
+                              : segmentValue.toLocaleString()}
+                          </text>
+                        )}
+                      </Group>
+                    );
+                  })
                 )
               }
             </BarStack>
