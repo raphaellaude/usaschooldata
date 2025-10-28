@@ -112,11 +112,11 @@ class DuckDBService {
    * Cancel any pending query on the current connection
    * Returns true if a query was cancelled, false otherwise
    */
-  cancelPendingQuery(): boolean {
+  async cancelPendingQuery(): Promise<boolean> {
     if (!this.connection) {
       return false;
     }
-    return this.connection.cancelSent();
+    return await this.connection.cancelSent();
   }
 
   /**
