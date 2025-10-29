@@ -284,7 +284,7 @@ const HistoricalEnrollmentChartInner = ({
                             x={barX + barWidth / 2}
                             y={barY - 5}
                             textAnchor="middle"
-                            fontSize={11}
+                            fontSize={14}
                             fontWeight={d.year === currentYear ? 'bold' : 'normal'}
                             fill="#333"
                           >
@@ -341,8 +341,7 @@ const HistoricalEnrollmentChartInner = ({
                                   y={bar.y + bar.height / 2}
                                   textAnchor="middle"
                                   dominantBaseline="middle"
-                                  fontSize={11}
-                                  fontWeight="bold"
+                                  fontSize={12}
                                   fill="white"
                                   pointerEvents="none"
                                 >
@@ -365,8 +364,8 @@ const HistoricalEnrollmentChartInner = ({
                   stroke="#333"
                   tickStroke="#333"
                   tickLabelProps={{
-                    fontSize: 12,
-                    textAnchor: 'start',
+                    fontSize: 14,
+                    textAnchor: 'end',
                     dy: '0.33em',
                     dx: '-0.25em',
                     fontFamily: 'ui-sans-serif, system-ui, sans-serif',
@@ -386,7 +385,7 @@ const HistoricalEnrollmentChartInner = ({
                   stroke="#333"
                   tickStroke="transparent"
                   tickLabelProps={tickValue => ({
-                    fontSize: 11,
+                    fontSize: 14,
                     textAnchor: 'middle',
                     dy: '0.33em',
                     fontFamily: 'ui-sans-serif, system-ui, sans-serif',

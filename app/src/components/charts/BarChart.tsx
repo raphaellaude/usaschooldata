@@ -131,7 +131,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
                     x={barX + barWidth / 2}
                     y={barY - 5}
                     textAnchor="middle"
-                    fontSize={12}
+                    fontSize={14}
                     fontWeight="bold"
                     fill="#333"
                   >
@@ -148,8 +148,8 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
             stroke="#333"
             tickStroke="#333"
             tickLabelProps={{
-              fontSize: 12,
-              textAnchor: 'start',
+              fontSize: 14,
+              textAnchor: 'end',
               dy: '0.33em',
               dx: '-0.25em',
               fontFamily: 'ui-sans-serif, system-ui, sans-serif',
@@ -164,7 +164,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
             stroke="#333"
             tickStroke="transparent"
             tickLabelProps={{
-              fontSize: 11,
+              fontSize: 14,
               textAnchor: 'middle',
               dy: '0.33em',
               fontFamily: 'ui-sans-serif, system-ui, sans-serif',
