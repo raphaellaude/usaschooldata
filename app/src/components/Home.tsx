@@ -8,7 +8,7 @@ export default function Home() {
   const urlQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(urlQuery);
   const {isInitialized, isLoading: dbLoading, error: dbError} = useDuckDB();
-  const {results, isSearching, error: searchError} = useSchoolSearch(searchQuery);
+  const {results, isSearching, error: searchError} = useSchoolSearch(searchQuery, 50);
 
   // Update searchQuery when URL param changes
   useEffect(() => {

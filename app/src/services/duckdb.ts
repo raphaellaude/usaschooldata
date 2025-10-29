@@ -109,6 +109,17 @@ class DuckDBService {
   }
 
   /**
+   * Cancel any pending query on the current connection
+   * Returns true if a query was cancelled, false otherwise
+   */
+  async cancelPendingQuery(): Promise<boolean> {
+    if (!this.connection) {
+      return false;
+    }
+    return await this.connection.cancelSent();
+  }
+
+  /**
    * Helper method to convert an Apache Arrow Table to an array of plain JavaScript objects
    * This is useful when you need the old behavior of returning JSON objects
    */
