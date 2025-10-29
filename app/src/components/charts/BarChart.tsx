@@ -28,7 +28,7 @@ interface BarChartProps {
 }
 
 const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChartProps) => {
-  const margin = {top: 20, right: 0, bottom: 80, left: 60};
+  const margin = {top: 20, right: 0, bottom: 80, left: 50};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 

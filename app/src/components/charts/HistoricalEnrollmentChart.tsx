@@ -69,7 +69,7 @@ const HistoricalEnrollmentChartInner = ({
   const [breakdownType, setBreakdownType] = useState<BreakdownType>('none');
   const [isPercentStacked, setIsPercentStacked] = useState(false);
 
-  const margin = {top: 20, right: 0, bottom: 80, left: 80};
+  const margin = {top: 20, right: 0, bottom: 80, left: 50};
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -260,148 +260,149 @@ const HistoricalEnrollmentChartInner = ({
           {/* Chart */}
           <div style={{minHeight: '500px'}}>
             <svg width={width} height={height}>
-            <Group top={margin.top} left={margin.left}>
-          {breakdownType === 'none' ? (
-            // Simple bars for default view
-            (chartData as SimpleBarData[]).map(d => {
-              const barWidth = xScale.bandwidth();
-              const barHeight = Math.max(0, innerHeight - yScale(d.total || 0));
-              const barX = xScale(d.year) || 0;
-              const barY = yScale(d.total || 0);
-
-              return (
-                <Group key={d.year}>
-                  <Bar
-                    x={barX}
-                    y={barY}
-                    width={barWidth}
-                    height={barHeight}
-                    fill={DEFAULT_COLORS[0]}
-                  />
-                  {/* Value label */}
-                  {d.total > 0 && (
-                    <text
-                      x={barX + barWidth / 2}
-                      y={barY - 5}
-                      textAnchor="middle"
-                      fontSize={11}
-                      fontWeight={d.year === currentYear ? 'bold' : 'normal'}
-                      fill="#333"
-                    >
-                      {d.total.toLocaleString()}
-                    </text>
-                  )}
-                </Group>
-              );
-            })
-          ) : (
-            // Stacked bars for breakdown views
-            <BarStack
-              data={chartData as StackedDataPoint[]}
-              keys={demographicKeys}
-              x={d => d.year}
-              xScale={xScale}
-              yScale={yScale}
-              color={colorScale}
-            >
-              {barStacks =>
-                barStacks.map(barStack =>
-                  barStack.bars.map(bar => {
-                    // Calculate total for this year to determine percentage
-                    const yearData = chartData[bar.index] as StackedDataPoint;
-                    const yearTotal = demographicKeys.reduce((sum, key) => {
-                      const value = yearData[key];
-                      return sum + (typeof value === 'number' ? value : 0);
-                    }, 0);
-
-                    // Get the value for this segment
-                    const segmentValue = typeof bar.bar[1] === 'number' && typeof bar.bar[0] === 'number'
-                      ? bar.bar[1] - bar.bar[0]
-                      : 0;
-
-                    // Calculate percentage
-                    const percentage = yearTotal > 0 ? (segmentValue / yearTotal) * 100 : 0;
-
-                    // Only show label if >= 7%
-                    const shouldShowLabel = percentage >= 7;
+              <Group top={margin.top} left={margin.left}>
+                {breakdownType === 'none' ? (
+                  // Simple bars for default view
+                  (chartData as SimpleBarData[]).map(d => {
+                    const barWidth = xScale.bandwidth();
+                    const barHeight = Math.max(0, innerHeight - yScale(d.total || 0));
+                    const barX = xScale(d.year) || 0;
+                    const barY = yScale(d.total || 0);
 
                     return (
-                      <Group key={`bar-stack-${barStack.index}-${bar.index}`}>
-                        <rect
-                          x={bar.x}
-                          y={bar.y}
-                          height={bar.height}
-                          width={bar.width}
-                          fill={bar.color}
+                      <Group key={d.year}>
+                        <Bar
+                          x={barX}
+                          y={barY}
+                          width={barWidth}
+                          height={barHeight}
+                          fill={DEFAULT_COLORS[0]}
                         />
-                        {shouldShowLabel && bar.height > 15 && (
+                        {/* Value label */}
+                        {d.total > 0 && (
                           <text
-                            x={bar.x + bar.width / 2}
-                            y={bar.y + bar.height / 2}
+                            x={barX + barWidth / 2}
+                            y={barY - 5}
                             textAnchor="middle"
-                            dominantBaseline="middle"
                             fontSize={11}
-                            fontWeight="bold"
-                            fill="white"
-                            pointerEvents="none"
+                            fontWeight={d.year === currentYear ? 'bold' : 'normal'}
+                            fill="#333"
                           >
-                            {isPercentStacked
-                              ? `${segmentValue.toFixed(1)}%`
-                              : segmentValue.toLocaleString()}
+                            {d.total.toLocaleString()}
                           </text>
                         )}
                       </Group>
                     );
                   })
-                )
-              }
-            </BarStack>
-          )}
+                ) : (
+                  // Stacked bars for breakdown views
+                  <BarStack
+                    data={chartData as StackedDataPoint[]}
+                    keys={demographicKeys}
+                    x={d => d.year}
+                    xScale={xScale}
+                    yScale={yScale}
+                    color={colorScale}
+                  >
+                    {barStacks =>
+                      barStacks.map(barStack =>
+                        barStack.bars.map(bar => {
+                          // Calculate total for this year to determine percentage
+                          const yearData = chartData[bar.index] as StackedDataPoint;
+                          const yearTotal = demographicKeys.reduce((sum, key) => {
+                            const value = yearData[key];
+                            return sum + (typeof value === 'number' ? value : 0);
+                          }, 0);
 
-          {/* Y Axis */}
-          <AxisLeft
-            scale={yScale}
-            stroke="#333"
-            tickStroke="#333"
-            tickLabelProps={{
-              fontSize: 12,
-              textAnchor: 'end',
-              dy: '0.33em',
-              dx: '-0.25em',
-              fontFamily: 'ui-sans-serif, system-ui, sans-serif',
-            }}
-            tickFormat={value => {
-              if (isPercentStacked) {
-                return `${value}%`;
-              }
-              return value.toLocaleString();
-            }}
-          />
+                          // Get the value for this segment
+                          const segmentValue =
+                            typeof bar.bar[1] === 'number' && typeof bar.bar[0] === 'number'
+                              ? bar.bar[1] - bar.bar[0]
+                              : 0;
 
-          {/* X Axis */}
-          <AxisBottom
-            top={innerHeight}
-            scale={xScale}
-            stroke="#333"
-            tickStroke="#333"
-            tickLabelProps={tickValue => ({
-              fontSize: 11,
-              textAnchor: 'middle',
-              dy: '0.33em',
-              fontFamily: 'ui-sans-serif, system-ui, sans-serif',
-              // Bold the current year
-              fontWeight: tickValue === currentYear ? 'bold' : 'normal',
-            })}
-            tickFormat={value => {
-              // Show shortened year format (e.g., "2023-2024" -> "23-24")
-              const parts = (value as string).split('-');
-              if (parts.length === 2) {
-                return `${parts[0].slice(2)}-${parts[1].slice(2)}`;
-              }
-              return value as string;
-            }}
-          />
-        </Group>
+                          // Calculate percentage
+                          const percentage = yearTotal > 0 ? (segmentValue / yearTotal) * 100 : 0;
+
+                          // Only show label if >= 7%
+                          const shouldShowLabel = percentage >= 7;
+
+                          return (
+                            <Group key={`bar-stack-${barStack.index}-${bar.index}`}>
+                              <rect
+                                x={bar.x}
+                                y={bar.y}
+                                height={bar.height}
+                                width={bar.width}
+                                fill={bar.color}
+                              />
+                              {shouldShowLabel && bar.height > 15 && (
+                                <text
+                                  x={bar.x + bar.width / 2}
+                                  y={bar.y + bar.height / 2}
+                                  textAnchor="middle"
+                                  dominantBaseline="middle"
+                                  fontSize={11}
+                                  fontWeight="bold"
+                                  fill="white"
+                                  pointerEvents="none"
+                                >
+                                  {isPercentStacked
+                                    ? `${segmentValue.toFixed(1)}%`
+                                    : segmentValue.toLocaleString()}
+                                </text>
+                              )}
+                            </Group>
+                          );
+                        })
+                      )
+                    }
+                  </BarStack>
+                )}
+
+                {/* Y Axis */}
+                <AxisLeft
+                  scale={yScale}
+                  stroke="#333"
+                  tickStroke="#333"
+                  tickLabelProps={{
+                    fontSize: 12,
+                    textAnchor: 'end',
+                    dy: '0.33em',
+                    dx: '-0.25em',
+                    fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+                  }}
+                  tickFormat={value => {
+                    if (isPercentStacked) {
+                      return `${value}%`;
+                    }
+                    return value.toLocaleString();
+                  }}
+                />
+
+                {/* X Axis */}
+                <AxisBottom
+                  top={innerHeight}
+                  scale={xScale}
+                  stroke="#333"
+                  tickStroke="#333"
+                  tickLabelProps={tickValue => ({
+                    fontSize: 11,
+                    textAnchor: 'middle',
+                    dy: '0.33em',
+                    fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+                    // Bold the current year
+                    fontWeight: tickValue === currentYear ? 'bold' : 'normal',
+                  })}
+                  tickFormat={value => {
+                    // Show shortened year format (e.g., "2023-2024" -> "23-24")
+                    const parts = (value as string).split('-');
+                    if (parts.length === 2) {
+                      return `${parts[0].slice(2)}-${parts[1].slice(2)}`;
+                    }
+                    return value as string;
+                  }}
+                />
+              </Group>
             </svg>
           </div>
 
