@@ -149,7 +149,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
             tickStroke="#333"
             tickLabelProps={{
               fontSize: 12,
-              textAnchor: 'end',
+              textAnchor: 'start',
               dy: '0.33em',
               dx: '-0.25em',
               fontFamily: 'ui-sans-serif, system-ui, sans-serif',
@@ -162,7 +162,7 @@ const BarChartInner = ({data, width = 600, height = 400, colorMapping}: BarChart
             top={innerHeight}
             scale={xScale}
             stroke="#333"
-            tickStroke="#333"
+            tickStroke="transparent"
             tickLabelProps={{
               fontSize: 11,
               textAnchor: 'middle',
