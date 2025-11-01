@@ -43,8 +43,13 @@ export default function Profile() {
     error: directoryError,
   } = useSchoolDirectory(ncesCode, year);
 
-  // Load historical enrollment data for schools only (async, doesn't block page load)
-  const historicalEnrollmentData = useHistoricalEnrollment(entityType === 'school' ? ncesCode : '');
+  // Load historical enrollment data for schools only AFTER summary data loads
+  // This prevents the slow historical query (which hits S3) from blocking fast summary queries
+  // since DuckDB WASM executes queries serially
+  const historicalEnrollmentData = useHistoricalEnrollment(
+    entityType === 'school' ? ncesCode : '',
+    !dataLoading && !directoryLoading // Only start loading after summary and directory complete
+  );
 
   // Handle automatic fallback to default year when requested year is not available
   React.useEffect(() => {

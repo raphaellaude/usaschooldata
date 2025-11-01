@@ -25,8 +25,11 @@ export interface HistoricalEnrollmentData {
 /**
  * Hook for fetching historical enrollment data for a school
  * Creates a historical membership table on mount and provides data for different breakdowns
+ *
+ * @param schoolCode - The NCES school code (12 characters)
+ * @param enabled - Whether to start loading data (default: true). Set to false to defer loading.
  */
-export function useHistoricalEnrollment(schoolCode: string): HistoricalEnrollmentData {
+export function useHistoricalEnrollment(schoolCode: string, enabled: boolean = true): HistoricalEnrollmentData {
   const [byYear, setByYear] = useState<{school_year: string; total_enrollment: number}[]>([]);
   const [byRaceEthnicity, setByRaceEthnicity] = useState<
     {
@@ -52,6 +55,11 @@ export function useHistoricalEnrollment(schoolCode: string): HistoricalEnrollmen
       return;
     }
 
+    if (!enabled) {
+      setIsLoading(true); // Keep loading state until enabled
+      return;
+    }
+
     if (!isInitialized) {
       return; // Wait for DuckDB to be initialized
     }
@@ -63,7 +71,7 @@ export function useHistoricalEnrollment(schoolCode: string): HistoricalEnrollmen
     }
 
     loadHistoricalData();
-  }, [schoolCode, isInitialized, dbError]);
+  }, [schoolCode, enabled, isInitialized, dbError]);
 
   const loadHistoricalData = async () => {
     setIsLoading(true);
