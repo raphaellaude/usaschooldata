@@ -75,24 +75,6 @@ export default function Profile() {
     }
   };
 
-  // Handle scrolling to hash anchor on initial load and when data finishes loading
-  React.useEffect(() => {
-    // Wait for data to finish loading before attempting to scroll
-    if (!dataLoading && !directoryLoading && isSystemReady) {
-      const hash = window.location.hash;
-      if (hash) {
-        // Use setTimeout to ensure the DOM has been updated with the content
-        setTimeout(() => {
-          const id = hash.replace('#', '');
-          const element = document.getElementById(id);
-          if (element) {
-            element.scrollIntoView({behavior: 'smooth', block: 'start'});
-          }
-        }, 100);
-      }
-    }
-  }, [dataLoading, directoryLoading, isSystemReady]);
-
   const copyLinkToClipboard = async (hash: string) => {
     try {
       const url = `${window.location.origin}${window.location.pathname}${window.location.search}${hash}`;
@@ -110,6 +92,24 @@ export default function Profile() {
 
   // Don't show database initialization states - handle them transparently
   const isSystemReady = !dbLoading && !dbError && isInitialized;
+
+  // Handle scrolling to hash anchor on initial load and when data finishes loading
+  React.useEffect(() => {
+    // Wait for data to finish loading before attempting to scroll
+    if (!dataLoading && !directoryLoading && isSystemReady) {
+      const hash = window.location.hash;
+      if (hash) {
+        // Use setTimeout to ensure the DOM has been updated with the content
+        setTimeout(() => {
+          const id = hash.replace('#', '');
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({behavior: 'smooth', block: 'start'});
+          }
+        }, 100);
+      }
+    }
+  }, [dataLoading, directoryLoading, isSystemReady]);
 
   const renderOverview = () => {
     // Prepare grade data for the bar chart
