@@ -93,6 +93,24 @@ export default function Profile() {
   // Don't show database initialization states - handle them transparently
   const isSystemReady = !dbLoading && !dbError && isInitialized;
 
+  // Handle scrolling to hash anchor on initial load and when data finishes loading
+  React.useEffect(() => {
+    // Wait for data to finish loading before attempting to scroll
+    if (!dataLoading && !directoryLoading && isSystemReady) {
+      const hash = window.location.hash;
+      if (hash) {
+        // Use setTimeout to ensure the DOM has been updated with the content
+        setTimeout(() => {
+          const id = hash.replace('#', '');
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({behavior: 'smooth', block: 'start'});
+          }
+        }, 100);
+      }
+    }
+  }, [dataLoading, directoryLoading, isSystemReady]);
+
   const renderOverview = () => {
     // Prepare grade data for the bar chart
     const gradeChartData = gradeData.map(item => ({
@@ -221,17 +239,17 @@ export default function Profile() {
     <div>
       <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
         <a
-          href="#raw-data"
+          href="#data"
           className="hover:text-gray-900 inline-flex items-center gap-2"
           onClick={e => {
             e.preventDefault();
-            copyLinkToClipboard('#raw-data');
-            window.location.hash = 'raw-data';
+            copyLinkToClipboard('#data');
+            window.location.hash = 'data';
           }}
         >
           Raw Membership Data
           <Link1Icon
-            className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${copiedLink === '#raw-data' ? 'text-green-600' : ''}`}
+            className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${copiedLink === '#data' ? 'text-green-600' : ''}`}
           />
         </a>
       </h3>
