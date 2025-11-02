@@ -370,7 +370,7 @@ export default function Profile() {
     <div className="min-h-screen bg-white w-full">
       <header className="border-b border-gray-200 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4">
-          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2 group">
+          <h1 className="text-4xl font-display font-semibold text-gray-900 flex items-center gap-3 mb-2 group">
             {directoryLoading ? (
               <span className="text-gray-400">Loading...</span>
             ) : directoryInfo ? (
