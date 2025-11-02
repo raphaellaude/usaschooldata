@@ -59,6 +59,7 @@ export function useProfileData(
     setAvailableYears(undefined);
 
     try {
+      // Load summary and membership data together (both are fast queries)
       if (entityType === 'school') {
         const [summaryData, membershipResults] = await Promise.all([
           dataService.getSchoolSummary(entityCode, options),
