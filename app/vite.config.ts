@@ -32,6 +32,7 @@ export default defineConfig({
       'localhost',
       '127.0.0.1',
       'usa-school-data.fly.dev',
+      'usaschooldata.org',
       '.fly.dev' // Allow all fly.dev subdomains (including PR previews)
     ]
   }
