@@ -69,7 +69,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
 
     // Cancel any in-flight query
     if (queryInFlightRef.current) {
-      duckDBService.cancelPendingQuery().then((cancelled) => {
+      duckDBService.cancelPendingQuery().then(cancelled => {
         if (cancelled) {
           console.log('Cancelled previous search query');
         }
