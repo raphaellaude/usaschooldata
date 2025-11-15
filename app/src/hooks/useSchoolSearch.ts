@@ -10,7 +10,7 @@ export interface SchoolSearchResult {
   school_year: string;
 }
 
-export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
+export function useSchoolSearch(searchQuery: string, isDbReady: boolean, debounceMs: number = 500) {
   const [results, setResults] = useState<SchoolSearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -84,8 +84,15 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       return;
     }
 
-    // Debounce the search
+    // Show searching state if query is valid length (even if DB not ready yet)
     setIsSearching(true);
+
+    // If DB is not ready yet, just show loading state
+    if (!isDbReady) {
+      return;
+    }
+
+    // Debounce the search
     searchTimeoutRef.current = setTimeout(async () => {
       try {
         setError(null);
@@ -122,7 +129,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
         queryInFlightRef.current = false;
       }
     };
-  }, [searchQuery, debounceMs, createSearchTable, performSearch]);
+  }, [searchQuery, debounceMs, isDbReady, createSearchTable, performSearch]);
 
   return {
     results,
