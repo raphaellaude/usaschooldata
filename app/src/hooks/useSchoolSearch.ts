@@ -84,13 +84,15 @@ export function useSchoolSearch(searchQuery: string, isDbReady: boolean, debounc
       return;
     }
 
-    // Show searching state if query is valid length (even if DB not ready yet)
-    setIsSearching(true);
-
-    // If DB is not ready yet, just show loading state
+    // If DB is not ready yet, don't execute search
+    // The UI will show dbLoading state from the parent component
     if (!isDbReady) {
+      setIsSearching(false);
       return;
     }
+
+    // Show searching state only when we're about to execute
+    setIsSearching(true);
 
     // Debounce the search
     searchTimeoutRef.current = setTimeout(async () => {
