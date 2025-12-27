@@ -3,6 +3,7 @@ import click
 import duckdb
 import yaml
 import logging
+import clickhouse_connect as ch
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from elt.constants import SQL_DIR, SCHEMAS_DIR, MEMBERSHIP_ALL_YEARS, DIRECTORY
 from pathlib import Path
@@ -157,6 +158,62 @@ def membership(school_year: list[str]):
         );
         """
         conn.execute(write_hive_partition_sql)
+
+
+@cli.command("load_membership")
+def load_membership():
+    client = ch.get_client(
+        host="localhost",
+        port=18123,
+        username="default",
+        password="your_strong_password",
+    )
+
+    if client.ping():
+        print("Connection successful")
+
+    # 3. Load the data into the table
+    client.query(
+        """
+        CREATE OR REPLACE TABLE membership (
+            state_code VARCHAR(2),
+            ncessch VARCHAR(12),
+            race_ethnicity VARCHAR(52),
+            grade VARCHAR(16),
+            sex VARCHAR(6),
+            student_count INT,
+            leaid VARCHAR(8),
+            school_year VARCHAR(9),
+            state_leaid VARCHAR(2)
+        )
+        ENGINE = MergeTree
+        PRIMARY KEY (school_year, ncessch)
+        ORDER BY (school_year, ncessch, grade, race_ethnicity, sex);
+        """
+    )
+
+    assert DIRECTORY is not None
+
+    conn = duckdb.connect(":memory:")
+
+    query = f"""
+        SELECT * FROM read_parquet('{DIRECTORY}/membership/school_year=*/state_leaid=*/*.parquet', hive_partitioning=True)
+    """
+
+    arrow_reader = conn.execute(query).fetch_record_batch(rows_per_batch=1_000_000)
+
+    client.query("SYSTEM START MERGES membership")
+
+    for idx, batch in enumerate(arrow_reader):
+        df = batch.to_pandas()
+        client.insert_df("membership", df)
+        logger.info(f"Inserted batch {idx}")
+
+    client.query("SYSTEM START MERGES membership")
+    client.query("OPTIMIZE TABLE membership FINAL")
+    # 4. Validate the data
+    result = client.query("SELECT COUNT(*) FROM membership")
+    print(f"Loaded {result.result_set[0][0]} rows")
 
 
 if __name__ == "__main__":

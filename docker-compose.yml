@@ -24,3 +24,24 @@ services:
       - ./tmp:/tmp
     env_file:
       - ./elt/.env
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    ports:
+      - "18123:8123"
+      - "19000:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - clickhouse_log:/var/log/clickhouse-server
+    environment:
+      CLICKHOUSE_NAME: usa-school-data
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: your_strong_password
+      CLICKHOUSE_DB: usa-school-data
+    restart: unless-stopped
+    mem_limit: 12g
+    memswap_limit: 12g
+
+volumes:
+  clickhouse_data:
+  clickhouse_log:

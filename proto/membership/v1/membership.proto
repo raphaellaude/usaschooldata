@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package membership.v1;
+
+message Membership {
+  repeated TotalEnrollment by_year = 1;
+}
+
+message TotalEnrollment {
+  string school_year = 1;
+  int32 enrollment = 2;
+}
