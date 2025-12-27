@@ -2,11 +2,19 @@ syntax = "proto3";
 
 package membership.v1;
 
-message Membership {
+message GetMembershipResponse {
   repeated TotalEnrollment by_year = 1;
 }
 
 message TotalEnrollment {
   string school_year = 1;
   int32 enrollment = 2;
+}
+
+message GetMembershipRequest {
+  string ncessch = 1;
+}
+
+service MembershipService {
+  rpc GetMembership(GetMembershipRequest) returns (GetMembershipResponse);
 }

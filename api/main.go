@@ -2,82 +2,73 @@ package main
 
 import (
 	"context"
-	_ "embed"
-	"fmt"
 	"log"
-	"strings"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
-	membershipv1 "usa-school-data/api/membership/v1"
-
-	"github.com/ClickHouse/clickhouse-go/v2"
-	"github.com/jmoiron/sqlx"
-	"github.com/jmoiron/sqlx/reflectx"
+	"connectrpc.com/connect"
+	"github.com/raphaellaude/usaschooldata/api/membership/v1/membershipv1connect"
+	"golang.org/x/net/http2"
+	"golang.org/x/net/http2/h2c"
 )
 
-//go:embed sql/historical_enrollment.sql
-var historicalEnrollmentQuery string
-
 func main() {
-	db, err := connect()
+	// Load configuration
+	cfg := LoadConfig()
+
+	// Connect to database
+	db, err := connectDB(cfg)
 	if err != nil {
-		panic(err)
+		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	ctx := context.Background()
-	ncessch := "370331002181"
+	// Create handler
+	handler := NewMembershipHandler(db)
 
-	// Query directly into protobuf types using sqlx
-	var results []*membershipv1.TotalEnrollment
-	err = db.SelectContext(ctx, &results, historicalEnrollmentQuery, ncessch)
-	if err != nil {
-		log.Fatal(err)
+	// CORS configuration for Connect
+	corsOptions := connect.WithInterceptors(newCORSInterceptor(cfg.CORSAllowedOrigins))
+
+	// Register Connect service with CORS
+	mux := http.NewServeMux()
+	path, serviceHandler := membershipv1connect.NewMembershipServiceHandler(handler, corsOptions)
+	mux.Handle(path, serviceHandler)
+
+	// Wrap with CORS middleware to handle OPTIONS preflight requests
+	corsHandler := corsMiddleware(cfg.CORSAllowedOrigins, mux)
+
+	// Serve with HTTP/2 (h2c for unencrypted HTTP/2)
+	addr := ":" + cfg.Port
+	server := &http.Server{
+		Addr:         addr,
+		Handler:      h2c.NewHandler(corsHandler, &http2.Server{}),
+		ReadTimeout:  15 * time.Second,
+		WriteTimeout: 15 * time.Second,
+		IdleTimeout:  60 * time.Second,
 	}
 
-	// Print results
-	for _, enrollment := range results {
-		log.Printf("school year %s: %d", enrollment.SchoolYear, enrollment.Enrollment)
-	}
-}
-
-func connect() (*sqlx.DB, error) {
-	ctx := context.Background()
-
-	// Use OpenDB to get *sql.DB compatible with sqlx
-	sqlDB := clickhouse.OpenDB(&clickhouse.Options{
-		// TODO: move to DC and use clickhouse:9000
-		Addr: []string{"localhost:19000"},
-		Auth: clickhouse.Auth{
-			Database: "default",
-			Username: "default",
-			Password: "your_strong_password",
-		},
-		ClientInfo: clickhouse.ClientInfo{
-			Products: []struct {
-				Name    string
-				Version string
-			}{
-				{Name: "usa-school-data", Version: "0.1"},
-			},
-		},
-		Debugf: func(format string, v ...interface{}) {
-			fmt.Printf(format, v)
-		},
-		// TODO: move to DC and use TLS
-		// TLS: &tls.Config{
-		// 	InsecureSkipVerify: true,
-		// },
-	})
-
-	if err := sqlDB.PingContext(ctx); err != nil {
-		if exception, ok := err.(*clickhouse.Exception); ok {
-			fmt.Printf("Exception [%d] %s \n%s\n", exception.Code, exception.Message, exception.StackTrace)
+	// Start server in a goroutine
+	go func() {
+		log.Printf("Starting server on %s (env: %s)", addr, cfg.Env)
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("Server failed: %v", err)
 		}
-		return nil, err
+	}()
+
+	// Graceful shutdown
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+
+	log.Println("Shutting down server...")
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	if err := server.Shutdown(ctx); err != nil {
+		log.Fatalf("Server forced to shutdown: %v", err)
 	}
 
-	// Wrap with sqlx and configure to use JSON tags for mapping
-	db := sqlx.NewDb(sqlDB, "clickhouse")
-	db.Mapper = reflectx.NewMapperFunc("json", strings.ToLower)
-
-	return db, nil
+	log.Println("Server exited")
 }

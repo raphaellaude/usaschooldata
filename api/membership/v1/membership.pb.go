@@ -21,27 +21,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Membership struct {
+type GetMembershipResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ByYear        []*TotalEnrollment     `protobuf:"bytes,1,rep,name=by_year,json=byYear,proto3" json:"by_year,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Membership) Reset() {
-	*x = Membership{}
+func (x *GetMembershipResponse) Reset() {
+	*x = GetMembershipResponse{}
 	mi := &file_membership_v1_membership_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Membership) String() string {
+func (x *GetMembershipResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Membership) ProtoMessage() {}
+func (*GetMembershipResponse) ProtoMessage() {}
 
-func (x *Membership) ProtoReflect() protoreflect.Message {
+func (x *GetMembershipResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_membership_v1_membership_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,12 +53,12 @@ func (x *Membership) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Membership.ProtoReflect.Descriptor instead.
-func (*Membership) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetMembershipResponse.ProtoReflect.Descriptor instead.
+func (*GetMembershipResponse) Descriptor() ([]byte, []int) {
 	return file_membership_v1_membership_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Membership) GetByYear() []*TotalEnrollment {
+func (x *GetMembershipResponse) GetByYear() []*TotalEnrollment {
 	if x != nil {
 		return x.ByYear
 	}
@@ -117,20 +117,67 @@ func (x *TotalEnrollment) GetEnrollment() int32 {
 	return 0
 }
 
+type GetMembershipRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ncessch       string                 `protobuf:"bytes,1,opt,name=ncessch,proto3" json:"ncessch,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMembershipRequest) Reset() {
+	*x = GetMembershipRequest{}
+	mi := &file_membership_v1_membership_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMembershipRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMembershipRequest) ProtoMessage() {}
+
+func (x *GetMembershipRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_membership_v1_membership_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMembershipRequest.ProtoReflect.Descriptor instead.
+func (*GetMembershipRequest) Descriptor() ([]byte, []int) {
+	return file_membership_v1_membership_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetMembershipRequest) GetNcessch() string {
+	if x != nil {
+		return x.Ncessch
+	}
+	return ""
+}
+
 var File_membership_v1_membership_proto protoreflect.FileDescriptor
 
 const file_membership_v1_membership_proto_rawDesc = "" +
 	"\n" +
-	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"E\n" +
-	"\n" +
-	"Membership\x127\n" +
+	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"P\n" +
+	"\x15GetMembershipResponse\x127\n" +
 	"\aby_year\x18\x01 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"R\n" +
 	"\x0fTotalEnrollment\x12\x1f\n" +
 	"\vschool_year\x18\x01 \x01(\tR\n" +
 	"schoolYear\x12\x1e\n" +
 	"\n" +
 	"enrollment\x18\x02 \x01(\x05R\n" +
-	"enrollmentB\xbf\x01\n" +
+	"enrollment\"0\n" +
+	"\x14GetMembershipRequest\x12\x18\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch2o\n" +
+	"\x11MembershipService\x12Z\n" +
+	"\rGetMembership\x12#.membership.v1.GetMembershipRequest\x1a$.membership.v1.GetMembershipResponseB\xbf\x01\n" +
 	"\x11com.membership.v1B\x0fMembershipProtoP\x01ZDgithub.com/raphaellaude/usaschooldata/api/membership/v1;membershipv1\xa2\x02\x03MXX\xaa\x02\rMembership.V1\xca\x02\rMembership\\V1\xe2\x02\x19Membership\\V1\\GPBMetadata\xea\x02\x0eMembership::V1b\x06proto3"
 
 var (
@@ -145,15 +192,18 @@ func file_membership_v1_membership_proto_rawDescGZIP() []byte {
 	return file_membership_v1_membership_proto_rawDescData
 }
 
-var file_membership_v1_membership_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_membership_v1_membership_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_membership_v1_membership_proto_goTypes = []any{
-	(*Membership)(nil),      // 0: membership.v1.Membership
-	(*TotalEnrollment)(nil), // 1: membership.v1.TotalEnrollment
+	(*GetMembershipResponse)(nil), // 0: membership.v1.GetMembershipResponse
+	(*TotalEnrollment)(nil),       // 1: membership.v1.TotalEnrollment
+	(*GetMembershipRequest)(nil),  // 2: membership.v1.GetMembershipRequest
 }
 var file_membership_v1_membership_proto_depIdxs = []int32{
-	1, // 0: membership.v1.Membership.by_year:type_name -> membership.v1.TotalEnrollment
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
+	1, // 0: membership.v1.GetMembershipResponse.by_year:type_name -> membership.v1.TotalEnrollment
+	2, // 1: membership.v1.MembershipService.GetMembership:input_type -> membership.v1.GetMembershipRequest
+	0, // 2: membership.v1.MembershipService.GetMembership:output_type -> membership.v1.GetMembershipResponse
+	2, // [2:3] is the sub-list for method output_type
+	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -170,9 +220,9 @@ func file_membership_v1_membership_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_membership_v1_membership_proto_rawDesc), len(file_membership_v1_membership_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_membership_v1_membership_proto_goTypes,
 		DependencyIndexes: file_membership_v1_membership_proto_depIdxs,
