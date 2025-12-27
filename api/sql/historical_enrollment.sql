@@ -1,6 +1,6 @@
 SELECT
   school_year,
-  SUM(student_count) as total_enrollment
+  SUM(student_count) as enrollment
 FROM membership
 WHERE ncessch = ?
 GROUP BY school_year
