@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -11,6 +10,7 @@ import (
 
 	"connectrpc.com/connect"
 	"github.com/raphaellaude/usaschooldata/api/membership/v1/membershipv1connect"
+	"go.uber.org/zap"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
@@ -19,10 +19,17 @@ func main() {
 	// Load configuration
 	cfg := LoadConfig()
 
-	// Connect to database
-	db, err := connectDB(cfg)
+	// Initialize logger
+	logger, err := NewLogger(cfg.Env)
 	if err != nil {
-		log.Fatalf("Failed to connect to database: %v", err)
+		panic(err)
+	}
+	defer logger.Sync()
+
+	// Connect to database
+	db, err := connectDB(cfg, logger)
+	if err != nil {
+		logger.Fatal("Failed to connect to database", zap.Error(err))
 	}
 
 	// Create handler
@@ -35,6 +42,18 @@ func main() {
 	mux := http.NewServeMux()
 	path, serviceHandler := membershipv1connect.NewMembershipServiceHandler(handler, corsOptions)
 	mux.Handle(path, serviceHandler)
+
+	// Health check endpoint
+	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		// Check database connectivity
+		if err := db.PingContext(r.Context()); err != nil {
+			w.WriteHeader(http.StatusServiceUnavailable)
+			w.Write([]byte("Database unavailable"))
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	})
 
 	// Wrap with CORS middleware to handle OPTIONS preflight requests
 	corsHandler := corsMiddleware(cfg.CORSAllowedOrigins, mux)
@@ -51,9 +70,12 @@ func main() {
 
 	// Start server in a goroutine
 	go func() {
-		log.Printf("Starting server on %s (env: %s)", addr, cfg.Env)
+		logger.Info("Starting server",
+			zap.String("address", addr),
+			zap.String("env", cfg.Env),
+		)
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("Server failed: %v", err)
+			logger.Fatal("Server failed", zap.Error(err))
 		}
 	}()
 
@@ -62,13 +84,13 @@ func main() {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 
-	log.Println("Shutting down server...")
+	logger.Info("Shutting down server...")
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
 	if err := server.Shutdown(ctx); err != nil {
-		log.Fatalf("Server forced to shutdown: %v", err)
+		logger.Fatal("Server forced to shutdown", zap.Error(err))
 	}
 
-	log.Println("Server exited")
+	logger.Info("Server exited")
 }

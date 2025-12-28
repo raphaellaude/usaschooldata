@@ -9,7 +9,7 @@
 PORT=8080
 
 # ClickHouse Configuration
-CLICKHOUSE_HOST=localhost:19000
+CLICKHOUSE_HOST=localhost:9000
 CLICKHOUSE_DATABASE=default
 CLICKHOUSE_USERNAME=default
 CLICKHOUSE_PASSWORD=your_strong_password

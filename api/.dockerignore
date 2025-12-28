@@ -1,0 +1,21 @@
+# flyctl launch added from .gitignore
+# Environment variables
+**/.env
+
+# Binaries
+**/*.exe
+**/*.exe~
+**/*.dll
+**/*.so
+**/*.dylib
+**/api
+
+# Test binaries
+**/*.test
+
+# Coverage
+**/*.out
+
+# Dependency directories
+**/vendor
+fly.toml

@@ -7,26 +7,26 @@ import (
 )
 
 type Config struct {
-	Port                 string
-	ClickHouseHost       string
-	ClickHouseDatabase   string
-	ClickHouseUsername   string
-	ClickHousePassword   string
-	ClickHouseTLS        bool
-	CORSAllowedOrigins   []string
-	Env                  string
+	Port               string
+	ClickHouseHost     string
+	ClickHouseDatabase string
+	ClickHouseUsername string
+	ClickHousePassword string
+	ClickHouseTLS      bool
+	CORSAllowedOrigins []string
+	Env                string
 }
 
 func LoadConfig() *Config {
 	return &Config{
-		Port:                 getEnv("PORT", "8080"),
-		ClickHouseHost:       getEnv("CLICKHOUSE_HOST", "localhost:19000"),
-		ClickHouseDatabase:   getEnv("CLICKHOUSE_DATABASE", "default"),
-		ClickHouseUsername:   getEnv("CLICKHOUSE_USERNAME", "default"),
-		ClickHousePassword:   getEnv("CLICKHOUSE_PASSWORD", "your_strong_password"),
-		ClickHouseTLS:        getEnvBool("CLICKHOUSE_TLS", false),
-		CORSAllowedOrigins:   getEnvSlice("CORS_ALLOWED_ORIGINS", []string{"http://localhost:5173"}),
-		Env:                  getEnv("ENV", "development"),
+		Port:               getEnv("PORT", "8080"),
+		ClickHouseHost:     getEnv("CLICKHOUSE_HOST", "localhost:9000"),
+		ClickHouseDatabase: getEnv("CLICKHOUSE_DATABASE", "default"),
+		ClickHouseUsername: getEnv("CLICKHOUSE_USERNAME", "default"),
+		ClickHousePassword: getEnv("CLICKHOUSE_PASSWORD", "your_strong_password"),
+		ClickHouseTLS:      getEnvBool("CLICKHOUSE_TLS", false),
+		CORSAllowedOrigins: getEnvSlice("CORS_ALLOWED_ORIGINS", []string{"http://localhost:5173"}),
+		Env:                getEnv("ENV", "development"),
 	}
 }
 
