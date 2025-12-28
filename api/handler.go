@@ -30,7 +30,8 @@ func (h *MembershipHandler) GetMembership(ctx context.Context, req *membershipv1
 	}
 
 	return &membershipv1.GetMembershipResponse{
-		ByYear: results,
+		Ncessch: req.Ncessch,
+		ByYear:  results,
 	}, nil
 }
 
@@ -42,6 +43,7 @@ func (h *MembershipHandler) GetMembershipSummary(ctx context.Context, req *membe
 	}
 
 	return &membershipv1.GetMembershipSummaryResponse{
+		Ncessch: req.Ncessch,
 		Summary: &results,
 	}, nil
 }

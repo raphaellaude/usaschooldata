@@ -3,11 +3,13 @@ syntax = "proto3";
 package membership.v1;
 
 message GetMembershipResponse {
-  repeated TotalEnrollment by_year = 1;
+  string ncessch = 1;
+  repeated TotalEnrollment by_year = 2;
 }
 
 message GetMembershipSummaryResponse {
-  TotalEnrollment summary = 1;
+  string ncessch = 1;
+  TotalEnrollment summary = 2;
 }
 
 message TotalEnrollment {
