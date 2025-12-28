@@ -23,7 +23,8 @@ const (
 
 type GetMembershipResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ByYear        []*TotalEnrollment     `protobuf:"bytes,1,rep,name=by_year,json=byYear,proto3" json:"by_year,omitempty"`
+	Ncessch       string                 `protobuf:"bytes,1,opt,name=ncessch,proto3" json:"ncessch,omitempty"`
+	ByYear        []*TotalEnrollment     `protobuf:"bytes,2,rep,name=by_year,json=byYear,proto3" json:"by_year,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -58,6 +59,13 @@ func (*GetMembershipResponse) Descriptor() ([]byte, []int) {
 	return file_membership_v1_membership_proto_rawDescGZIP(), []int{0}
 }
 
+func (x *GetMembershipResponse) GetNcessch() string {
+	if x != nil {
+		return x.Ncessch
+	}
+	return ""
+}
+
 func (x *GetMembershipResponse) GetByYear() []*TotalEnrollment {
 	if x != nil {
 		return x.ByYear
@@ -67,7 +75,8 @@ func (x *GetMembershipResponse) GetByYear() []*TotalEnrollment {
 
 type GetMembershipSummaryResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Summary       *TotalEnrollment       `protobuf:"bytes,1,opt,name=summary,proto3" json:"summary,omitempty"`
+	Ncessch       string                 `protobuf:"bytes,1,opt,name=ncessch,proto3" json:"ncessch,omitempty"`
+	Summary       *TotalEnrollment       `protobuf:"bytes,2,opt,name=summary,proto3" json:"summary,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -100,6 +109,13 @@ func (x *GetMembershipSummaryResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use GetMembershipSummaryResponse.ProtoReflect.Descriptor instead.
 func (*GetMembershipSummaryResponse) Descriptor() ([]byte, []int) {
 	return file_membership_v1_membership_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetMembershipSummaryResponse) GetNcessch() string {
+	if x != nil {
+		return x.Ncessch
+	}
+	return ""
 }
 
 func (x *GetMembershipSummaryResponse) GetSummary() *TotalEnrollment {
@@ -469,11 +485,13 @@ var File_membership_v1_membership_proto protoreflect.FileDescriptor
 
 const file_membership_v1_membership_proto_rawDesc = "" +
 	"\n" +
-	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"P\n" +
-	"\x15GetMembershipResponse\x127\n" +
-	"\aby_year\x18\x01 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"X\n" +
-	"\x1cGetMembershipSummaryResponse\x128\n" +
-	"\asummary\x18\x01 \x01(\v2\x1e.membership.v1.TotalEnrollmentR\asummary\"\xb5\x06\n" +
+	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"j\n" +
+	"\x15GetMembershipResponse\x12\x18\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch\x127\n" +
+	"\aby_year\x18\x02 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"r\n" +
+	"\x1cGetMembershipSummaryResponse\x12\x18\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch\x128\n" +
+	"\asummary\x18\x02 \x01(\v2\x1e.membership.v1.TotalEnrollmentR\asummary\"\xb5\x06\n" +
 	"\x0fTotalEnrollment\x12\x1f\n" +
 	"\vschool_year\x18\x01 \x01(\tR\n" +
 	"schoolYear\x12)\n" +

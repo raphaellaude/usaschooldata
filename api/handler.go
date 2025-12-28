@@ -2,8 +2,11 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	_ "embed"
+	"errors"
 
+	"connectrpc.com/connect"
 	"github.com/jmoiron/sqlx"
 	membershipv1 "github.com/raphaellaude/usaschooldata/api/membership/v1"
 )
@@ -29,8 +32,16 @@ func (h *MembershipHandler) GetMembership(ctx context.Context, req *membershipv1
 		return nil, err
 	}
 
+	if len(results) == 0 {
+		return nil, connect.NewError(
+			connect.CodeNotFound,
+			errors.New("no enrollment data available for this school"),
+		)
+	}
+
 	return &membershipv1.GetMembershipResponse{
-		ByYear: results,
+		Ncessch: req.Ncessch,
+		ByYear:  results,
 	}, nil
 }
 
@@ -38,10 +49,17 @@ func (h *MembershipHandler) GetMembershipSummary(ctx context.Context, req *membe
 	var results membershipv1.TotalEnrollment
 	err := h.db.GetContext(ctx, &results, enrollmentSummaryQuery, req.Ncessch, req.SchoolYear)
 	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, connect.NewError(
+				connect.CodeNotFound,
+				errors.New("no enrollment data available for this school and year"),
+			)
+		}
 		return nil, err
 	}
 
 	return &membershipv1.GetMembershipSummaryResponse{
+		Ncessch: req.Ncessch,
 		Summary: &results,
 	}, nil
 }
