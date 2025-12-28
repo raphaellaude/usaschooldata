@@ -5,7 +5,17 @@ import yaml
 import logging
 import clickhouse_connect as ch
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from elt.constants import SQL_DIR, SCHEMAS_DIR, MEMBERSHIP_ALL_YEARS, DIRECTORY
+from elt.constants import (
+    SQL_DIR,
+    SCHEMAS_DIR,
+    MEMBERSHIP_ALL_YEARS,
+    DIRECTORY,
+    CLICKHOUSE_PASSWORD,
+    CLICKHOUSE_HOST,
+    CLICKHOUSE_PORT,
+    CLICKHOUSE_USER,
+    CLICKHOUSE_ENV,
+)
 from pathlib import Path
 from elt.utils import get_all_csvs_in_zip, clean_csv_to_utf8
 
@@ -160,17 +170,32 @@ def membership(school_year: list[str]):
         conn.execute(write_hive_partition_sql)
 
 
-@cli.command("load_membership")
-def load_membership():
-    client = ch.get_client(
-        host="localhost",
-        port=18123,
-        username="default",
-        password="your_strong_password",
-    )
+def _get_clickhouse_client():
+    if CLICKHOUSE_ENV == "production":
+        client = ch.get_client(
+            host=CLICKHOUSE_HOST,
+            username=CLICKHOUSE_USER,
+            password=CLICKHOUSE_PASSWORD,
+            secure=True,
+        )
+    else:
+        assert isinstance(CLICKHOUSE_PORT, int)
+        client = ch.get_client(
+            host=CLICKHOUSE_HOST,
+            port=CLICKHOUSE_PORT,
+            username=CLICKHOUSE_USER,
+            password=CLICKHOUSE_PASSWORD,
+        )
 
     if client.ping():
         print("Connection successful")
+
+    return client
+
+
+@cli.command("load_membership")
+def load_membership():
+    client = _get_clickhouse_client()
 
     # 3. Load the data into the table
     client.query(
@@ -200,17 +225,18 @@ def load_membership():
         SELECT * FROM read_parquet('{DIRECTORY}/membership/school_year=*/state_leaid=*/*.parquet', hive_partitioning=True)
     """
 
-    arrow_reader = conn.execute(query).fetch_record_batch(rows_per_batch=1_000_000)
+    arrow_reader = conn.execute(query).fetch_record_batch(rows_per_batch=100_000)
 
-    client.query("SYSTEM START MERGES membership")
+    # client.query("SYSTEM START MERGES membership")
 
     for idx, batch in enumerate(arrow_reader):
         df = batch.to_pandas()
         client.insert_df("membership", df)
         logger.info(f"Inserted batch {idx}")
 
-    client.query("SYSTEM START MERGES membership")
-    client.query("OPTIMIZE TABLE membership FINAL")
+    # client.query("SYSTEM START MERGES membership")
+    # client.query("OPTIMIZE TABLE membership FINAL")
+
     # 4. Validate the data
     result = client.query("SELECT COUNT(*) FROM membership")
     print(f"Loaded {result.result_set[0][0]} rows")
