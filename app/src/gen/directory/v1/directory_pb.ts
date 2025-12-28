@@ -10,24 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file directory/v1/directory.proto.
  */
 export const file_directory_v1_directory: GenFile = /*@__PURE__*/
-  fileDesc("ChxkaXJlY3RvcnkvdjEvZGlyZWN0b3J5LnByb3RvEgxkaXJlY3RvcnkudjEiRgoXU2VhcmNoRGlyZWN0b3J5UmVzcG9uc2USKwoHcmVzdWx0cxgBIAMoCzIaLmRpcmVjdG9yeS52MS5TY2hvb2xTZWFyY2giRgoMU2Nob29sU2VhcmNoEg8KB25jZXNzY2gYASABKAkSEAoIc2NoX25hbWUYAiABKAkSEwoLc2Nob29sX3llYXIYAyABKAkiMAoZR2V0TWF0Y2hpbmdTY2hvb2xzUmVxdWVzdBITCgtzZWFyY2hfdGVybRgBIAEoCSJJChpHZXRNYXRjaGluZ1NjaG9vbHNSZXNwb25zZRIrCgdyZXN1bHRzGAEgAygLMhouZGlyZWN0b3J5LnYxLlNjaG9vbFNlYXJjaDJ7ChBEaXJlY3RvcnlTZXJ2aWNlEmcKEkdldE1hdGNoaW5nU2Nob29scxInLmRpcmVjdG9yeS52MS5HZXRNYXRjaGluZ1NjaG9vbHNSZXF1ZXN0GiguZGlyZWN0b3J5LnYxLkdldE1hdGNoaW5nU2Nob29sc1Jlc3BvbnNlQrkBChBjb20uZGlyZWN0b3J5LnYxQg5EaXJlY3RvcnlQcm90b1ABWkJnaXRodWIuY29tL3JhcGhhZWxsYXVkZS91c2FzY2hvb2xkYXRhL2FwaS9kaXJlY3RvcnkvdjE7ZGlyZWN0b3J5djGiAgNEWFiqAgxEaXJlY3RvcnkuVjHKAg1EaXJlY3RvcnlfXFYx4gIZRGlyZWN0b3J5X1xWMVxHUEJNZXRhZGF0YeoCDURpcmVjdG9yeTo6VjFiBnByb3RvMw");
-
-/**
- * @generated from message directory.v1.SearchDirectoryResponse
- */
-export type SearchDirectoryResponse = Message<"directory.v1.SearchDirectoryResponse"> & {
-  /**
-   * @generated from field: repeated directory.v1.SchoolSearch results = 1;
-   */
-  results: SchoolSearch[];
-};
-
-/**
- * Describes the message directory.v1.SearchDirectoryResponse.
- * Use `create(SearchDirectoryResponseSchema)` to create a new message.
- */
-export const SearchDirectoryResponseSchema: GenMessage<SearchDirectoryResponse> = /*@__PURE__*/
-  messageDesc(file_directory_v1_directory, 0);
+  fileDesc("ChxkaXJlY3RvcnkvdjEvZGlyZWN0b3J5LnByb3RvEgxkaXJlY3RvcnkudjEiRgoMU2Nob29sU2VhcmNoEg8KB25jZXNzY2gYASABKAkSEAoIc2NoX25hbWUYAiABKAkSEwoLc2Nob29sX3llYXIYAyABKAkiMAoZR2V0TWF0Y2hpbmdTY2hvb2xzUmVxdWVzdBITCgtzZWFyY2hfdGVybRgBIAEoCSJJChpHZXRNYXRjaGluZ1NjaG9vbHNSZXNwb25zZRIrCgdyZXN1bHRzGAEgAygLMhouZGlyZWN0b3J5LnYxLlNjaG9vbFNlYXJjaCLkBgoGU2Nob29sEhYKDnNjaG9vbF95ZWFyX25vGAEgASgFEhMKC3NjaG9vbF95ZWFyGAIgASgJEg8KB25jZXNzY2gYAyABKAkSEAoIc2NoX25hbWUYBCABKAkSEAoIc2NoX3R5cGUYBSABKAUSEQoJc2NoX2xldmVsGAYgASgJEg8KB2NoYXJ0ZXIYByABKAkSEQoJc3lfc3RhdHVzGAggASgFEhkKEXN5X3N0YXR1c191cGRhdGVkGAkgASgFEhIKCnN0YXRlX2NvZGUYCiABKAkSEwoLc3RhdGVfbGVhaWQYCyABKAkSDQoFbGVhaWQYDCABKAkSFQoIZ3JhZGVfcGsYFCABKAhIAIgBARIUCgdncmFkZV9rGBUgASgISAGIAQESFQoIZ3JhZGVfMDEYFiABKAhIAogBARIVCghncmFkZV8wMhgXIAEoCEgDiAEBEhUKCGdyYWRlXzAzGBggASgISASIAQESFQoIZ3JhZGVfMDQYGSABKAhIBYgBARIVCghncmFkZV8wNRgaIAEoCEgGiAEBEhUKCGdyYWRlXzA2GBsgASgISAeIAQESFQoIZ3JhZGVfMDcYHCABKAhICIgBARIVCghncmFkZV8wOBgdIAEoCEgJiAEBEhUKCGdyYWRlXzA5GB4gASgISAqIAQESFQoIZ3JhZGVfMTAYHyABKAhIC4gBARIVCghncmFkZV8xMRggIAEoCEgMiAEBEhUKCGdyYWRlXzEyGCEgASgISA2IAQESFQoIZ3JhZGVfMTMYIiABKAhIDogBARIVCgh1bmdyYWRlZBgjIAEoCEgPiAEBEhwKD2FkdWx0X2VkdWNhdGlvbhgkIAEoCEgQiAEBQgsKCV9ncmFkZV9wa0IKCghfZ3JhZGVfa0ILCglfZ3JhZGVfMDFCCwoJX2dyYWRlXzAyQgsKCV9ncmFkZV8wM0ILCglfZ3JhZGVfMDRCCwoJX2dyYWRlXzA1QgsKCV9ncmFkZV8wNkILCglfZ3JhZGVfMDdCCwoJX2dyYWRlXzA4QgsKCV9ncmFkZV8wOUILCglfZ3JhZGVfMTBCCwoJX2dyYWRlXzExQgsKCV9ncmFkZV8xMkILCglfZ3JhZGVfMTNCCwoJX3VuZ3JhZGVkQhIKEF9hZHVsdF9lZHVjYXRpb24iOAoQR2V0U2Nob29sUmVxdWVzdBIPCgduY2Vzc2NoGAEgASgJEhMKC3NjaG9vbF95ZWFyGAIgASgJIjkKEUdldFNjaG9vbFJlc3BvbnNlEiQKBnNjaG9vbBgBIAEoCzIULmRpcmVjdG9yeS52MS5TY2hvb2wyyQEKEERpcmVjdG9yeVNlcnZpY2USZwoSR2V0TWF0Y2hpbmdTY2hvb2xzEicuZGlyZWN0b3J5LnYxLkdldE1hdGNoaW5nU2Nob29sc1JlcXVlc3QaKC5kaXJlY3RvcnkudjEuR2V0TWF0Y2hpbmdTY2hvb2xzUmVzcG9uc2USTAoJR2V0U2Nob29sEh4uZGlyZWN0b3J5LnYxLkdldFNjaG9vbFJlcXVlc3QaHy5kaXJlY3RvcnkudjEuR2V0U2Nob29sUmVzcG9uc2VCuQEKEGNvbS5kaXJlY3RvcnkudjFCDkRpcmVjdG9yeVByb3RvUAFaQmdpdGh1Yi5jb20vcmFwaGFlbGxhdWRlL3VzYXNjaG9vbGRhdGEvYXBpL2RpcmVjdG9yeS92MTtkaXJlY3Rvcnl2MaICA0RYWKoCDERpcmVjdG9yeS5WMcoCDURpcmVjdG9yeV9cVjHiAhlEaXJlY3RvcnlfXFYxXEdQQk1ldGFkYXRh6gINRGlyZWN0b3J5OjpWMWIGcHJvdG8z");
 
 /**
  * @generated from message directory.v1.SchoolSearch
@@ -54,7 +37,7 @@ export type SchoolSearch = Message<"directory.v1.SchoolSearch"> & {
  * Use `create(SchoolSearchSchema)` to create a new message.
  */
 export const SchoolSearchSchema: GenMessage<SchoolSearch> = /*@__PURE__*/
-  messageDesc(file_directory_v1_directory, 1);
+  messageDesc(file_directory_v1_directory, 0);
 
 /**
  * @generated from message directory.v1.GetMatchingSchoolsRequest
@@ -71,7 +54,7 @@ export type GetMatchingSchoolsRequest = Message<"directory.v1.GetMatchingSchools
  * Use `create(GetMatchingSchoolsRequestSchema)` to create a new message.
  */
 export const GetMatchingSchoolsRequestSchema: GenMessage<GetMatchingSchoolsRequest> = /*@__PURE__*/
-  messageDesc(file_directory_v1_directory, 2);
+  messageDesc(file_directory_v1_directory, 1);
 
 /**
  * @generated from message directory.v1.GetMatchingSchoolsResponse
@@ -88,7 +71,203 @@ export type GetMatchingSchoolsResponse = Message<"directory.v1.GetMatchingSchool
  * Use `create(GetMatchingSchoolsResponseSchema)` to create a new message.
  */
 export const GetMatchingSchoolsResponseSchema: GenMessage<GetMatchingSchoolsResponse> = /*@__PURE__*/
+  messageDesc(file_directory_v1_directory, 2);
+
+/**
+ * @generated from message directory.v1.School
+ */
+export type School = Message<"directory.v1.School"> & {
+  /**
+   * @generated from field: int32 school_year_no = 1;
+   */
+  schoolYearNo: number;
+
+  /**
+   * @generated from field: string school_year = 2;
+   */
+  schoolYear: string;
+
+  /**
+   * @generated from field: string ncessch = 3;
+   */
+  ncessch: string;
+
+  /**
+   * @generated from field: string sch_name = 4;
+   */
+  schName: string;
+
+  /**
+   * @generated from field: int32 sch_type = 5;
+   */
+  schType: number;
+
+  /**
+   * @generated from field: string sch_level = 6;
+   */
+  schLevel: string;
+
+  /**
+   * @generated from field: string charter = 7;
+   */
+  charter: string;
+
+  /**
+   * @generated from field: int32 sy_status = 8;
+   */
+  syStatus: number;
+
+  /**
+   * @generated from field: int32 sy_status_updated = 9;
+   */
+  syStatusUpdated: number;
+
+  /**
+   * @generated from field: string state_code = 10;
+   */
+  stateCode: string;
+
+  /**
+   * @generated from field: string state_leaid = 11;
+   */
+  stateLeaid: string;
+
+  /**
+   * @generated from field: string leaid = 12;
+   */
+  leaid: string;
+
+  /**
+   * @generated from field: optional bool grade_pk = 20;
+   */
+  gradePk?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_k = 21;
+   */
+  gradeK?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_01 = 22;
+   */
+  grade01?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_02 = 23;
+   */
+  grade02?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_03 = 24;
+   */
+  grade03?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_04 = 25;
+   */
+  grade04?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_05 = 26;
+   */
+  grade05?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_06 = 27;
+   */
+  grade06?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_07 = 28;
+   */
+  grade07?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_08 = 29;
+   */
+  grade08?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_09 = 30;
+   */
+  grade09?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_10 = 31;
+   */
+  grade10?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_11 = 32;
+   */
+  grade11?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_12 = 33;
+   */
+  grade12?: boolean;
+
+  /**
+   * @generated from field: optional bool grade_13 = 34;
+   */
+  grade13?: boolean;
+
+  /**
+   * @generated from field: optional bool ungraded = 35;
+   */
+  ungraded?: boolean;
+
+  /**
+   * @generated from field: optional bool adult_education = 36;
+   */
+  adultEducation?: boolean;
+};
+
+/**
+ * Describes the message directory.v1.School.
+ * Use `create(SchoolSchema)` to create a new message.
+ */
+export const SchoolSchema: GenMessage<School> = /*@__PURE__*/
   messageDesc(file_directory_v1_directory, 3);
+
+/**
+ * @generated from message directory.v1.GetSchoolRequest
+ */
+export type GetSchoolRequest = Message<"directory.v1.GetSchoolRequest"> & {
+  /**
+   * @generated from field: string ncessch = 1;
+   */
+  ncessch: string;
+
+  /**
+   * @generated from field: string school_year = 2;
+   */
+  schoolYear: string;
+};
+
+/**
+ * Describes the message directory.v1.GetSchoolRequest.
+ * Use `create(GetSchoolRequestSchema)` to create a new message.
+ */
+export const GetSchoolRequestSchema: GenMessage<GetSchoolRequest> = /*@__PURE__*/
+  messageDesc(file_directory_v1_directory, 4);
+
+/**
+ * @generated from message directory.v1.GetSchoolResponse
+ */
+export type GetSchoolResponse = Message<"directory.v1.GetSchoolResponse"> & {
+  /**
+   * @generated from field: directory.v1.School school = 1;
+   */
+  school?: School;
+};
+
+/**
+ * Describes the message directory.v1.GetSchoolResponse.
+ * Use `create(GetSchoolResponseSchema)` to create a new message.
+ */
+export const GetSchoolResponseSchema: GenMessage<GetSchoolResponse> = /*@__PURE__*/
+  messageDesc(file_directory_v1_directory, 5);
 
 /**
  * @generated from service directory.v1.DirectoryService
@@ -101,6 +280,14 @@ export const DirectoryService: GenService<{
     methodKind: "unary";
     input: typeof GetMatchingSchoolsRequestSchema;
     output: typeof GetMatchingSchoolsResponseSchema;
+  },
+  /**
+   * @generated from rpc directory.v1.DirectoryService.GetSchool
+   */
+  getSchool: {
+    methodKind: "unary";
+    input: typeof GetSchoolRequestSchema;
+    output: typeof GetSchoolResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_directory_v1_directory, 0);

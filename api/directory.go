@@ -2,6 +2,8 @@ package main
 
 import (
 	"context"
+	"database/sql"
+	_ "embed"
 	"errors"
 	"fmt"
 	"regexp"
@@ -11,6 +13,9 @@ import (
 	"github.com/jmoiron/sqlx"
 	directoryv1 "github.com/raphaellaude/usaschooldata/api/directory/v1"
 )
+
+//go:embed sql/get_school.sql
+var getSchoolQuery string
 
 var nonAlphanumeric = regexp.MustCompile(`[^a-zA-Z0-9]+`)
 
@@ -75,5 +80,23 @@ LIMIT 10 OFFSET 0`, whereClause)
 
 	return &directoryv1.GetMatchingSchoolsResponse{
 		Results: results,
+	}, nil
+}
+
+func (h *DirectoryHandler) GetSchool(ctx context.Context, req *directoryv1.GetSchoolRequest) (*directoryv1.GetSchoolResponse, error) {
+	var results directoryv1.School
+	err := h.db.GetContext(ctx, &results, getSchoolQuery, req.Ncessch, req.SchoolYear)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, connect.NewError(
+				connect.CodeNotFound,
+				errors.New("No school found for this school and year"),
+			)
+		}
+		return nil, err
+	}
+
+	return &directoryv1.GetSchoolResponse{
+		School: &results,
 	}, nil
 }
