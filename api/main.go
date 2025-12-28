@@ -8,7 +8,6 @@ import (
 	"syscall"
 	"time"
 
-	"connectrpc.com/connect"
 	"github.com/raphaellaude/usaschooldata/api/membership/v1/membershipv1connect"
 	"go.uber.org/zap"
 	"golang.org/x/net/http2"
@@ -35,12 +34,10 @@ func main() {
 	// Create handler
 	handler := NewMembershipHandler(db)
 
-	// CORS configuration for Connect
-	corsOptions := connect.WithInterceptors(newCORSInterceptor(cfg.CORSAllowedOrigins))
-
-	// Register Connect service with CORS
+	// Register Connect service
+	// Note: CORS is handled by the middleware below, not by Connect interceptors
 	mux := http.NewServeMux()
-	path, serviceHandler := membershipv1connect.NewMembershipServiceHandler(handler, corsOptions)
+	path, serviceHandler := membershipv1connect.NewMembershipServiceHandler(handler)
 	mux.Handle(path, serviceHandler)
 
 	// Health check endpoint
