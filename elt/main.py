@@ -200,7 +200,9 @@ def load_membership():
 
     client.query(
         """
-        CREATE OR REPLACE TABLE membership (
+        DROP TABLE membership;
+
+        CREATE TABLE membership (
             state_code VARCHAR(2),
             ncessch VARCHAR(12),
             race_ethnicity VARCHAR(52),
@@ -244,7 +246,9 @@ def load_directory():
 
     client.query(
         """
-        CREATE OR REPLACE TABLE directory (
+        DROP TABLE directory;
+
+        CREATE TABLE directory (
             school_year_no INT,
             school_year VARCHAR(9),
             ncessch VARCHAR(12),
@@ -271,6 +275,7 @@ def load_directory():
 
     conn = duckdb.connect(":memory:")
 
+    # TODO: clean up these columns and add them back in to support the grade band viewer
     query = f"""
         SELECT
             * EXCLUDE(
