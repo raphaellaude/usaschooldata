@@ -52,7 +52,7 @@ func connectDB(cfg *Config, logger *zap.Logger) (*sqlx.DB, error) {
 	// Enable debug logging in development
 	if cfg.Env == "development" {
 		opts.Debugf = func(format string, v ...interface{}) {
-			fmt.Printf(format, v)
+			fmt.Printf(format, v...)
 		}
 	}
 
