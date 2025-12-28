@@ -262,8 +262,8 @@ def load_directory():
             -- INDEX idx(sch_name) TYPE text(tokenizer = 'splitByNonAlpha', preprocessor = lower(sch_name))
         )
         ENGINE = MergeTree
-        PRIMARY KEY (school_year_no, sch_type, sch_level, ncessch)
-        ORDER BY (school_year_no, sch_type, sch_level, ncessch, sch_name);
+        PRIMARY KEY (school_year_no, school_year, sch_type, sch_level, ncessch)
+        ORDER BY (school_year_no, school_year, sch_type, sch_level, ncessch, sch_name);
         """
     )
 
