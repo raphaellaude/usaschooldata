@@ -15,6 +15,26 @@ export interface HistoricalEnrollmentData {
     multiracial: number;
   }[];
   bySex: {school_year: string; male: number; female: number}[];
+  byGrade: {
+    school_year: string;
+    grade_pk: number;
+    grade_k: number;
+    grade_01: number;
+    grade_02: number;
+    grade_03: number;
+    grade_04: number;
+    grade_05: number;
+    grade_06: number;
+    grade_07: number;
+    grade_08: number;
+    grade_09: number;
+    grade_10: number;
+    grade_11: number;
+    grade_12: number;
+    grade_13: number;
+    ungraded: number;
+    adult_education: number;
+  }[];
   isLoading: boolean;
   error: string | null;
   isTableReady: boolean;
@@ -37,6 +57,7 @@ export function useHistoricalEnrollment(
     byYear: [],
     byRaceEthnicity: [],
     bySex: [],
+    byGrade: [],
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
