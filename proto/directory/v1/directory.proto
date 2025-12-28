@@ -2,10 +2,6 @@ syntax = "proto3";
 
 package directory.v1;
 
-message SearchDirectoryResponse {
-  repeated SchoolSearch results = 1;
-}
-
 message SchoolSearch {
   string ncessch = 1;
   string sch_name = 2;
@@ -20,6 +16,48 @@ message GetMatchingSchoolsResponse {
   repeated SchoolSearch results = 1;
 }
 
+message School {
+  int32 school_year_no = 1;
+  string school_year = 2;
+  string ncessch = 3;
+  string sch_name = 4;
+  int32 sch_type = 5;
+  string sch_level = 6;
+  string charter = 7;
+  int32 sy_status = 8;
+  int32 sy_status_updated = 9;
+  string state_code = 10;
+  string state_leaid = 11;
+  string leaid = 12;
+  optional bool grade_pk = 20;
+  optional bool grade_k = 21;
+  optional bool grade_01 = 22;
+  optional bool grade_02 = 23;
+  optional bool grade_03 = 24;
+  optional bool grade_04 = 25;
+  optional bool grade_05 = 26;
+  optional bool grade_06 = 27;
+  optional bool grade_07 = 28;
+  optional bool grade_08 = 29;
+  optional bool grade_09 = 30;
+  optional bool grade_10 = 31;
+  optional bool grade_11 = 32;
+  optional bool grade_12 = 33;
+  optional bool grade_13 = 34;
+  optional bool ungraded = 35;
+  optional bool adult_education = 36;
+}
+
+message GetSchoolRequest {
+  string ncessch = 1;
+  string school_year = 2;
+}
+
+message GetSchoolResponse {
+  School school = 1;
+}
+
 service DirectoryService {
   rpc GetMatchingSchools(GetMatchingSchoolsRequest) returns (GetMatchingSchoolsResponse);
+  rpc GetSchool(GetSchoolRequest) returns (GetSchoolResponse);
 }
