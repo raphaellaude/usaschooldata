@@ -26,7 +26,6 @@ export default function Profile() {
   const entityType: 'district' | 'school' = ncesCode.length === 12 ? 'school' : 'district';
   const [copiedLink, setCopiedLink] = React.useState<string | null>(null);
 
-  // Use API hooks instead of DuckDB hooks
   const {
     summary,
     isLoading: dataLoading,
@@ -43,7 +42,7 @@ export default function Profile() {
   const {gradeData} = useGradeData(ncesCode, year, entityType === 'school' && !dataLoading);
 
   // Load historical enrollment data for schools only AFTER summary data loads
-  // API fetches all years in a single request, much faster than DuckDB queries
+  // API fetches all years in a single request
   const historicalEnrollmentData = useHistoricalEnrollment(
     entityType === 'school' ? ncesCode : '',
     !dataLoading && !directoryLoading // Only start loading after summary and directory complete
