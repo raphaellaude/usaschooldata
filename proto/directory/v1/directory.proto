@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package directory.v1;
+
+message SearchDirectoryResponse {
+  repeated SchoolSearch results = 1;
+}
+
+message SchoolSearch {
+  string ncessch = 1;
+  string sch_name = 2;
+  string school_year = 3;
+}
+
+message GetMatchingSchoolsRequest {
+  string search_term = 1;
+}
+
+message GetMatchingSchoolsResponse {
+  repeated SchoolSearch results = 1;
+}
+
+service DirectoryService {
+  rpc GetMatchingSchools(GetMatchingSchoolsRequest) returns (GetMatchingSchoolsResponse);
+}
