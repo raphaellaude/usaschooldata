@@ -23,7 +23,8 @@ const (
 
 type GetMembershipResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ByYear        []*TotalEnrollment     `protobuf:"bytes,1,rep,name=by_year,json=byYear,proto3" json:"by_year,omitempty"`
+	Ncessch       string                 `protobuf:"bytes,1,opt,name=ncessch,proto3" json:"ncessch,omitempty"`
+	ByYear        []*TotalEnrollment     `protobuf:"bytes,2,rep,name=by_year,json=byYear,proto3" json:"by_year,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -58,6 +59,13 @@ func (*GetMembershipResponse) Descriptor() ([]byte, []int) {
 	return file_membership_v1_membership_proto_rawDescGZIP(), []int{0}
 }
 
+func (x *GetMembershipResponse) GetNcessch() string {
+	if x != nil {
+		return x.Ncessch
+	}
+	return ""
+}
+
 func (x *GetMembershipResponse) GetByYear() []*TotalEnrollment {
 	if x != nil {
 		return x.ByYear
@@ -65,17 +73,95 @@ func (x *GetMembershipResponse) GetByYear() []*TotalEnrollment {
 	return nil
 }
 
-type TotalEnrollment struct {
+type GetMembershipSummaryResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SchoolYear    string                 `protobuf:"bytes,1,opt,name=school_year,json=schoolYear,proto3" json:"school_year,omitempty"`
-	Enrollment    int32                  `protobuf:"varint,2,opt,name=enrollment,proto3" json:"enrollment,omitempty"`
+	Ncessch       string                 `protobuf:"bytes,1,opt,name=ncessch,proto3" json:"ncessch,omitempty"`
+	Summary       *TotalEnrollment       `protobuf:"bytes,2,opt,name=summary,proto3" json:"summary,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *GetMembershipSummaryResponse) Reset() {
+	*x = GetMembershipSummaryResponse{}
+	mi := &file_membership_v1_membership_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMembershipSummaryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMembershipSummaryResponse) ProtoMessage() {}
+
+func (x *GetMembershipSummaryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_membership_v1_membership_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMembershipSummaryResponse.ProtoReflect.Descriptor instead.
+func (*GetMembershipSummaryResponse) Descriptor() ([]byte, []int) {
+	return file_membership_v1_membership_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetMembershipSummaryResponse) GetNcessch() string {
+	if x != nil {
+		return x.Ncessch
+	}
+	return ""
+}
+
+func (x *GetMembershipSummaryResponse) GetSummary() *TotalEnrollment {
+	if x != nil {
+		return x.Summary
+	}
+	return nil
+}
+
+type TotalEnrollment struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	SchoolYear      string                 `protobuf:"bytes,1,opt,name=school_year,json=schoolYear,proto3" json:"school_year,omitempty"`
+	TotalEnrollment int32                  `protobuf:"varint,2,opt,name=total_enrollment,json=totalEnrollment,proto3" json:"total_enrollment,omitempty"`
+	Male            int32                  `protobuf:"varint,3,opt,name=male,proto3" json:"male,omitempty"`
+	Female          int32                  `protobuf:"varint,4,opt,name=female,proto3" json:"female,omitempty"`
+	NativeAmerican  int32                  `protobuf:"varint,5,opt,name=native_american,json=nativeAmerican,proto3" json:"native_american,omitempty"`
+	Asian           int32                  `protobuf:"varint,6,opt,name=asian,proto3" json:"asian,omitempty"`
+	Black           int32                  `protobuf:"varint,7,opt,name=black,proto3" json:"black,omitempty"`
+	Hispanic        int32                  `protobuf:"varint,8,opt,name=hispanic,proto3" json:"hispanic,omitempty"`
+	PacificIslander int32                  `protobuf:"varint,9,opt,name=pacific_islander,json=pacificIslander,proto3" json:"pacific_islander,omitempty"`
+	Multiracial     int32                  `protobuf:"varint,10,opt,name=multiracial,proto3" json:"multiracial,omitempty"`
+	White           int32                  `protobuf:"varint,11,opt,name=white,proto3" json:"white,omitempty"`
+	GradePk         int32                  `protobuf:"varint,20,opt,name=grade_pk,json=gradePk,proto3" json:"grade_pk,omitempty"`
+	GradeK          int32                  `protobuf:"varint,21,opt,name=grade_k,json=gradeK,proto3" json:"grade_k,omitempty"`
+	Grade_01        int32                  `protobuf:"varint,22,opt,name=grade_01,json=grade01,proto3" json:"grade_01,omitempty"`
+	Grade_02        int32                  `protobuf:"varint,23,opt,name=grade_02,json=grade02,proto3" json:"grade_02,omitempty"`
+	Grade_03        int32                  `protobuf:"varint,24,opt,name=grade_03,json=grade03,proto3" json:"grade_03,omitempty"`
+	Grade_04        int32                  `protobuf:"varint,25,opt,name=grade_04,json=grade04,proto3" json:"grade_04,omitempty"`
+	Grade_05        int32                  `protobuf:"varint,26,opt,name=grade_05,json=grade05,proto3" json:"grade_05,omitempty"`
+	Grade_06        int32                  `protobuf:"varint,27,opt,name=grade_06,json=grade06,proto3" json:"grade_06,omitempty"`
+	Grade_07        int32                  `protobuf:"varint,28,opt,name=grade_07,json=grade07,proto3" json:"grade_07,omitempty"`
+	Grade_08        int32                  `protobuf:"varint,29,opt,name=grade_08,json=grade08,proto3" json:"grade_08,omitempty"`
+	Grade_09        int32                  `protobuf:"varint,30,opt,name=grade_09,json=grade09,proto3" json:"grade_09,omitempty"`
+	Grade_10        int32                  `protobuf:"varint,31,opt,name=grade_10,json=grade10,proto3" json:"grade_10,omitempty"`
+	Grade_11        int32                  `protobuf:"varint,32,opt,name=grade_11,json=grade11,proto3" json:"grade_11,omitempty"`
+	Grade_12        int32                  `protobuf:"varint,33,opt,name=grade_12,json=grade12,proto3" json:"grade_12,omitempty"`
+	Grade_13        int32                  `protobuf:"varint,34,opt,name=grade_13,json=grade13,proto3" json:"grade_13,omitempty"`
+	Ungraded        int32                  `protobuf:"varint,35,opt,name=ungraded,proto3" json:"ungraded,omitempty"`
+	AdultEducation  int32                  `protobuf:"varint,36,opt,name=adult_education,json=adultEducation,proto3" json:"adult_education,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
 func (x *TotalEnrollment) Reset() {
 	*x = TotalEnrollment{}
-	mi := &file_membership_v1_membership_proto_msgTypes[1]
+	mi := &file_membership_v1_membership_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +173,7 @@ func (x *TotalEnrollment) String() string {
 func (*TotalEnrollment) ProtoMessage() {}
 
 func (x *TotalEnrollment) ProtoReflect() protoreflect.Message {
-	mi := &file_membership_v1_membership_proto_msgTypes[1]
+	mi := &file_membership_v1_membership_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +186,7 @@ func (x *TotalEnrollment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TotalEnrollment.ProtoReflect.Descriptor instead.
 func (*TotalEnrollment) Descriptor() ([]byte, []int) {
-	return file_membership_v1_membership_proto_rawDescGZIP(), []int{1}
+	return file_membership_v1_membership_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *TotalEnrollment) GetSchoolYear() string {
@@ -110,9 +196,191 @@ func (x *TotalEnrollment) GetSchoolYear() string {
 	return ""
 }
 
-func (x *TotalEnrollment) GetEnrollment() int32 {
+func (x *TotalEnrollment) GetTotalEnrollment() int32 {
 	if x != nil {
-		return x.Enrollment
+		return x.TotalEnrollment
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetMale() int32 {
+	if x != nil {
+		return x.Male
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetFemale() int32 {
+	if x != nil {
+		return x.Female
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetNativeAmerican() int32 {
+	if x != nil {
+		return x.NativeAmerican
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetAsian() int32 {
+	if x != nil {
+		return x.Asian
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetBlack() int32 {
+	if x != nil {
+		return x.Black
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetHispanic() int32 {
+	if x != nil {
+		return x.Hispanic
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetPacificIslander() int32 {
+	if x != nil {
+		return x.PacificIslander
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetMultiracial() int32 {
+	if x != nil {
+		return x.Multiracial
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetWhite() int32 {
+	if x != nil {
+		return x.White
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGradePk() int32 {
+	if x != nil {
+		return x.GradePk
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGradeK() int32 {
+	if x != nil {
+		return x.GradeK
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_01() int32 {
+	if x != nil {
+		return x.Grade_01
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_02() int32 {
+	if x != nil {
+		return x.Grade_02
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_03() int32 {
+	if x != nil {
+		return x.Grade_03
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_04() int32 {
+	if x != nil {
+		return x.Grade_04
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_05() int32 {
+	if x != nil {
+		return x.Grade_05
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_06() int32 {
+	if x != nil {
+		return x.Grade_06
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_07() int32 {
+	if x != nil {
+		return x.Grade_07
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_08() int32 {
+	if x != nil {
+		return x.Grade_08
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_09() int32 {
+	if x != nil {
+		return x.Grade_09
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_10() int32 {
+	if x != nil {
+		return x.Grade_10
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_11() int32 {
+	if x != nil {
+		return x.Grade_11
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_12() int32 {
+	if x != nil {
+		return x.Grade_12
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetGrade_13() int32 {
+	if x != nil {
+		return x.Grade_13
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetUngraded() int32 {
+	if x != nil {
+		return x.Ungraded
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetAdultEducation() int32 {
+	if x != nil {
+		return x.AdultEducation
 	}
 	return 0
 }
@@ -126,7 +394,7 @@ type GetMembershipRequest struct {
 
 func (x *GetMembershipRequest) Reset() {
 	*x = GetMembershipRequest{}
-	mi := &file_membership_v1_membership_proto_msgTypes[2]
+	mi := &file_membership_v1_membership_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -138,7 +406,7 @@ func (x *GetMembershipRequest) String() string {
 func (*GetMembershipRequest) ProtoMessage() {}
 
 func (x *GetMembershipRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_membership_v1_membership_proto_msgTypes[2]
+	mi := &file_membership_v1_membership_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -151,7 +419,7 @@ func (x *GetMembershipRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMembershipRequest.ProtoReflect.Descriptor instead.
 func (*GetMembershipRequest) Descriptor() ([]byte, []int) {
-	return file_membership_v1_membership_proto_rawDescGZIP(), []int{2}
+	return file_membership_v1_membership_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetMembershipRequest) GetNcessch() string {
@@ -161,23 +429,109 @@ func (x *GetMembershipRequest) GetNcessch() string {
 	return ""
 }
 
+type GetMembershipSummaryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ncessch       string                 `protobuf:"bytes,1,opt,name=ncessch,proto3" json:"ncessch,omitempty"`
+	SchoolYear    string                 `protobuf:"bytes,2,opt,name=school_year,json=schoolYear,proto3" json:"school_year,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMembershipSummaryRequest) Reset() {
+	*x = GetMembershipSummaryRequest{}
+	mi := &file_membership_v1_membership_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMembershipSummaryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMembershipSummaryRequest) ProtoMessage() {}
+
+func (x *GetMembershipSummaryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_membership_v1_membership_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMembershipSummaryRequest.ProtoReflect.Descriptor instead.
+func (*GetMembershipSummaryRequest) Descriptor() ([]byte, []int) {
+	return file_membership_v1_membership_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetMembershipSummaryRequest) GetNcessch() string {
+	if x != nil {
+		return x.Ncessch
+	}
+	return ""
+}
+
+func (x *GetMembershipSummaryRequest) GetSchoolYear() string {
+	if x != nil {
+		return x.SchoolYear
+	}
+	return ""
+}
+
 var File_membership_v1_membership_proto protoreflect.FileDescriptor
 
 const file_membership_v1_membership_proto_rawDesc = "" +
 	"\n" +
-	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"P\n" +
-	"\x15GetMembershipResponse\x127\n" +
-	"\aby_year\x18\x01 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"R\n" +
+	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"j\n" +
+	"\x15GetMembershipResponse\x12\x18\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch\x127\n" +
+	"\aby_year\x18\x02 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"r\n" +
+	"\x1cGetMembershipSummaryResponse\x12\x18\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch\x128\n" +
+	"\asummary\x18\x02 \x01(\v2\x1e.membership.v1.TotalEnrollmentR\asummary\"\xb5\x06\n" +
 	"\x0fTotalEnrollment\x12\x1f\n" +
 	"\vschool_year\x18\x01 \x01(\tR\n" +
-	"schoolYear\x12\x1e\n" +
-	"\n" +
-	"enrollment\x18\x02 \x01(\x05R\n" +
-	"enrollment\"0\n" +
+	"schoolYear\x12)\n" +
+	"\x10total_enrollment\x18\x02 \x01(\x05R\x0ftotalEnrollment\x12\x12\n" +
+	"\x04male\x18\x03 \x01(\x05R\x04male\x12\x16\n" +
+	"\x06female\x18\x04 \x01(\x05R\x06female\x12'\n" +
+	"\x0fnative_american\x18\x05 \x01(\x05R\x0enativeAmerican\x12\x14\n" +
+	"\x05asian\x18\x06 \x01(\x05R\x05asian\x12\x14\n" +
+	"\x05black\x18\a \x01(\x05R\x05black\x12\x1a\n" +
+	"\bhispanic\x18\b \x01(\x05R\bhispanic\x12)\n" +
+	"\x10pacific_islander\x18\t \x01(\x05R\x0fpacificIslander\x12 \n" +
+	"\vmultiracial\x18\n" +
+	" \x01(\x05R\vmultiracial\x12\x14\n" +
+	"\x05white\x18\v \x01(\x05R\x05white\x12\x19\n" +
+	"\bgrade_pk\x18\x14 \x01(\x05R\agradePk\x12\x17\n" +
+	"\agrade_k\x18\x15 \x01(\x05R\x06gradeK\x12\x19\n" +
+	"\bgrade_01\x18\x16 \x01(\x05R\agrade01\x12\x19\n" +
+	"\bgrade_02\x18\x17 \x01(\x05R\agrade02\x12\x19\n" +
+	"\bgrade_03\x18\x18 \x01(\x05R\agrade03\x12\x19\n" +
+	"\bgrade_04\x18\x19 \x01(\x05R\agrade04\x12\x19\n" +
+	"\bgrade_05\x18\x1a \x01(\x05R\agrade05\x12\x19\n" +
+	"\bgrade_06\x18\x1b \x01(\x05R\agrade06\x12\x19\n" +
+	"\bgrade_07\x18\x1c \x01(\x05R\agrade07\x12\x19\n" +
+	"\bgrade_08\x18\x1d \x01(\x05R\agrade08\x12\x19\n" +
+	"\bgrade_09\x18\x1e \x01(\x05R\agrade09\x12\x19\n" +
+	"\bgrade_10\x18\x1f \x01(\x05R\agrade10\x12\x19\n" +
+	"\bgrade_11\x18  \x01(\x05R\agrade11\x12\x19\n" +
+	"\bgrade_12\x18! \x01(\x05R\agrade12\x12\x19\n" +
+	"\bgrade_13\x18\" \x01(\x05R\agrade13\x12\x1a\n" +
+	"\bungraded\x18# \x01(\x05R\bungraded\x12'\n" +
+	"\x0fadult_education\x18$ \x01(\x05R\x0eadultEducation\"0\n" +
 	"\x14GetMembershipRequest\x12\x18\n" +
-	"\ancessch\x18\x01 \x01(\tR\ancessch2o\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch\"X\n" +
+	"\x1bGetMembershipSummaryRequest\x12\x18\n" +
+	"\ancessch\x18\x01 \x01(\tR\ancessch\x12\x1f\n" +
+	"\vschool_year\x18\x02 \x01(\tR\n" +
+	"schoolYear2\xe0\x01\n" +
 	"\x11MembershipService\x12Z\n" +
-	"\rGetMembership\x12#.membership.v1.GetMembershipRequest\x1a$.membership.v1.GetMembershipResponseB\xbf\x01\n" +
+	"\rGetMembership\x12#.membership.v1.GetMembershipRequest\x1a$.membership.v1.GetMembershipResponse\x12o\n" +
+	"\x14GetMembershipSummary\x12*.membership.v1.GetMembershipSummaryRequest\x1a+.membership.v1.GetMembershipSummaryResponseB\xbf\x01\n" +
 	"\x11com.membership.v1B\x0fMembershipProtoP\x01ZDgithub.com/raphaellaude/usaschooldata/api/membership/v1;membershipv1\xa2\x02\x03MXX\xaa\x02\rMembership.V1\xca\x02\rMembership\\V1\xe2\x02\x19Membership\\V1\\GPBMetadata\xea\x02\x0eMembership::V1b\x06proto3"
 
 var (
@@ -192,21 +546,26 @@ func file_membership_v1_membership_proto_rawDescGZIP() []byte {
 	return file_membership_v1_membership_proto_rawDescData
 }
 
-var file_membership_v1_membership_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_membership_v1_membership_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_membership_v1_membership_proto_goTypes = []any{
-	(*GetMembershipResponse)(nil), // 0: membership.v1.GetMembershipResponse
-	(*TotalEnrollment)(nil),       // 1: membership.v1.TotalEnrollment
-	(*GetMembershipRequest)(nil),  // 2: membership.v1.GetMembershipRequest
+	(*GetMembershipResponse)(nil),        // 0: membership.v1.GetMembershipResponse
+	(*GetMembershipSummaryResponse)(nil), // 1: membership.v1.GetMembershipSummaryResponse
+	(*TotalEnrollment)(nil),              // 2: membership.v1.TotalEnrollment
+	(*GetMembershipRequest)(nil),         // 3: membership.v1.GetMembershipRequest
+	(*GetMembershipSummaryRequest)(nil),  // 4: membership.v1.GetMembershipSummaryRequest
 }
 var file_membership_v1_membership_proto_depIdxs = []int32{
-	1, // 0: membership.v1.GetMembershipResponse.by_year:type_name -> membership.v1.TotalEnrollment
-	2, // 1: membership.v1.MembershipService.GetMembership:input_type -> membership.v1.GetMembershipRequest
-	0, // 2: membership.v1.MembershipService.GetMembership:output_type -> membership.v1.GetMembershipResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 0: membership.v1.GetMembershipResponse.by_year:type_name -> membership.v1.TotalEnrollment
+	2, // 1: membership.v1.GetMembershipSummaryResponse.summary:type_name -> membership.v1.TotalEnrollment
+	3, // 2: membership.v1.MembershipService.GetMembership:input_type -> membership.v1.GetMembershipRequest
+	4, // 3: membership.v1.MembershipService.GetMembershipSummary:input_type -> membership.v1.GetMembershipSummaryRequest
+	0, // 4: membership.v1.MembershipService.GetMembership:output_type -> membership.v1.GetMembershipResponse
+	1, // 5: membership.v1.MembershipService.GetMembershipSummary:output_type -> membership.v1.GetMembershipSummaryResponse
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_membership_v1_membership_proto_init() }
@@ -220,7 +579,7 @@ func file_membership_v1_membership_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_membership_v1_membership_proto_rawDesc), len(file_membership_v1_membership_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

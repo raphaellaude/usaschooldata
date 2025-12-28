@@ -36,11 +36,15 @@ const (
 	// MembershipServiceGetMembershipProcedure is the fully-qualified name of the MembershipService's
 	// GetMembership RPC.
 	MembershipServiceGetMembershipProcedure = "/membership.v1.MembershipService/GetMembership"
+	// MembershipServiceGetMembershipSummaryProcedure is the fully-qualified name of the
+	// MembershipService's GetMembershipSummary RPC.
+	MembershipServiceGetMembershipSummaryProcedure = "/membership.v1.MembershipService/GetMembershipSummary"
 )
 
 // MembershipServiceClient is a client for the membership.v1.MembershipService service.
 type MembershipServiceClient interface {
 	GetMembership(context.Context, *v1.GetMembershipRequest) (*v1.GetMembershipResponse, error)
+	GetMembershipSummary(context.Context, *v1.GetMembershipSummaryRequest) (*v1.GetMembershipSummaryResponse, error)
 }
 
 // NewMembershipServiceClient constructs a client for the membership.v1.MembershipService service.
@@ -60,12 +64,19 @@ func NewMembershipServiceClient(httpClient connect.HTTPClient, baseURL string, o
 			connect.WithSchema(membershipServiceMethods.ByName("GetMembership")),
 			connect.WithClientOptions(opts...),
 		),
+		getMembershipSummary: connect.NewClient[v1.GetMembershipSummaryRequest, v1.GetMembershipSummaryResponse](
+			httpClient,
+			baseURL+MembershipServiceGetMembershipSummaryProcedure,
+			connect.WithSchema(membershipServiceMethods.ByName("GetMembershipSummary")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // membershipServiceClient implements MembershipServiceClient.
 type membershipServiceClient struct {
-	getMembership *connect.Client[v1.GetMembershipRequest, v1.GetMembershipResponse]
+	getMembership        *connect.Client[v1.GetMembershipRequest, v1.GetMembershipResponse]
+	getMembershipSummary *connect.Client[v1.GetMembershipSummaryRequest, v1.GetMembershipSummaryResponse]
 }
 
 // GetMembership calls membership.v1.MembershipService.GetMembership.
@@ -77,9 +88,19 @@ func (c *membershipServiceClient) GetMembership(ctx context.Context, req *v1.Get
 	return nil, err
 }
 
+// GetMembershipSummary calls membership.v1.MembershipService.GetMembershipSummary.
+func (c *membershipServiceClient) GetMembershipSummary(ctx context.Context, req *v1.GetMembershipSummaryRequest) (*v1.GetMembershipSummaryResponse, error) {
+	response, err := c.getMembershipSummary.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
 // MembershipServiceHandler is an implementation of the membership.v1.MembershipService service.
 type MembershipServiceHandler interface {
 	GetMembership(context.Context, *v1.GetMembershipRequest) (*v1.GetMembershipResponse, error)
+	GetMembershipSummary(context.Context, *v1.GetMembershipSummaryRequest) (*v1.GetMembershipSummaryResponse, error)
 }
 
 // NewMembershipServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -95,10 +116,18 @@ func NewMembershipServiceHandler(svc MembershipServiceHandler, opts ...connect.H
 		connect.WithSchema(membershipServiceMethods.ByName("GetMembership")),
 		connect.WithHandlerOptions(opts...),
 	)
+	membershipServiceGetMembershipSummaryHandler := connect.NewUnaryHandlerSimple(
+		MembershipServiceGetMembershipSummaryProcedure,
+		svc.GetMembershipSummary,
+		connect.WithSchema(membershipServiceMethods.ByName("GetMembershipSummary")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/membership.v1.MembershipService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case MembershipServiceGetMembershipProcedure:
 			membershipServiceGetMembershipHandler.ServeHTTP(w, r)
+		case MembershipServiceGetMembershipSummaryProcedure:
+			membershipServiceGetMembershipSummaryHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -110,4 +139,8 @@ type UnimplementedMembershipServiceHandler struct{}
 
 func (UnimplementedMembershipServiceHandler) GetMembership(context.Context, *v1.GetMembershipRequest) (*v1.GetMembershipResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("membership.v1.MembershipService.GetMembership is not implemented"))
+}
+
+func (UnimplementedMembershipServiceHandler) GetMembershipSummary(context.Context, *v1.GetMembershipSummaryRequest) (*v1.GetMembershipSummaryResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("membership.v1.MembershipService.GetMembershipSummary is not implemented"))
 }

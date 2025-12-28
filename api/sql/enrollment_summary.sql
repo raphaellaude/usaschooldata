@@ -32,6 +32,5 @@ SELECT
   -- Total enrollment
   SUM(student_count) as total_enrollment
 FROM membership
-WHERE ncessch = ?
+WHERE ncessch = ? AND school_year = ?
 GROUP BY school_year
-ORDER BY school_year ASC
