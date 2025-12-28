@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"time"
 
-	"connectrpc.com/connect"
+	"github.com/raphaellaude/usaschooldata/api/directory/v1/directoryv1connect"
 	"github.com/raphaellaude/usaschooldata/api/membership/v1/membershipv1connect"
 	"go.uber.org/zap"
 	"golang.org/x/net/http2"
@@ -32,16 +32,19 @@ func main() {
 		logger.Fatal("Failed to connect to database", zap.Error(err))
 	}
 
-	// Create handler
-	handler := NewMembershipHandler(db)
+	// Create handlers
+	membershipHandler := NewMembershipHandler(db)
+	directoryHandler := NewDirectoryHandler(db)
 
-	// CORS configuration for Connect
-	corsOptions := connect.WithInterceptors(newCORSInterceptor(cfg.CORSAllowedOrigins))
-
-	// Register Connect service with CORS
+	// Register Connect services
+	// Note: CORS is handled by the middleware below, not by Connect interceptors
 	mux := http.NewServeMux()
-	path, serviceHandler := membershipv1connect.NewMembershipServiceHandler(handler, corsOptions)
+
+	path, serviceHandler := membershipv1connect.NewMembershipServiceHandler(membershipHandler)
 	mux.Handle(path, serviceHandler)
+
+	directoryPath, directoryServiceHandler := directoryv1connect.NewDirectoryServiceHandler(directoryHandler)
+	mux.Handle(directoryPath, directoryServiceHandler)
 
 	// Health check endpoint
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
