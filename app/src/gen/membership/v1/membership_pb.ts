@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file membership/v1/membership.proto.
  */
 export const file_membership_v1_membership: GenFile = /*@__PURE__*/
-  fileDesc("Ch5tZW1iZXJzaGlwL3YxL21lbWJlcnNoaXAucHJvdG8SDW1lbWJlcnNoaXAudjEiSAoVR2V0TWVtYmVyc2hpcFJlc3BvbnNlEi8KB2J5X3llYXIYASADKAsyHi5tZW1iZXJzaGlwLnYxLlRvdGFsRW5yb2xsbWVudCLlAQoPVG90YWxFbnJvbGxtZW50EhMKC3NjaG9vbF95ZWFyGAEgASgJEhgKEHRvdGFsX2Vucm9sbG1lbnQYAiABKAUSDAoEbWFsZRgDIAEoBRIOCgZmZW1hbGUYBCABKAUSFwoPbmF0aXZlX2FtZXJpY2FuGAUgASgFEg0KBWFzaWFuGAYgASgFEg0KBWJsYWNrGAcgASgFEhAKCGhpc3BhbmljGAggASgFEhgKEHBhY2lmaWNfaXNsYW5kZXIYCSABKAUSEwoLbXVsdGlyYWNpYWwYCiABKAUSDQoFd2hpdGUYCyABKAUiJwoUR2V0TWVtYmVyc2hpcFJlcXVlc3QSDwoHbmNlc3NjaBgBIAEoCTJvChFNZW1iZXJzaGlwU2VydmljZRJaCg1HZXRNZW1iZXJzaGlwEiMubWVtYmVyc2hpcC52MS5HZXRNZW1iZXJzaGlwUmVxdWVzdBokLm1lbWJlcnNoaXAudjEuR2V0TWVtYmVyc2hpcFJlc3BvbnNlQr8BChFjb20ubWVtYmVyc2hpcC52MUIPTWVtYmVyc2hpcFByb3RvUAFaRGdpdGh1Yi5jb20vcmFwaGFlbGxhdWRlL3VzYXNjaG9vbGRhdGEvYXBpL21lbWJlcnNoaXAvdjE7bWVtYmVyc2hpcHYxogIDTVhYqgINTWVtYmVyc2hpcC5WMcoCDU1lbWJlcnNoaXBcVjHiAhlNZW1iZXJzaGlwXFYxXEdQQk1ldGFkYXRh6gIOTWVtYmVyc2hpcDo6VjFiBnByb3RvMw");
+  fileDesc("Ch5tZW1iZXJzaGlwL3YxL21lbWJlcnNoaXAucHJvdG8SDW1lbWJlcnNoaXAudjEiSAoVR2V0TWVtYmVyc2hpcFJlc3BvbnNlEi8KB2J5X3llYXIYASADKAsyHi5tZW1iZXJzaGlwLnYxLlRvdGFsRW5yb2xsbWVudCJPChxHZXRNZW1iZXJzaGlwU3VtbWFyeVJlc3BvbnNlEi8KB3N1bW1hcnkYASABKAsyHi5tZW1iZXJzaGlwLnYxLlRvdGFsRW5yb2xsbWVudCKdBAoPVG90YWxFbnJvbGxtZW50EhMKC3NjaG9vbF95ZWFyGAEgASgJEhgKEHRvdGFsX2Vucm9sbG1lbnQYAiABKAUSDAoEbWFsZRgDIAEoBRIOCgZmZW1hbGUYBCABKAUSFwoPbmF0aXZlX2FtZXJpY2FuGAUgASgFEg0KBWFzaWFuGAYgASgFEg0KBWJsYWNrGAcgASgFEhAKCGhpc3BhbmljGAggASgFEhgKEHBhY2lmaWNfaXNsYW5kZXIYCSABKAUSEwoLbXVsdGlyYWNpYWwYCiABKAUSDQoFd2hpdGUYCyABKAUSEAoIZ3JhZGVfcGsYFCABKAUSDwoHZ3JhZGVfaxgVIAEoBRIQCghncmFkZV8wMRgWIAEoBRIQCghncmFkZV8wMhgXIAEoBRIQCghncmFkZV8wMxgYIAEoBRIQCghncmFkZV8wNBgZIAEoBRIQCghncmFkZV8wNRgaIAEoBRIQCghncmFkZV8wNhgbIAEoBRIQCghncmFkZV8wNxgcIAEoBRIQCghncmFkZV8wOBgdIAEoBRIQCghncmFkZV8wORgeIAEoBRIQCghncmFkZV8xMBgfIAEoBRIQCghncmFkZV8xMRggIAEoBRIQCghncmFkZV8xMhghIAEoBRIQCghncmFkZV8xMxgiIAEoBRIQCgh1bmdyYWRlZBgjIAEoBRIXCg9hZHVsdF9lZHVjYXRpb24YJCABKAUiJwoUR2V0TWVtYmVyc2hpcFJlcXVlc3QSDwoHbmNlc3NjaBgBIAEoCSJDChtHZXRNZW1iZXJzaGlwU3VtbWFyeVJlcXVlc3QSDwoHbmNlc3NjaBgBIAEoCRITCgtzY2hvb2xfeWVhchgCIAEoCTLgAQoRTWVtYmVyc2hpcFNlcnZpY2USWgoNR2V0TWVtYmVyc2hpcBIjLm1lbWJlcnNoaXAudjEuR2V0TWVtYmVyc2hpcFJlcXVlc3QaJC5tZW1iZXJzaGlwLnYxLkdldE1lbWJlcnNoaXBSZXNwb25zZRJvChRHZXRNZW1iZXJzaGlwU3VtbWFyeRIqLm1lbWJlcnNoaXAudjEuR2V0TWVtYmVyc2hpcFN1bW1hcnlSZXF1ZXN0GisubWVtYmVyc2hpcC52MS5HZXRNZW1iZXJzaGlwU3VtbWFyeVJlc3BvbnNlQr8BChFjb20ubWVtYmVyc2hpcC52MUIPTWVtYmVyc2hpcFByb3RvUAFaRGdpdGh1Yi5jb20vcmFwaGFlbGxhdWRlL3VzYXNjaG9vbGRhdGEvYXBpL21lbWJlcnNoaXAvdjE7bWVtYmVyc2hpcHYxogIDTVhYqgINTWVtYmVyc2hpcC5WMcoCDU1lbWJlcnNoaXBcVjHiAhlNZW1iZXJzaGlwXFYxXEdQQk1ldGFkYXRh6gIOTWVtYmVyc2hpcDo6VjFiBnByb3RvMw");
 
 /**
  * @generated from message membership.v1.GetMembershipResponse
@@ -28,6 +28,23 @@ export type GetMembershipResponse = Message<"membership.v1.GetMembershipResponse
  */
 export const GetMembershipResponseSchema: GenMessage<GetMembershipResponse> = /*@__PURE__*/
   messageDesc(file_membership_v1_membership, 0);
+
+/**
+ * @generated from message membership.v1.GetMembershipSummaryResponse
+ */
+export type GetMembershipSummaryResponse = Message<"membership.v1.GetMembershipSummaryResponse"> & {
+  /**
+   * @generated from field: membership.v1.TotalEnrollment summary = 1;
+   */
+  summary?: TotalEnrollment;
+};
+
+/**
+ * Describes the message membership.v1.GetMembershipSummaryResponse.
+ * Use `create(GetMembershipSummaryResponseSchema)` to create a new message.
+ */
+export const GetMembershipSummaryResponseSchema: GenMessage<GetMembershipSummaryResponse> = /*@__PURE__*/
+  messageDesc(file_membership_v1_membership, 1);
 
 /**
  * @generated from message membership.v1.TotalEnrollment
@@ -87,6 +104,91 @@ export type TotalEnrollment = Message<"membership.v1.TotalEnrollment"> & {
    * @generated from field: int32 white = 11;
    */
   white: number;
+
+  /**
+   * @generated from field: int32 grade_pk = 20;
+   */
+  gradePk: number;
+
+  /**
+   * @generated from field: int32 grade_k = 21;
+   */
+  gradeK: number;
+
+  /**
+   * @generated from field: int32 grade_01 = 22;
+   */
+  grade01: number;
+
+  /**
+   * @generated from field: int32 grade_02 = 23;
+   */
+  grade02: number;
+
+  /**
+   * @generated from field: int32 grade_03 = 24;
+   */
+  grade03: number;
+
+  /**
+   * @generated from field: int32 grade_04 = 25;
+   */
+  grade04: number;
+
+  /**
+   * @generated from field: int32 grade_05 = 26;
+   */
+  grade05: number;
+
+  /**
+   * @generated from field: int32 grade_06 = 27;
+   */
+  grade06: number;
+
+  /**
+   * @generated from field: int32 grade_07 = 28;
+   */
+  grade07: number;
+
+  /**
+   * @generated from field: int32 grade_08 = 29;
+   */
+  grade08: number;
+
+  /**
+   * @generated from field: int32 grade_09 = 30;
+   */
+  grade09: number;
+
+  /**
+   * @generated from field: int32 grade_10 = 31;
+   */
+  grade10: number;
+
+  /**
+   * @generated from field: int32 grade_11 = 32;
+   */
+  grade11: number;
+
+  /**
+   * @generated from field: int32 grade_12 = 33;
+   */
+  grade12: number;
+
+  /**
+   * @generated from field: int32 grade_13 = 34;
+   */
+  grade13: number;
+
+  /**
+   * @generated from field: int32 ungraded = 35;
+   */
+  ungraded: number;
+
+  /**
+   * @generated from field: int32 adult_education = 36;
+   */
+  adultEducation: number;
 };
 
 /**
@@ -94,7 +196,7 @@ export type TotalEnrollment = Message<"membership.v1.TotalEnrollment"> & {
  * Use `create(TotalEnrollmentSchema)` to create a new message.
  */
 export const TotalEnrollmentSchema: GenMessage<TotalEnrollment> = /*@__PURE__*/
-  messageDesc(file_membership_v1_membership, 1);
+  messageDesc(file_membership_v1_membership, 2);
 
 /**
  * @generated from message membership.v1.GetMembershipRequest
@@ -111,7 +213,29 @@ export type GetMembershipRequest = Message<"membership.v1.GetMembershipRequest">
  * Use `create(GetMembershipRequestSchema)` to create a new message.
  */
 export const GetMembershipRequestSchema: GenMessage<GetMembershipRequest> = /*@__PURE__*/
-  messageDesc(file_membership_v1_membership, 2);
+  messageDesc(file_membership_v1_membership, 3);
+
+/**
+ * @generated from message membership.v1.GetMembershipSummaryRequest
+ */
+export type GetMembershipSummaryRequest = Message<"membership.v1.GetMembershipSummaryRequest"> & {
+  /**
+   * @generated from field: string ncessch = 1;
+   */
+  ncessch: string;
+
+  /**
+   * @generated from field: string school_year = 2;
+   */
+  schoolYear: string;
+};
+
+/**
+ * Describes the message membership.v1.GetMembershipSummaryRequest.
+ * Use `create(GetMembershipSummaryRequestSchema)` to create a new message.
+ */
+export const GetMembershipSummaryRequestSchema: GenMessage<GetMembershipSummaryRequest> = /*@__PURE__*/
+  messageDesc(file_membership_v1_membership, 4);
 
 /**
  * @generated from service membership.v1.MembershipService
@@ -124,6 +248,14 @@ export const MembershipService: GenService<{
     methodKind: "unary";
     input: typeof GetMembershipRequestSchema;
     output: typeof GetMembershipResponseSchema;
+  },
+  /**
+   * @generated from rpc membership.v1.MembershipService.GetMembershipSummary
+   */
+  getMembershipSummary: {
+    methodKind: "unary";
+    input: typeof GetMembershipSummaryRequestSchema;
+    output: typeof GetMembershipSummaryResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_membership_v1_membership, 0);

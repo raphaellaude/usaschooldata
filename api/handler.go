@@ -11,6 +11,9 @@ import (
 //go:embed sql/historical_enrollment.sql
 var historicalEnrollmentQuery string
 
+//go:embed sql/enrollment_summary.sql
+var enrollmentSummaryQuery string
+
 type MembershipHandler struct {
 	db *sqlx.DB
 }
@@ -28,5 +31,17 @@ func (h *MembershipHandler) GetMembership(ctx context.Context, req *membershipv1
 
 	return &membershipv1.GetMembershipResponse{
 		ByYear: results,
+	}, nil
+}
+
+func (h *MembershipHandler) GetMembershipSummary(ctx context.Context, req *membershipv1.GetMembershipSummaryRequest) (*membershipv1.GetMembershipSummaryResponse, error) {
+	var results membershipv1.TotalEnrollment
+	err := h.db.GetContext(ctx, &results, enrollmentSummaryQuery, req.Ncessch, req.SchoolYear)
+	if err != nil {
+		return nil, err
+	}
+
+	return &membershipv1.GetMembershipSummaryResponse{
+		Summary: &results,
 	}, nil
 }
