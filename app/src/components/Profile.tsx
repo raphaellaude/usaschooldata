@@ -3,8 +3,8 @@ import {useParams, useSearchParams} from 'react-router-dom';
 import {useDuckDB} from '../hooks/useDuckDB';
 import {useProfileData} from '../hooks/useProfileData';
 import {useSchoolDirectory} from '../hooks/useSchoolDirectory';
-import {useHistoricalEnrollment} from '../hooks/useHistoricalEnrollment';
-import {dataService} from '../services/dataService';
+import {useBlendedProfileData} from '../hooks/useBlendedProfileData';
+import {useBlendedHistoricalEnrollment} from '../hooks/useBlendedHistoricalEnrollment';
 import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
@@ -24,14 +24,21 @@ export default function Profile() {
   const year = fallbackToDefault ? DEFAULT_SCHOOL_YEAR : urlRequestedYear;
   const ncesCode = id || '';
   const entityType: 'district' | 'school' = ncesCode.length === 12 ? 'school' : 'district';
-  const [gradeData, setGradeData] = React.useState<{grade: string; student_count: number}[]>([]);
   const [copiedLink, setCopiedLink] = React.useState<string | null>(null);
 
+  // Use blended data hook (API for schools, DuckDB for districts)
   const {
     summary,
-    membershipData,
+    gradeData,
     isLoading: dataLoading,
     error: dataError,
+    dataSource,
+  } = useBlendedProfileData(entityType, ncesCode, year);
+
+  // Keep old DuckDB-based hook for raw membership table data (granular row-by-row)
+  // The API doesn't provide this level of detail yet
+  const {
+    membershipData,
     yearNotAvailable,
     requestedYear,
     availableYears,
@@ -44,9 +51,8 @@ export default function Profile() {
   } = useSchoolDirectory(ncesCode, year);
 
   // Load historical enrollment data for schools only AFTER summary data loads
-  // This prevents the slow historical query (which hits S3) from blocking fast summary queries
-  // since DuckDB WASM executes queries serially
-  const historicalEnrollmentData = useHistoricalEnrollment(
+  // Use blended hook (API first, then DuckDB fallback)
+  const historicalEnrollmentData = useBlendedHistoricalEnrollment(
     entityType === 'school' ? ncesCode : '',
     !dataLoading && !directoryLoading // Only start loading after summary and directory complete
   );
@@ -57,23 +63,6 @@ export default function Profile() {
       setFallbackToDefault(true);
     }
   }, [yearNotAvailable, requestedYear, fallbackToDefault]);
-
-  // Load grade data for schools only
-  React.useEffect(() => {
-    if (entityType === 'school' && ncesCode && isInitialized && !dbError && !dataLoading) {
-      loadGradeData();
-    }
-  }, [entityType, ncesCode, year, isInitialized, dbError, dataLoading]);
-
-  const loadGradeData = async () => {
-    try {
-      const data = await dataService.getStudentsByGrade(ncesCode, {schoolYear: year});
-      setGradeData(data);
-    } catch (error) {
-      console.error('Failed to load grade data:', error);
-      setGradeData([]);
-    }
-  };
 
   const copyLinkToClipboard = async (hash: string) => {
     try {
@@ -393,7 +382,14 @@ export default function Profile() {
           </h1>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-sm text-gray-500">
             <span>NCES ID: {ncesCode}</span>
-            <span>School Year: {year}</span>
+            <span>
+              School Year: {year}
+              {dataSource && (
+                <span className="ml-2 text-xs text-gray-400">
+                  ({dataSource === 'api' ? 'API' : 'DuckDB'})
+                </span>
+              )}
+            </span>
             {/* Directory Stats Grid */}
             {directoryInfo?.sch_type && <span>School Type: {directoryInfo.sch_type || 'N/A'}</span>}
             {directoryInfo?.sch_level && (

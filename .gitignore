@@ -3,7 +3,9 @@ data/
 .DS_Store
 __pycache__
 .ruff_cache/
-.env*
+.env
+.env.local
+.env.*.local
 pyrightconfig.json
 .claude
 tmp/
