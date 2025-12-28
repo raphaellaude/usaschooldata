@@ -15,7 +15,7 @@ primary_region = 'iad'
   CLICKHOUSE_HOST = 'tlhsp9w3f7.us-east-1.aws.clickhouse.cloud:9440'
   CLICKHOUSE_TLS = 'true'
   CLICKHOUSE_USERNAME = 'default'
-  CORS_ALLOWED_ORIGINS = 'https://usa-school-data.fly.dev'
+  CORS_ALLOWED_ORIGINS = 'https://usaschooldata.org,https://usa-school-data.fly.dev,https://usaschooldata-pr-*.fly.dev'
   ENV = 'production'
   PORT = '8080'
 

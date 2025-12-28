@@ -93,6 +93,7 @@ def directory(school_year: list[str]):
     COPY (
         SELECT
             *,
+            -- TODO: clean up grade labels (e.g. grade_pk) maps to true, false, Yes, Y, Not reported, No, and N
             ROW_NUMBER() OVER (PARTITION BY ncessch ORDER BY school_year DESC) as school_year_no
         FROM '{DIRECTORY}/directory/*.parquet'
         ORDER BY school_year DESC, ncessch
@@ -197,10 +198,11 @@ def _get_clickhouse_client():
 def load_membership():
     client = _get_clickhouse_client()
 
-    # 3. Load the data into the table
     client.query(
         """
-        CREATE OR REPLACE TABLE membership (
+        DROP TABLE membership;
+
+        CREATE TABLE membership (
             state_code VARCHAR(2),
             ncessch VARCHAR(12),
             race_ethnicity VARCHAR(52),
@@ -227,18 +229,71 @@ def load_membership():
 
     arrow_reader = conn.execute(query).fetch_record_batch(rows_per_batch=100_000)
 
-    # client.query("SYSTEM START MERGES membership")
-
     for idx, batch in enumerate(arrow_reader):
         df = batch.to_pandas()
         client.insert_df("membership", df)
         logger.info(f"Inserted batch {idx}")
 
-    # client.query("SYSTEM START MERGES membership")
-    # client.query("OPTIMIZE TABLE membership FINAL")
-
-    # 4. Validate the data
     result = client.query("SELECT COUNT(*) FROM membership")
+    print(f"Loaded {result.result_set[0][0]} rows")
+
+
+@cli.command("load_directory")
+def load_directory():
+    client = _get_clickhouse_client()
+
+    # client.query("SET enable_full_text_index = true;")
+
+    client.query(
+        """
+        DROP TABLE directory;
+
+        CREATE TABLE directory (
+            school_year_no INT,
+            school_year VARCHAR(9),
+            ncessch VARCHAR(12),
+            sch_name VARCHAR(60),
+            sch_type INT,
+            sch_level VARCHAR(15),
+            charter VARCHAR(14),
+            sy_status INT,
+            sy_status_updated INT,
+            state_code VARCHAR(2),
+            state_leaid VARCHAR(2),
+            leaid VARCHAR(8),
+            INDEX sch_name_idx sch_name TYPE tokenbf_v1(10240, 3, 0) GRANULARITY 4
+            -- Available in CH 25.12. Currently CH cloud on 25.8
+            -- INDEX idx(sch_name) TYPE text(tokenizer = 'splitByNonAlpha', preprocessor = lower(sch_name))
+        )
+        ENGINE = MergeTree
+        PRIMARY KEY (school_year_no, school_year, sch_type, sch_level, ncessch)
+        ORDER BY (school_year_no, school_year, sch_type, sch_level, ncessch, sch_name);
+        """
+    )
+
+    assert DIRECTORY is not None
+
+    conn = duckdb.connect(":memory:")
+
+    # TODO: clean up these columns and add them back in to support the grade band viewer
+    query = f"""
+        SELECT
+            * EXCLUDE(
+                grade_pk, grade_kg, grade_01, grade_02, grade_03, grade_04,
+                grade_05, grade_06, grade_07, grade_08, grade_09, grade_10,
+                grade_11, grade_12, grade_13, grade_ug, grade_ae
+            )
+        FROM read_parquet('{DIRECTORY}/directory.parquet')
+    """
+
+    arrow_reader = conn.execute(query).fetch_record_batch(rows_per_batch=100_000)
+
+    for idx, batch in enumerate(arrow_reader):
+        df = batch.to_pandas()
+        client.insert_df("directory", df)
+        logger.info(f"Inserted batch {idx}")
+
+    result = client.query("SELECT COUNT(*) FROM directory")
     print(f"Loaded {result.result_set[0][0]} rows")
 
 

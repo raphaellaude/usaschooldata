@@ -1,12 +1,9 @@
-import {useState, useEffect, useRef, useCallback} from 'react';
-import {duckDBService} from '../services/duckdb';
+import {useState, useEffect, useRef} from 'react';
+import {directoryClient} from '../services/apiClient';
 
 export interface SchoolSearchResult {
   ncessch: string;
   sch_name: string;
-  lea_name: string;
-  city: string;
-  state_name: string;
   school_year: string;
 }
 
@@ -15,51 +12,9 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const queryInFlightRef = useRef(false);
-  const localTableCreated = useRef(false);
-  const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
-
-  const sanitizeQuery = useCallback((query: string): string => {
-    // Escape single quotes to prevent SQL injection
-    return query.replace(/'/g, "''");
-  }, []);
-
-  const createSearchTable = useCallback(async () => {
-    // Create a local table with the most recent school data
-    const createTableQuery = `
-      CREATE OR REPLACE TABLE school_directory AS
-      SELECT
-        ncessch,
-        sch_name,
-        school_year
-      FROM read_parquet('${dataDirectory}/directory.parquet')
-      WHERE school_year_no = 1
-    `;
-
-    await duckDBService.query(createTableQuery);
-  }, [dataDirectory]);
-
-  const performSearch = useCallback(
-    async (query: string): Promise<SchoolSearchResult[]> => {
-      // Use DuckDB text search with LIKE for partial matching
-      // Search across school name, district name, and city
-      const searchQuerySQL = `
-      SELECT
-        ncessch,
-        sch_name,
-        school_year
-      FROM school_directory
-      WHERE
-        LOWER(sch_name) LIKE LOWER('%${sanitizeQuery(query)}%')
-      ORDER BY sch_name
-      LIMIT 10
-    `;
-
-      const table = await duckDBService.query(searchQuerySQL);
-      return duckDBService.tableToArray(table) as SchoolSearchResult[];
-    },
-    [sanitizeQuery]
-  );
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const previousQueryRef = useRef<string>('');
+  const previousResultsRef = useRef<SchoolSearchResult[]>([]);
 
   useEffect(() => {
     // Clear any existing timeout
@@ -67,20 +22,17 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       clearTimeout(searchTimeoutRef.current);
     }
 
-    // Cancel any in-flight query
-    if (queryInFlightRef.current) {
-      duckDBService.cancelPendingQuery().then(cancelled => {
-        if (cancelled) {
-          console.log('Cancelled previous search query');
-        }
-      });
-      queryInFlightRef.current = false;
+    // Cancel any in-flight request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
     }
 
     // If query is less than 3 characters, clear results
     if (searchQuery.length < 3) {
       setResults([]);
       setIsSearching(false);
+      previousQueryRef.current = '';
+      previousResultsRef.current = [];
       return;
     }
 
@@ -90,24 +42,52 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       try {
         setError(null);
 
-        // Create local table on first search (or if not already created)
-        if (!localTableCreated.current) {
-          await createSearchTable();
-          localTableCreated.current = true;
+        // Create a new AbortController for this request
+        abortControllerRef.current = new AbortController();
+
+        // Call the API
+        const response = await directoryClient.getMatchingSchools(
+          {searchTerm: searchQuery},
+          {signal: abortControllerRef.current.signal}
+        );
+
+        // Transform the response to match our interface
+        const searchResults: SchoolSearchResult[] = response.results.map(result => ({
+          ncessch: result.ncessch,
+          sch_name: result.schName,
+          school_year: result.schoolYear,
+        }));
+
+        setResults(searchResults);
+        previousQueryRef.current = searchQuery;
+        previousResultsRef.current = searchResults;
+      } catch (err) {
+        // Don't set error if the request was aborted
+        if (err instanceof Error && err.name === 'AbortError') {
+          return;
         }
 
-        // Mark that a query is now in-flight
-        queryInFlightRef.current = true;
-
-        // Perform the search
-        const searchResults = await performSearch(searchQuery);
-        setResults(searchResults);
-      } catch (err) {
         console.error('Search error:', err);
         setError(err instanceof Error ? err.message : 'Search failed');
-        setResults([]);
+
+        // If this is a "not found" error and the current query extends the previous query,
+        // keep showing the previous results
+        const isNotFoundError = err instanceof Error && err.message.includes('[not_found]');
+        const currentQueryExtendsPrevious =
+          previousQueryRef.current &&
+          searchQuery.toLowerCase().startsWith(previousQueryRef.current.toLowerCase());
+
+        if (
+          isNotFoundError &&
+          currentQueryExtendsPrevious &&
+          previousResultsRef.current.length > 0
+        ) {
+          // Keep the previous results
+          setResults(previousResultsRef.current);
+        } else {
+          setResults([]);
+        }
       } finally {
-        queryInFlightRef.current = false;
         setIsSearching(false);
       }
     }, debounceMs);
@@ -117,12 +97,11 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       if (searchTimeoutRef.current) {
         clearTimeout(searchTimeoutRef.current);
       }
-      if (queryInFlightRef.current) {
-        duckDBService.cancelPendingQuery();
-        queryInFlightRef.current = false;
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
       }
     };
-  }, [searchQuery, debounceMs, createSearchTable, performSearch]);
+  }, [searchQuery, debounceMs]);
 
   return {
     results,

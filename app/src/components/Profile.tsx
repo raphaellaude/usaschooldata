@@ -8,7 +8,7 @@ import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
 import CopyableWrapper from './CopyableWrapper';
-import GradeBand from './GradeBand';
+// import GradeBand from './GradeBand';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
 import {Link1Icon} from '@radix-ui/react-icons';
 
@@ -26,7 +26,6 @@ export default function Profile() {
   const entityType: 'district' | 'school' = ncesCode.length === 12 ? 'school' : 'district';
   const [copiedLink, setCopiedLink] = React.useState<string | null>(null);
 
-  // Use API hooks instead of DuckDB hooks
   const {
     summary,
     isLoading: dataLoading,
@@ -43,7 +42,7 @@ export default function Profile() {
   const {gradeData} = useGradeData(ncesCode, year, entityType === 'school' && !dataLoading);
 
   // Load historical enrollment data for schools only AFTER summary data loads
-  // API fetches all years in a single request, much faster than DuckDB queries
+  // API fetches all years in a single request
   const historicalEnrollmentData = useHistoricalEnrollment(
     entityType === 'school' ? ncesCode : '',
     !dataLoading && !directoryLoading // Only start loading after summary and directory complete
@@ -308,11 +307,12 @@ export default function Profile() {
           </div>
 
           {/* Grade Band Visualization */}
-          {entityType === 'school' && directoryInfo && (
+          {/* TODO: Re-enable once grade band data is available */}
+          {/* {entityType === 'school' && directoryInfo && (
             <div className="mt-4">
               <GradeBand directoryInfo={directoryInfo} />
             </div>
-          )}
+          )} */}
 
           {/* Navigation */}
           <nav className="mt-4 flex space-x-6">
