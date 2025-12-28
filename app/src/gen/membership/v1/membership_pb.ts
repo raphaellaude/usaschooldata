@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file membership/v1/membership.proto.
  */
 export const file_membership_v1_membership: GenFile = /*@__PURE__*/
-  fileDesc("Ch5tZW1iZXJzaGlwL3YxL21lbWJlcnNoaXAucHJvdG8SDW1lbWJlcnNoaXAudjEiSAoVR2V0TWVtYmVyc2hpcFJlc3BvbnNlEi8KB2J5X3llYXIYASADKAsyHi5tZW1iZXJzaGlwLnYxLlRvdGFsRW5yb2xsbWVudCI6Cg9Ub3RhbEVucm9sbG1lbnQSEwoLc2Nob29sX3llYXIYASABKAkSEgoKZW5yb2xsbWVudBgCIAEoBSInChRHZXRNZW1iZXJzaGlwUmVxdWVzdBIPCgduY2Vzc2NoGAEgASgJMm8KEU1lbWJlcnNoaXBTZXJ2aWNlEloKDUdldE1lbWJlcnNoaXASIy5tZW1iZXJzaGlwLnYxLkdldE1lbWJlcnNoaXBSZXF1ZXN0GiQubWVtYmVyc2hpcC52MS5HZXRNZW1iZXJzaGlwUmVzcG9uc2VCvwEKEWNvbS5tZW1iZXJzaGlwLnYxQg9NZW1iZXJzaGlwUHJvdG9QAVpEZ2l0aHViLmNvbS9yYXBoYWVsbGF1ZGUvdXNhc2Nob29sZGF0YS9hcGkvbWVtYmVyc2hpcC92MTttZW1iZXJzaGlwdjGiAgNNWFiqAg1NZW1iZXJzaGlwLlYxygINTWVtYmVyc2hpcFxWMeICGU1lbWJlcnNoaXBcVjFcR1BCTWV0YWRhdGHqAg5NZW1iZXJzaGlwOjpWMWIGcHJvdG8z");
+  fileDesc("Ch5tZW1iZXJzaGlwL3YxL21lbWJlcnNoaXAucHJvdG8SDW1lbWJlcnNoaXAudjEiSAoVR2V0TWVtYmVyc2hpcFJlc3BvbnNlEi8KB2J5X3llYXIYASADKAsyHi5tZW1iZXJzaGlwLnYxLlRvdGFsRW5yb2xsbWVudCLlAQoPVG90YWxFbnJvbGxtZW50EhMKC3NjaG9vbF95ZWFyGAEgASgJEhgKEHRvdGFsX2Vucm9sbG1lbnQYAiABKAUSDAoEbWFsZRgDIAEoBRIOCgZmZW1hbGUYBCABKAUSFwoPbmF0aXZlX2FtZXJpY2FuGAUgASgFEg0KBWFzaWFuGAYgASgFEg0KBWJsYWNrGAcgASgFEhAKCGhpc3BhbmljGAggASgFEhgKEHBhY2lmaWNfaXNsYW5kZXIYCSABKAUSEwoLbXVsdGlyYWNpYWwYCiABKAUSDQoFd2hpdGUYCyABKAUiJwoUR2V0TWVtYmVyc2hpcFJlcXVlc3QSDwoHbmNlc3NjaBgBIAEoCTJvChFNZW1iZXJzaGlwU2VydmljZRJaCg1HZXRNZW1iZXJzaGlwEiMubWVtYmVyc2hpcC52MS5HZXRNZW1iZXJzaGlwUmVxdWVzdBokLm1lbWJlcnNoaXAudjEuR2V0TWVtYmVyc2hpcFJlc3BvbnNlQr8BChFjb20ubWVtYmVyc2hpcC52MUIPTWVtYmVyc2hpcFByb3RvUAFaRGdpdGh1Yi5jb20vcmFwaGFlbGxhdWRlL3VzYXNjaG9vbGRhdGEvYXBpL21lbWJlcnNoaXAvdjE7bWVtYmVyc2hpcHYxogIDTVhYqgINTWVtYmVyc2hpcC5WMcoCDU1lbWJlcnNoaXBcVjHiAhlNZW1iZXJzaGlwXFYxXEdQQk1ldGFkYXRh6gIOTWVtYmVyc2hpcDo6VjFiBnByb3RvMw");
 
 /**
  * @generated from message membership.v1.GetMembershipResponse
@@ -39,9 +39,54 @@ export type TotalEnrollment = Message<"membership.v1.TotalEnrollment"> & {
   schoolYear: string;
 
   /**
-   * @generated from field: int32 enrollment = 2;
+   * @generated from field: int32 total_enrollment = 2;
    */
-  enrollment: number;
+  totalEnrollment: number;
+
+  /**
+   * @generated from field: int32 male = 3;
+   */
+  male: number;
+
+  /**
+   * @generated from field: int32 female = 4;
+   */
+  female: number;
+
+  /**
+   * @generated from field: int32 native_american = 5;
+   */
+  nativeAmerican: number;
+
+  /**
+   * @generated from field: int32 asian = 6;
+   */
+  asian: number;
+
+  /**
+   * @generated from field: int32 black = 7;
+   */
+  black: number;
+
+  /**
+   * @generated from field: int32 hispanic = 8;
+   */
+  hispanic: number;
+
+  /**
+   * @generated from field: int32 pacific_islander = 9;
+   */
+  pacificIslander: number;
+
+  /**
+   * @generated from field: int32 multiracial = 10;
+   */
+  multiracial: number;
+
+  /**
+   * @generated from field: int32 white = 11;
+   */
+  white: number;
 };
 
 /**

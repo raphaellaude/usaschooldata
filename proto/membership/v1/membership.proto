@@ -8,7 +8,16 @@ message GetMembershipResponse {
 
 message TotalEnrollment {
   string school_year = 1;
-  int32 enrollment = 2;
+  int32 total_enrollment = 2;
+  int32 male = 3;
+  int32 female = 4;
+  int32 native_american = 5;
+  int32 asian = 6;
+  int32 black = 7;
+  int32 hispanic = 8;
+  int32 pacific_islander = 9;
+  int32 multiracial = 10;
+  int32 white = 11;
 }
 
 message GetMembershipRequest {

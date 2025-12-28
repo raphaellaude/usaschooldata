@@ -66,11 +66,20 @@ func (x *GetMembershipResponse) GetByYear() []*TotalEnrollment {
 }
 
 type TotalEnrollment struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SchoolYear    string                 `protobuf:"bytes,1,opt,name=school_year,json=schoolYear,proto3" json:"school_year,omitempty"`
-	Enrollment    int32                  `protobuf:"varint,2,opt,name=enrollment,proto3" json:"enrollment,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	SchoolYear      string                 `protobuf:"bytes,1,opt,name=school_year,json=schoolYear,proto3" json:"school_year,omitempty"`
+	TotalEnrollment int32                  `protobuf:"varint,2,opt,name=total_enrollment,json=totalEnrollment,proto3" json:"total_enrollment,omitempty"`
+	Male            int32                  `protobuf:"varint,3,opt,name=male,proto3" json:"male,omitempty"`
+	Female          int32                  `protobuf:"varint,4,opt,name=female,proto3" json:"female,omitempty"`
+	NativeAmerican  int32                  `protobuf:"varint,5,opt,name=native_american,json=nativeAmerican,proto3" json:"native_american,omitempty"`
+	Asian           int32                  `protobuf:"varint,6,opt,name=asian,proto3" json:"asian,omitempty"`
+	Black           int32                  `protobuf:"varint,7,opt,name=black,proto3" json:"black,omitempty"`
+	Hispanic        int32                  `protobuf:"varint,8,opt,name=hispanic,proto3" json:"hispanic,omitempty"`
+	PacificIslander int32                  `protobuf:"varint,9,opt,name=pacific_islander,json=pacificIslander,proto3" json:"pacific_islander,omitempty"`
+	Multiracial     int32                  `protobuf:"varint,10,opt,name=multiracial,proto3" json:"multiracial,omitempty"`
+	White           int32                  `protobuf:"varint,11,opt,name=white,proto3" json:"white,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *TotalEnrollment) Reset() {
@@ -110,9 +119,72 @@ func (x *TotalEnrollment) GetSchoolYear() string {
 	return ""
 }
 
-func (x *TotalEnrollment) GetEnrollment() int32 {
+func (x *TotalEnrollment) GetTotalEnrollment() int32 {
 	if x != nil {
-		return x.Enrollment
+		return x.TotalEnrollment
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetMale() int32 {
+	if x != nil {
+		return x.Male
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetFemale() int32 {
+	if x != nil {
+		return x.Female
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetNativeAmerican() int32 {
+	if x != nil {
+		return x.NativeAmerican
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetAsian() int32 {
+	if x != nil {
+		return x.Asian
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetBlack() int32 {
+	if x != nil {
+		return x.Black
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetHispanic() int32 {
+	if x != nil {
+		return x.Hispanic
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetPacificIslander() int32 {
+	if x != nil {
+		return x.PacificIslander
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetMultiracial() int32 {
+	if x != nil {
+		return x.Multiracial
+	}
+	return 0
+}
+
+func (x *TotalEnrollment) GetWhite() int32 {
+	if x != nil {
+		return x.White
 	}
 	return 0
 }
@@ -167,13 +239,21 @@ const file_membership_v1_membership_proto_rawDesc = "" +
 	"\n" +
 	"\x1emembership/v1/membership.proto\x12\rmembership.v1\"P\n" +
 	"\x15GetMembershipResponse\x127\n" +
-	"\aby_year\x18\x01 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"R\n" +
+	"\aby_year\x18\x01 \x03(\v2\x1e.membership.v1.TotalEnrollmentR\x06byYear\"\xdd\x02\n" +
 	"\x0fTotalEnrollment\x12\x1f\n" +
 	"\vschool_year\x18\x01 \x01(\tR\n" +
-	"schoolYear\x12\x1e\n" +
-	"\n" +
-	"enrollment\x18\x02 \x01(\x05R\n" +
-	"enrollment\"0\n" +
+	"schoolYear\x12)\n" +
+	"\x10total_enrollment\x18\x02 \x01(\x05R\x0ftotalEnrollment\x12\x12\n" +
+	"\x04male\x18\x03 \x01(\x05R\x04male\x12\x16\n" +
+	"\x06female\x18\x04 \x01(\x05R\x06female\x12'\n" +
+	"\x0fnative_american\x18\x05 \x01(\x05R\x0enativeAmerican\x12\x14\n" +
+	"\x05asian\x18\x06 \x01(\x05R\x05asian\x12\x14\n" +
+	"\x05black\x18\a \x01(\x05R\x05black\x12\x1a\n" +
+	"\bhispanic\x18\b \x01(\x05R\bhispanic\x12)\n" +
+	"\x10pacific_islander\x18\t \x01(\x05R\x0fpacificIslander\x12 \n" +
+	"\vmultiracial\x18\n" +
+	" \x01(\x05R\vmultiracial\x12\x14\n" +
+	"\x05white\x18\v \x01(\x05R\x05white\"0\n" +
 	"\x14GetMembershipRequest\x12\x18\n" +
 	"\ancessch\x18\x01 \x01(\tR\ancessch2o\n" +
 	"\x11MembershipService\x12Z\n" +
