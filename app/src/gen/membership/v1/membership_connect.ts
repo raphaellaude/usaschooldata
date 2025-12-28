@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetMembershipRequest, GetMembershipResponse } from "./membership_pb.js";
+import { GetMembershipRequest, GetMembershipResponse, GetMembershipSummaryRequest, GetMembershipSummaryResponse } from "./membership_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -19,6 +19,15 @@ export const MembershipService = {
       name: "GetMembership",
       I: GetMembershipRequest,
       O: GetMembershipResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc membership.v1.MembershipService.GetMembershipSummary
+     */
+    getMembershipSummary: {
+      name: "GetMembershipSummary",
+      I: GetMembershipSummaryRequest,
+      O: GetMembershipSummaryResponse,
       kind: MethodKind.Unary,
     },
   }
