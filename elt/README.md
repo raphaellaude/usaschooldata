@@ -26,4 +26,11 @@ Set the following env vars
 ```
 DIRECTORY=../data # or path to your data mout
 SOURCE_DATA={path to your downloaded data}
+
+# Clickhouse
+CLICKHOUSE_HOST=localhost
+CLICKHOUSE_USER=default
+CLICKHOUSE_PASSWORD=your_strong_password
+CLICKHOUSE_PORT=8123 # Not needed for production
+CLICKHOUSE_ENV="development"
 ```

@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PARENT_DIR = Path(__file__).parent.parent
 SQL_DIR = PARENT_DIR / "sql"
@@ -22,3 +25,9 @@ BUCKET_NAME = os.environ.get("BUCKET_NAME")
 MEMBERSHIP_PREFIX_FORMAT = "membership/year={year}/state={state}/ccd_sch.parquet"
 
 IO_TYPE = "file"
+
+CLICKHOUSE_ENV = os.environ.get("CLICKHOUSE_ENV", "development")
+CLICKHOUSE_HOST = os.environ.get("CLICKHOUSE_HOST", "localhost")
+CLICKHOUSE_USER = os.environ.get("CLICKHOUSE_USER", "default")
+CLICKHOUSE_PASSWORD = os.environ["CLICKHOUSE_PASSWORD"]
+CLICKHOUSE_PORT: int = int(os.environ.get("CLICKHOUSE_PORT", 8123))
