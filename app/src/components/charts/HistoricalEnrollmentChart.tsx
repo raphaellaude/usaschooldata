@@ -15,7 +15,7 @@ interface HistoricalEnrollmentChartProps {
   height?: number;
 }
 
-type BreakdownType = 'none' | 'race_ethnicity' | 'sex';
+type BreakdownType = 'none' | 'race_ethnicity' | 'sex' | 'grade';
 
 // Define the canonical order for race/ethnicity categories (matching Profile.tsx)
 const RACE_ETHNICITY_ORDER = [
@@ -26,6 +26,27 @@ const RACE_ETHNICITY_ORDER = [
   'Native Hawaiian or Other Pacific Islander',
   'Two or more races',
   'White',
+];
+
+// Define the canonical order for grade categories
+const GRADE_ORDER = [
+  'Pre-Kindergarten',
+  'Kindergarten',
+  'Grade 1',
+  'Grade 2',
+  'Grade 3',
+  'Grade 4',
+  'Grade 5',
+  'Grade 6',
+  'Grade 7',
+  'Grade 8',
+  'Grade 9',
+  'Grade 10',
+  'Grade 11',
+  'Grade 12',
+  'Grade 13',
+  'Ungraded',
+  'Adult Education',
 ];
 
 // Default color palette (based on historical race/ethnicity colors)
@@ -131,7 +152,7 @@ const HistoricalEnrollmentChartInner = ({
           range: keys.map(k => RACE_ETHNICITY_COLORS[k] || DEFAULT_COLORS[0]),
         }),
       };
-    } else {
+    } else if (breakdownType === 'sex') {
       // Sex breakdown - transform the wide-format data into chart format
       const data: StackedDataPoint[] = historicalData.bySex.map(d => ({
         year: d.school_year,
@@ -140,6 +161,54 @@ const HistoricalEnrollmentChartInner = ({
       }));
 
       const keys = ['Male', 'Female'].filter(cat => data.some(d => (d[cat] as number) > 0));
+
+      // If using percent stacked, normalize the data
+      if (isPercentStacked) {
+        data.forEach(d => {
+          const total = keys.reduce((sum, key) => sum + ((d[key] as number) || 0), 0);
+          if (total > 0) {
+            keys.forEach(key => {
+              const value = d[key] as number | undefined;
+              d[key] = ((value || 0) / total) * 100;
+            });
+          }
+        });
+      }
+
+      return {
+        chartData: data,
+        demographicKeys: keys,
+        colorScale: scaleOrdinal<string, string>({
+          domain: keys,
+          range: keys.map((_, i) => DEFAULT_COLORS[i % DEFAULT_COLORS.length]),
+        }),
+      };
+    } else {
+      // Grade breakdown - transform the wide-format data into chart format
+      const data: StackedDataPoint[] = historicalData.byGrade.map(d => ({
+        year: d.school_year,
+        'Pre-Kindergarten': d.grade_pk,
+        Kindergarten: d.grade_k,
+        'Grade 1': d.grade_01,
+        'Grade 2': d.grade_02,
+        'Grade 3': d.grade_03,
+        'Grade 4': d.grade_04,
+        'Grade 5': d.grade_05,
+        'Grade 6': d.grade_06,
+        'Grade 7': d.grade_07,
+        'Grade 8': d.grade_08,
+        'Grade 9': d.grade_09,
+        'Grade 10': d.grade_10,
+        'Grade 11': d.grade_11,
+        'Grade 12': d.grade_12,
+        'Grade 13': d.grade_13,
+        Ungraded: d.ungraded,
+        'Adult Education': d.adult_education,
+      }));
+
+      // Use the canonical grade order
+      // Only include categories that have data
+      const keys = GRADE_ORDER.filter(cat => data.some(d => (d[cat] as number) > 0));
 
       // If using percent stacked, normalize the data
       if (isPercentStacked) {
@@ -202,8 +271,10 @@ const HistoricalEnrollmentChartInner = ({
       return historicalData.byYear;
     } else if (breakdownType === 'race_ethnicity') {
       return historicalData.byRaceEthnicity;
-    } else {
+    } else if (breakdownType === 'sex') {
       return historicalData.bySex;
+    } else {
+      return historicalData.byGrade;
     }
   }, [breakdownType, historicalData]);
 
@@ -212,8 +283,10 @@ const HistoricalEnrollmentChartInner = ({
       return 'historical-enrollment';
     } else if (breakdownType === 'race_ethnicity') {
       return 'historical-enrollment-by-race-ethnicity';
-    } else {
+    } else if (breakdownType === 'sex') {
       return 'historical-enrollment-by-sex';
+    } else {
+      return 'historical-enrollment-by-grade';
     }
   }, [breakdownType]);
 
@@ -476,6 +549,12 @@ const ControlButtons = ({
           onClick={() => setBreakdownType('sex')}
         >
           By Gender
+        </button>
+        <button
+          className={buttonClass(breakdownType === 'grade')}
+          onClick={() => setBreakdownType('grade')}
+        >
+          By Grade
         </button>
       </div>
 
