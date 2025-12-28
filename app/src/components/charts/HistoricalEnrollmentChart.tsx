@@ -165,32 +165,6 @@ const HistoricalEnrollmentChartInner = ({
     }
   }, [historicalData, breakdownType, isPercentStacked]);
 
-  if (chartData.length === 0) {
-    return (
-      <div>
-        <div className="mb-4 flex gap-2">
-          <ControlButtons
-            breakdownType={breakdownType}
-            setBreakdownType={setBreakdownType}
-            isPercentStacked={isPercentStacked}
-            setIsPercentStacked={setIsPercentStacked}
-          />
-        </div>
-        <div
-          style={{
-            width,
-            height,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <p>No historical enrollment data available</p>
-        </div>
-      </div>
-    );
-  }
-
   // Scales
   const xScale = scaleBand({
     domain: chartData.map(d => d.year),
@@ -242,6 +216,32 @@ const HistoricalEnrollmentChartInner = ({
       return 'historical-enrollment-by-sex';
     }
   }, [breakdownType]);
+
+  if (chartData.length === 0) {
+    return (
+      <div>
+        <div className="mb-4 flex gap-2">
+          <ControlButtons
+            breakdownType={breakdownType}
+            setBreakdownType={setBreakdownType}
+            isPercentStacked={isPercentStacked}
+            setIsPercentStacked={setIsPercentStacked}
+          />
+        </div>
+        <div
+          style={{
+            width,
+            height,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <p>No historical enrollment data available</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
