@@ -1,6 +1,7 @@
 import {createConnectTransport} from '@connectrpc/connect-web';
 import {createClient} from '@connectrpc/connect';
 import {MembershipService} from '../gen/membership/v1/membership_pb';
+import {DirectoryService} from '../gen/directory/v1/directory_pb';
 
 /**
  * Get the API base URL from environment variables
@@ -31,3 +32,9 @@ export const transport = createConnectTransport({
  * This is a singleton that can be imported throughout the app
  */
 export const membershipClient = createClient(MembershipService, transport);
+
+/**
+ * Create the Directory Service client
+ * This is a singleton that can be imported throughout the app
+ */
+export const directoryClient = createClient(DirectoryService, transport);

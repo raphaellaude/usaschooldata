@@ -36,11 +36,15 @@ const (
 	// DirectoryServiceGetMatchingSchoolsProcedure is the fully-qualified name of the DirectoryService's
 	// GetMatchingSchools RPC.
 	DirectoryServiceGetMatchingSchoolsProcedure = "/directory.v1.DirectoryService/GetMatchingSchools"
+	// DirectoryServiceGetSchoolProcedure is the fully-qualified name of the DirectoryService's
+	// GetSchool RPC.
+	DirectoryServiceGetSchoolProcedure = "/directory.v1.DirectoryService/GetSchool"
 )
 
 // DirectoryServiceClient is a client for the directory.v1.DirectoryService service.
 type DirectoryServiceClient interface {
 	GetMatchingSchools(context.Context, *v1.GetMatchingSchoolsRequest) (*v1.GetMatchingSchoolsResponse, error)
+	GetSchool(context.Context, *v1.GetSchoolRequest) (*v1.GetSchoolResponse, error)
 }
 
 // NewDirectoryServiceClient constructs a client for the directory.v1.DirectoryService service. By
@@ -60,12 +64,19 @@ func NewDirectoryServiceClient(httpClient connect.HTTPClient, baseURL string, op
 			connect.WithSchema(directoryServiceMethods.ByName("GetMatchingSchools")),
 			connect.WithClientOptions(opts...),
 		),
+		getSchool: connect.NewClient[v1.GetSchoolRequest, v1.GetSchoolResponse](
+			httpClient,
+			baseURL+DirectoryServiceGetSchoolProcedure,
+			connect.WithSchema(directoryServiceMethods.ByName("GetSchool")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // directoryServiceClient implements DirectoryServiceClient.
 type directoryServiceClient struct {
 	getMatchingSchools *connect.Client[v1.GetMatchingSchoolsRequest, v1.GetMatchingSchoolsResponse]
+	getSchool          *connect.Client[v1.GetSchoolRequest, v1.GetSchoolResponse]
 }
 
 // GetMatchingSchools calls directory.v1.DirectoryService.GetMatchingSchools.
@@ -77,9 +88,19 @@ func (c *directoryServiceClient) GetMatchingSchools(ctx context.Context, req *v1
 	return nil, err
 }
 
+// GetSchool calls directory.v1.DirectoryService.GetSchool.
+func (c *directoryServiceClient) GetSchool(ctx context.Context, req *v1.GetSchoolRequest) (*v1.GetSchoolResponse, error) {
+	response, err := c.getSchool.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
 // DirectoryServiceHandler is an implementation of the directory.v1.DirectoryService service.
 type DirectoryServiceHandler interface {
 	GetMatchingSchools(context.Context, *v1.GetMatchingSchoolsRequest) (*v1.GetMatchingSchoolsResponse, error)
+	GetSchool(context.Context, *v1.GetSchoolRequest) (*v1.GetSchoolResponse, error)
 }
 
 // NewDirectoryServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -95,10 +116,18 @@ func NewDirectoryServiceHandler(svc DirectoryServiceHandler, opts ...connect.Han
 		connect.WithSchema(directoryServiceMethods.ByName("GetMatchingSchools")),
 		connect.WithHandlerOptions(opts...),
 	)
+	directoryServiceGetSchoolHandler := connect.NewUnaryHandlerSimple(
+		DirectoryServiceGetSchoolProcedure,
+		svc.GetSchool,
+		connect.WithSchema(directoryServiceMethods.ByName("GetSchool")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/directory.v1.DirectoryService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case DirectoryServiceGetMatchingSchoolsProcedure:
 			directoryServiceGetMatchingSchoolsHandler.ServeHTTP(w, r)
+		case DirectoryServiceGetSchoolProcedure:
+			directoryServiceGetSchoolHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -110,4 +139,8 @@ type UnimplementedDirectoryServiceHandler struct{}
 
 func (UnimplementedDirectoryServiceHandler) GetMatchingSchools(context.Context, *v1.GetMatchingSchoolsRequest) (*v1.GetMatchingSchoolsResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("directory.v1.DirectoryService.GetMatchingSchools is not implemented"))
+}
+
+func (UnimplementedDirectoryServiceHandler) GetSchool(context.Context, *v1.GetSchoolRequest) (*v1.GetSchoolResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("directory.v1.DirectoryService.GetSchool is not implemented"))
 }

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetMatchingSchoolsRequest, GetMatchingSchoolsResponse } from "./directory_pb.js";
+import { GetMatchingSchoolsRequest, GetMatchingSchoolsResponse, GetSchoolRequest, GetSchoolResponse } from "./directory_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -19,6 +19,15 @@ export const DirectoryService = {
       name: "GetMatchingSchools",
       I: GetMatchingSchoolsRequest,
       O: GetMatchingSchoolsResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc directory.v1.DirectoryService.GetSchool
+     */
+    getSchool: {
+      name: "GetSchool",
+      I: GetSchoolRequest,
+      O: GetSchoolResponse,
       kind: MethodKind.Unary,
     },
   }
