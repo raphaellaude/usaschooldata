@@ -1,9 +1,9 @@
 import React from 'react';
 import {useParams, useSearchParams} from 'react-router-dom';
 import {useSchoolDirectory} from '../hooks/useSchoolDirectory';
-import {useApiProfileData} from '../hooks/useApiProfileData';
-import {useApiGradeData} from '../hooks/useApiGradeData';
-import {useApiHistoricalEnrollment} from '../hooks/useApiHistoricalEnrollment';
+import {useProfileData} from '../hooks/useProfileData';
+import {useGradeData} from '../hooks/useGradeData';
+import {useHistoricalEnrollment} from '../hooks/useHistoricalEnrollment';
 import DoughnutChart from './charts/DoughnutChart';
 import BarChart from './charts/BarChart';
 import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
@@ -31,7 +31,7 @@ export default function Profile() {
     summary,
     isLoading: dataLoading,
     error: dataError,
-  } = useApiProfileData(entityType, ncesCode, year);
+  } = useProfileData(entityType, ncesCode, year);
 
   const {
     directoryInfo,
@@ -40,11 +40,11 @@ export default function Profile() {
   } = useSchoolDirectory(ncesCode, year);
 
   // Load grade data via API
-  const {gradeData} = useApiGradeData(ncesCode, year, entityType === 'school' && !dataLoading);
+  const {gradeData} = useGradeData(ncesCode, year, entityType === 'school' && !dataLoading);
 
   // Load historical enrollment data for schools only AFTER summary data loads
   // API fetches all years in a single request, much faster than DuckDB queries
-  const historicalEnrollmentData = useApiHistoricalEnrollment(
+  const historicalEnrollmentData = useHistoricalEnrollment(
     entityType === 'school' ? ncesCode : '',
     !dataLoading && !directoryLoading // Only start loading after summary and directory complete
   );

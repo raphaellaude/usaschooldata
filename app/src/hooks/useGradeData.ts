@@ -11,7 +11,7 @@ export interface GradeData {
 /**
  * Hook to fetch grade-level enrollment data from the API
  */
-export function useApiGradeData(
+export function useGradeData(
   schoolCode: string,
   schoolYear: string,
   enabled: boolean = true

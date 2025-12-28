@@ -1,30 +1,11 @@
 import {useState, useEffect} from 'react';
-import {dataService} from '../services/dataService';
-import {useDuckDB} from './useDuckDB';
-
-export type BreakdownType = 'none' | 'race_ethnicity' | 'sex';
-
-export interface HistoricalEnrollmentData {
-  byYear: {school_year: string; total_enrollment: number}[];
-  byRaceEthnicity: {
-    school_year: string;
-    white: number;
-    black: number;
-    hispanic: number;
-    asian: number;
-    native_american: number;
-    pacific_islander: number;
-    multiracial: number;
-  }[];
-  bySex: {school_year: string; male: number; female: number}[];
-  isLoading: boolean;
-  error: string | null;
-  isTableReady: boolean;
-}
+import {membershipClient} from '../services/apiClient';
+import {transformHistoricalEnrollment} from '../services/apiTransformers';
+import type {HistoricalEnrollmentData} from './useHistoricalEnrollment';
 
 /**
- * Hook for fetching historical enrollment data for a school
- * Creates a historical membership table on mount and provides data for different breakdowns
+ * Hook for fetching historical enrollment data from the API
+ * Fetches all years at once via GetMembership endpoint
  *
  * @param schoolCode - The NCES school code (12 characters)
  * @param enabled - Whether to start loading data (default: true). Set to false to defer loading.
@@ -33,24 +14,15 @@ export function useHistoricalEnrollment(
   schoolCode: string,
   enabled: boolean = true
 ): HistoricalEnrollmentData {
-  const [byYear, setByYear] = useState<{school_year: string; total_enrollment: number}[]>([]);
-  const [byRaceEthnicity, setByRaceEthnicity] = useState<
-    {
-      school_year: string;
-      white: number;
-      black: number;
-      hispanic: number;
-      asian: number;
-      native_american: number;
-      pacific_islander: number;
-      multiracial: number;
-    }[]
-  >([]);
-  const [bySex, setBySex] = useState<{school_year: string; male: number; female: number}[]>([]);
+  const [data, setData] = useState<
+    Omit<HistoricalEnrollmentData, 'isLoading' | 'error' | 'isTableReady'>
+  >({
+    byYear: [],
+    byRaceEthnicity: [],
+    bySex: [],
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isTableReady, setIsTableReady] = useState(false);
-  const {isInitialized, error: dbError} = useDuckDB();
 
   useEffect(() => {
     if (!schoolCode || schoolCode.length !== 12) {
@@ -63,60 +35,39 @@ export function useHistoricalEnrollment(
       return;
     }
 
-    if (!isInitialized) {
-      return; // Wait for DuckDB to be initialized
-    }
+    const loadData = async () => {
+      setIsLoading(true);
+      setError(null);
 
-    if (dbError) {
-      setError(`Database error: ${dbError}`);
-      setIsLoading(false);
-      return;
-    }
+      try {
+        const response = await membershipClient.getMembership({
+          ncessch: schoolCode,
+        });
 
-    loadHistoricalData();
-  }, [schoolCode, enabled, isInitialized, dbError]);
+        if (!response.byYear || response.byYear.length === 0) {
+          setError('No historical data available');
+          return;
+        }
 
-  const loadHistoricalData = async () => {
-    setIsLoading(true);
-    setError(null);
-    setIsTableReady(false);
+        const transformed = transformHistoricalEnrollment(response.byYear);
+        setData(transformed);
+      } catch (err) {
+        const errorMessage =
+          err instanceof Error ? err.message : 'Failed to load historical enrollment data from API';
+        setError(errorMessage);
+        console.error('API historical enrollment loading error:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    try {
-      // First, create the historical table with all years
-      // This is the expensive operation that loads all the data
-      await dataService.createSchoolMembershipHistoricalTable(schoolCode);
-      setIsTableReady(true);
-
-      // Now fetch the default view (total enrollment by year)
-      // This is fast because it's querying from the in-memory table
-      const yearData = await dataService.getHistoricalEnrollmentByYear(schoolCode);
-      setByYear(yearData);
-
-      // Pre-fetch the breakdown data as well since the table is already loaded
-      // This makes switching between views instant
-      const [raceData, sexData] = await Promise.all([
-        dataService.getHistoricalEnrollmentByRaceEthnicity(schoolCode),
-        dataService.getHistoricalEnrollmentBySex(schoolCode),
-      ]);
-
-      setByRaceEthnicity(raceData);
-      setBySex(sexData);
-    } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : 'Failed to load historical enrollment data';
-      setError(errorMessage);
-      console.error('Historical enrollment loading error:', err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    loadData();
+  }, [schoolCode, enabled]);
 
   return {
-    byYear,
-    byRaceEthnicity,
-    bySex,
+    ...data,
     isLoading,
     error,
-    isTableReady,
+    isTableReady: !isLoading && !error, // API doesn't need table creation, so this is simple
   };
 }

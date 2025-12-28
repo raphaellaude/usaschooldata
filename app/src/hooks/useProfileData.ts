@@ -1,36 +1,26 @@
 import {useState, useEffect} from 'react';
-import {
-  dataService,
-  type MembershipQueryOptions,
-  type SchoolSummary,
-  type DistrictSummary,
-  YearNotAvailableError,
-} from '../services/dataService';
-import {useDuckDB} from './useDuckDB';
+import {membershipClient} from '../services/apiClient';
+import {transformTotalEnrollmentToSummary} from '../services/apiTransformers';
+import type {SchoolSummary, DistrictSummary} from '../services/dataService';
 
-export interface ProfileData {
+export interface ApiProfileData {
   summary: SchoolSummary | DistrictSummary | null;
-  membershipData: any[];
   isLoading: boolean;
   error: string | null;
-  yearNotAvailable: boolean;
-  requestedYear?: string;
-  availableYears?: string[];
 }
 
+/**
+ * Hook to fetch profile summary data from the API
+ * Currently only supports schools - district support to be added later
+ */
 export function useProfileData(
   entityType: 'district' | 'school',
   entityCode: string,
-  options: MembershipQueryOptions = {}
-): ProfileData {
+  schoolYear: string
+): ApiProfileData {
   const [summary, setSummary] = useState<SchoolSummary | DistrictSummary | null>(null);
-  const [membershipData, setMembershipData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [yearNotAvailable, setYearNotAvailable] = useState(false);
-  const [requestedYear, setRequestedYear] = useState<string | undefined>();
-  const [availableYears, setAvailableYears] = useState<string[] | undefined>();
-  const {isInitialized, error: dbError} = useDuckDB();
 
   useEffect(() => {
     if (!entityCode) {
@@ -38,66 +28,47 @@ export function useProfileData(
       return;
     }
 
-    if (!isInitialized) {
-      return; // Wait for DuckDB to be initialized
-    }
-
-    if (dbError) {
-      setError(`Database error: ${dbError}`);
+    if (entityType === 'district') {
       setIsLoading(false);
+      setError('District profiles are not yet supported via API. This feature is coming soon.');
       return;
     }
 
-    loadProfileData();
-  }, [entityType, entityCode, isInitialized, dbError, JSON.stringify(options)]);
+    const loadData = async () => {
+      setIsLoading(true);
+      setError(null);
 
-  const loadProfileData = async () => {
-    setIsLoading(true);
-    setError(null);
-    setYearNotAvailable(false);
-    setRequestedYear(undefined);
-    setAvailableYears(undefined);
+      try {
+        const response = await membershipClient.getMembershipSummary({
+          ncessch: entityCode,
+          schoolYear: schoolYear,
+        });
 
-    try {
-      // Load summary and membership data together (both are fast queries)
-      if (entityType === 'school') {
-        const [summaryData, membershipResults] = await Promise.all([
-          dataService.getSchoolSummary(entityCode, options),
-          dataService.querySchoolMembership(entityCode, options),
-        ]);
-        setSummary(summaryData);
-        setMembershipData(membershipResults);
-      } else if (entityType === 'district') {
-        const [summaryData, membershipResults] = await Promise.all([
-          dataService.getDistrictSummary(entityCode, options),
-          dataService.queryDistrictMembership(entityCode, options),
-        ]);
-        setSummary(summaryData);
-        setMembershipData(membershipResults);
-      }
-    } catch (err) {
-      if (err instanceof YearNotAvailableError) {
-        setYearNotAvailable(true);
-        setRequestedYear(err.requestedYear);
-        setAvailableYears(err.availableYears);
-        setError(`Year ${err.requestedYear} not available`);
-      } else {
-        const errorMessage = err instanceof Error ? err.message : 'Failed to load profile data';
+        if (!response.summary) {
+          setError('No data available for this school and year');
+          setSummary(null);
+          return;
+        }
+
+        const transformed = transformTotalEnrollmentToSummary(response.ncessch, response.summary);
+
+        setSummary(transformed);
+      } catch (err) {
+        const errorMessage =
+          err instanceof Error ? err.message : 'Failed to load profile data from API';
         setError(errorMessage);
+        console.error('API profile data loading error:', err);
+      } finally {
+        setIsLoading(false);
       }
-      console.error('Profile data loading error:', err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    };
+
+    loadData();
+  }, [entityType, entityCode, schoolYear]);
 
   return {
     summary,
-    membershipData,
     isLoading,
     error,
-    yearNotAvailable,
-    requestedYear,
-    availableYears,
   };
 }
