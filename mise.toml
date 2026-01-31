@@ -1,4 +1,0 @@
-[tools]
-"aqua:bufbuild/buf" = "latest"
-"aqua:golangci/golangci-lint" = "latest"
-go = "1.21"
