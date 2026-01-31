@@ -5,7 +5,7 @@ export default function Footer() {
         {/* Icon Links Section */}
         <div className="flex justify-start mb-6">
           <a
-            href="https://github.com/raphaellaude/usaschooldata"
+            href="https://github.com/raphaellaude/usa-school-data"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-start gap-2 text-gray-700 hover:text-gray-900 transition-colors"

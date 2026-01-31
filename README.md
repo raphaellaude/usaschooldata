@@ -10,11 +10,6 @@ This project seeks to facilitate:
 
 All data pulled from the [NCES Common Core of Data (CCD)](https://nces.ed.gov/ccd/files.asp).
 
-## Set-up
-
-1. Install and activate [mise-en-place](https://mise.jdx.dev/getting-started.html)
-1. Activate mise `mise install`
-
 ## Roadmap
 
 - [ ] Indicate NCES CCD sources on website

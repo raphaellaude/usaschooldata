@@ -11,12 +11,23 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['@duckdb/duckdb-wasm']
+  },
   server: {
     host: '0.0.0.0',
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin'
+    }
   },
   preview: {
     host: '0.0.0.0',
     port: 5173,
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin'
+    },
     allowedHosts: [
       'localhost',
       '127.0.0.1',
