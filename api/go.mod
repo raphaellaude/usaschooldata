@@ -8,7 +8,6 @@ require (
 	connectrpc.com/connect v1.19.1
 	github.com/ClickHouse/clickhouse-go/v2 v2.42.1-0.20251225203513-c5bccc81430c
 	github.com/jmoiron/sqlx v1.4.0
-	github.com/rs/cors v1.11.1
 	go.uber.org/zap v1.27.1
 	golang.org/x/net v0.48.0
 	google.golang.org/protobuf v1.36.11
