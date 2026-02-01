@@ -26,6 +26,8 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
 
   const createSearchTable = useCallback(async () => {
     // Create a local table with the most recent school data
+    // By default, only include schools with status "Open" (sy_status = 1)
+    // to hide closed/inactive schools that likely don't have interesting profiles
     const createTableQuery = `
       CREATE OR REPLACE TABLE school_directory AS
       SELECT
@@ -34,6 +36,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
         school_year
       FROM read_parquet('${dataDirectory}/directory.parquet')
       WHERE school_year_no = 1
+        AND sy_status = 1
     `;
 
     await duckDBService.query(createTableQuery);
