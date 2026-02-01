@@ -131,6 +131,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -162,6 +164,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -193,6 +197,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -224,6 +230,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -255,6 +263,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -286,6 +296,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -317,6 +329,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -348,6 +362,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LAT: latitude
+      LON: longitude
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -379,6 +395,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LATCOD: latitude
+      LONCOD: longitude
       PKOFFERED: grade_pk
       KGOFFERED: grade_kg
       G1OFFERED: grade_01
@@ -410,6 +428,8 @@ directory:
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      LATCOD: latitude
+      LONCOD: longitude
       PKOFFERED: grade_pk
       KGOFFERED: grade_kg
       G1OFFERED: grade_01

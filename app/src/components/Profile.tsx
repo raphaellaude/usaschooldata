@@ -10,6 +10,7 @@ import BarChart from './charts/BarChart';
 import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
 import CopyableWrapper from './CopyableWrapper';
 import GradeBand from './GradeBand';
+import LocationMap from './LocationMap';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
 import {Link1Icon} from '@radix-ui/react-icons';
 
@@ -416,6 +417,21 @@ export default function Profile() {
               <GradeBand directoryInfo={directoryInfo} />
             </div>
           )}
+
+          {/* Location Map */}
+          {entityType === 'school' &&
+            directoryInfo?.latitude &&
+            directoryInfo?.longitude &&
+            typeof directoryInfo.latitude === 'number' &&
+            typeof directoryInfo.longitude === 'number' && (
+              <div className="mt-4">
+                <LocationMap
+                  latitude={directoryInfo.latitude}
+                  longitude={directoryInfo.longitude}
+                  schoolName={directoryInfo.sch_name || ''}
+                />
+              </div>
+            )}
 
           {/* Navigation */}
           <nav className="mt-4 flex space-x-6">
