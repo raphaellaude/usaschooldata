@@ -82,6 +82,21 @@ const US_STATES = [
 
 const columnHelper = createColumnHelper<SchoolSearchResult>();
 
+const FilterChip = ({label, onRemove}: {label: string; onRemove: () => void}) => (
+  <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded">
+    {label}
+    <button
+      onClick={onRemove}
+      className="hover:text-blue-600 ml-1"
+      aria-label={`Remove ${label} filter`}
+    >
+      ×
+    </button>
+  </span>
+);
+
+const DATA_DOMAIN = 'https://data.usaschooldata.com';
+
 export default function Home() {
   const [searchParams] = useSearchParams();
   const urlQuery = searchParams.get('q') || '';
@@ -161,114 +176,131 @@ export default function Home() {
               )}
             </div>
 
-            {/* Filters - Always visible */}
-            <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-gray-700">Filters</span>
-                {hasActiveFilters && (
-                  <button
-                    onClick={() => setFilters({})}
-                    className="text-sm text-gray-500 hover:text-gray-700"
-                  >
-                    Clear filters
-                  </button>
-                )}
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
-                  <select
-                    value={filters.stateCode || ''}
-                    onChange={e =>
-                      setFilters(prev => ({
-                        ...prev,
-                        stateCode: e.target.value || undefined,
-                      }))
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                  >
-                    <option value="">All states</option>
-                    {US_STATES.map(state => (
-                      <option key={state.code} value={state.code}>
-                        {state.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    School Type
-                  </label>
-                  <select
-                    value={filters.schoolType || ''}
-                    onChange={e =>
-                      setFilters(prev => ({
-                        ...prev,
-                        schoolType: e.target.value ? Number(e.target.value) : undefined,
-                      }))
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                  >
-                    <option value="">All types</option>
-                    {SCHOOL_TYPES.map(type => (
-                      <option key={type.value} value={type.value}>
-                        {type.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    School Level
-                  </label>
-                  <select
-                    value={filters.schoolLevel || ''}
-                    onChange={e =>
-                      setFilters(prev => ({
-                        ...prev,
-                        schoolLevel: e.target.value || undefined,
-                      }))
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                  >
-                    <option value="">All levels</option>
-                    {SCHOOL_LEVELS.map(level => (
-                      <option key={level.value} value={level.value}>
-                        {level.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Charter</label>
-                  <select
-                    value={filters.charter || ''}
-                    onChange={e =>
-                      setFilters(prev => ({
-                        ...prev,
-                        charter: e.target.value || undefined,
-                      }))
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                  >
-                    <option value="">All schools</option>
-                    <option value="Yes">Charter schools</option>
-                    <option value="No">Non-charter schools</option>
-                  </select>
-                </div>
-              </div>
+            {/* Filters - Inline dropdowns */}
+            <div className="mt-3 flex flex-wrap gap-3">
+              <select
+                value={filters.stateCode || ''}
+                onChange={e =>
+                  setFilters(prev => ({
+                    ...prev,
+                    stateCode: e.target.value || undefined,
+                  }))
+                }
+                className="px-2 py-1.5 border border-gray-300 rounded-md text-sm"
+              >
+                <option value="">State</option>
+                {US_STATES.map(state => (
+                  <option key={state.code} value={state.code}>
+                    {state.name}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={filters.schoolLevel || ''}
+                onChange={e =>
+                  setFilters(prev => ({
+                    ...prev,
+                    schoolLevel: e.target.value || undefined,
+                  }))
+                }
+                className="px-2 py-1.5 border border-gray-300 rounded-md text-sm"
+              >
+                <option value="">Level</option>
+                {SCHOOL_LEVELS.map(level => (
+                  <option key={level.value} value={level.value}>
+                    {level.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={filters.schoolType || ''}
+                onChange={e =>
+                  setFilters(prev => ({
+                    ...prev,
+                    schoolType: e.target.value ? Number(e.target.value) : undefined,
+                  }))
+                }
+                className="px-2 py-1.5 border border-gray-300 rounded-md text-sm"
+              >
+                <option value="">Type</option>
+                {SCHOOL_TYPES.map(type => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={filters.charter || ''}
+                onChange={e =>
+                  setFilters(prev => ({
+                    ...prev,
+                    charter: e.target.value || undefined,
+                  }))
+                }
+                className="px-2 py-1.5 border border-gray-300 rounded-md text-sm"
+              >
+                <option value="">Charter</option>
+                <option value="Yes">Charter schools</option>
+                <option value="No">Non-charter schools</option>
+              </select>
             </div>
 
+            {/* Filter chips row */}
+            {hasActiveFilters && (
+              <div className="flex flex-wrap items-center gap-2 mt-3">
+                {filters.stateCode && (
+                  <FilterChip
+                    label={
+                      US_STATES.find(s => s.code === filters.stateCode)?.name || filters.stateCode
+                    }
+                    onRemove={() => setFilters(prev => ({...prev, stateCode: undefined}))}
+                  />
+                )}
+                {filters.schoolLevel && (
+                  <FilterChip
+                    label={filters.schoolLevel}
+                    onRemove={() => setFilters(prev => ({...prev, schoolLevel: undefined}))}
+                  />
+                )}
+                {filters.schoolType && (
+                  <FilterChip
+                    label={
+                      SCHOOL_TYPES.find(t => t.value === filters.schoolType)?.label || 'Unknown'
+                    }
+                    onRemove={() => setFilters(prev => ({...prev, schoolType: undefined}))}
+                  />
+                )}
+                {filters.charter && (
+                  <FilterChip
+                    label={filters.charter === 'Yes' ? 'Charter' : 'Non-charter'}
+                    onRemove={() => setFilters(prev => ({...prev, charter: undefined}))}
+                  />
+                )}
+                <button
+                  onClick={() => setFilters({})}
+                  className="text-sm text-gray-500 hover:text-gray-700 ml-2"
+                >
+                  Clear all
+                </button>
+                <span className="ml-auto text-sm text-gray-500">{results.length} results</span>
+              </div>
+            )}
+
+            {/* Result count when no active filters */}
+            {results.length > 0 && !hasActiveFilters && (
+              <div className="text-sm text-gray-500 mt-2">{results.length} results</div>
+            )}
+
             {searchError && (
-              <div className="mt-4 text-red-600 p-4 bg-red-50 rounded-lg">Error: {searchError}</div>
+              <div className="mt-3 text-red-600 p-4 bg-red-50 rounded-lg">Error: {searchError}</div>
             )}
 
             {searchQuery.length > 0 && searchQuery.length < 3 && !hasActiveFilters && (
-              <div className="mt-4 text-gray-500 text-sm">Type at least 3 characters to search</div>
+              <div className="mt-3 text-gray-500 text-sm">Type at least 3 characters to search</div>
             )}
 
             {results.length > 0 && (
-              <div className="mt-4 bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="mt-3 bg-white rounded-lg shadow-md overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     {table.getHeaderGroups().map(headerGroup => (
@@ -304,7 +336,7 @@ export default function Home() {
             {(searchQuery.length >= 3 || hasActiveFilters) &&
               results.length === 0 &&
               !isSearching && (
-                <div className="mt-4 text-gray-500 p-4 bg-gray-50 rounded-lg">
+                <div className="mt-3 text-gray-500 p-4 bg-gray-50 rounded-lg">
                   No schools found
                   {searchQuery.length >= 3 && ` matching "${searchQuery}"`}
                   {hasActiveFilters && ' with the selected filters'}
