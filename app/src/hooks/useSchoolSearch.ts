@@ -7,10 +7,25 @@ export interface SchoolSearchResult {
   lea_name: string;
   city: string;
   state_name: string;
+  state_code: string;
+  sch_type: number;
+  sch_level: string;
+  charter: string;
   school_year: string;
 }
 
-export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
+export interface SearchFilters {
+  stateCode?: string;
+  schoolType?: number;
+  schoolLevel?: string;
+  charter?: string;
+}
+
+export function useSchoolSearch(
+  searchQuery: string,
+  filters: SearchFilters = {},
+  debounceMs: number = 500
+) {
   const [results, setResults] = useState<SchoolSearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,12 +40,16 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
   }, []);
 
   const createSearchTable = useCallback(async () => {
-    // Create a local table with the most recent school data
+    // Create a local table with the most recent school data including filterable fields
     const createTableQuery = `
       CREATE OR REPLACE TABLE school_directory AS
       SELECT
         ncessch,
         sch_name,
+        state_code,
+        sch_type,
+        sch_level,
+        charter,
         school_year
       FROM read_parquet('${dataDirectory}/directory.parquet')
       WHERE school_year_no = 1
@@ -40,19 +59,46 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
   }, [dataDirectory]);
 
   const performSearch = useCallback(
-    async (query: string): Promise<SchoolSearchResult[]> => {
-      // Use DuckDB text search with LIKE for partial matching
-      // Search across school name, district name, and city
+    async (query: string, searchFilters: SearchFilters): Promise<SchoolSearchResult[]> => {
+      // Build filter conditions
+      const filterConditions: string[] = [];
+
+      if (query.length >= 3) {
+        filterConditions.push(`LOWER(sch_name) LIKE LOWER('%${sanitizeQuery(query)}%')`);
+      }
+
+      if (searchFilters.stateCode) {
+        filterConditions.push(`state_code = '${sanitizeQuery(searchFilters.stateCode)}'`);
+      }
+
+      if (searchFilters.schoolType) {
+        filterConditions.push(`sch_type = ${searchFilters.schoolType}`);
+      }
+
+      if (searchFilters.schoolLevel) {
+        filterConditions.push(`sch_level = '${sanitizeQuery(searchFilters.schoolLevel)}'`);
+      }
+
+      if (searchFilters.charter) {
+        filterConditions.push(`charter = '${sanitizeQuery(searchFilters.charter)}'`);
+      }
+
+      const whereClause =
+        filterConditions.length > 0 ? `WHERE ${filterConditions.join(' AND ')}` : '';
+
       const searchQuerySQL = `
       SELECT
         ncessch,
         sch_name,
+        state_code,
+        sch_type,
+        sch_level,
+        charter,
         school_year
       FROM school_directory
-      WHERE
-        LOWER(sch_name) LIKE LOWER('%${sanitizeQuery(query)}%')
+      ${whereClause}
       ORDER BY sch_name
-      LIMIT 10
+      LIMIT 50
     `;
 
       const table = await duckDBService.query(searchQuerySQL);
@@ -77,8 +123,10 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       queryInFlightRef.current = false;
     }
 
-    // If query is less than 3 characters, clear results
-    if (searchQuery.length < 3) {
+    // If query is less than 3 characters and no filters, clear results
+    const hasFilters =
+      filters.stateCode || filters.schoolType || filters.schoolLevel || filters.charter;
+    if (searchQuery.length < 3 && !hasFilters) {
       setResults([]);
       setIsSearching(false);
       return;
@@ -100,7 +148,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
         queryInFlightRef.current = true;
 
         // Perform the search
-        const searchResults = await performSearch(searchQuery);
+        const searchResults = await performSearch(searchQuery, filters);
         setResults(searchResults);
       } catch (err) {
         console.error('Search error:', err);
@@ -122,7 +170,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
         queryInFlightRef.current = false;
       }
     };
-  }, [searchQuery, debounceMs, createSearchTable, performSearch]);
+  }, [searchQuery, filters, debounceMs, createSearchTable, performSearch]);
 
   return {
     results,
