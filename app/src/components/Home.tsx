@@ -151,7 +151,7 @@ export default function Home() {
   });
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-8">
+    <div className="max-w-5xl mx-auto px-6 py-8">
       <div className="text-left mb-8">
         {dbLoading && <div className="text-gray-600 mb-4">Setting things up...</div>}
         {dbError && (

@@ -18,8 +18,8 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gray-100 border-b border-gray-400 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="border-b border-gray-300">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
           {/* Logo and Title */}
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
