@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link, useSearchParams} from 'react-router-dom';
-import {useSchoolSearch, SearchFilters} from '../hooks/useSchoolSearch';
+import {useSchoolSearch} from '../hooks/useSchoolSearch';
+import type {SearchFilters} from '../hooks/useSchoolSearch';
 import {useDuckDB} from '../hooks/useDuckDB';
 
 const SCHOOL_TYPES = [
