@@ -53,8 +53,6 @@ def directory(school_year: list[str]):
         clean_csv_to_utf8(file_path)
         logger.info(f"Found CSV: {file_path}")
 
-        # TODO: issues noticed
-        # - sch level changes from code to text description in 1617
         data_prep_sql = template.render(
             file_path=file_path, school_year=yr, mapping=year_config["mapping"]
         )
