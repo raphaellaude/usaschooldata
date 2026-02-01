@@ -1,8 +1,14 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo} from 'react';
 import {Link, useSearchParams} from 'react-router-dom';
 import {useSchoolSearch} from '../hooks/useSchoolSearch';
-import type {SearchFilters} from '../hooks/useSchoolSearch';
+import type {SearchFilters, SchoolSearchResult} from '../hooks/useSchoolSearch';
 import {useDuckDB} from '../hooks/useDuckDB';
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
 
 const SCHOOL_TYPES = [
   {value: 1, label: 'Regular School'},
@@ -11,8 +17,10 @@ const SCHOOL_TYPES = [
   {value: 4, label: 'Alternative Education School'},
 ];
 
+// NCES LEVEL field values
 const SCHOOL_LEVELS = [
-  {value: 'Primary', label: 'Primary/Elementary'},
+  {value: 'Prekindergarten', label: 'Prekindergarten'},
+  {value: 'Primary', label: 'Elementary'},
   {value: 'Middle', label: 'Middle'},
   {value: 'High', label: 'High'},
   {value: 'Other', label: 'Other'},
@@ -72,11 +80,12 @@ const US_STATES = [
   {code: 'WY', name: 'Wyoming'},
 ];
 
+const columnHelper = createColumnHelper<SchoolSearchResult>();
+
 export default function Home() {
   const [searchParams] = useSearchParams();
   const urlQuery = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(urlQuery);
-  const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState<SearchFilters>({});
   const {isInitialized, isLoading: dbLoading, error: dbError} = useDuckDB();
   const {results, isSearching, error: searchError} = useSchoolSearch(searchQuery, filters, 50);
@@ -89,15 +98,54 @@ export default function Home() {
     setSearchQuery(urlQuery);
   }, [urlQuery]);
 
+  const columns = useMemo(
+    () => [
+      columnHelper.accessor('sch_name', {
+        header: 'School Name',
+        cell: info => (
+          <Link
+            to={`/profiles/${info.row.original.ncessch}?year=${info.row.original.school_year}`}
+            className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+          >
+            {info.getValue()}
+          </Link>
+        ),
+      }),
+      columnHelper.accessor('state_code', {
+        header: 'State',
+        cell: info => info.getValue(),
+      }),
+      columnHelper.accessor('sch_level', {
+        header: 'Level',
+        cell: info => info.getValue() || '—',
+      }),
+      columnHelper.accessor('charter', {
+        header: 'Charter',
+        cell: info => info.getValue() || '—',
+      }),
+      columnHelper.accessor('ncessch', {
+        header: 'NCES ID',
+        cell: info => <span className="font-mono text-sm">{info.getValue()}</span>,
+      }),
+    ],
+    []
+  );
+
+  const table = useReactTable({
+    data: results,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
   return (
-    <div className="max-w-4xl mx-auto px-6 py-8">
+    <div className="max-w-6xl mx-auto px-6 py-8">
       <div className="text-left mb-8">
-        {dbLoading && <div className="text-gray-600 mb-4">Settings things up...</div>}
+        {dbLoading && <div className="text-gray-600 mb-4">Setting things up...</div>}
         {dbError && (
           <div className="text-red-600 mb-4 p-4 bg-red-50 rounded-lg">Error: {dbError}</div>
         )}
         {isInitialized && (
-          <div className="max-w-2xl mx-auto">
+          <div>
             <div className="relative">
               <input
                 type="text"
@@ -113,112 +161,103 @@ export default function Home() {
               )}
             </div>
 
-            {/* Filter Toggle */}
-            <div className="mt-2 flex items-center gap-2">
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="text-sm text-blue-600 hover:text-blue-800"
-              >
-                {showFilters ? 'Hide filters' : 'Show filters'}
-              </button>
-              {hasActiveFilters && (
-                <button
-                  onClick={() => setFilters({})}
-                  className="text-sm text-gray-500 hover:text-gray-700"
-                >
-                  Clear filters
-                </button>
-              )}
-            </div>
-
-            {/* Filters */}
-            {showFilters && (
-              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
-                    <select
-                      value={filters.stateCode || ''}
-                      onChange={e =>
-                        setFilters(prev => ({
-                          ...prev,
-                          stateCode: e.target.value || undefined,
-                        }))
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                    >
-                      <option value="">All states</option>
-                      {US_STATES.map(state => (
-                        <option key={state.code} value={state.code}>
-                          {state.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      School Type
-                    </label>
-                    <select
-                      value={filters.schoolType || ''}
-                      onChange={e =>
-                        setFilters(prev => ({
-                          ...prev,
-                          schoolType: e.target.value ? Number(e.target.value) : undefined,
-                        }))
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                    >
-                      <option value="">All types</option>
-                      {SCHOOL_TYPES.map(type => (
-                        <option key={type.value} value={type.value}>
-                          {type.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      School Level
-                    </label>
-                    <select
-                      value={filters.schoolLevel || ''}
-                      onChange={e =>
-                        setFilters(prev => ({
-                          ...prev,
-                          schoolLevel: e.target.value || undefined,
-                        }))
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                    >
-                      <option value="">All levels</option>
-                      {SCHOOL_LEVELS.map(level => (
-                        <option key={level.value} value={level.value}>
-                          {level.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Charter</label>
-                    <select
-                      value={filters.charter || ''}
-                      onChange={e =>
-                        setFilters(prev => ({
-                          ...prev,
-                          charter: e.target.value || undefined,
-                        }))
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                    >
-                      <option value="">All schools</option>
-                      <option value="Yes">Charter schools</option>
-                      <option value="No">Non-charter schools</option>
-                    </select>
-                  </div>
+            {/* Filters - Always visible */}
+            <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium text-gray-700">Filters</span>
+                {hasActiveFilters && (
+                  <button
+                    onClick={() => setFilters({})}
+                    className="text-sm text-gray-500 hover:text-gray-700"
+                  >
+                    Clear filters
+                  </button>
+                )}
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
+                  <select
+                    value={filters.stateCode || ''}
+                    onChange={e =>
+                      setFilters(prev => ({
+                        ...prev,
+                        stateCode: e.target.value || undefined,
+                      }))
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                  >
+                    <option value="">All states</option>
+                    {US_STATES.map(state => (
+                      <option key={state.code} value={state.code}>
+                        {state.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    School Type
+                  </label>
+                  <select
+                    value={filters.schoolType || ''}
+                    onChange={e =>
+                      setFilters(prev => ({
+                        ...prev,
+                        schoolType: e.target.value ? Number(e.target.value) : undefined,
+                      }))
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                  >
+                    <option value="">All types</option>
+                    {SCHOOL_TYPES.map(type => (
+                      <option key={type.value} value={type.value}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    School Level
+                  </label>
+                  <select
+                    value={filters.schoolLevel || ''}
+                    onChange={e =>
+                      setFilters(prev => ({
+                        ...prev,
+                        schoolLevel: e.target.value || undefined,
+                      }))
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                  >
+                    <option value="">All levels</option>
+                    {SCHOOL_LEVELS.map(level => (
+                      <option key={level.value} value={level.value}>
+                        {level.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Charter</label>
+                  <select
+                    value={filters.charter || ''}
+                    onChange={e =>
+                      setFilters(prev => ({
+                        ...prev,
+                        charter: e.target.value || undefined,
+                      }))
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                  >
+                    <option value="">All schools</option>
+                    <option value="Yes">Charter schools</option>
+                    <option value="No">Non-charter schools</option>
+                  </select>
                 </div>
               </div>
-            )}
+            </div>
 
             {searchError && (
               <div className="mt-4 text-red-600 p-4 bg-red-50 rounded-lg">Error: {searchError}</div>
@@ -230,25 +269,35 @@ export default function Home() {
 
             {results.length > 0 && (
               <div className="mt-4 bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="divide-y divide-gray-200">
-                  {results.map(school => (
-                    <Link
-                      key={school.ncessch}
-                      to={`/profiles/${school.ncessch}?year=${school.school_year}`}
-                      className="block px-6 py-4 hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="text-md font-semibold text-gray-900">{school.sch_name}</h3>
-                        </div>
-                        <div className="text-xs text-gray-400 flex justify-between gap-4">
-                          <span>Scbool year: {school.school_year}</span>
-                          <span>NCES ID: {school.ncessch}</span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    {table.getHeaderGroups().map(headerGroup => (
+                      <tr key={headerGroup.id}>
+                        {headerGroup.headers.map(header => (
+                          <th
+                            key={header.id}
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(header.column.columnDef.header, header.getContext())}
+                          </th>
+                        ))}
+                      </tr>
+                    ))}
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {table.getRowModel().rows.map(row => (
+                      <tr key={row.id} className="hover:bg-gray-50">
+                        {row.getVisibleCells().map(cell => (
+                          <td key={cell.id} className="px-6 py-4 whitespace-nowrap text-sm">
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )}
 
