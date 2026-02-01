@@ -17,10 +17,10 @@ const SCHOOL_TYPES = [
   {value: 4, label: 'Alternative Education School'},
 ];
 
-// NCES LEVEL field values
+// NCES LEVEL field values (normalized in data pipeline)
 const SCHOOL_LEVELS = [
   {value: 'Prekindergarten', label: 'Prekindergarten'},
-  {value: 'Primary', label: 'Elementary'},
+  {value: 'Elementary', label: 'Elementary'},
   {value: 'Middle', label: 'Middle'},
   {value: 'High', label: 'High'},
   {value: 'Other', label: 'Other'},
