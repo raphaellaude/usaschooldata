@@ -7,12 +7,19 @@ import {LegendOrdinal} from '@visx/legend';
 import {ParentSize} from '@visx/responsive';
 import CopyableWrapper from '../CopyableWrapper';
 import type {HistoricalEnrollmentData} from '../../hooks/useHistoricalEnrollment';
+import {
+  getHistoricalEnrollmentByYearSQL,
+  getHistoricalEnrollmentByRaceSQL,
+  getHistoricalEnrollmentBySexSQL,
+} from '../../utils/sqlQueries';
 
 interface HistoricalEnrollmentChartProps {
   historicalData: HistoricalEnrollmentData;
   currentYear?: string;
   width?: number;
   height?: number;
+  /** School NCES code - needed for SQL generation */
+  ncessch?: string;
 }
 
 type BreakdownType = 'none' | 'race_ethnicity' | 'sex';
@@ -65,6 +72,7 @@ const HistoricalEnrollmentChartInner = ({
   currentYear,
   width = 800,
   height = 500,
+  ncessch,
 }: HistoricalEnrollmentChartProps) => {
   const [breakdownType, setBreakdownType] = useState<BreakdownType>('none');
   const [isPercentStacked, setIsPercentStacked] = useState(false);
@@ -243,6 +251,18 @@ const HistoricalEnrollmentChartInner = ({
     }
   }, [breakdownType]);
 
+  // Generate SQL query based on current breakdown type
+  const exportSQL = useMemo(() => {
+    if (!ncessch) return undefined;
+    if (breakdownType === 'none') {
+      return getHistoricalEnrollmentByYearSQL(ncessch);
+    } else if (breakdownType === 'race_ethnicity') {
+      return getHistoricalEnrollmentByRaceSQL(ncessch);
+    } else {
+      return getHistoricalEnrollmentBySexSQL(ncessch);
+    }
+  }, [breakdownType, ncessch]);
+
   return (
     <div>
       {/* Control buttons */}
@@ -255,7 +275,7 @@ const HistoricalEnrollmentChartInner = ({
         />
       </div>
 
-      <CopyableWrapper data={exportData} filename={exportFilename}>
+      <CopyableWrapper data={exportData} filename={exportFilename} sql={exportSQL}>
         <div className="pb-8">
           {/* Chart */}
           <div style={{minHeight: '500px'}}>
@@ -504,6 +524,7 @@ export default function HistoricalEnrollmentChart({
   currentYear,
   width,
   height,
+  ncessch,
 }: HistoricalEnrollmentChartProps) {
   if (width && height) {
     return (
@@ -512,6 +533,7 @@ export default function HistoricalEnrollmentChart({
         currentYear={currentYear}
         width={width}
         height={height}
+        ncessch={ncessch}
       />
     );
   }
@@ -524,6 +546,7 @@ export default function HistoricalEnrollmentChart({
           currentYear={currentYear}
           width={Math.min(width, 1000)}
           height={Math.min(height, 500)}
+          ncessch={ncessch}
         />
       )}
     </ParentSize>

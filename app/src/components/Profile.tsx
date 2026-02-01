@@ -12,6 +12,15 @@ import CopyableWrapper from './CopyableWrapper';
 import GradeBand from './GradeBand';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
 import {Link1Icon, ExternalLinkIcon} from '@radix-ui/react-icons';
+import {
+  getStudentsByGradeSQL,
+  getDemographicsBySexSQL,
+  getDemographicsByRaceSQL,
+  getRawMembershipDataSQL,
+  getDistrictRawMembershipDataSQL,
+  getDistrictDemographicsBySexSQL,
+  getDistrictDemographicsByRaceSQL,
+} from '../utils/sqlQueries';
 
 export default function Profile() {
   const {id} = useParams<{
@@ -141,6 +150,7 @@ export default function Profile() {
                 data={gradeChartData}
                 filename="students-by-grade"
                 className="lg:col-span-2"
+                sql={getStudentsByGradeSQL(ncesCode, year)}
               >
                 <div className="rounded-lg">
                   <h4 className="text-lg font-medium text-gray-900 mb-4">Students by grade</h4>
@@ -208,7 +218,15 @@ export default function Profile() {
         </h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sex Demographics - Doughnut Chart */}
-          <CopyableWrapper data={sexData} filename="gender-demographics">
+          <CopyableWrapper
+            data={sexData}
+            filename="gender-demographics"
+            sql={
+              entityType === 'school'
+                ? getDemographicsBySexSQL(ncesCode, year)
+                : getDistrictDemographicsBySexSQL(ncesCode, year)
+            }
+          >
             <div className="rounded-lg">
               <h4 className="text-lg font-medium text-gray-900 mb-4">Sex</h4>
               <div className="flex flex-col">
@@ -222,6 +240,11 @@ export default function Profile() {
             data={raceData}
             filename="race-ethnicity-demographics"
             className="lg:col-span-2"
+            sql={
+              entityType === 'school'
+                ? getDemographicsByRaceSQL(ncesCode, year)
+                : getDistrictDemographicsByRaceSQL(ncesCode, year)
+            }
           >
             <div className="rounded-lg">
               <h4 className="text-lg font-medium text-gray-900 mb-4">Race & ethnicity</h4>
@@ -255,7 +278,15 @@ export default function Profile() {
       </h3>
       {membershipData.length > 0 ? (
         <div>
-          <CopyableWrapper data={membershipData} filename="membership-data">
+          <CopyableWrapper
+            data={membershipData}
+            filename="membership-data"
+            sql={
+              entityType === 'school'
+                ? getRawMembershipDataSQL(ncesCode, year)
+                : getDistrictRawMembershipDataSQL(ncesCode, year)
+            }
+          >
             <p className="text-gray-600 mb-4">Showing {membershipData.length} records</p>
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               <div className="max-h-96 overflow-auto">
@@ -357,6 +388,7 @@ export default function Profile() {
             <HistoricalEnrollmentChart
               historicalData={historicalEnrollmentData}
               currentYear={year}
+              ncessch={ncesCode}
             />
           </div>
         ) : (
