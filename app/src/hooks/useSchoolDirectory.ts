@@ -30,6 +30,8 @@ export interface SchoolDirectoryInfo {
   charter: string;
   state_code: string;
   state_leaid: string;
+  latitude?: number | null;
+  longitude?: number | null;
   grade_pk?: string | number | null;
   grade_kg?: string | number | null;
   grade_01?: string | number | null;
@@ -98,6 +100,8 @@ export function useSchoolDirectory(ncessch: string | undefined, schoolYear: stri
           charter: duckDBService.getScalarValue(table, 0, 'charter'),
           state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
           state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
+          latitude: duckDBService.getScalarValue(table, 0, 'latitude'),
+          longitude: duckDBService.getScalarValue(table, 0, 'longitude'),
           grade_pk: duckDBService.getScalarValue(table, 0, 'grade_pk'),
           grade_kg: duckDBService.getScalarValue(table, 0, 'grade_kg'),
           grade_01: duckDBService.getScalarValue(table, 0, 'grade_01'),
