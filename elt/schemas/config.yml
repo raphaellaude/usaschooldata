@@ -126,6 +126,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -157,6 +158,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -188,6 +190,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -219,6 +222,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -250,6 +254,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -281,6 +286,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -312,6 +318,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -343,6 +350,7 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -374,6 +382,7 @@ directory:
       STABR: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEANM: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
@@ -405,6 +414,7 @@ directory:
       STABR: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEANM: lea_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type

@@ -27,7 +27,7 @@ export default function Home() {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search for schools by name..."
+                placeholder="Search for schools by name or district..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -59,9 +59,12 @@ export default function Home() {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="text-md font-semibold text-gray-900">{school.sch_name}</h3>
+                          {school.lea_name && (
+                            <p className="text-sm text-gray-500">{school.lea_name}</p>
+                          )}
                         </div>
                         <div className="text-xs text-gray-400 flex justify-between gap-4">
-                          <span>Scbool year: {school.school_year}</span>
+                          <span>School year: {school.school_year}</span>
                           <span>NCES ID: {school.ncessch}</span>
                         </div>
                       </div>

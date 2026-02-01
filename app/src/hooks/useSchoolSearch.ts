@@ -31,6 +31,7 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
       SELECT
         ncessch,
         sch_name,
+        lea_name,
         school_year
       FROM read_parquet('${dataDirectory}/directory.parquet')
       WHERE school_year_no = 1
@@ -42,15 +43,17 @@ export function useSchoolSearch(searchQuery: string, debounceMs: number = 500) {
   const performSearch = useCallback(
     async (query: string): Promise<SchoolSearchResult[]> => {
       // Use DuckDB text search with LIKE for partial matching
-      // Search across school name, district name, and city
+      // Search across school name and district name
       const searchQuerySQL = `
       SELECT
         ncessch,
         sch_name,
+        lea_name,
         school_year
       FROM school_directory
       WHERE
         LOWER(sch_name) LIKE LOWER('%${sanitizeQuery(query)}%')
+        OR LOWER(lea_name) LIKE LOWER('%${sanitizeQuery(query)}%')
       ORDER BY sch_name
       LIMIT 10
     `;
