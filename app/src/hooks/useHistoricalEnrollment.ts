@@ -23,14 +23,16 @@ export interface HistoricalEnrollmentData {
 }
 
 /**
- * Hook for fetching historical enrollment data for a school
+ * Hook for fetching historical enrollment data for a school or district
  * Creates a historical membership table on mount and provides data for different breakdowns
  *
- * @param schoolCode - The NCES school code (12 characters)
+ * @param code - The NCES code (12 characters for school, 8 characters for district)
+ * @param entityType - Whether this is a 'school' or 'district'
  * @param enabled - Whether to start loading data (default: true). Set to false to defer loading.
  */
 export function useHistoricalEnrollment(
-  schoolCode: string,
+  code: string,
+  entityType: 'school' | 'district' = 'school',
   enabled: boolean = true
 ): HistoricalEnrollmentData {
   const [byYear, setByYear] = useState<{school_year: string; total_enrollment: number}[]>([]);
@@ -52,8 +54,10 @@ export function useHistoricalEnrollment(
   const [isTableReady, setIsTableReady] = useState(false);
   const {isInitialized, error: dbError} = useDuckDB();
 
+  const expectedLength = entityType === 'school' ? 12 : 8;
+
   useEffect(() => {
-    if (!schoolCode || schoolCode.length !== 12) {
+    if (!code || code.length !== expectedLength) {
       setIsLoading(false);
       return;
     }
@@ -74,7 +78,7 @@ export function useHistoricalEnrollment(
     }
 
     loadHistoricalData();
-  }, [schoolCode, enabled, isInitialized, dbError]);
+  }, [code, entityType, enabled, isInitialized, dbError, expectedLength]);
 
   const loadHistoricalData = async () => {
     setIsLoading(true);
@@ -82,25 +86,38 @@ export function useHistoricalEnrollment(
     setIsTableReady(false);
 
     try {
-      // First, create the historical table with all years
-      // This is the expensive operation that loads all the data
-      await dataService.createSchoolMembershipHistoricalTable(schoolCode);
-      setIsTableReady(true);
+      if (entityType === 'school') {
+        // First, create the historical table with all years
+        await dataService.createSchoolMembershipHistoricalTable(code);
+        setIsTableReady(true);
 
-      // Now fetch the default view (total enrollment by year)
-      // This is fast because it's querying from the in-memory table
-      const yearData = await dataService.getHistoricalEnrollmentByYear(schoolCode);
-      setByYear(yearData);
+        // Fetch historical data
+        const yearData = await dataService.getHistoricalEnrollmentByYear(code);
+        setByYear(yearData);
 
-      // Pre-fetch the breakdown data as well since the table is already loaded
-      // This makes switching between views instant
-      const [raceData, sexData] = await Promise.all([
-        dataService.getHistoricalEnrollmentByRaceEthnicity(schoolCode),
-        dataService.getHistoricalEnrollmentBySex(schoolCode),
-      ]);
+        const [raceData, sexData] = await Promise.all([
+          dataService.getHistoricalEnrollmentByRaceEthnicity(code),
+          dataService.getHistoricalEnrollmentBySex(code),
+        ]);
 
-      setByRaceEthnicity(raceData);
-      setBySex(sexData);
+        setByRaceEthnicity(raceData);
+        setBySex(sexData);
+      } else {
+        // District historical data
+        await dataService.createDistrictMembershipHistoricalTable(code);
+        setIsTableReady(true);
+
+        const yearData = await dataService.getDistrictHistoricalEnrollmentByYear(code);
+        setByYear(yearData);
+
+        const [raceData, sexData] = await Promise.all([
+          dataService.getDistrictHistoricalEnrollmentByRaceEthnicity(code),
+          dataService.getDistrictHistoricalEnrollmentBySex(code),
+        ]);
+
+        setByRaceEthnicity(raceData);
+        setBySex(sexData);
+      }
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : 'Failed to load historical enrollment data';

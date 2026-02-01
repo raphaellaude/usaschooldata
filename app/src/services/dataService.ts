@@ -450,6 +450,175 @@ export class DataService {
   }
 
   /**
+   * Creates a reusable in-memory table for district membership data across all available years
+   * This enables historical trend analysis and multi-year aggregations for districts
+   */
+  async createDistrictMembershipHistoricalTable(districtCode: string): Promise<void> {
+    const stateLeaid = districtCode.substring(0, 2);
+
+    try {
+      // Generate file paths for all available years
+      const filePaths = this.generateR2FilePaths([stateLeaid], this.availableYears);
+
+      // Create a named table that can be reused
+      const createTableQuery = `
+        CREATE OR REPLACE TABLE district_membership_${districtCode}_historical AS
+        SELECT * FROM read_parquet([${filePaths.join(', ')}])
+        WHERE leaid = '${districtCode}'
+        ORDER BY school_year DESC
+      `;
+
+      await duckDBService.query(createTableQuery);
+    } catch (error) {
+      console.error(
+        `Failed to create historical district membership table for ${districtCode}:`,
+        error
+      );
+      throw error;
+    }
+  }
+
+  /**
+   * Get enrollment totals by year for a district
+   * This aggregates all students across all schools in the district for each year
+   */
+  async getDistrictHistoricalEnrollmentByYear(
+    districtCode: string
+  ): Promise<{school_year: string; total_enrollment: number}[]> {
+    try {
+      // Ensure the historical table exists
+      await this.createDistrictMembershipHistoricalTable(districtCode);
+
+      // Query total enrollment by year
+      const query = `
+        SELECT
+          school_year,
+          SUM(student_count) as total_enrollment
+        FROM district_membership_${districtCode}_historical
+        GROUP BY school_year
+        ORDER BY school_year ASC
+      `;
+
+      const table = await duckDBService.query(query);
+
+      const result: {school_year: string; total_enrollment: number}[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
+          total_enrollment: duckDBService.getScalarValue(table, i, 'total_enrollment'),
+        });
+      }
+      return result;
+    } catch (error) {
+      console.error(`Failed to get historical enrollment by year for district ${districtCode}:`, error);
+      return [];
+    }
+  }
+
+  /**
+   * Get enrollment by year and race/ethnicity for a district
+   */
+  async getDistrictHistoricalEnrollmentByRaceEthnicity(districtCode: string): Promise<
+    {
+      school_year: string;
+      white: number;
+      black: number;
+      hispanic: number;
+      asian: number;
+      native_american: number;
+      pacific_islander: number;
+      multiracial: number;
+    }[]
+  > {
+    try {
+      await this.createDistrictMembershipHistoricalTable(districtCode);
+
+      const query = `
+        SELECT
+          school_year,
+          SUM(CASE WHEN race_ethnicity = 'American Indian or Alaska Native' THEN student_count ELSE 0 END) as native_american,
+          SUM(CASE WHEN race_ethnicity = 'Asian' THEN student_count ELSE 0 END) as asian,
+          SUM(CASE WHEN race_ethnicity = 'Black or African American' THEN student_count ELSE 0 END) as black,
+          SUM(CASE WHEN race_ethnicity = 'Hispanic/Latino' THEN student_count ELSE 0 END) as hispanic,
+          SUM(CASE WHEN race_ethnicity = 'Native Hawaiian or Other Pacific Islander' THEN student_count ELSE 0 END) as pacific_islander,
+          SUM(CASE WHEN race_ethnicity = 'Two or more races' THEN student_count ELSE 0 END) as multiracial,
+          SUM(CASE WHEN race_ethnicity = 'White' THEN student_count ELSE 0 END) as white
+        FROM district_membership_${districtCode}_historical
+        GROUP BY school_year
+        ORDER BY school_year ASC
+      `;
+
+      const table = await duckDBService.query(query);
+
+      const result: {
+        school_year: string;
+        white: number;
+        black: number;
+        hispanic: number;
+        asian: number;
+        native_american: number;
+        pacific_islander: number;
+        multiracial: number;
+      }[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
+          white: duckDBService.getScalarValue(table, i, 'white'),
+          black: duckDBService.getScalarValue(table, i, 'black'),
+          hispanic: duckDBService.getScalarValue(table, i, 'hispanic'),
+          asian: duckDBService.getScalarValue(table, i, 'asian'),
+          native_american: duckDBService.getScalarValue(table, i, 'native_american'),
+          pacific_islander: duckDBService.getScalarValue(table, i, 'pacific_islander'),
+          multiracial: duckDBService.getScalarValue(table, i, 'multiracial'),
+        });
+      }
+      return result;
+    } catch (error) {
+      console.error(
+        `Failed to get historical enrollment by race/ethnicity for district ${districtCode}:`,
+        error
+      );
+      return [];
+    }
+  }
+
+  /**
+   * Get enrollment by year and sex for a district
+   */
+  async getDistrictHistoricalEnrollmentBySex(
+    districtCode: string
+  ): Promise<{school_year: string; male: number; female: number}[]> {
+    try {
+      await this.createDistrictMembershipHistoricalTable(districtCode);
+
+      const query = `
+        SELECT
+          school_year,
+          SUM(CASE WHEN sex = 'Male' THEN student_count ELSE 0 END) as male,
+          SUM(CASE WHEN sex = 'Female' THEN student_count ELSE 0 END) as female
+        FROM district_membership_${districtCode}_historical
+        GROUP BY school_year
+        ORDER BY school_year ASC
+      `;
+
+      const table = await duckDBService.query(query);
+
+      const result: {school_year: string; male: number; female: number}[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        result.push({
+          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
+          male: duckDBService.getScalarValue(table, i, 'male'),
+          female: duckDBService.getScalarValue(table, i, 'female'),
+        });
+      }
+      return result;
+    } catch (error) {
+      console.error(`Failed to get historical enrollment by sex for district ${districtCode}:`, error);
+      return [];
+    }
+  }
+
+  /**
    * Get enrollment by year and sex for a school
    * Returns data suitable for stacked bar charts
    */
