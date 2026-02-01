@@ -403,12 +403,30 @@ export default function Profile() {
               <span>Charter School: {directoryInfo.charter || 'N/A'}</span>
             )}
             {directoryInfo?.sy_status && <span>Status: {directoryInfo.sy_status || 'N/A'}</span>}
-            {directoryInfo && directoryInfo.city && directoryInfo.state_name && (
-              <span>
-                Location: {directoryInfo.city}, {directoryInfo.state_name}
-              </span>
+            {directoryInfo?.lea_name && (
+              <span>District: {directoryInfo.lea_name}</span>
+            )}
+            {directoryInfo?.grade_low && directoryInfo?.grade_high && (
+              <span>Grade Span: {directoryInfo.grade_low} - {directoryInfo.grade_high}</span>
             )}
           </div>
+          {/* Address Information */}
+          {directoryInfo && (directoryInfo.street_address || directoryInfo.city) && (
+            <div className="mt-2 text-sm text-gray-500">
+              <span className="font-medium">Address: </span>
+              {[
+                directoryInfo.street_address,
+                directoryInfo.city,
+                directoryInfo.state_name,
+                directoryInfo.zip_code,
+              ]
+                .filter(Boolean)
+                .join(', ')}
+              {directoryInfo.county_name && (
+                <span className="ml-2 text-gray-400">({directoryInfo.county_name} County)</span>
+              )}
+            </div>
+          )}
 
           {/* Grade Band Visualization */}
           {entityType === 'school' && directoryInfo && (

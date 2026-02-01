@@ -30,6 +30,15 @@ export interface SchoolDirectoryInfo {
   charter: string;
   state_code: string;
   state_leaid: string;
+  lea_name?: string;
+  street_address?: string;
+  city?: string;
+  state_name?: string;
+  zip_code?: string;
+  county_code?: string;
+  county_name?: string;
+  grade_low?: string;
+  grade_high?: string;
   grade_pk?: string | number | null;
   grade_kg?: string | number | null;
   grade_01?: string | number | null;
@@ -98,6 +107,15 @@ export function useSchoolDirectory(ncessch: string | undefined, schoolYear: stri
           charter: duckDBService.getScalarValue(table, 0, 'charter'),
           state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
           state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
+          lea_name: duckDBService.getScalarValue(table, 0, 'lea_name'),
+          street_address: duckDBService.getScalarValue(table, 0, 'street_address'),
+          city: duckDBService.getScalarValue(table, 0, 'city'),
+          state_name: duckDBService.getScalarValue(table, 0, 'state_name'),
+          zip_code: duckDBService.getScalarValue(table, 0, 'zip_code'),
+          county_code: duckDBService.getScalarValue(table, 0, 'county_code'),
+          county_name: duckDBService.getScalarValue(table, 0, 'county_name'),
+          grade_low: duckDBService.getScalarValue(table, 0, 'grade_low'),
+          grade_high: duckDBService.getScalarValue(table, 0, 'grade_high'),
           grade_pk: duckDBService.getScalarValue(table, 0, 'grade_pk'),
           grade_kg: duckDBService.getScalarValue(table, 0, 'grade_kg'),
           grade_01: duckDBService.getScalarValue(table, 0, 'grade_01'),
