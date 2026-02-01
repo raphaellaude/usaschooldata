@@ -11,7 +11,7 @@ import HistoricalEnrollmentChart from './charts/HistoricalEnrollmentChart';
 import CopyableWrapper from './CopyableWrapper';
 import GradeBand from './GradeBand';
 import {DEFAULT_SCHOOL_YEAR} from '../constants';
-import {Link1Icon} from '@radix-ui/react-icons';
+import {Link1Icon, ExternalLinkIcon} from '@radix-ui/react-icons';
 
 export default function Profile() {
   const {id} = useParams<{
@@ -392,7 +392,18 @@ export default function Profile() {
             )}
           </h1>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-sm text-gray-500">
-            <span>NCES ID: {ncesCode}</span>
+            <span className="flex items-center gap-2">
+              NCES ID: {ncesCode}
+              <a
+                href={`https://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&ID=${ncesCode}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 inline-flex items-center gap-1"
+                title="View on NCES School Search"
+              >
+                <ExternalLinkIcon className="w-3 h-3" />
+              </a>
+            </span>
             <span>School Year: {year}</span>
             {/* Directory Stats Grid */}
             {directoryInfo?.sch_type && <span>School Type: {directoryInfo.sch_type || 'N/A'}</span>}
