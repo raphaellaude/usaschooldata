@@ -95,8 +95,6 @@ const FilterChip = ({label, onRemove}: {label: string; onRemove: () => void}) =>
   </span>
 );
 
-const DATA_DOMAIN = 'https://data.usaschooldata.com';
-
 export default function Home() {
   const [searchParams] = useSearchParams();
   const urlQuery = searchParams.get('q') || '';
