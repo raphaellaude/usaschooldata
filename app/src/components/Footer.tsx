@@ -29,6 +29,21 @@ export default function Footer() {
             school years 2014-15 through 2023-24.
           </p>
         </div>
+
+        {/* Data Source Attribution */}
+        <div className="mt-4 pt-4 border-t border-gray-300 text-left text-sm text-gray-600">
+          <p>
+            <span className="font-medium">Data Source:</span>{' '}
+            <a
+              href="https://nces.ed.gov/ccd/files.asp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              National Center for Education Statistics (NCES) Common Core of Data (CCD)
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
