@@ -3,13 +3,13 @@
  * These queries are designed to be run against the public data at data.usaschooldata.com
  */
 
-const DATA_DOMAIN = 'https://data.usaschooldata.com';
+const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
 
 /**
  * Generate the parquet file URL for a given state and year
  */
 function getParquetUrl(stateCode: string, schoolYear: string): string {
-  return `${DATA_DOMAIN}/membership/school_year=${schoolYear}/state_leaid=${stateCode}/data_0.parquet`;
+  return `${dataDirectory}/membership/school_year=${schoolYear}/state_leaid=${stateCode}/data_0.parquet`;
 }
 
 /**

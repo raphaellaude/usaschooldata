@@ -5,6 +5,8 @@ import Button from './ui/Button';
 interface SQLViewerProps {
   sql: string;
   className?: string;
+  /** Hide the internal copy button (useful when parent provides its own) */
+  hideCopyButton?: boolean;
 }
 
 // SQL keywords for syntax highlighting
@@ -279,7 +281,7 @@ function highlightSQL(sql: string): JSX.Element[] {
   return elements;
 }
 
-export default function SQLViewer({sql, className = ''}: SQLViewerProps) {
+export default function SQLViewer({sql, className = '', hideCopyButton = false}: SQLViewerProps) {
   const [copied, setCopied] = useState(false);
 
   const formattedSQL = formatSQL(sql);
@@ -296,27 +298,29 @@ export default function SQLViewer({sql, className = ''}: SQLViewerProps) {
 
   return (
     <div className={`relative ${className}`}>
-      <div className="absolute top-2 right-2 z-10">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleCopy}
-          className="bg-white/90 backdrop-blur-sm shadow-sm"
-          title="Copy SQL"
-        >
-          {copied ? (
-            <>
-              <CheckIcon className="h-3 w-3 mr-1" />
-              Copied
-            </>
-          ) : (
-            <>
-              <CopyIcon className="h-3 w-3 mr-1" />
-              Copy
-            </>
-          )}
-        </Button>
-      </div>
+      {!hideCopyButton && (
+        <div className="absolute top-2 right-2 z-10">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleCopy}
+            className="bg-white/90 backdrop-blur-sm shadow-sm"
+            title="Copy SQL"
+          >
+            {copied ? (
+              <>
+                <CheckIcon className="h-3 w-3 mr-1" />
+                Copied
+              </>
+            ) : (
+              <>
+                <CopyIcon className="h-3 w-3 mr-1" />
+                Copy
+              </>
+            )}
+          </Button>
+        </div>
+      )}
       <pre className="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto text-sm font-mono leading-relaxed">
         <code>{highlightSQL(formattedSQL)}</code>
       </pre>

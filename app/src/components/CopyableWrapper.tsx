@@ -25,8 +25,12 @@ export default function CopyableWrapper({
 
   const handleCopy = async () => {
     try {
-      const csv = Papa.unparse(data);
-      await navigator.clipboard.writeText(csv);
+      if (showSQL && sql) {
+        await navigator.clipboard.writeText(sql);
+      } else {
+        const csv = Papa.unparse(data);
+        await navigator.clipboard.writeText(csv);
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -36,7 +40,7 @@ export default function CopyableWrapper({
 
   return (
     <div className={`relative group ${className}`}>
-      {showSQL && sql ? <SQLViewer sql={sql} className="min-h-[200px]" /> : children}
+      {showSQL && sql ? <SQLViewer sql={sql} className="min-h-[200px]" hideCopyButton /> : children}
       <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
         {sql && (
           <Button
@@ -59,27 +63,25 @@ export default function CopyableWrapper({
             )}
           </Button>
         )}
-        {!showSQL && (
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleCopy}
-            className="bg-white/90 backdrop-blur-sm shadow-sm"
-            title={`Copy ${filename} as CSV`}
-          >
-            {copied ? (
-              <>
-                <CheckIcon className="h-3 w-3 mr-1" />
-                Copied
-              </>
-            ) : (
-              <>
-                <CopyIcon className="h-3 w-3 mr-1" />
-                Copy CSV
-              </>
-            )}
-          </Button>
-        )}
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleCopy}
+          className="bg-white/90 backdrop-blur-sm shadow-sm"
+          title={showSQL ? 'Copy SQL' : `Copy ${filename} as CSV`}
+        >
+          {copied ? (
+            <>
+              <CheckIcon className="h-3 w-3 mr-1" />
+              Copied
+            </>
+          ) : (
+            <>
+              <CopyIcon className="h-3 w-3 mr-1" />
+              {showSQL ? 'Copy SQL' : 'Copy CSV'}
+            </>
+          )}
+        </Button>
       </div>
     </div>
   );
