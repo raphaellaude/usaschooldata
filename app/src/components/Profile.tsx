@@ -43,11 +43,12 @@ export default function Profile() {
     error: directoryError,
   } = useSchoolDirectory(ncesCode, year);
 
-  // Load historical enrollment data for schools only AFTER summary data loads
+  // Load historical enrollment data AFTER summary data loads
   // This prevents the slow historical query (which hits S3) from blocking fast summary queries
   // since DuckDB WASM executes queries serially
   const historicalEnrollmentData = useHistoricalEnrollment(
-    entityType === 'school' ? ncesCode : '',
+    ncesCode,
+    entityType,
     !dataLoading && !directoryLoading // Only start loading after summary and directory complete
   );
 
@@ -317,11 +318,6 @@ export default function Profile() {
   );
 
   const renderHistoricalEnrollment = () => {
-    // Only show for schools, not districts
-    if (entityType !== 'school') {
-      return null;
-    }
-
     return (
       <div>
         <h3 className="text-sm font-semibold text-gray-600 mb-6 group">
@@ -425,14 +421,12 @@ export default function Profile() {
             <a href="#data" className="text-blue-600 hover:text-blue-800 text-sm">
               &rarr; Raw Data
             </a>
-            {entityType === 'school' && (
-              <a
-                href="#historical-enrollment"
-                className="text-blue-600 hover:text-blue-800 text-sm"
-              >
-                &rarr; Historical Enrollment
-              </a>
-            )}
+            <a
+              href="#historical-enrollment"
+              className="text-blue-600 hover:text-blue-800 text-sm"
+            >
+              &rarr; Historical Enrollment
+            </a>
           </nav>
         </div>
       </header>
@@ -523,9 +517,7 @@ export default function Profile() {
             <section id="overview">{renderOverview()}</section>
             <section id="demographics">{renderDemographics()}</section>
             <section id="data">{renderRawData()}</section>
-            {entityType === 'school' && (
-              <section id="historical-enrollment">{renderHistoricalEnrollment()}</section>
-            )}
+            <section id="historical-enrollment">{renderHistoricalEnrollment()}</section>
           </div>
         )}
       </main>
