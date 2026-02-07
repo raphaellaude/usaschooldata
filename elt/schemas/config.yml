@@ -126,11 +126,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -157,11 +166,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -188,11 +206,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -219,11 +246,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -250,11 +286,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -281,11 +326,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -312,11 +366,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -343,11 +406,20 @@ directory:
       ST: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEA_NAME: lea_name
+      LSTREET1: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       G_PK_OFFERED: grade_pk
       G_KG_OFFERED: grade_kg
       G_1_OFFERED: grade_01
@@ -374,11 +446,20 @@ directory:
       STABR: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEANM: lea_name
+      LSTREE: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       PKOFFERED: grade_pk
       KGOFFERED: grade_kg
       G1OFFERED: grade_01
@@ -405,11 +486,20 @@ directory:
       STABR: state_code
       NCESSCH: ncessch
       SCH_NAME: sch_name
+      LEANM: lea_name
+      LSTREE: street_address
+      LCITY: city
+      LSTATE: state_name
+      LZIP: zip_code
+      CNTY: county_code
+      CONAME: county_name
       SY_STATUS: sy_status
       UPDATED_STATUS: sy_status_updated
       SCH_TYPE: sch_type
       CHARTER_TEXT: charter
       LEVEL: sch_level
+      GSLO: grade_low
+      GSHI: grade_high
       PKOFFERED: grade_pk
       KGOFFERED: grade_kg
       G1OFFERED: grade_01
