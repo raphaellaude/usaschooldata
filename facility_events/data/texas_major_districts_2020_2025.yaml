@@ -622,6 +622,9 @@ events:
     the 10% threshold). The new map reduced the differential to 6.7%.
   sources:
   - url: https://communityimpact.com/san-antonio/north-san-antonio/education/2022/09/28/northside-isd-approves-redistricting-plan/
+  causes:
+  - redistricting_rezoning
+  - population_growth
 - event_id: TX-48331200-bond-202305-126-billion-bond-approved
   district: Fort Bend ISD
   state: TX

@@ -586,6 +586,7 @@ events:
   - url: https://www.wfla.com/news/pinellas-county/pinellas-county-recommends-closure-of-2-schools-consolidation-due-to-low-enrollment/
   causes:
   - enrollment_decline
+  - underutilization
 - event_id: US-000000-renovation-202209-lee-county-school-district
   district: Lee County School District
   state: ''

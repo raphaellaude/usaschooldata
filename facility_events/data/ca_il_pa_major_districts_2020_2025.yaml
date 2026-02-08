@@ -59,6 +59,7 @@ events:
   sources:
   - url: https://edsource.org/2019/voters-in-la-soundly-reject-parcel-tax-for-schools/613344
   causes:
+  - legal_challenges
   - political_governance
 - event_id: CA-06227100-renovation-202311-los-angeles-unified-school-dis
   district: Los Angeles Unified School District
@@ -224,8 +225,10 @@ events:
   - url: https://laist.com/news/education/lausd-charter-school-co-location-proposition-39-vote-february-2024
   causes:
   - charter_competition
+  - legal_challenges
   - new_construction
   - political_governance
+  - racial_equity
 - event_id: CA-06343200-bond-202211-san-diego-unified-school-distr
   district: San Diego Unified School District
   state: CA

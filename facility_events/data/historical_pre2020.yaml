@@ -43,6 +43,8 @@ events:
   - url: https://news.wttw.com/2018/05/22/new-study-examines-long-term-impacts-2013-cps-closures
   causes:
   - political_governance
+  - racial_equity
+  - underutilization
 - event_id: IL-17099300-intervention-201510-cps-byrd-bennett-bribery
   district: Chicago Public Schools
   state: IL
@@ -176,6 +178,7 @@ events:
   causes:
   - budget_fiscal
   - charter_competition
+  - legal_challenges
   - racial_equity
 - event_id: NJ-34126900-closure-201409-newark-one-newark-closures
   district: Newark Public Schools
@@ -215,6 +218,7 @@ events:
   causes:
   - charter_competition
   - consolidation_efficiency
+  - legal_challenges
   - political_governance
   - racial_equity
 - event_id: LA-2200090-intervention-200511-new-orleans-rsd-state-takeover
@@ -305,6 +309,7 @@ events:
   - url: https://www.publicschoolreview.com/blog/dc-schools-consolidation-and-closures
   causes:
   - budget_fiscal
+  - legal_challenges
   - new_construction
   - underutilization
 - event_id: MO-29292800-closure-201006-kcps-29-school-closures-rightsizing
@@ -433,6 +438,7 @@ events:
   causes:
   - charter_competition
   - consolidation_efficiency
+  - legal_challenges
   - political_governance
 - event_id: TN-47001480-redistricting-201408-shelby-county-6-municipal-breakaways
   district: Shelby County Schools (breakaway districts)
@@ -465,6 +471,7 @@ events:
   - url: https://www.edweek.org/leadership/memphis-shelby-schools-merge-amid-uncertainty/2013/07
   causes:
   - accountability
+  - legal_challenges
   - political_governance
   - racial_equity
 - event_id: GA-13003300-intervention-201304-atlanta-cheating-scandal-indictments
@@ -492,6 +499,10 @@ events:
     for 100% of staff by December 2014 and replacement of principals and teachers at affected schools.
 
     '
+  causes:
+  - accountability
+  - legal_challenges
+  - political_governance
   sources:
   - url: https://en.wikipedia.org/wiki/Atlanta_Public_Schools_cheating_scandal
   - url: https://www.cnn.com/2015/04/01/us/atlanta-schools-cheating-scandal/index.html
@@ -1198,6 +1209,10 @@ events:
   - url: https://www.huffingtonpost.com/2012/02/08/detroit-school-closings_n_1263165.html
   - url: https://urbanedjournal.gse.upenn.edu/volume-17-spring-2020/empire-strikes-back-state-takeover-and-education-michigan
   - url: https://app.regrid.com/reports/schools
+  causes:
+  - accountability
+  - political_governance
+  - underutilization
 - event_id: GA-13003300-intervention-201504-atlanta-cheating-convictions
   district: Atlanta Public Schools
   state: GA
@@ -1226,7 +1241,8 @@ events:
   - url: https://ethicsunwrapped.utexas.edu/case-study/cheating-atlantas-school-scandal
   - url: https://www.atlantamagazine.com/news-culture-articles/what-has-atlanta-public-schools-learned-from-the-cheating-scandal/
   causes:
-  - new_construction
+  - accountability
+  - legal_challenges
 - event_id: MD-24001200-renovation-201509-baltimore-21st-century-year1-construction
   district: Baltimore City Public Schools
   state: MD

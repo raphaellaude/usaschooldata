@@ -603,6 +603,7 @@ events:
   - url: https://rhodeislandcurrent.com/2024/03/26/whose-school-is-it-anyway-pending-360-high-school-closure-leaves-community-waiting-for-answers/
   - url: https://www.asumag.com/facilities-management/article/55020769/lawsuit-aims-to-block-closure-of-high-school-in-providence-rhode-island
   causes:
+  - legal_challenges
   - underutilization
 - event_id: VA-5101350-closure-202301-five-school-closure-proposal
   district: Richmond Public Schools
@@ -679,6 +680,7 @@ events:
   - url: https://education.vermont.gov/vermont-schools/school-governance/merger-activity
   causes:
   - consolidation_efficiency
+  - legal_challenges
 - event_id: KS-2003090-closure-202405-healy-dissolution
   district: Healy USD 468
   state: KS
