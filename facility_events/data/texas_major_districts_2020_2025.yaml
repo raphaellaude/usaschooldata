@@ -1,0 +1,449 @@
+# Texas Major School District Facility Events (2020-2025)
+# Researched: 2026-02-08
+# Focus: Houston ISD, Dallas ISD, Fort Worth ISD, Cypress-Fairbanks ISD,
+#         Austin ISD, Northside ISD, Fort Bend ISD
+
+events:
+- date: June 2023
+  description: TEA formally took over Houston ISD, replacing the elected school board with an appointed
+    Board of Managers and installing Mike Miles (former Dallas ISD superintendent) as superintendent.
+    The takeover was triggered by Wheatley High School receiving five consecutive F ratings under state
+    accountability. At the time, HISD had a B+ accountability rating overall and a AAA bond rating.
+  district: Houston ISD
+  event_type: intervention
+  schools_affected: All 270+ HISD campuses
+  source: https://en.wikipedia.org/wiki/Houston_Independent_School_District_takeover
+  title: TEA State Takeover
+- date: August 2023
+  description: Superintendent Miles launched the NES at 28 historically underperforming campuses. All
+    staff were required to reapply for positions. Schools adopted extended 6:30 AM to 5 PM schedules,
+    new curricula, and centralized budget management. Libraries were converted to "TEAMS centers." An
+    additional 57 schools voluntarily joined as "NES-Aligned" campuses.
+  district: Houston ISD
+  event_type: intervention
+  schools_affected: 28 campuses in Wheatley, Kashmere, and North Forest HS feeder patterns (including
+    Kashmere HS, Wheatley HS, North Forest HS, Highland Heights ES, Henry MS, Sugar Grove Academy, Marshall
+    ES, and others)
+  source: https://www.chron.com/news/houston-texas/education/article/hisd-nes-schools-new-changes-18193178.php
+  title: New Education System (NES) -- Phase 1 Restructuring
+- date: August 2024
+  description: HISD expanded NES to 45 more schools, 26 of which were required to join based on failing
+    state ratings and 19 that joined voluntarily. This brought the total NES footprint to 130 campuses
+    -- nearly half the district.
+  district: Houston ISD
+  event_type: intervention
+  schools_affected: 45 additional campuses (including Austin High School and 18 elementary/middle schools),
+    bringing total to 130 NES campuses
+  source: https://www.houstonchronicle.com/news/houston-texas/education/article/hisd-new-education-system-schools-19588842.php
+  title: NES Expansion -- Phase 2
+- date: November 5, 2024
+  description: 'Houston voters overwhelmingly rejected HISD''s $4.4 billion bond proposal (Prop A: $3.96B
+    for facilities; Prop B: $440M for technology) by a 58-42% margin. It was the largest school bond in
+    Texas history and the first $1B+ Texas school bond to fail. Both Democratic and Republican parties
+    opposed it under the slogan "No Trust, No Bond," viewing it as a referendum on the state-appointed
+    leadership. Miles estimated the district needs $10B in repairs.'
+  district: Houston ISD
+  event_type: bond
+  schools_affected: District-wide (would have funded repairs/rebuilds across all campuses)
+  source: https://www.khou.com/article/news/education/hisd-concedes-defeat-in-44-billion-bond-proposal/285-31f90a58-2dc4-452b-9d3d-4ba3ec99d992
+  title: $4.4 Billion Bond Rejected
+- date: August--November 2025
+  description: At convocation, Miles announced he would propose closing up to 10 small schools due to
+    declining enrollment (30,000 students lost in 10 years). Each closure would save approximately $2M/year.
+    However, in November 2025, the district reversed course and announced no closures for the 2026-27
+    school year, though "consolidations" may be considered later.
+  district: Houston ISD
+  event_type: closure
+  schools_affected: Up to 10 unspecified "small" campuses
+  source: https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/potential-school-closures-convocation-20805198.php
+  title: School Closures Proposed Then Reversed
+- date: June 2025
+  description: 'TEA Commissioner Mike Morath extended state control of HISD until at least June 1, 2027.
+    Three criteria must be met for a return to local control: no campuses failing for multiple consecutive
+    years, special education compliance, and the board demonstrating proper governance.'
+  district: Houston ISD
+  event_type: intervention
+  schools_affected: District-wide
+  source: https://www.khou.com/article/news/education/houston-isd-takeover-tea-extension-2027/285-cb9ac1c5-97c0-4cbb-b4cb-86b6bdf7f0ae
+  title: TEA Takeover Extended to 2027
+- date: 2025--2026 (planned)
+  description: After the bond failure, HISD announced it would budget $100 million from its general fund
+    for building updates and infrastructure over two years, reducing funds available for salaries and
+    operations. The district faces a projected $250M budget deficit.
+  district: Houston ISD
+  event_type: renovation
+  schools_affected: District-wide
+  source: https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/2025-year-preview-20392091.php
+  title: $100M Infrastructure Spending from General Fund
+- date: November 3, 2020
+  description: Voters approved Proposition A ($3.2B for school construction, renovation, and equipment
+    at 200+ of 230 campuses) and Proposition B ($270M for technology). Three other propositions for sports
+    stadiums, performing arts, and swimming pools were rejected. The bond funds 14 new or replacement
+    campuses.
+  district: Dallas ISD
+  event_type: bond
+  schools_affected: 200+ campuses
+  source: https://thehub.dallasisd.org/2020/11/04/voters-approve-two-dallas-isd-bond-propositions-totaling-nearly-3-5-billion-to-fund-infrastructure-and-technology-improvements/
+  title: $3.47 Billion Bond Approved
+- date: Fall 2024 (opened)
+  description: A $31 million replacement campus for Geneva Heights Elementary, with a capacity of 750
+    students, was constructed as part of the 2020 bond program. It retained a portion of the original
+    building.
+  district: Dallas ISD
+  event_type: expansion
+  schools_affected: Geneva Heights Elementary
+  source: https://thehub.dallasisd.org/2022/04/22/bond-2020-building-big-bold-innovative-generational-the-new-geneva-heights-elementary/
+  title: Geneva Heights Elementary Replacement Campus
+- date: January 7, 2024
+  description: Dallas ISD opened the doors of three new schools funded by the 2020 bond program, marking
+    a milestone in the district's facilities transformation.
+  district: Dallas ISD
+  event_type: expansion
+  schools_affected: Three new campuses (including replacements)
+  source: https://thehub.dallasisd.org/2025/01/28/dallas-isd-celebrates-the-opening-of-three-new-schools/
+  title: Three New Schools Opened
+- date: November 2024
+  description: Two replacement campuses -- John Quincy Adams Elementary (unveiled Nov. 14, 2024) and George
+    Peabody Elementary (dedicated Nov. 13, 2024) -- opened as state-of-the-art facilities funded by the
+    2020 bond.
+  district: Dallas ISD
+  event_type: expansion
+  schools_affected: John Quincy Adams Elementary, George Peabody Elementary
+  source: https://bond.dallasisd.org/
+  title: John Quincy Adams and George Peabody Elementary Dedications
+- date: '2024'
+  description: An $80 million investment for the first new campus built in the southern Dallas community
+    in years, part of the 2020 bond addressing historical inequities.
+  district: Dallas ISD
+  event_type: expansion
+  schools_affected: O.W. Holmes campus (Southern Dallas)
+  source: https://www.wfaa.com/article/news/local/southern-dallas/dallas-isd-to-build-new-school-campus-in-southern-dallas/287-7a27d719-1896-42c3-b2f9-3d630de9e920
+  title: John Lewis Social Justice Academy at O.W. Holmes
+- date: 2025--2026 (planning phase)
+  description: Dallas ISD staff presented a preliminary $6.2B bond plan for 2026 covering replacement
+    of 26 schools, technology/security upgrades, 500 new buses, and consolidation of Piedmont G.L.O.B.A.L.
+    Academy with San Jacinto ES, and Dr. Frederick Douglass Todd Sr. MS with Whitney M. Young Jr. ES.
+    A Citizens Bond Steering Committee was formed in February 2025.
+  district: Dallas ISD
+  event_type: bond
+  schools_affected: District-wide; would rebuild 26 campuses and consolidate 2 pairs of schools
+  source: https://dallasfreepress.com/west-dallas/dallas-isd-eyeing-6-2-billion-bond-for-renovations-26-new-replacement-campuses/
+  title: Proposed $6.2 Billion Bond for 2026
+- date: '2022'
+  description: Following 2020 Census data, Dallas ISD redrew its Single Member District (trustee) boundaries,
+    holding 35+ community meetings and two TeleTown Halls. The new map was used for the May 2024 elections.
+  district: Dallas ISD
+  event_type: redistricting
+  schools_affected: District governance
+  source: https://www.dallasisd.org/board-of-trustees/redistricting-essentials/redistricting-essentials
+  title: Board Redistricting (Trustee Districts)
+- date: November 2, 2021
+  description: Proposition A ($1.211B) for school construction and renovation passed by just 42 votes
+    (12,342 to 12,300). It funds major interior renovations to all middle schools and construction of
+    four new elementary schools. Propositions B (Fine Arts, $98.3M), C (Stadiums, $104.9M), and D (Recreation,
+    $76.2M) all failed.
+  district: Fort Worth ISD
+  event_type: bond
+  schools_affected: All middle schools + 4 new elementary schools
+  source: https://www.nbcdfw.com/news/local/voters-narrowly-approve-1-2b-fort-worth-isd-bond-3-other-proposals-fail/2800440/
+  title: $1.2 Billion Bond Narrowly Approved
+- date: March 2024
+  description: Closed due to struggling academic outcomes and state accountability concerns. Forest Oak
+    had earned five consecutive F ratings, putting the district at risk of TEA intervention.
+  district: Fort Worth ISD
+  event_type: closure
+  schools_affected: Forest Oak Sixth Grade
+  source: https://www.keranews.org/education/2024-12-27/fort-worth-isd-announced-school-closures-relocations-in-2024-heres-where-those-stand
+  title: Forest Oak Sixth Grade Closed
+- date: '2024'
+  description: Closed due to declining enrollment and underutilization.
+  district: Fort Worth ISD
+  event_type: closure
+  schools_affected: Wedgwood Sixth Grade
+  source: https://www.fox4news.com/news/fort-worth-isd-wedgewood-middle-consolidation
+  title: Wedgwood Sixth Grade Closed
+- date: End of 2024-25 school year
+  description: Board approved closure of both campuses due to declining enrollment and underutilization.
+  district: Fort Worth ISD
+  event_type: closure
+  schools_affected: S.S. Dillow Elementary, Eastern Hills Elementary
+  source: https://www.wfaa.com/article/news/local/fort-worth-isd-to-close-two-campuses-after-school-year-as-part-of-district-wide-consolidation-and-closure-plan/287-ad8e60c8-cada-46ac-84ef-a4d869258014
+  title: S.S. Dillow and Eastern Hills Elementary Closures Approved
+- date: August 2024 (McLean approved); December 2024 (West Handley rezoning approved, closes by 2028)
+  description: McLean 6th Grade approved for closure in August. West Handley Elementary was effectively
+    closed through an attendance boundary rezoning vote in December.
+  district: Fort Worth ISD
+  event_type: closure
+  schools_affected: McLean Sixth Grade Center, West Handley Elementary
+  source: https://www.keranews.org/education/2024-12-27/fort-worth-isd-announced-school-closures-relocations-in-2024-heres-where-those-stand
+  title: McLean 6th Grade and West Handley Elementary Closures
+- date: May 20, 2025 (board vote 8-0)
+  description: The board unanimously approved a five-year plan to close 18 campuses (15 elementary, 1
+    sixth-grade center, 2 middle schools), saving $77.3 million. Closures begin June 2025 and run through
+    June 2029. Community opposition was strong, with 100+ parents packing the meeting. Notably, De Zavala
+    ES had an A rating from TEA.
+  district: Fort Worth ISD
+  event_type: closure
+  schools_affected: 18 campuses total (4 previously approved + 14 new), including Kirkpatrick ES, H.V.
+    Helbing ES, Riverside Applied Learning Center, Charles E. Nash ES, Atwood McDonald ES, Sunrise-McMillan
+    ES, A.M. Pate ES, Harlean Beal ES, Morningside MS, Edward J. Briscoe ES, Hubbard Heights ES, J.T.
+    Stevens ES, De Zavala ES, and Kirkpatrick MS
+  source: https://www.fox4news.com/news/fort-worth-isd-school-closures-list
+  title: 18-Campus Five-Year Closure Plan Approved
+- date: December 2025 (approved; effective 2026-27)
+  description: Board voted to consolidate Western Hills Primary with Western Hills Elementary on the same
+    property for the 2026-27 school year. Attendance zones will not change.
+  district: Fort Worth ISD
+  event_type: closure
+  schools_affected: Western Hills Primary (consolidating with Western Hills Elementary)
+  source: https://www.cbsnews.com/texas/news/fort-worth-isd-closure-western-hills-primary/
+  title: Western Hills Primary Closure
+- date: November 2023 (contracts approved)
+  description: The board approved over $223.5 million in construction contracts for seven middle school
+    renovations as part of the 2021 bond program. Projects include new secured entry vestibules, upgraded
+    corridors, science labs, and removal of portable buildings.
+  district: Fort Worth ISD
+  event_type: renovation
+  schools_affected: 7 middle schools including Wedgwood MS ($46.8M) and Meadowbrook MS ($36.8M)
+  source: https://fortworthreport.org/2023/11/09/fort-worth-isd-moves-forward-on-7-projects-from-2021-bond/
+  title: Bond-Funded Middle School Renovations
+- date: May 4, 2019 (approved); projects through 2024
+  description: Voters approved $1.76B for new school construction ($238M technology, $968M facility renovations,
+    $88M transportation). The bond funded the opening of several new campuses through 2024.
+  district: Cypress-Fairbanks ISD
+  event_type: bond
+  schools_affected: District-wide (new schools, renovations, technology, transportation)
+  source: https://www.chron.com/neighborhood/cyfair/news/article/Cy-Fair-residents-say-yes-to-1-76-billion-bond-13819927.php
+  title: $1.76 Billion Bond (Approved 2019, Projects 2020--2024)
+- date: August 2020
+  description: New middle school opened as part of the 2019 bond program.
+  district: Cypress-Fairbanks ISD
+  event_type: expansion
+  schools_affected: Rowe Middle School (new campus)
+  source: https://www.cfisd.net/bond
+  title: Rowe Middle School Opened
+- date: August 2021
+  description: Ribbon-cutting ceremony on Aug. 16, 2021 for the newly renovated campus, part of the 2019
+    bond's Phase 1 renovations.
+  district: Cypress-Fairbanks ISD
+  event_type: renovation
+  schools_affected: Fiest Elementary School
+  source: https://www.cfisd.net/bond
+  title: Fiest Elementary Renovated
+- date: August 2023
+  description: New $33.2 million elementary school opened at 20220 Clay Road in Katy for the 2023-24 school
+    year.
+  district: Cypress-Fairbanks ISD
+  event_type: expansion
+  schools_affected: 'Dr. Carla Brosnahan Elementary School (Elementary #58)'
+  source: https://communityimpact.com/houston/cy-fair/education/2023/01/17/several-cy-fair-isd-bond-projects-to-open-in-2023/
+  title: 'Dr. Carla Brosnahan Elementary (ES #58) Opened'
+- date: August 2023
+  description: New $66.9 million three-story middle school opened at 10611 Mason Road in the educational
+    village housing Bridgeland High School and Wells Elementary. Named after a 26-year CFISD veteran.
+  district: Cypress-Fairbanks ISD
+  event_type: expansion
+  schools_affected: 'Sprague Middle School (Middle School #20)'
+  source: https://communityimpact.com/houston/cy-fair/education/2023/01/17/several-cy-fair-isd-bond-projects-to-open-in-2023/
+  title: 'Roy J. Sprague Jr. Middle School (MS #20) Opened'
+- date: August 2024
+  description: New elementary school opened at West Road and Miramesa Drive, designed with connected library
+    and cafeteria. This was the final new school in the 2019 bond program.
+  district: Cypress-Fairbanks ISD
+  event_type: expansion
+  schools_affected: 'Elementary #59 (in Miramesa subdivision)'
+  source: https://www.houstonchronicle.com/projects/2022/cfisd-bond-projects/
+  title: 'Elementary School #59 (Miramesa) Opened'
+- date: January 12, 2023 (board vote, 4-3)
+  description: Board approved sweeping attendance boundary changes in a contentious 4-3 vote to populate
+    three new campuses and relieve overcrowding (Smith MS at 134% capacity, multiple elementary schools
+    at 118%). Over 5,500 community feedback forms were submitted. The Stone Gate neighborhood controversy
+    over the Cypress Ranch-to-Cypress Falls shift was particularly heated.
+  district: Cypress-Fairbanks ISD
+  event_type: redistricting
+  schools_affected: Up to 44 campuses, including Cypress Ranch HS, Cypress Falls HS, Bridgeland HS, Langham
+    Creek HS, and dozens of elementary/middle schools
+  source: https://communityimpact.com/houston/cy-fair/education/2023/01/13/cy-fair-isd-board-approves-attendance-boundary-changes-for-2023-24/
+  title: Major Redistricting Affecting 44 Campuses
+- date: '2023'
+  description: 'Mark Henry, Ed.D. Administration Building (MHAB) opened in 2023, named after the retiring
+    superintendent. Transportation Center #6 opened near Cypress Woods HS for $26.8M, including bus parking,
+    fueling, and training facilities.'
+  district: Cypress-Fairbanks ISD
+  event_type: expansion
+  schools_affected: District operations
+  source: https://www.houstonchronicle.com/neighborhood/cyfair/article/cy-fair-isd-first-day-of-school-2023-2024-18338100.php
+  title: New Administration Building and Transportation Center
+- date: Fall 2021
+  description: $57 million new middle school opened in fall 2021, funded by the 2018 bond ($848.9M). Located
+    in the rapidly growing far west Bexar County area.
+  district: Northside ISD
+  event_type: expansion
+  schools_affected: Kallison Ranch Area Middle School (new campus)
+  source: https://news4sanantonio.com/news/local/northside-isd
+  title: Kallison Ranch Area Middle School Opened
+- date: Fall 2021
+  description: $35 million new elementary school opened in fall 2021, funded by the 2018 bond. Serving
+    growth in the WestPointe master-planned community.
+  district: Northside ISD
+  event_type: expansion
+  schools_affected: Village at WestPointe North Area Elementary (new campus)
+  source: https://news4sanantonio.com/news/local/northside-isd
+  title: Village at WestPointe North Elementary Opened
+- date: August 22, 2022
+  description: $152.5 million new high school (the Galm Area HS project) opened, named after Supreme Court
+    Justice Sonia Sotomayor. It is the 12th and newest high school in the district. Opened without a senior
+    class.
+  district: Northside ISD
+  event_type: expansion
+  schools_affected: Sotomayor High School (NISD's 12th high school)
+  source: https://www.nisd.net/sotomayor
+  title: Sonia M. Sotomayor High School Opened
+- date: May 2022
+  description: 'NISD voters approved a record $992M bond. A major shift from prior growth-focused bonds:
+    $645.5M went to renovations at 81 elementary schools (classrooms, CTE, fine arts, athletics, libraries,
+    playgrounds); $207.3M for infrastructure upgrades; $45M for one new elementary school (Village at
+    WestPointe West area); $23.7M for a baseball/softball complex near Sotomayor HS.'
+  district: Northside ISD
+  event_type: bond
+  schools_affected: 81 elementary schools (renovations), 1 new elementary school, district-wide infrastructure
+  source: https://communityimpact.com/san-antonio/north-san-antonio/education/2022/01/26/northside-isd-voters-in-san-antonio-to-mull-992-million-bond-proposal-in-may/
+  title: $992 Million Bond Approved
+- date: Fall 2023
+  description: $35.8 million new elementary school, the last new school funded by the 2018 bond, opened
+    in fall 2023.
+  district: Northside ISD
+  event_type: expansion
+  schools_affected: New elementary school (FM 471 North area)
+  source: https://www.nisd.net/community/bond
+  title: FM 471 North Area Elementary (#4) Opened
+- date: Fall 2024 (school opening); November 2023 (boundaries approved)
+  description: New $45M elementary school (funded by 2022 bond) opened in far west Bexar County in the
+    Riverstone at WestPointe subdivision. Named "Chumbley Elementary." Boundary changes approved Nov.
+    14, 2023, affecting Cole ES and Galm ES to populate the new school and relieve overcrowding at Cole.
+  district: Northside ISD
+  event_type: expansion
+  schools_affected: Chumbley Elementary (new), Cole Elementary, Galm Elementary
+  source: https://www.nisd.net/galm/announcements/2023/approved-boundary-chumbley-es-affecting-cole-es-and-galm-es-effective-2024
+  title: Chumbley Elementary Opened + Boundary Changes
+- date: 2023--2024 (design approved Dec 2023)
+  description: $35 million renovation to replace the cafeteria, gymnasium, and several classrooms at this
+    aging campus, funded by the 2022 bond. Board approved the design in December 2023.
+  district: Northside ISD
+  event_type: renovation
+  schools_affected: Colonies North Elementary
+  source: https://communityimpact.com/san-antonio/north-san-antonio/education/2023/12/19/northside-isd-board-approves-colonies-north-school-renovation-design/
+  title: Colonies North Elementary Renovation
+- date: September 27, 2022
+  description: NISD trustees adopted a new map for single-member trustee districts after 2020 Census data
+    showed a 77.5% population differential between the most and least populous districts (far exceeding
+    the 10% threshold). The new map reduced the differential to 6.7%.
+  district: Northside ISD
+  event_type: redistricting
+  schools_affected: Governance (7 single-member trustee districts)
+  source: https://communityimpact.com/san-antonio/north-san-antonio/education/2022/09/28/northside-isd-approves-redistricting-plan/
+  title: School Board Redistricting
+- date: May 6, 2023
+  description: 'All three propositions passed: Prop A (65.66%), Prop B (66.62%), Prop C (56.67%). Funds
+    construction of new schools, safety/security improvements, technology upgrades, and a natatorium.
+    Includes a $223M rebuild of Clements High School (foundation had shifted) and a new elementary school
+    in Harvest Green.'
+  district: Fort Bend ISD
+  event_type: bond
+  schools_affected: District-wide (new schools, renovations, technology, natatorium)
+  source: https://www.houstonchronicle.com/neighborhood/fort-bend/article/here-bond-election-results-houston-s-suburbs-18074775.php
+  title: $1.26 Billion Bond Approved
+- date: February 2024 (discovered); October 2024 (cuts approved)
+  description: Shortly after projects began, a $165M deficit was discovered in the $1.26B bond program.
+    Investigation showed district leaders failed to adjust costs for inflation when the bond was delayed
+    from Nov 2022 to May 2023. On Oct. 21, 2024, trustees voted to eliminate the new Harvest Green elementary
+    school ($47.6M), defer a transportation facility, and reduce fine arts/athletics projects.
+  district: Fort Bend ISD
+  event_type: bond
+  schools_affected: Harvest Green ES (eliminated), transportation facility (deferred), fine arts/athletics
+    projects (reduced)
+  source: https://communityimpact.com/houston/sugar-land-missouri-city/education/2024/10/22/fort-bend-isd-eliminates-defers-2023-bond-projects-to-address-shortfall/
+  title: Bond Program $165 Million Shortfall
+- date: Opening August 2026 (topping out July 2025)
+  description: A 235,325 sq ft, two-story facility with two gymnasiums, two football fields, and four
+    tennis courts. Named after the district's first Black female principal. Bond-funded. Will rebalance
+    enrollment from two existing middle schools.
+  district: Fort Bend ISD
+  event_type: expansion
+  schools_affected: 'Amy Coleman Middle School (MS #16, new campus in Fresno area)'
+  source: https://www.corgan.com/projects/amy-coleman-middle-school-fort-bend-isd
+  title: Amy Coleman Middle School Construction
+- date: December 2025 (draft plans released); decision expected March 2026
+  description: Draft boundary plans propose closing 7 of 52 elementary schools (all under 600 students,
+    utilization 40-77%) as part of district-wide boundary changes tied to the new Amy Coleman MS opening.
+    Community opposition is strong, especially around A-rated Sugar Mill ES. Final board vote expected
+    March 2026.
+  district: Fort Bend ISD
+  event_type: closure
+  schools_affected: Austin Parkway ES, Dulles ES, Fleming ES, Glover ES, Mission West ES, Ridgegate ES,
+    Sugar Mill ES
+  source: https://www.houstonpublicmedia.org/articles/news/fort-bend/2025/12/16/538805/fort-bend-isd-to-consider-closures-of-seven-elementary-schools/
+  title: Proposed Closure of 7 Elementary Schools + Redistricting
+- date: Fall 2025
+  description: Fort Bend ISD opened new school campuses as part of the ongoing $1.26B bond program implementation.
+    These include bond-funded facilities in the growing Fresno and Missouri City areas.
+  district: Fort Bend ISD
+  event_type: expansion
+  schools_affected: Multiple new campuses (part of 2023 bond)
+  source: https://communityimpact.com/houston/sugar-land-missouri-city/education/2025/08/11/first-look-at-fort-bend-isds-newest-campuses-opening-this-fall/
+  title: New Campuses Opened (2025 Bond Projects)
+- date: November 8, 2022
+  description: 'Austin voters approved the largest bond in the district''s history across three propositions:
+    Prop A ($2.316B for facility upgrades/modernization of 25 schools), Prop B ($75.5M for technology),
+    Prop C ($47.4M for athletic facilities). Projects range from complete campus rebuilds to partial renovations,
+    prioritizing Title 1 schools.'
+  district: Austin ISD
+  event_type: bond
+  schools_affected: 25 campuses for modernization; district-wide safety/HVAC/technology
+  source: https://www.kut.org/2022-11-08/aisd-bonds-and-school-board-election-2022
+  title: $2.44 Billion Bond Approved
+- date: December 2023
+  description: First "construction kickoff" for the 2022 bond program. Renovation includes a new secured
+    front entry, new small group meeting spaces, and enclosure of open-concept classrooms built without
+    doors or full walls.
+  district: Austin ISD
+  event_type: renovation
+  schools_affected: Odom Elementary (built 1970)
+  source: https://communityimpact.com/austin/south-central-austin/education/2024/01/08/austin-isd-to-begin-renovations-at-schools-across-district-funded-by-2022-bond/
+  title: Odom Elementary Renovation Kickoff
+- date: 2024--2025
+  description: Became the first full modernization unveiled from the $2.4B bond package. Described as
+    "safe, functional, and inspiring," it represents the template for 24 additional modernization projects.
+  district: Austin ISD
+  event_type: renovation
+  schools_affected: Wooten Elementary
+  source: https://cbsaustin.com/news/local/austin-isd-unveils-the-first-school-modernization-from-24-billion-bond-package
+  title: Wooten Elementary Full Modernization
+- date: November 20, 2025 (board vote 6-3)
+  description: Facing a $19.7M budget deficit and potential TEA takeover (three middle schools had 4 consecutive
+    F ratings), the board approved closing 10 schools, reassigning 3,796 students and eliminating 6,319
+    seats, saving $21.5M annually. Three schools originally on the list (Bryker Woods, Maplewood, Palm)
+    were removed. Superintendent Segura indicated more closures and boundary changes will follow.
+  district: Austin ISD
+  event_type: closure
+  schools_affected: 8 elementary schools (Barrington, Becker, Dawson, Oak Springs, Ridgetop, Sunset Valley,
+    Widen, Winn Montessori) and 2 middle schools (Bedichek, Martin). International High School also closing.
+  source: https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs
+  title: 10 School Closures Approved (Consolidation Plan)
+- date: End of 2025-26 school year
+  description: This specialized school serving immigrants transitioning to Texas public education will
+    close due to persistently low enrollment.
+  district: Austin ISD
+  event_type: closure
+  schools_affected: International High School
+  source: https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs
+  title: International High School Closure
+- date: Spring 2026 (discussion); Fall 2026 (expected vote); implementation 2026-27
+  description: AISD announced that district-wide boundary changes and additional school consolidations
+    will be brought to trustees in the future to balance enrollment. Some trustees warned budget issues
+    could lead to more closures.
+  district: Austin ISD
+  event_type: redistricting
+  schools_affected: District-wide
+  source: https://www.kxan.com/news/education/answering-questions-about-austin-isd-school-closures-plan/
+  title: Future Boundary Changes and Additional Consolidations Planned

@@ -1,0 +1,615 @@
+# California, Illinois, and Pennsylvania Major School District Facility Events (2020-2025)
+# Researched: 2026-02-08
+# Focus: Los Angeles USD, San Diego USD, Long Beach USD, LA Charter Schools, Chicago Public Schools, Philadelphia School District
+
+events:
+
+  # ============================================================
+  # LOS ANGELES UNIFIED SCHOOL DISTRICT (408k students, lost 57k+ since 2019, 15% decline)
+  # ============================================================
+
+  - district: "Los Angeles Unified School District"
+    event_type: "bond"
+    date: "2020-11"
+    schools_affected:
+      - "All LAUSD schools (district-wide, 750+ sites)"
+    description: >
+      Voters overwhelmingly approved Measure RR, a $7 billion general obligation
+      bond for school facility improvements, with nearly 71% support (55% threshold
+      required). Funds designated for upgrading 70% of district facilities in need
+      of repairs, replacing aging HVAC and plumbing systems, retrofitting buildings,
+      installing security and communication systems, and accessibility upgrades.
+      More than 77% of LAUSD's 750 school sites are at least 50 years old and 13%
+      are 100+ years old. Bond extends existing tax rate of $21.74 per $100,000
+      assessed value through 2055, raising ~$329 million annually.
+    source: "https://www.cbsnews.com/losangeles/news/voters-approve-measure-rr-7-billion-bond-lausd-facility-improvements/"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "bond"
+    date: "2024-11"
+    schools_affected:
+      - "All LAUSD schools (district-wide)"
+    description: >
+      LA voters overwhelmingly approved Measure US, LAUSD's largest-ever school
+      facilities bond at $9 billion, with 68% of the vote. The bond will fund
+      repair and upgrade of aging school buildings, addressing more than $80 billion
+      in unfunded school facility and technology needs. More than 60% of LAUSD
+      campuses are at least a half-century old. Cost to property owners estimated
+      at $25.04 per $100,000 of assessed value per year. Supported by the school
+      board, Superintendent Carvalho, UTLA, and local construction groups.
+    source: "https://www.the74million.org/article/la-voters-overwhelmingly-approve-9-billion-school-bond/"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "bond"
+    date: "2019-06"
+    schools_affected:
+      - "N/A - measure failed"
+    description: >
+      LAUSD Measure EE, a parcel tax of 16 cents per square foot that would have
+      raised approximately $500 million annually for 12 years, was decisively
+      defeated by voters in a June 2019 special election. The measure received
+      only 45.68% support, falling far short of the required two-thirds
+      supermajority. The tax was considered vital to cover costs of salary
+      agreements made with UTLA to resolve the January 2019 teachers' strike.
+      The Howard Jarvis Taxpayers Association had filed a lawsuit to block the
+      election, but it became moot after voter rejection.
+    source: "https://edsource.org/2019/voters-in-la-soundly-reject-parcel-tax-for-schools/613344"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "renovation"
+    date: "2023-11"
+    schools_affected:
+      - "32nd Street USC Magnets"
+      - "Los Angeles High School"
+      - "Wilmington Middle School STEAM Magnet"
+    description: >
+      The LAUSD Board of Education approved more than $195.7 million in bond-funded
+      projects for facility upgrades. The 32nd Street USC Magnets received approval
+      for a $108 million multi-phase modernization project to construct 23 new
+      general and specialty classrooms (media, filmmaking, engineering, graphic
+      design, chemistry lab), plus exterior improvements, greening, landscaping,
+      infrastructure, and ADA upgrades. The Board also approved $45 million for
+      wellness center facilities at Los Angeles High School and Wilmington Middle
+      School STEAM Magnet.
+    source: "https://www.lausd.org/site/Default.aspx?PageType=3&DomainID=4&PageID=1&ViewID=6446ee88-d30c-497e-9316-3f8874b3e108&FlexDataID=139921"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "renovation"
+    date: "2020-06"
+    schools_affected:
+      - "Ulysses S. Grant High School"
+      - "Shenandoah Elementary School"
+      - "North Hollywood High School"
+      - "Multiple campuses (650+ projects in pre-construction)"
+    description: >
+      LAUSD's Facilities Services Division was managing 650+ projects in
+      pre-construction valued at $3.7 billion and 220 projects under construction
+      valued at $1.6 billion. Notable projects included the nearly $150 million
+      comprehensive modernization of Grant High School (completion targeted 2024)
+      and the $54 million upgrade of Shenandoah Elementary (targeted completion
+      end of 2023). North Hollywood High School underwent comprehensive
+      modernization including seismic upgrade of ~100,000 SF and construction
+      of a new classroom building, auditorium, and gymnasium. Over 120 new
+      bond program projects were planned for bid between June 2020 and June 2021.
+    source: "https://www.enr.com/articles/49754-school-construction-could-help-la-rebound-from-pandemic"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "closure"
+    date: "2020-03"
+    schools_affected:
+      - "All LAUSD schools (district-wide, temporary)"
+    description: >
+      LAUSD closed all schools in March 2020 due to the COVID-19 pandemic,
+      affecting approximately 600,000+ students at the time. The district
+      extended closures through the remainder of the 2019-20 school year and
+      continued remote learning into the 2020-21 school year. LAUSD was one
+      of the last major urban districts to reopen for in-person instruction,
+      not fully returning until spring 2021. The district invested in
+      ventilation upgrades, though a June 2020 GAO study found 40% of schools
+      nationwide needed HVAC updates or replacements.
+    source: "https://capitalandmain.com/school-districts-ventilation-systems-reveal-haves-and-have-nots"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "closure"
+    date: "2025-01"
+    schools_affected:
+      - "Palisades Charter Elementary School"
+      - "Marquez Charter Elementary School"
+      - "Palisades Charter High School"
+      - "Canyon Charter Elementary (adjacent to burn scar)"
+      - "Paul Revere Charter Middle School (adjacent to burn scar)"
+    description: >
+      The January 2025 Palisades Fire destroyed or severely damaged three LAUSD
+      schools. Marquez Elementary was burned to the ground. Palisades Elementary
+      lost ~70% of its campus (17 classrooms, multipurpose room, play equipment).
+      Palisades High lost ~30% (21 classrooms, storage, track and field). Students
+      were relocated: 410 Palisades Elementary students to Brentwood Science Magnet,
+      312 Marquez students to Nora Sterry Elementary, and Palisades High students
+      to a renovated Sears building in Santa Monica. Palisades Elementary
+      enrollment dropped 25% post-fire.
+    source: "https://laist.com/news/education/los-angeles-unified-palisades-fire-reconstruction-one-year-anniversary"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "expansion"
+    date: "2025-01"
+    schools_affected:
+      - "Palisades Charter Elementary School (rebuild)"
+      - "Marquez Charter Elementary School (rebuild)"
+      - "Palisades Charter High School (rebuild)"
+    description: >
+      The LAUSD Board of Education approved a $604 million plan to rebuild the
+      three schools destroyed in the Palisades Fire. Reconstruction is set to
+      conclude by end of 2028, restoring facilities for approximately 3,620
+      students. Funding comes primarily from the $9 billion Measure US bond
+      approved by voters in November 2024, with $337.6 million earmarked for
+      elementary school modernization and $266.6 million for high school
+      upgrades. Designs incorporate wildfire resiliency as a core requirement,
+      including fire-resistant concrete blocks, enhanced air filtration, and
+      strategic landscaping.
+    source: "https://palisadesnews.com/lausd-approves-604-million-plan-to-rebuild-fire-damaged-palisades-schools/"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "closure"
+    date: "2025-02"
+    schools_affected:
+      - "Consolidations planned for 2027-28 (specific schools TBD)"
+    description: >
+      LAUSD announced that budget cuts to school budgets will begin in the 2026-27
+      school year, with school consolidations and staffing reductions planned for
+      the 2027-28 school year. The district contracted with consulting firm Ernst
+      and Young to create models for closing and consolidating schools. LAUSD
+      faces an estimated $1.6 billion deficit for 2027-28. In 2024-25, the
+      district spent ~$2 billion more than revenue. Thirty-four schools have
+      fewer than 200 students; nearly half of 456 zoned elementary schools are
+      half-full or less; 56 have seen enrollment fall 70%+. Board member
+      Tanya Ortiz Franklin called for a plan, while Board President Schmerelson
+      acknowledged fear of community backlash.
+    source: "https://www.the74million.org/article/layoffs-cuts-and-closures-are-coming-to-lausd-schools-as-district-confronts-budget-shortfalls/"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "redistricting"
+    date: "2021-12"
+    schools_affected:
+      - "All LAUSD Board of Education districts (political boundaries)"
+    description: >
+      The LA City Council approved new LAUSD Board of Education district boundaries
+      14-0, following recommendations from the LAUSD Redistricting Commission.
+      The map was nearly identical to the commission's recommendation, with one
+      adjustment to keep Carver Middle School and Sally Ride Elementary School
+      in District 5. The redistricting was required by the LA City Charter every
+      10 years based on updated census data.
+    source: "https://www.dailynews.com/2021/12/01/redistricting-new-lausd-boundaries-approved-la-city-council-map-must-wait-a-bit/"
+
+  - district: "Los Angeles Unified School District"
+    event_type: "redistricting"
+    date: "2024-02"
+    schools_affected:
+      - "~200 school buildings placed off-limits to charter co-location"
+    description: >
+      The LAUSD Board voted 4-3 to approve a new policy limiting charter school
+      co-location under Proposition 39. The policy barred charter schools from
+      sharing campuses with community schools, Black Student Achievement Plan
+      (BSAP) schools, and the district's 100 schools targeted for academic
+      improvement. Roughly 200 of the district's 770 school buildings were
+      placed off-limits. UTLA supported the policy; the California Charter
+      Schools Association opposed it and filed suit. In 2025, a judge ruled the
+      policy violated Proposition 39 and reopened up to 346 school sites for
+      potential charter co-locations.
+    source: "https://laist.com/news/education/lausd-charter-school-co-location-proposition-39-vote-february-2024"
+
+  # ============================================================
+  # SAN DIEGO UNIFIED SCHOOL DISTRICT (80k students, lost 7k+, NCES ID: 0634320)
+  # ============================================================
+
+  - district: "San Diego Unified School District"
+    event_type: "bond"
+    date: "2022-11"
+    schools_affected:
+      - "All SDUSD schools (district-wide)"
+    description: >
+      San Diego voters approved Measure U, a $3.2 billion general obligation
+      bond measure, with 65.28% support. This was the district's fourth bond
+      measure since 2008, bringing the total facilities bond program to $11.5
+      billion across Proposition S ($2.1B, 2008), Proposition Z ($2.8B, 2012),
+      Measure YY ($3.4B, 2018), and Measure U. Funds support renovation, repair,
+      and revitalization of school facilities including HVAC systems, new
+      classroom buildings, roofs, parking lots, solar power systems, and
+      athletic facilities. San Diego Unified pays the lowest interest rate of
+      all districts in the state based on its most recent bond issuance.
+    source: "https://voiceofsandiego.org/2022/09/21/san-diego-unifieds-latest-bond-ask-measure-u-explained/"
+
+  - district: "San Diego Unified School District"
+    event_type: "expansion"
+    date: "2022-08"
+    schools_affected:
+      - "Logan Memorial Educational Campus"
+    description: >
+      San Diego Unified completed the Logan Memorial Educational Campus, a
+      $100+ million TK-12 education complex in Logan Heights -- the first high
+      school the neighborhood had ever had. The existing Logan K-8 and Memorial
+      Prep campuses were rebuilt into a 241,000 sq ft campus on 19.8 acres with
+      capacity for 2,060 students. The project won a 2023 CMAA Project
+      Achievement Award. In December 2024, the district unveiled El Nido, a
+      "cradle-to-college and career" infant/toddler Montessori Center at the
+      campus, developed in partnership with Harvard University.
+    source: "https://spaces4learning.com/articles/2024/05/28/logan-memorial-educational-campus.aspx"
+
+  - district: "San Diego Unified School District"
+    event_type: "expansion"
+    date: "2023-01"
+    schools_affected:
+      - "Civita Elementary School (planned new construction)"
+    description: >
+      San Diego Unified approved plans to build a brand new elementary school
+      in the Civita neighborhood of Mission Valley, where a population boom
+      made a new school necessary. The district approved purchasing land from
+      Civita developer Sudberry Properties for a 2-story, 24-classroom campus
+      that will hold 500-600 students, located at Civita Boulevard and Via Alta.
+      The district moved to secure the property after charter schools expressed
+      interest in the site. Funding comes from voter-approved bond programs.
+    source: "https://www.10news.com/news/local-news/san-diego-unified-plans-to-build-a-new-elementary-school-in-civita-neighborhood"
+
+  # ============================================================
+  # LONG BEACH UNIFIED SCHOOL DISTRICT (59k students, lost 7k+, NCES ID: 0622500)
+  # ============================================================
+
+  - district: "Long Beach Unified School District"
+    event_type: "closure"
+    date: "2020-12"
+    schools_affected:
+      - "Hudson Elementary School (middle school grades eliminated)"
+    description: >
+      The LBUSD Board of Education voted to eliminate middle school-grade
+      offerings at Hudson Elementary in West Long Beach, citing dangerously
+      low enrollment. The school's utilization rate had fallen below 20%.
+      Hudson was originally built to host over 1,300 students. District-wide
+      enrollment had fallen from ~75,000 in 2017-18 to below 64,000.
+    source: "https://lbpost.com/news/education/lbusd-board-votes-to-close-hudson-elementary-school-next-year/"
+
+  - district: "Long Beach Unified School District"
+    event_type: "closure"
+    date: "2024-06"
+    schools_affected:
+      - "Hudson Elementary School (full closure)"
+    description: >
+      The LBUSD Board of Education approved a plan to fully close Hudson
+      Elementary at the end of the academic year. The West Long Beach campus
+      enrolled only 231 students with just one teacher per grade level (K-5).
+      Hudson was originally built for over 1,300 students. Starting in fall,
+      the majority of Hudson students will attend Garfield Elementary School,
+      about a half mile away. The closure is the latest symptom of declining
+      enrollment district-wide.
+    source: "https://lbpost.com/news/education/lbusd-board-votes-to-close-hudson-elementary-school-next-year/"
+
+  - district: "Long Beach Unified School District"
+    event_type: "bond"
+    date: "2022-11"
+    schools_affected:
+      - "All LBUSD schools (district-wide)"
+    description: >
+      Long Beach voters passed a $1.7 billion bond measure allowing the district
+      to upgrade schools by improving plumbing systems, maintaining safe drinking
+      water, renovating facilities, and adding air conditioning systems. The bond
+      is managed alongside existing Measure E, Measure K, and Measure Q programs
+      with oversight from the Citizens' Bonds Oversight Committee. The district
+      also adopted a sustainability plan in July 2022 to meet clean energy goals
+      by 2045.
+    source: "https://www.lbschoolbonds.net/"
+
+  - district: "Long Beach Unified School District"
+    event_type: "renovation"
+    date: "2024-01"
+    schools_affected:
+      - "Long Beach Polytechnic High School"
+    description: >
+      LBUSD kicked off the $450 million transformation of Long Beach Polytechnic
+      High School (Poly), one of the district's most iconic campuses. The historic,
+      multi-phase project is designed to reimagine the campus with new learning
+      spaces and cutting-edge academic facilities. The project is made possible
+      by voter-approved Measure Q and Measure E bond funds.
+    source: "https://www.lbschoolbonds.net/news"
+
+  # ============================================================
+  # LA CHARTER SCHOOLS (NCES ID: 0622710, ~85k students)
+  # ============================================================
+
+  - district: "LA Charter Schools (within LAUSD footprint)"
+    event_type: "closure"
+    date: "2020-2024"
+    schools_affected:
+      - "17+ charter schools closed since 2019-20"
+      - "Multiple Alliance for College-Ready Public Schools campuses"
+      - "Multiple Green Dot Public Schools campuses"
+    description: >
+      Across LA Unified's footprint, at least 17 charter schools have closed
+      since the 2019-20 school year, with low enrollment as the typical common
+      denominator. Some of the most prominent charter operators in LA --
+      including Alliance for College-Ready Public Schools and Green Dot Public
+      Schools -- closed one or more campuses. Statewide in California, from
+      2021 to 2023, 31 new charter schools opened but 63 closed. National
+      charter enrollment grew by 370,000 students between 2018-19 and 2020-21
+      even as traditional public school enrollment declined.
+    source: "https://edsource.org/2025/lausd-charter-school-conflict/741518"
+
+  - district: "LA Charter Schools (within LAUSD footprint)"
+    event_type: "closure"
+    date: "2024-02"
+    schools_affected:
+      - "KIPP Pueblo Unido (Maywood, LAUSD-authorized)"
+      - "KIPP Generations Academy (Gardena, LAUSD-authorized)"
+      - "KIPP Poder Public School (Montebello, County-authorized)"
+    description: >
+      On February 1, 2024, KIPP SoCal Public Schools board voted to close three
+      of its schools due to low enrollment. KIPP Pueblo Unido and KIPP
+      Generations were LAUSD-authorized; KIPP Poder was authorized by the
+      LA County Board of Education. The closures reflect broader enrollment
+      challenges facing both traditional public schools and charter networks
+      in the region.
+    source: "https://edsource.org/updates/three-kipp-socal-public-schools-will-close-this-academic-year"
+
+  - district: "LA Charter Schools (within LAUSD footprint)"
+    event_type: "expansion"
+    date: "2021-04"
+    schools_affected:
+      - "SEED LA Charter School (South Los Angeles)"
+    description: >
+      The SEED LA Charter School project, a $97.4 million construction effort
+      (including $70+ million in New Markets Tax Credit funding), closed financing
+      in April 2021 with expected completion in January 2023. The project created
+      a 147,479 sq ft educational facility comprising classrooms, offices, common
+      areas, 20 staff apartments, and 170 dormitory units housing 400 students --
+      a public college-prep boarding high school in South LA providing STEM and
+      humanities curriculum. Created 92 permanent jobs and 150 construction jobs.
+    source: "https://www.ladfnewmarkets.org/project-details/seed-la-charter-school"
+
+  # ============================================================
+  # CHICAGO PUBLIC SCHOOLS (323k students, lost 25k+ since 2019, 19 closures since 2013)
+  # ============================================================
+
+  - district: "Chicago Public Schools"
+    event_type: "closure"
+    date: "2018-02"
+    schools_affected:
+      - "Robeson High School (closed June 2018)"
+      - "Harper High School (phased out by 2021)"
+      - "Hope High School (phased out by 2021)"
+      - "TEAM Englewood High School (phased out by 2021)"
+    description: >
+      The CPS Board voted unanimously to close four Englewood high schools over
+      three years to make way for a new STEM school. Robeson closed immediately
+      (June 2018) for construction of the replacement campus. Harper, Hope, and
+      TEAM Englewood were phased out over three years so existing students could
+      finish at their current schools. The closures came just after the expiration
+      of a five-year moratorium on school closures imposed after the 2013 mass
+      closures. More than 16 public schools have closed in Englewood since 2001.
+    source: "https://news.wttw.com/2018/02/28/cps-board-votes-unanimously-close-4-englewood-high-schools"
+
+  - district: "Chicago Public Schools"
+    event_type: "expansion"
+    date: "2019-09"
+    schools_affected:
+      - "Englewood STEM High School"
+    description: >
+      Englewood STEM High School opened on September 3, 2019, as the first new
+      school in the Englewood neighborhood since the 1970s. The $85 million
+      state-of-the-art facility was built on the former Robeson campus and
+      includes gleaming science labs, an 800-person gymnasium, sports fields,
+      and specialized after-school programs. Upperclassmen can earn college
+      credits through a partnership with Kennedy-King College. The school took
+      in more than 400 freshmen its first year. It replaced four closed
+      Englewood high schools that had suffered from declining enrollment, with
+      ~90% of neighborhood students previously attending high schools outside
+      of Englewood.
+    source: "https://news.wttw.com/2019/09/01/cps-unveils-englewood-stem-high-school-after-controversial-closures"
+
+  - district: "Chicago Public Schools"
+    event_type: "closure"
+    date: "2020-03"
+    schools_affected:
+      - "All CPS schools (district-wide, temporary)"
+    description: >
+      Following Governor Pritzker's mandate, all CPS schools were closed from
+      March 17, 2020, with the closure extended through the remainder of the
+      2019-20 school year (June 18, 2020). Students transitioned to remote
+      learning. For the 2020-21 school year, CPS began with full remote
+      learning in September 2020, then implemented a phased hybrid return
+      starting with Pre-K and cluster programs in the second quarter. The
+      reopening was contentious, with the Chicago Teachers Union threatening
+      strikes over safety concerns.
+    source: "https://www.cps.edu/press-releases/ChangeTab/?tab=2020"
+
+  - district: "Chicago Public Schools"
+    event_type: "renovation"
+    date: "2021-07"
+    schools_affected:
+      - "36 schools (ADA accessibility improvements)"
+      - "Multiple schools (roof, envelope, mechanical projects)"
+    description: >
+      CPS's FY2021 capital plan totaled $758 million, including $20 million for
+      ADA accessibility improvements at 36 schools as part of a new $100 million,
+      five-year commitment to make all CPS buildings first-floor accessible.
+      Improvements targeted parking lots, main entrances, main offices, and
+      public restrooms. The plan also funded critical facility needs including
+      roof, building envelope, mechanical, electrical, and plumbing repairs,
+      plus full-day Pre-K expansions. CPS estimated it would cost $598 million
+      total to make all schools fully wheelchair accessible. Since FY2016, CPS
+      had invested over $2.1 billion in capital improvements.
+    source: "https://www.cps.edu/about/finance/capital-plan/capital-plan-fy2021"
+
+  - district: "Chicago Public Schools"
+    event_type: "renovation"
+    date: "2022-07"
+    schools_affected:
+      - "33 schools (ADA accessibility improvements)"
+      - "750+ active projects district-wide"
+    description: >
+      CPS's FY2022 capital plan totaled $706.6 million, including $20.5 million
+      for ADA accessibility at 33 schools, continuing the multi-year $100 million
+      commitment. As of April 2022, over 750 active projects were underway
+      district-wide, prioritizing mechanical systems for indoor air quality,
+      full-day Pre-K expansions, restroom modernizations, student recreation
+      and athletic improvements, and technology upgrades. CPS developed its
+      first Equity Index tool to prioritize resources for schools in greatest need.
+    source: "https://www.cps.edu/about/finance/capital-plan/capital-plan-fy2022/"
+
+  - district: "Chicago Public Schools"
+    event_type: "renovation"
+    date: "2023-09"
+    schools_affected:
+      - "All 522 CPS campuses (facilities master plan)"
+    description: >
+      CPS released its 2023 Educational Facilities Master Plan, finding that
+      the district would need $14.4 billion to address emergency building repairs
+      and fully modernize all 522 school buildings, with $3 billion in critical
+      needs. The plan determined that 293 of 497 schools (59%) were underutilized
+      (less than 70% capacity), and 163 schools (one-third) were less than half
+      full. The average campus was built in 1940, with 70 facilities dating to
+      before 1900. CPS held 16 neighborhood-specific roundtable discussions
+      from December 2023 through February 2024 to gather community input on
+      priorities for repair, construction, and investment.
+    source: "https://chicago.suntimes.com/education/2023/9/28/23895159/cps-schools-need-14-4b-for-repairs-modernization-report-finds"
+
+  - district: "Chicago Public Schools"
+    event_type: "closure"
+    date: "2024-09"
+    schools_affected:
+      - "No schools closed (moratorium established)"
+    description: >
+      In September 2024, a major controversy erupted when the Chicago Teachers
+      Union (CTU) said it obtained a facilities analysis identifying 70 schools
+      that could be consolidated with 70 others, potentially affecting 100+
+      schools. CPS CEO Pedro Martinez firmly denied closure plans, calling the
+      interpretation false. The CTU House of Delegates passed a vote of no
+      confidence in Martinez. On September 26, 2024, the CPS Board voted
+      unanimously to prohibit any school closures or consolidations through
+      January 2027, extending a state legislative moratorium that was set to
+      expire in January 2025. The district has 61 schools at 30% or less
+      occupancy, compared to 17 at the time of the 2013 mass closures.
+    source: "https://news.wttw.com/2024/09/26/cps-board-votes-unanimously-prohibit-school-closures-until-2027"
+
+  - district: "Chicago Public Schools"
+    event_type: "renovation"
+    date: "2024-07"
+    schools_affected:
+      - "Multiple schools (FY2025 capital plan)"
+    description: >
+      CPS approved its FY2025 capital plan totaling ~$448 million, including
+      $386.9 million in CPS funding plus $61.5 million in outside funding.
+      Investments include $119.1 million for 15 major roof/envelope projects
+      and 9 mechanical system renovations, $25 million for ADA accessibility
+      at 18 schools, $57 million for programmatic investments (CTE upgrades,
+      library renovations, student recreation/athletics), and continued IT
+      upgrades. The plan builds on the $644.5 million FY2023 capital investment.
+      Since FY2016, CPS has invested over $3.5 billion in capital improvements.
+    source: "https://www.cps.edu/about/finance/capital-plan/capital-plan-fy2025/"
+
+  # ============================================================
+  # PHILADELPHIA SCHOOL DISTRICT (111k students, lost 15k since 2019)
+  # ============================================================
+
+  - district: "Philadelphia School District"
+    event_type: "closure"
+    date: "2023-03"
+    schools_affected:
+      - "Building 21 (high school in former elementary building)"
+      - "Frankford High School"
+      - "Mastery Charter Simon Gratz High School"
+      - "Mitchell Elementary School"
+      - "C.W. Henry Elementary"
+      - "Universal Vare Charter School"
+    description: >
+      Six Philadelphia schools were abruptly closed between March and May 2023
+      due to asbestos contamination found in aging buildings. Building 21, in a
+      100-year-old structure, closed first in March; students relocated to
+      Strawberry Mansion High School. Frankford High (900 students displaced)
+      and others followed in April-May. Previous 1990s sampling had incorrectly
+      labeled some materials as non-asbestos-containing. Asbestos exists in 295
+      of the district's 329 buildings, with ~80% of schools built before 1978.
+      Board President called the issues "a hundred years in the making" caused
+      by "decades upon decades of disinvestment."
+    source: "https://www.inquirer.com/education/asbestos-closure-philadelphia-school-district-20231027.html"
+
+  - district: "Philadelphia School District"
+    event_type: "closure"
+    date: "2023-10"
+    schools_affected:
+      - "Southwark Elementary School"
+    description: >
+      Southwark Elementary became the first school closed in the 2023-24 school
+      year due to asbestos contamination, following the six closures from the
+      prior spring. Students were relocated to South Philadelphia High School.
+      The closure prompted the district to announce a plan for handling future
+      environmental hazard-related closures, including asbestos and flooding,
+      with a commitment to conduct inspections every six months across all
+      facilities.
+    source: "https://www.inquirer.com/education/philadelphia-school-asbestos-closed-southwark-20231027.html"
+
+  - district: "Philadelphia School District"
+    event_type: "renovation"
+    date: "2025-08"
+    schools_affected:
+      - "Frankford High School"
+    description: >
+      After nearly two years of closure, Frankford High School reopened on
+      August 18, 2025, following a $29.9 million renovation. The work included
+      asbestos removal and remediation, installation of 6,000 panels to contain
+      remaining fibers, new ceilings with LED lighting, vinyl tile flooring,
+      refinished wood floors, smartboards in every classroom, new windows, and
+      80+ new air conditioning units. The school welcomed ~1,000 students. In a
+      related development, the district faced federal criminal charges for
+      asbestos regulation violations, the first in the nation, resulting in a
+      deferred prosecution agreement with five years of court monitoring.
+    source: "https://6abc.com/post/frankford-high-school-reopens-299m-renovation-asbestos-removal-philadelphia/17579338/"
+
+  - district: "Philadelphia School District"
+    event_type: "bond"
+    date: "2025-01"
+    schools_affected:
+      - "20 schools recommended for closure"
+      - "6 schools recommended for co-location/merger"
+      - "159 schools recommended for upgrades"
+    description: >
+      The School District of Philadelphia released a $2.8 billion Proposed
+      Facilities Master Plan. The plan recommends closing 20 schools (18 in
+      Northeast, Northwest, or West Philadelphia), co-locating or merging 6
+      schools, and upgrading 159 others, with changes scheduled for the 2027-28
+      school year. The plan includes $1 billion in district bond funding and
+      requests $1.8 billion in new government/philanthropic funding. Goals
+      include reducing buildings rated Unsatisfactory or Poor from 85 to 0.
+      The district has classroom space for 180,000 students but serves only
+      116,000. The plan drew immediate opposition from families, educators,
+      and elected officials.
+    source: "https://whyy.org/articles/philadelphia-school-closures-plan/"
+
+  - district: "Philadelphia School District"
+    event_type: "renovation"
+    date: "2023-01"
+    schools_affected:
+      - "All district schools (capital improvement plan)"
+    description: >
+      The district's capital improvement plan allocated $2.489 billion from
+      January 2023 to June 2028, including $602+ million for new construction,
+      $440 million for major renovations, and $353 million for HVAC systems.
+      The district's 300+ buildings average 73 years old, with some dating
+      to 120 years; more than 200 were built before 1978 using lead-based paint
+      and asbestos. Each school is being sorted into five potential outcomes:
+      maintain, modernize, co-locate, repurpose, or close. The district received
+      8,000 responses to a public survey, with most respondents preferring
+      renovation over closure.
+    source: "https://www.philasd.org/fpp/"
+
+  - district: "Philadelphia School District"
+    event_type: "renovation"
+    date: "2023-08"
+    schools_affected:
+      - "All district schools (settlement agreement)"
+    description: >
+      The Philadelphia School District reached a settlement agreement with the
+      city, under which the city committed $2.5 million to help with asbestos
+      and environmental hazard data management and vet an "asbestos investigator
+      workforce." State lawmakers requested $5 billion over five years to address
+      the "facilities crisis," including asbestos and lead-based paint
+      remediation and installation of air conditioning. At a hearing, officials
+      described conditions including crumbling buildings, environmental hazards,
+      and a lack of basic climate control.
+    source: "https://www.chalkbeat.org/philadelphia/2023/8/2/23817888/philadelphia-school-facilities-lawsuit-settlement-streater-watlington/"
