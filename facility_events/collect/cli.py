@@ -21,11 +21,10 @@ def main() -> None:
 
 @main.command()
 def consolidate() -> None:
-    """Merge all YAML research files into a single CSV."""
+    """Merge all YAML research files into events.csv + sources.csv."""
     from .consolidate import consolidate as do_consolidate
 
-    output = DATA_DIR / "facility_events.csv"
-    do_consolidate(DATA_DIR, output)
+    do_consolidate(DATA_DIR, DATA_DIR)
 
 
 @main.command()

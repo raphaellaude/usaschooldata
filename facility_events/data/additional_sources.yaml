@@ -1,0 +1,439 @@
+# Additional sources for existing facility events
+# Generated 2026-02-08
+# Each record provides a 2nd or 3rd source URL for an existing event
+# that currently has only 1 source.
+
+sources:
+  # ============================================================
+  # 1. Houston ISD TEA Takeover (June 2023)
+  # Existing source: Wikipedia article
+  # ============================================================
+  - event_id: "TX-48236400-intervention-202306-tea-state-takeover"
+    url: "https://www.texastribune.org/2023/06/01/tea-houston-isd-takeover-superintendent/"
+    title: "TEA names Mike Miles Houston ISD superintendent as state takeover begins"
+    publisher: "Texas Tribune"
+    notes: "Primary news coverage of TEA appointing Miles and formally beginning the takeover on June 1, 2023"
+
+  - event_id: "TX-48236400-intervention-202306-tea-state-takeover"
+    url: "https://www.texasmonthly.com/news-politics/houston-independent-school-district-state-takeover-mike-miles/"
+    title: "Welcome to Houston's No-Longer-Independent School District"
+    publisher: "Texas Monthly"
+    notes: "In-depth feature on the takeover, its political context, and the community response"
+
+  - event_id: "TX-48236400-intervention-202306-tea-state-takeover"
+    url: "https://houstonlanding.org/timeline-the-long-bitter-road-to-the-tea-takeover-of-houston-isd/"
+    title: "Timeline: The long, bitter road to the TEA takeover of Houston ISD"
+    publisher: "Houston Landing"
+    notes: "Comprehensive timeline from the 2019 legal battle through the 2023 takeover"
+
+  # ============================================================
+  # 2. Houston ISD $4.4B Bond Rejected (Nov 2024)
+  # Existing source: KHOU
+  # ============================================================
+  - event_id: "TX-48236400-bond-202411-44-billion-bond-rejected"
+    url: "https://www.houstonpublicmedia.org/articles/news/education-news/hisd/2024/11/05/504770/houston-isd-bond-rejected-in-large-margin-by-voters-an-unofficial-referendum-of-state-takeover/"
+    title: "Houston ISD bond rejected in large margin by voters, an unofficial referendum of state takeover"
+    publisher: "Houston Public Media"
+    notes: "Detailed election-night reporting on the 58-42% rejection and its connection to the TEA takeover"
+
+  - event_id: "TX-48236400-bond-202411-44-billion-bond-rejected"
+    url: "https://houstonlanding.org/election-2024-houston-isd-bond-trending-toward-defeat-early-results-show/"
+    title: "Election 2024: Houston ISD voters reject bond, delivering rebuke of state-appointed leadership"
+    publisher: "Houston Landing"
+    notes: "Analysis of the bipartisan 'No Trust, No Bond' opposition and its implications"
+
+  - event_id: "TX-48236400-bond-202411-44-billion-bond-rejected"
+    url: "https://thetexan.news/elections/2024/voters-resoundingly-reject-4-4-billion-bond-for-houston-independent-school-district/article_6bc690e2-9c7c-11ef-a13a-f737d99c70bb.html"
+    title: "Voters Resoundingly Reject $4.4 Billion Bond for Houston Independent School District"
+    publisher: "The Texan"
+    notes: "Coverage of the largest school bond rejection in Texas history"
+
+  # ============================================================
+  # 3. Dallas ISD $3.47B Bond Approved (Nov 2020)
+  # Existing source: Dallas ISD Hub
+  # ============================================================
+  - event_id: "TX-48162300-bond-202011-347-billion-bond-approved"
+    url: "https://www.dallasnews.com/news/education/2020/10/22/five-things-to-know-about-the-record-setting-2020-dallas-isd-bond-package/"
+    title: "Five things to know about the record-setting 2020 Dallas ISD bond package"
+    publisher: "Dallas Morning News"
+    notes: "Pre-election explainer on the $3.47B bond across five propositions"
+
+  - event_id: "TX-48162300-bond-202011-347-billion-bond-approved"
+    url: "https://www.cbsnews.com/texas/news/voters-decide-record-3-7b-bond-proposal-dallas-isd/"
+    title: "Voters To Decide On Record $3.7B Dallas ISD Bond Proposal"
+    publisher: "CBS Texas"
+    notes: "Coverage of voters approving Props A and B while rejecting three other propositions"
+
+  - event_id: "TX-48162300-bond-202011-347-billion-bond-approved"
+    url: "https://thehub.dallasisd.org/2025/10/22/the-2020-bond-transforming-learning-across-dallas-isd/"
+    title: "The 2020 Bond: Transforming learning across Dallas ISD"
+    publisher: "Dallas ISD The Hub"
+    notes: "Retrospective on bond outcomes: 253 projects funded, 57,000 jobs created"
+
+  # ============================================================
+  # 4. Fort Worth ISD 18 Campus Closure Plan (May 2025)
+  # Existing source: Fox4
+  # ============================================================
+  - event_id: "TX-48197000-closure-202505-18-campus-five-year-closure-pl"
+    url: "https://www.cbsnews.com/texas/news/fortworthisd-school-closures-budget-enrollment-2025/"
+    title: "Fort Worth ISD board gives final approval to close 18 schools amid budget woes, enrollment decline"
+    publisher: "CBS Texas"
+    notes: "Coverage of 8-0 board vote to close 18 campuses over five years, saving $77.3M"
+
+  - event_id: "TX-48197000-closure-202505-18-campus-five-year-closure-pl"
+    url: "https://fortworthreport.org/2025/05/14/fort-worth-isd-proposes-the-closure-of-these-schools-heres-why-and-where/"
+    title: "Fort Worth ISD proposes the closure of these schools. Here's why -- and where"
+    publisher: "Fort Worth Report"
+    notes: "Detailed local reporting listing specific schools and district rationale"
+
+  - event_id: "TX-48197000-closure-202505-18-campus-five-year-closure-pl"
+    url: "https://www.nbcdfw.com/news/local/parents-anxious-fwisd-vote-school-closures/3845269/"
+    title: "Fort Worth ISD board approves a plan to close 18 schools over a five year period"
+    publisher: "NBC DFW"
+    notes: "Coverage including parent reactions and TEA oversight warnings"
+
+  # ============================================================
+  # 5. Austin ISD 10 School Closures (Nov 2025)
+  # Existing source: KUT
+  # ============================================================
+  - event_id: "TX-48089400-closure-202511-10-school-closures-approved-co"
+    url: "https://communityimpact.com/austin/south-central-austin/education/2025/11/21/austin-isd-board-votes-to-close-10-schools-intervene-at-failing-campuses/"
+    title: "Austin ISD board votes to close 10 schools, intervene at failing campuses"
+    publisher: "Community Impact"
+    notes: "Coverage of the 7-5 board vote after a 9-hour meeting"
+
+  - event_id: "TX-48089400-closure-202511-10-school-closures-approved-co"
+    url: "https://thetexan.news/issues/education/austin-isd-approves-24-state-mandated-turnaround-plans-including-10-school-closures/article_e56ae6e0-d891-48e4-a8bb-25a971e08003.html"
+    title: "Austin ISD Approves 24 State-Mandated Turnaround Plans, Including 10 School Closures"
+    publisher: "The Texan"
+    notes: "Coverage of closures as part of state-mandated turnaround to avoid TEA takeover"
+
+  - event_id: "TX-48089400-closure-202511-10-school-closures-approved-co"
+    url: "https://www.k12dive.com/news/austin-isd-is-closing-10-schools-amid-enrollment-challenges/806349/"
+    title: "Austin ISD is closing 10 schools amid enrollment challenges"
+    publisher: "K-12 Dive"
+    notes: "National education trade coverage of the closures and $21.5M savings projection"
+
+  # ============================================================
+  # 6. LAUSD $9B Measure US Bond (Nov 2024)
+  # Existing source: The 74
+  # ============================================================
+  - event_id: "CA-06227100-bond-202411-los-angeles-unified-school-dis"
+    url: "https://edsource.org/2024/lausd-board-votes-to-add-9-billion-school-construction-bond-to-november-ballot/717200"
+    title: "LAUSD board votes to add $9 billion school construction bond to November ballot"
+    publisher: "EdSource"
+    notes: "Coverage of board vote to place the largest LAUSD bond ever on the ballot"
+
+  - event_id: "CA-06227100-bond-202411-los-angeles-unified-school-dis"
+    url: "https://laist.com/news/politics/2024-election-california-general-lausd-facilities-bond"
+    title: "Measure US: LAUSD facilities bond"
+    publisher: "LAist"
+    notes: "Voter guide with details on 68% passage, $16B total repayment cost, and property tax impact"
+
+  - event_id: "CA-06227100-bond-202411-los-angeles-unified-school-dis"
+    url: "https://ballotpedia.org/Los_Angeles_Unified_School_District,_California,_Measure_US,_Bond_Measure_(November_2024)"
+    title: "Los Angeles Unified School District, California, Measure US, Bond Measure (November 2024)"
+    publisher: "Ballotpedia"
+    notes: "Nonpartisan reference with official ballot language, arguments for/against, and vote totals"
+
+  # ============================================================
+  # 7. LAUSD $7B Measure RR Bond (Nov 2020)
+  # Existing source: CBS Los Angeles
+  # ============================================================
+  - event_id: "CA-06227100-bond-202011-los-angeles-unified-school-dis"
+    url: "https://www.nbclosangeles.com/news/politics/decision-2020/southern-california-elections/lausd-board-races-bond-measure-voters/2453819/"
+    title: "LA Voters Pass $7 Billion LAUSD Bond Measure"
+    publisher: "NBC Los Angeles"
+    notes: "Election-night reporting on Measure RR passing with 71% voter support"
+
+  - event_id: "CA-06227100-bond-202011-los-angeles-unified-school-dis"
+    url: "https://ballotpedia.org/Los_Angeles_Unified_School_District,_California,_Measure_RR,_Bond_Issue_(November_2020)"
+    title: "Los Angeles Unified School District, California, Measure RR, Bond Issue (November 2020)"
+    publisher: "Ballotpedia"
+    notes: "Nonpartisan reference with ballot language, fiscal impact, and vote totals"
+
+  - event_id: "CA-06227100-bond-202011-los-angeles-unified-school-dis"
+    url: "https://www.asumag.com/funding/bond-issues/article/21143770/with-billions-in-facility-needs-los-angeles-district-seeks-approval-of-massive-bond-request"
+    title: "With billions in facility needs, Los Angeles district seeks approval of massive bond request"
+    publisher: "American School & University"
+    notes: "Trade publication analysis of $50B+ in deferred maintenance needs and bond context"
+
+  # ============================================================
+  # 8. Chicago CPS Closures / Moratorium (2024)
+  # Existing source: WTTW
+  # ============================================================
+  - event_id: "IL-17099300-closure-202409-chicago-public-schools"
+    url: "https://www.chalkbeat.org/chicago/2024/09/24/board-of-education-to-vote-on-no-school-closures-resolution/"
+    title: "Chicago Public Schools board to consider barring school closures until 2027"
+    publisher: "Chalkbeat Chicago"
+    notes: "Coverage of the moratorium vote and CTU allegations that CEO Martinez planned closures"
+
+  - event_id: "IL-17099300-closure-202409-chicago-public-schools"
+    url: "https://www.cps.edu/media/community-updates/2024/september/no-school-closures/"
+    title: "Setting the Record Straight: No School Closures Planned for Chicago Public Schools"
+    publisher: "Chicago Public Schools (official)"
+    notes: "Official CPS statement from CEO Martinez denying closure plans"
+
+  - event_id: "IL-17099300-closure-202409-chicago-public-schools"
+    url: "https://www.chalkbeat.org/chicago/2024/11/12/mayor-johnson-criticized-cps-leadership-and-acero-charter-school-closures/"
+    title: "Mayor Johnson asks Chicago Public Schools for backup plan in response to Acero closures"
+    publisher: "Chalkbeat Chicago"
+    notes: "Coverage of Acero charter network closing 7 schools and political fallout"
+
+  # ============================================================
+  # 9. Denver Public Schools Closures (2022)
+  # Existing source: Denverite
+  # ============================================================
+  - event_id: "CO-08033600-closure-202211-denver-public-schools"
+    url: "https://co.chalkbeat.org/2022/11/17/23465364/denver-school-closure-no-vote-school-board-alex-marrero"
+    title: "Denver school closures: Board votes no, sends Marrero back to drawing board"
+    publisher: "Chalkbeat Colorado"
+    notes: "Coverage of the board rejecting the superintendent's closure recommendations"
+
+  - event_id: "CO-08033600-closure-202211-denver-public-schools"
+    url: "https://www.denverpost.com/2022/11/10/denver-five-schools-recommended-closure/"
+    title: "Denver Public Schools shrinks recommended list of school closures to five"
+    publisher: "Denver Post"
+    notes: "Coverage of the revised proposal after five schools were removed from the original list of 10"
+
+  - event_id: "CO-08033600-closure-202211-denver-public-schools"
+    url: "https://www.chalkbeat.org/colorado/2022/10/26/23425626/denver-school-closures-list-of-10-schools-marrero-defends-pick-parents-react-nov-17-vote/"
+    title: "Denver school closures: Parents dismayed, superintendent defends picks"
+    publisher: "Chalkbeat Colorado"
+    notes: "Reporting on the original 10-school closure proposal and community reaction"
+
+  # ============================================================
+  # 10. Denver Public Schools Closures (2024)
+  # Existing source: Chalkbeat Colorado
+  # ============================================================
+  - event_id: "CO-08033600-closure-202411-denver-public-schools"
+    url: "https://coloradosun.com/2024/11/21/denver-public-schools-closing-schools-alex-marrero/"
+    title: "Denver Public Schools to close 7 schools, cut grades at 3 others despite heavy resistance"
+    publisher: "Colorado Sun"
+    notes: "Coverage of the unanimous board vote to close/restructure 10 sites, saving $30M"
+
+  - event_id: "CO-08033600-closure-202411-denver-public-schools"
+    url: "https://www.denverpost.com/2024/11/21/denver-school-closures-approved-dps-enrollment/"
+    title: "Denver school closures: DPS board votes to close, restructure 10 sites"
+    publisher: "Denver Post"
+    notes: "Reporting on 1,087 affected students and disproportionate impact on students of color"
+
+  - event_id: "CO-08033600-closure-202411-denver-public-schools"
+    url: "https://denverite.com/2024/11/21/denver-public-schools-closures-confirmed/"
+    title: "Denver Public Schools board votes to close 7 schools, forcing 1,100 families to relocate next year"
+    publisher: "Denverite"
+    notes: "Community-focused reporting on the closure vote and family impact"
+
+  # ============================================================
+  # 11. Miami-Dade County Closures/Repurposing (April 2024)
+  # Existing source: Axios Miami
+  # ============================================================
+  - event_id: "FL-12003900-closure-202404-miami-dade-county-public-schoo"
+    url: "https://www.cbsnews.com/miami/news/south-florida-parents-push-back-over-school-repurposing-plans/"
+    title: "South Florida parents push back over school-repurposing plans"
+    publisher: "CBS Miami"
+    notes: "Coverage of parent opposition to Parkview and Shadowlawn repurposing"
+
+  - event_id: "FL-12003900-closure-202404-miami-dade-county-public-schoo"
+    url: "https://floridaphoenix.com/2024/06/25/districts-are-closing-traditional-public-schools-as-charters-etc-lure-students/"
+    title: "Districts are closing traditional public schools as charters, etc., lure students"
+    publisher: "Florida Phoenix"
+    notes: "Statewide context piece linking Miami-Dade repurposing to broader school choice enrollment trends"
+
+  # ============================================================
+  # 12. Charlotte-Mecklenburg Schools $2.5B Bond (Nov 2023)
+  # Existing source: WFAE
+  # ============================================================
+  - event_id: "NC-37029700-bond-202311-charlotte-mecklenburg-schools"
+    url: "https://www.wunc.org/2023-11-07/2-5-billion-cms-bond-referendum-leans-toward-victory-in-early-results"
+    title: "Voters approve record $2.5 billion in CMS bonds, despite worries about taxes"
+    publisher: "WUNC (NPR)"
+    notes: "Election-night coverage of the 63% approval -- largest school bond in NC history"
+
+  - event_id: "NC-37029700-bond-202311-charlotte-mecklenburg-schools"
+    url: "https://spectrumlocalnews.com/nc/charlotte/news/2023/11/08/charlotte-mecklenburg-schools-election-results"
+    title: "Mecklenburg voters approve $2.5B schools bond"
+    publisher: "Spectrum News"
+    notes: "Coverage of 30 high-priority projects including 3 new schools and 16 replacements"
+
+  - event_id: "NC-37029700-bond-202311-charlotte-mecklenburg-schools"
+    url: "https://www.nctreasurer.gov/news/press-releases/2024/02/07/local-government-commission-approves-25b-bond-charlotte-mecklenburg-school"
+    title: "Local Government Commission Approves $2.5B Bond for Charlotte-Mecklenburg School"
+    publisher: "NC State Treasurer"
+    notes: "Official state approval of the bonds -- largest tax-exempt financing ever handled by NC LGC"
+
+  # ============================================================
+  # 13. Wake County Public Schools Bond (Nov 2022)
+  # Existing source: ABC11
+  # ============================================================
+  - event_id: "NC-37047200-bond-202211-wake-county-public-school-syst"
+    url: "https://ballotpedia.org/Wake_County,_North_Carolina,_School_Bond_Measure_(November_2022)"
+    title: "Wake County, North Carolina, School Bond Measure (November 2022)"
+    publisher: "Ballotpedia"
+    notes: "Nonpartisan reference with official ballot language and results for the $530.7M bond"
+
+  - event_id: "NC-37047200-bond-202211-wake-county-public-school-syst"
+    url: "https://www.wunc.org/news/2022-10-12/wake-county-bonds-parks-schools-ballot-2022-tech"
+    title: "In Wake County, bonds for parks, schools are on the ballot in 2022"
+    publisher: "WUNC (NPR)"
+    notes: "Pre-election explainer on the bond funding 3 new elementary schools and 1 new high school"
+
+  - event_id: "NC-37047200-bond-202211-wake-county-public-school-syst"
+    url: "https://www.wral.com/wake-school-board-asks-county-for-530-7m-bond-proposal-for-voters/20241551/"
+    title: "Wake school board asks county for $530.7M bond proposal for voters"
+    publisher: "WRAL"
+    notes: "Coverage of the school board formally requesting the bond be placed on the ballot"
+
+  # ============================================================
+  # 14. Memphis-Shelby County Schools Closures (2025)
+  # Existing source: Chalkbeat Tennessee
+  # ============================================================
+  - event_id: "TN-47001480-closure-202509-memphis-shelby-county-schools"
+    url: "https://dailymemphian.com/article/54831/memphis-shelby-county-schools-to-reveal-next-years-school-closures"
+    title: "MSCS to reveal next year's school closures, mergers"
+    publisher: "Daily Memphian"
+    notes: "Coverage of MSCS preparing to announce school closures as part of the facilities framework"
+
+  - event_id: "TN-47001480-closure-202509-memphis-shelby-county-schools"
+    url: "https://www.fox13memphis.com/education/mscs-recommends-closing-four-schools-by-end-of-academic-year/article_ac98f229-9382-444f-847d-832a5b4743f4.html"
+    title: "MSCS recommends closing four schools by end of academic year"
+    publisher: "Fox13 Memphis"
+    notes: "Coverage of the initial 4-school closure recommendation including Frayser-Corning and Georgian Hills"
+
+  - event_id: "TN-47001480-closure-202509-memphis-shelby-county-schools"
+    url: "https://www.chalkbeat.org/tennessee/2025/11/11/memphis-district-could-seek-750-million-county-bond-for-school-repairs/"
+    title: "Memphis district could seek $750 million county bond for school repairs"
+    publisher: "Chalkbeat Tennessee"
+    notes: "Context on the $1.6B in needed repairs driving closures and the proposed bond request"
+
+  # ============================================================
+  # 15. Columbus City Schools Closures (Dec 2024)
+  # Existing source: WOSU
+  # ============================================================
+  - event_id: "OH-39043780-closure-202412-columbus-city-schools"
+    url: "https://spectrumnews1.com/oh/columbus/news/2024/12/18/columbus-city-school-board-votes-to-close-five-schools"
+    title: "Columbus City Schools board votes to close five schools"
+    publisher: "Spectrum News 1"
+    notes: "Coverage of the board vote to close Broadleigh, Moler, West Broad, Buckeye MS, and Columbus Alt HS"
+
+  - event_id: "OH-39043780-closure-202412-columbus-city-schools"
+    url: "https://abc6onyourside.com/news/local/here-is-which-columbus-city-schools-buildings-will-close"
+    title: "Here are which Columbus City Schools buildings will close"
+    publisher: "ABC6 On Your Side"
+    notes: "Detailed list of closing schools and the phased transition timeline"
+
+  - event_id: "OH-39043780-closure-202412-columbus-city-schools"
+    url: "https://www.nbc4i.com/news/millions-spent-on-columbus-city-schools-slated-for-closure/"
+    title: "Millions spent on Columbus City Schools slated for closure"
+    publisher: "NBC4 WCMH-TV"
+    notes: "Investigative reporting on $10.2M spent on closing schools during the same year as closure discussions"
+
+  # ============================================================
+  # 16. Minneapolis Public Schools Facilities Plan (Nov 2024)
+  # Existing source: Minnesota Reformer
+  # ============================================================
+  - event_id: "MN-27000250-facilities_plan-202411-minneapolis-public-schools"
+    url: "https://www.mplsschoolsvoices.news/posts/half-of-minneapolis-public-schools-buildings-are-under-utilized"
+    title: "Half of Minneapolis Public Schools buildings are underutilized"
+    publisher: "Minneapolis Schools Voices"
+    notes: "Detailed analysis of the physical space study showing 52% of buildings underutilized"
+
+  - event_id: "MN-27000250-facilities_plan-202411-minneapolis-public-schools"
+    url: "https://www.americanexperiment.org/signs-of-potential-school-closures-for-minneapolis-public-schools/"
+    title: "Signs of potential school closures for Minneapolis Public Schools"
+    publisher: "Center of the American Experiment"
+    notes: "Analysis of the district's enrollment decline and facilities transformation process"
+
+  - event_id: "MN-27000250-facilities_plan-202411-minneapolis-public-schools"
+    url: "https://www.startribune.com/minneapolis-public-schools-asks-voters-to-help-with-technology-needs-as-bigger-questions-loom/601155667"
+    title: "Minneapolis Public Schools seeks property tax hike for technology"
+    publisher: "Star Tribune"
+    notes: "Coverage linking the November 2024 levy to the broader facilities rightsizing challenge"
+
+  # ============================================================
+  # 17. Milwaukee Public Schools Referendum (April 2024)
+  # Existing source: N/A (checking)
+  # ============================================================
+  - event_id: "WI-55096000-bond-202404-milwaukee-public-schools"
+    url: "https://wispolicyforum.org/research/the-abcs-of-the-2024-mps-referendum/"
+    title: "The ABCs of the 2024 MPS Referendum"
+    publisher: "Wisconsin Policy Forum"
+    notes: "Nonpartisan policy analysis of the $252M referendum structure and tax impact"
+
+  - event_id: "WI-55096000-bond-202404-milwaukee-public-schools"
+    url: "https://www.fox6now.com/news/mps-funding-referendum-milwaukee-april-2024"
+    title: "MPS funding referendum OK'd; 1,700 votes made difference"
+    publisher: "Fox6 Milwaukee"
+    notes: "Coverage of the narrow 51-49% passage and voting patterns across the city"
+
+  - event_id: "WI-55096000-bond-202404-milwaukee-public-schools"
+    url: "https://www.bondbuyer.com/news/milwaukee-other-wisconsin-school-districts-pass-referendums"
+    title: "Over 60 Wisconsin school districts pass referendums, including Milwaukee Public Schools"
+    publisher: "Bond Buyer"
+    notes: "Municipal finance industry coverage placing MPS in the context of statewide referendum wave"
+
+  # ============================================================
+  # 18. Indianapolis Public Schools Closures (June 2023)
+  # Existing source: WFYI
+  # ============================================================
+  - event_id: "IN-18047700-closure-202306-indianapolis-public-schools"
+    url: "https://www.chalkbeat.org/indiana/2023/5/16/23726391/indianapolis-public-schools-reuse-plan-six-closing-buildings-parker-buck-torrence-114-charter-blind/"
+    title: "Indiana School for the Blind will occupy two of the six IPS schools expected to close"
+    publisher: "Chalkbeat Indiana"
+    notes: "Coverage of the reuse plans for the six closing school buildings"
+
+  - event_id: "IN-18047700-closure-202306-indianapolis-public-schools"
+    url: "https://www.chalkbeat.org/indiana/2023/7/31/23814196/indianapolis-public-schools-first-day-school-rebuilding-stronger-closures-changes-students-academics/"
+    title: "First day of school in IPS means big shift for students at closed schools"
+    publisher: "Chalkbeat Indiana"
+    notes: "Coverage of the transition as 1,200+ students and 300 staff were relocated"
+
+  - event_id: "IN-18047700-closure-202306-indianapolis-public-schools"
+    url: "https://www.wthr.com/article/news/local/first-look-indianapolis-public-schools-rebuilding-stronger-plan/531-b31c2a77-5046-4a66-a82c-73758a5af8fa"
+    title: "Breaking down the sweeping changes proposed for IPS students, schools"
+    publisher: "WTHR"
+    notes: "Detailed breakdown of the Rebuilding Stronger plan including closures and grade reconfigurations"
+
+  # ============================================================
+  # 19. Cypress-Fairbanks ISD $1.76B Bond (May 2019)
+  # Existing source: Houston Chronicle/Chron
+  # ============================================================
+  - event_id: "TX-48002111-bond-201905-176-billion-bond-approved-2019"
+    url: "https://communityimpact.com/cy-fair/city-county/2019/05/04/cy-fair-isd-bond-election/"
+    title: "UPDATE: Cy-Fair ISD's $1.76 billion bond referendum passes in May election"
+    publisher: "Community Impact"
+    notes: "Election-night coverage with 70.4% approval rate -- largest school bond in TX history at the time"
+
+  - event_id: "TX-48002111-bond-201905-176-billion-bond-approved-2019"
+    url: "https://hollyhansen.org/2019/04/17/cypress-fairbanks-isd-asks-for-record-breaking-1-76-billion-bond/"
+    title: "Cypress-Fairbanks ISD Asks for Record-Breaking $1.76 Billion Bond"
+    publisher: "Holly Hansen"
+    notes: "Pre-election analysis of the bond committee's process and $2.6B in identified needs"
+
+  - event_id: "TX-48002111-bond-201905-176-billion-bond-approved-2019"
+    url: "https://communityimpact.com/houston/cy-fair-cypress/development/2023/06/14/some-cy-fair-isd-bond-projects-ahead-of-schedule/"
+    title: "Some Cy-Fair ISD bond projects ahead of schedule"
+    publisher: "Community Impact"
+    notes: "Mid-construction update showing 2019 bond projects completing ahead of the original 7-phase timeline"
+
+  # ============================================================
+  # 20. Fairfax County Public Schools Bond (Nov 2023)
+  # Existing source: FCPS official site
+  # ============================================================
+  - event_id: "VA-51012600-bond-202311-fairfax-county-public-schools"
+    url: "https://ballotpedia.org/Fairfax_County,_Virginia,_Public_School_Facilities_Bond_Measure_(November_2023)"
+    title: "Fairfax County, Virginia, Public School Facilities Bond Measure (November 2023)"
+    publisher: "Ballotpedia"
+    notes: "Nonpartisan reference with official ballot language and 68% approval result"
+
+  - event_id: "VA-51012600-bond-202311-fairfax-county-public-schools"
+    url: "https://www.fcps.edu/news/fairfax-county-voters-renew-community-investment-fcps-support-school-bonds"
+    title: "Fairfax County Voters Renew Community Investment in FCPS with Support for School Bonds"
+    publisher: "Fairfax County Public Schools (official)"
+    notes: "Official FCPS press release on voter approval of $435M in bonds"
+
+  - event_id: "VA-51012600-bond-202311-fairfax-county-public-schools"
+    url: "https://thewash.org/2023/11/04/fairfax-county-republicans-push-no-vote-on-school-bond-referendum-despite-strong-public-support/"
+    title: "Fairfax County Republicans push 'no' vote on school bond referendum despite strong public support"
+    publisher: "The Wash"
+    notes: "Coverage of political dynamics around the bond including GOP opposition"

@@ -1,753 +1,790 @@
-# NC, VA, MD, GA, CO, NV Major School District Facility Events (2020-2025)
-# Researched: 2026-02-08
-# Focus: Wake County, Charlotte-Mecklenburg, Fairfax County, Prince William County,
-#         Montgomery County MD, Prince George's County, Baltimore City, Baltimore County,
-#         Gwinnett County, Cobb County, DeKalb County, Fulton County,
-#         Denver Public Schools, Douglas County CO, Jefferson County CO,
-#         Clark County NV, Nevada State-Sponsored Charter Schools
-
 events:
-
-  # ============================================================
-  # WAKE COUNTY PUBLIC SCHOOLS (161k students, growing, +10 schools)
-  # NCES District ID: 3704720
-  # ============================================================
-
-  - district: "Wake County Public School System"
-    event_type: "bond"
-    date: "2022-11"
-    schools_affected:
-      - "5 new schools"
-      - "7 school renovations"
-    description: >
-      Wake County voters approved a $530.7 million school bond referendum on
-      November 8, 2022, as part of over $1 billion in bond approvals. The bond
-      funds construction of five new schools (elementary schools in Apex,
-      Fuquay-Varina, and Wendell; a middle school in Morrisville; and a high school
-      serving west Cary/Morrisville) plus major renovations at seven existing
-      schools. Property tax impact was 1 cent per $100 of assessed value.
-      The bond supplements a 7-year building plan (FY 2023-2029) totaling
-      $2.632 billion for 11 new schools and 10 major renovations.
-    source: "https://abc11.com/wake-county-election-results-bonds-parks/12434777/"
-
-  - district: "Wake County Public School System"
-    event_type: "expansion"
-    date: "2025-08"
-    schools_affected:
-      - "Bowling Road Elementary (Fuquay-Varina)"
-      - "Pleasant Plains Elementary (Apex)"
-      - "Rex Road Elementary (Holly Springs)"
-      - "Felton Grove High School (Apex)"
-    description: >
-      Four new schools opened for the 2025-26 school year to address tremendous
-      growth in Southern Wake County. Rex Road Elementary is a 133,000 sq ft campus
-      designed for 800 K-5 students. The four new schools bring the district total
-      to 203 schools serving 161,115+ students. The district forecasts growth to
-      170,000+ students over the next 10 years, with five more schools planned
-      in that period. In 2021-22, 11% of teaching spaces were in 894 mobile/modular
-      classrooms.
-    source: "https://abc11.com/post/wake-county-public-school-systems-is-opening-new-schools-tremendous-growth-southern/17394214/"
-
-  - district: "Wake County Public School System"
-    event_type: "expansion"
-    date: "2027-08"
-    schools_affected:
-      - "Morrisville High School (Little/Davis Drive site)"
-    description: >
-      Morrisville High School is planned to open for the 2027-2028 school year
-      with students in grades 9-10. Prior to that, Wake Early College of
-      Information and Biotechnologies will occupy a portion of the building
-      beginning as early as November 2025. A Parkside Middle School is planned
-      to open no earlier than the 2028-2029 school year.
-    source: "https://www.wcpss.net/about-us/school-facilities/design-and-construction/morrisville-projects-updates"
-
-  # ============================================================
-  # CHARLOTTE-MECKLENBURG SCHOOLS (144k students, growing, +11 schools)
-  # NCES District ID: 3702970
-  # ============================================================
-
-  - district: "Charlotte-Mecklenburg Schools"
-    event_type: "bond"
-    date: "2023-11"
-    schools_affected:
-      - "30 bond projects across the district"
-    description: >
-      Mecklenburg County voters approved a historic $2.5 billion school bond,
-      the largest school bond in North Carolina history. The bond covers 30
-      projects including new middle schools in Huntersville, south and southwest
-      Charlotte; a new health-sciences magnet high school in uptown Charlotte;
-      a new regional athletic facility in west Charlotte; and 25 renovation and
-      replacement projects. Funded by a 3-cent property tax increase phased in
-      during 2025, 2028, and 2029. As enrollment growth slows, the bond shifts
-      focus from new construction to replacing existing aging schools.
-    source: "https://www.wfae.org/education/2023-10-31/heres-everything-you-need-to-know-about-the-2-5-billion-cms-bond-vote-on-nov-7"
-
-  - district: "Charlotte-Mecklenburg Schools"
-    event_type: "renovation"
-    date: "2025-08"
-    schools_affected:
-      - "Billingsville Elementary (renovation)"
-      - "Sedgefield Elementary (renovation to Montessori magnet)"
-      - "Marie G. Davis School (renovation to Montessori 7-12 magnet)"
-    description: >
-      The first projects from the 2023 $2.5 billion bond were completed by
-      August 2025. Billingsville and Sedgefield elementaries and Marie G. Davis
-      School were renovated and reopened as Montessori magnet schools, replacing
-      the older Chantilly, Park Road, and J.T. Williams buildings. Sedgefield
-      moved pre-K-2 students into the Dilworth building in August 2024 as part
-      of the transition.
-    source: "https://www.wfae.org/education/2024-05-29/cms-gives-construction-schedules-for-12-school-bond-projects"
-
-  - district: "Charlotte-Mecklenburg Schools"
-    event_type: "renovation"
-    date: "2027-08"
-    schools_affected:
-      - "South Mecklenburg High School (replacement of 1958 building)"
-    description: >
-      South Mecklenburg High School replacement of a 1958 classroom building is
-      scheduled for completion in August 2027, funded with both 2017 and 2023
-      bonds. The replacement of North Mecklenburg High School (opened 1951) is
-      the most expensive project at approximately $228.5 million, scheduled for
-      2028-2030.
-    source: "https://www.lakenormanpublications.com/articles/north-mecklenburg-cms-bond-projects-move-forward-with-3-in-design-phase/"
-
-  - district: "Charlotte-Mecklenburg Schools"
-    event_type: "expansion"
-    date: "2028-08"
-    schools_affected:
-      - "New middle school (Stumptown Road, Huntersville)"
-    description: >
-      A new middle school on Stumptown Road in Huntersville is scheduled for
-      completion in August 2028. It will relieve crowding in northern schools,
-      allow the district to add magnet seats, and absorb students from Davidson
-      K-8 when that school converts to an elementary school. CMS is also
-      converting several schools: Thomasboro PreK-8 becomes elementary only,
-      University Park Creative Arts becomes a full K-5 arts magnet, and
-      Rea Farms STEAM becomes a full K-8 magnet.
-    source: "https://www.wfae.org/education/2023-01-20/big-cms-bond-big-changes-whats-planned-for-your-school"
-
-  # ============================================================
-  # FAIRFAX COUNTY PUBLIC SCHOOLS (181k students, lost 8k since 2019)
-  # NCES District ID: 5100390
-  # ============================================================
-
-  - district: "Fairfax County Public Schools"
-    event_type: "bond"
-    date: "2023-11"
-    schools_affected:
-      - "7 elementary school renovations"
-      - "8 elementary school designs"
-      - "1 middle school design"
-      - "25+ schools (security vestibules)"
-    description: >
-      Fairfax County voters approved a $435 million school bond referendum with
-      67% support on November 7, 2023. Funds support renovation of seven
-      elementary schools, planning/design of eight additional elementary schools
-      and one middle school, three modular relocations, and security vestibule
-      installation at 25+ schools. FCPS maintains a triple-A bond rating,
-      saving taxpayers an estimated $1 billion in financing costs. School
-      facilities are valued at nearly $6.5 billion.
-    source: "https://www.fcps.edu/Bond2023"
-
-  - district: "Fairfax County Public Schools"
-    event_type: "renovation"
-    date: "2024-08"
-    schools_affected:
-      - "Braddock Elementary"
-      - "Louise Archer Elementary"
-      - "Crossfield Elementary"
-      - "Mosby Woods Elementary"
-      - "Bonnie Brae Elementary"
-      - "Cooper Middle School"
-      - "Falls Church High School"
-    description: >
-      Major renovation projects continued across FCPS as part of the FY 2025-29
-      CIP. Braddock Elementary ($35.6M) and Louise Archer Elementary ($29.4M)
-      renovations were completed. Crossfield, Mosby Woods, and Bonnie Brae
-      elementaries completed or neared completion. Cooper Middle School and Falls
-      Church High School renovations were underway. FCPS operates on a 41-year
-      renovation cycle for its facilities.
-    source: "https://www.fcps.edu/building-our-future-capital-project-status"
-
-  - district: "Fairfax County Public Schools"
-    event_type: "expansion"
-    date: "2026-01"
-    schools_affected:
-      - "Dunn Loring Elementary (new, from administrative center)"
-      - "Silver Line Elementary (new)"
-      - "Western High School (acquisition and renovation)"
-    description: >
-      The FY 2027-2031 CIP requires $1.1 billion over five years for renovation,
-      maintenance, and construction. Plans include repurposing the Dunn Loring
-      Administrative Center into a new elementary school to relieve overcrowding
-      in the Dunn Loring/Falls Church/Tysons area, constructing a new Silver Line
-      Elementary, and acquiring and renovating Western High School. Enrollment is
-      expected to decline from ~177,000 to ~171,000 by 2030-31.
-    source: "https://www.ffxnow.com/2026/01/13/fcps-anticipates-construction-on-three-new-schools-in-proposed-capital-plan/"
-
-  # ============================================================
-  # PRINCE WILLIAM COUNTY PUBLIC SCHOOLS (82k students)
-  # NCES District ID: 5103130
-  # ============================================================
-
-  - district: "Prince William County Public Schools"
-    event_type: "expansion"
-    date: "2025-08"
-    schools_affected:
-      - "Woodbridge Area Elementary School (new)"
-    description: >
-      A new elementary school in the Woodbridge area opened for the 2025-26
-      school year. The district's CIP 2025-2030 was reassessed based on
-      projected enrollment declines, with several projects slated for delay
-      including the 14th high school and Brentsville District High School
-      renovations.
-    source: "https://www.pwcs.edu/news/2024/01/proposedcip25-30"
-
-  - district: "Prince William County Public Schools"
-    event_type: "closure"
-    date: "2026-02"
-    schools_affected:
-      - "14th High School (cancelled)"
-    description: >
-      Prince William County officially cancelled plans for its 14th high school,
-      which had been delayed multiple times due to declining enrollment. PWCS
-      data showed the county anticipates 1,030 vacant seats across existing 13
-      high schools by 2029. The district projects a decrease of approximately
-      3,776 students over the next five years. Northern Virginia experienced its
-      first population decline since 1970, as residents move to Richmond and
-      exurbs due to housing costs and remote work.
-    source: "https://northernvirginiamag.com/family/education/2026/02/06/prince-william-county-cancels-plans-for-new-high-school/"
-
-  # ============================================================
-  # MONTGOMERY COUNTY PUBLIC SCHOOLS (152k students)
-  # NCES District ID: 2400390
-  # ============================================================
-
-  - district: "Montgomery County Public Schools"
-    event_type: "renovation"
-    date: "2025-10"
-    schools_affected:
-      - "162 school buildings over 25 years old"
-      - "40 HVAC systems not functioning properly"
-    description: >
-      MCPS unveiled its "Hard Truths About Our School Buildings" presentation,
-      revealing that nearly two-thirds of its 238 school buildings (162 buildings)
-      are more than 25 years old, with $740 million in overdue projects including
-      40 non-functioning HVAC systems. The district needs $175 million to replace
-      roofs older than 20 years. To reach long-term goals, MCPS would need to
-      renovate 6-7 elementary schools and 3 middle/high schools every year for
-      20 years; currently averaging only 5 schools per year.
-    source: "https://mocoshow.com/2025/10/14/mcps-presentation-hard-truths-about-our-school-buildings-outlines-major-overhaul-of-school-facilities-plan/"
-
-  - district: "Montgomery County Public Schools"
-    event_type: "bond"
-    date: "2025-11"
-    schools_affected:
-      - "13 Major Capital Projects (4 HS, 2 MS, 7 ES)"
-    description: >
-      The Board of Education accepted a $2.78 billion Capital Improvements
-      Program (FY 2027-2032) targeting aging buildings, critical systems, and
-      infrastructure. Includes 13 Major Capital Projects (four high schools, two
-      middle schools, seven elementary schools) for completion within six years,
-      plus $521.4 million for HVAC/roof replacements and $303.8 million for other
-      infrastructure renewal. County Executive Marc Elrich proposed $2.1 billion
-      for MCPS in the county's $6.6 billion CIP -- a record allocation.
-    source: "https://mocoshow.com/2025/11/20/mcps-board-of-education-advances-major-capital-recommendation-to-modernize-schools-and-address-long-standing-facility-needs/"
-
-  - district: "Montgomery County Public Schools"
-    event_type: "expansion"
-    date: "2027-08"
-    schools_affected:
-      - "Crown High School (Gaithersburg, new)"
-      - "Charles W. Woodward High School (reopening)"
-    description: >
-      Crown High School in Gaithersburg is expected to open in 2027, along with
-      the reopening of Charles W. Woodward High School and an expansion of
-      Damascus High School for the 2027-2028 year. Parents raised concerns
-      about plans to initially use Crown as a "holding school." The openings
-      require comprehensive boundary studies with at least seven options being
-      considered for attendance zone redraws.
-    source: "https://bethesdamagazine.com/2026/02/04/taylor-boundary-program-recommendation/"
-
-  - district: "Montgomery County Public Schools"
-    event_type: "closure"
-    date: "2025-12"
-    schools_affected:
-      - "Silver Spring International Middle School (proposed closure 2030)"
-    description: >
-      The MCPS superintendent proposed closing the 90-year-old Silver Spring
-      International Middle School in 2030 and converting it to a holding school.
-      In December 2025, the school board suspended consideration of the closure,
-      choosing to incorporate the decision into a future holistic study of
-      elementary school boundaries. Enrollment has dropped to a 10-year low,
-      with steeper declines projected due to lower birth rates and fewer
-      international students. The district has not shuttered a campus in decades.
-    source: "https://wjla.com/news/local/silver-spring-international-montgomery-county-boundary-study-education-new-action-proposed-closure-middle-school-holding-facility-construction-renovated-enrollment-students-programs-blair-high"
-
-  # ============================================================
-  # PRINCE GEORGE'S COUNTY PUBLIC SCHOOLS (129k students, lost 7k)
-  # NCES District ID: 2400450
-  # ============================================================
-
-  - district: "Prince George's County Public Schools"
-    event_type: "bond"
-    date: "2023-09"
-    schools_affected:
-      - "8 new schools (6 elementary, 2 K-8)"
-    description: >
-      PGCPS brought more than $660 million in taxable sustainable revenue bonds
-      to fast-track construction of eight new schools via a public-private
-      partnership (P3) -- the second P3 package for the district but the first
-      using taxable municipal bonds. The eight schools (six elementary and two
-      K-8) comprise 1.03 million sq ft with enrolling capacity of approximately
-      8,150 students. Prince George's County contributes $69 million annually
-      to the P3 fund.
-    source: "https://www.bondbuyer.com/news/prince-georges-county-md-school-p3-brings-660m-of-sustainable-taxable-deal"
-
-  # ============================================================
-  # BALTIMORE CITY PUBLIC SCHOOLS (108k students, +6 schools)
-  # NCES District ID: 2400090
-  # ============================================================
-
-  - district: "Baltimore City Public Schools"
-    event_type: "closure"
-    date: "2022-01"
-    schools_affected:
-      - "Eutaw-Marshburn Elementary (West Baltimore)"
-      - "Steuart Hill Academic Academy (Union Square)"
-      - "New Era Academy (South Baltimore)"
-    description: >
-      The Baltimore City school board voted to permanently close three public
-      schools during summer 2023, citing low enrollment and deteriorating
-      buildings. A fourth school, Dr. Bernard Harris Elementary, was kept open
-      as its facility issues were less severe. The board also voted unanimously
-      to develop a strategic plan for long-term enrollment and school closures.
-    source: "https://www.baltimoresun.com/2022/01/26/baltimore-city-school-board-votes-to-permanently-close-3-schools-in-summer-2023-citing-low-enrollment-building-conditions/"
-
-  - district: "Baltimore City Public Schools"
-    event_type: "renovation"
-    date: "2022-10"
-    schools_affected:
-      - "Baltimore City College"
-      - "Frederick Douglass High School"
-      - "Baltimore Polytechnic Institute"
-      - "Western High School"
-    description: >
-      Baltimore City invested $400 million in renovating its oldest school
-      buildings as part of the 21st Century School Buildings Program successor
-      (Built to Learn Act of 2021). Baltimore City College moved to the former
-      Thurgood Marshall HS building for three years during construction. Frederick
-      Douglass HS moved to Garrison Middle for two years. Polytechnic Institute
-      and Western High were slated to move in 2025 to Northwestern and Chinquapin
-      buildings respectively. The program has delivered 29 new or renovated
-      schools at approximately $40 million each.
-    source: "https://www.wypr.org/wypr-news/2022-10-13/baltimore-city-schools-tackling-lack-of-a-c-and-heat-investing-400m-in-oldest-buildings"
-
-  # ============================================================
-  # BALTIMORE COUNTY PUBLIC SCHOOLS (76k students, -10 schools)
-  # NCES District ID: 2400120
-  # ============================================================
-
-  - district: "Baltimore County Public Schools"
-    event_type: "renovation"
-    date: "2023-06"
-    schools_affected:
-      - "Lansdowne High School (new, $26M state funds)"
-      - "Towson High School (renovation, $20M state funds)"
-      - "Deer Park Elementary (new, $15M state funds)"
-      - "Scott's Branch Elementary (new, $10M state funds)"
-      - "Dundalk High School (addition, $8M state funds)"
-      - "Pine Grove Middle School (addition, $1M state funds)"
-    description: >
-      Baltimore County received $80 million in additional state grant funds to
-      accelerate major school construction projects. These are part of County
-      Executive Olszewski's $3.3 billion plan to improve every school in
-      Baltimore County over 15 years, including almost $210 million in new
-      spending in 2023. Just under 80% of BCPS school buildings are 40+ years
-      old. The Multi-Year Improvement Plan for All Schools (MYIPAS) was
-      commissioned in 2020 using CannonDesign consultants.
-    source: "https://www.baltimorecountymd.gov/county-news/2023/06/12/olszewski-announces-80-million-in-state-grant-funds-to-accelerate-key-school-construction-projects"
-
-  - district: "Baltimore County Public Schools"
-    event_type: "closure"
-    date: "2025-03"
-    schools_affected:
-      - "Campfield Early Learning Center (Gwynn Oak)"
-    description: >
-      The Baltimore County Board of Education voted on March 11, 2025 to close
-      Campfield Early Learning Center at the end of the current academic year,
-      earlier than the originally planned 2025-26 closure. With fewer than 60
-      students projected, officials determined students' needs could be better
-      met at home schools or nearby regional programs. The Campfield site was
-      approved in January 2024 as the future location of the Northwest Area
-      Career and Technology Education Center. The original closure was approved
-      by a 6-5 board vote in September 2023.
-    source: "https://www.cbsnews.com/baltimore/news/maryland-campfield-early-learning-center-education-students-staff-redistricting/"
-
-  # ============================================================
-  # GWINNETT COUNTY PUBLIC SCHOOLS (182k students)
-  # NCES District ID: 1302550
-  # ============================================================
-
-  - district: "Gwinnett County Public Schools"
-    event_type: "bond"
-    date: "2020-11"
-    schools_affected:
-      - "All GCPS schools (district-wide E-SPLOST continuation)"
-    description: >
-      Gwinnett County voters approved continuation of the existing E-SPLOST
-      (Education Special Purpose Local Option Sales Tax) with 76.6% support.
-      Since 1997, E-SPLOST has funded construction of 64 new schools and 101
-      school additions, plus technology upgrades and classroom modernization.
-      GCPS holds a "Aaa" bond rating from both Moody's and S&P -- one of only
-      two Georgia school districts to do so.
-    source: "https://gcps-foundation.org/recent-news/gwinnett-voters-approve-350-million-general-obligation-bond-referendum-for-gwinnett-school-system/"
-
-  - district: "Gwinnett County Public Schools"
-    event_type: "expansion"
-    date: "2022-08"
-    schools_affected:
-      - "Seckinger High School (new)"
-      - "Jones Middle School (two-story addition)"
-    description: >
-      Seckinger High School opened as the biggest highlight of GCPS new
-      facilities for fall 2022. Jones Middle School received a new two-story
-      addition. Both projects were funded by voter-approved E-SPLOST sales tax
-      and bonds from the 2018 GO Bond referendum ($350 million, approved with
-      78% support), which also funded general building renovations, safety
-      enhancements, and technology upgrades district-wide.
-    source: "https://www.gwinnettdailypost.com/local/gwinnett-county-schools-planning-to-show-off-several-facilities-expansions-renovations-this-fall/article_4d69cc1a-0d7f-11ed-b2bd-2f820c84e613.html"
-
-  - district: "Gwinnett County Public Schools"
-    event_type: "renovation"
-    date: "2025-08"
-    schools_affected:
-      - "Archer High School (three-story addition)"
-      - "Berkmar High School (cafeteria renovation)"
-      - "North Gwinnett High School (25-classroom addition)"
-      - "Trickum Middle School (25-classroom addition)"
-      - "13 career and technical lab projects"
-    description: >
-      Major summer 2025 construction included a three-story addition at Archer
-      High and cafeteria renovation at Berkmar High. HVAC systems were replaced
-      at seven schools (Bethesda ES, Camp Creek ES, Collins Hill HS, Crews MS,
-      Creekland MS, Harris ES, Northbrook/Buice Centers). 13 career/tech lab
-      projects were completed at Brookwood HS, Archer HS, Dacula HS, Parkview HS,
-      Pinckneyville MS, Shiloh MS, and Maxwell HS of Technology. Murphy Middle
-      School and a 20-classroom wing at Harbins Elementary open August 2026.
-    source: "https://www.gcpsk12.org/get-connected/district-news-and-communication/gcps-essentials/spring-2025-essentials/e-splost-spring-2025"
-
-  # ============================================================
-  # COBB COUNTY SCHOOL DISTRICT (106k students)
-  # NCES District ID: 1301290
-  # ============================================================
-
-  - district: "Cobb County School District"
-    event_type: "renovation"
-    date: "2025-01"
-    schools_affected:
-      - "Pope High School (facility upgrades)"
-      - "Sprayberry High School (stadium improvements)"
-      - "South Cobb High School (stadium improvements)"
-    description: >
-      Ed-SPLOST VI-funded renovations across the district include Pope High
-      School receiving front entry improvements, new flooring, locker removal,
-      and substantial athletic facility upgrades (renovated locker rooms, new
-      baseball restroom/concessions building, field improvements) with completion
-      expected November 2025. Sprayberry and South Cobb High Schools received
-      upgraded grandstands and ADA-compliant stadium improvements by May 2025.
-      Cobb Schools avoids bond financing entirely, relying on Ed-SPLOST's
-      one-penny sales tax and maintaining three Triple-A credit ratings.
-    source: "https://www.cobbk12.org/_ci/p/108602"
-
-  # ============================================================
-  # DEKALB COUNTY SCHOOL DISTRICT (91k students, lost 7k)
-  # NCES District ID: 1301740
-  # ============================================================
-
-  - district: "DeKalb County School District"
-    event_type: "redistricting"
-    date: "2022-01"
-    schools_affected:
-      - "District-wide (138 schools)"
-    description: >
-      DeKalb County unveiled a "reimagining" plan (student assignment planning)
-      to serve as a roadmap for the next decade. The plan recommended
-      redistricting throughout the county by 2030, consolidation of some
-      elementary schools, creation of K-8 facilities in some areas, and
-      rebuilding other schools with sales tax funds. The district declined from
-      100,000+ students in 2016 to about 92,000, leaving many buildings
-      under-utilized. The process is expected to take 18 months to two years.
-    source: "https://www.ajc.com/education/dekalb-schools-considers-redistricting-program-changes/5XMGRLJCWJB3HLUMFATVRNDWY4/"
-
-  - district: "DeKalb County School District"
-    event_type: "redistricting"
-    date: "2025-02"
-    schools_affected:
-      - "Idlewood Elementary"
-      - "Austin Elementary (new facility)"
-      - "Dunwoody Cluster elementary schools"
-    description: >
-      The Board of Education approved redistricting for Idlewood Elementary on
-      February 10, 2025. A separate redistricting process determined new
-      attendance lines for a new Austin Elementary facility to better balance
-      enrollment across Dunwoody Cluster elementary schools. An earlier process
-      had established lines for a new elementary school in Doraville for the
-      2020-21 school year to balance enrollment in Chamblee and Cross Keys
-      clusters.
-    source: "https://www.dekalbschoolsga.org/operations/planning/redistricting/"
-
-  # ============================================================
-  # FULTON COUNTY SCHOOLS (88k students)
-  # NCES District ID: 1302280
-  # ============================================================
-
-  - district: "Fulton County Schools"
-    event_type: "closure"
-    date: "2025-02"
-    schools_affected:
-      - "Spalding Drive Charter Elementary (Sandy Springs, opened 1966)"
-      - "Parklane Elementary (East Point, opened 1953)"
-    description: >
-      The Fulton County School Board voted on February 20, 2025 to approve
-      closure and redistricting of Spalding Drive Charter Elementary and Parklane
-      Elementary due to the cost of operations, declining enrollment, and aging
-      buildings. Community forums were held in fall 2024 to explain rationale
-      and draw potential new attendance zones for surrounding schools. The
-      closures and new redistricting plan take effect in the 2025-26 school year.
-      FCS is now one of the only metro Atlanta districts free of bond debt,
-      having made its final bond payment, and relies on SPLOST for construction.
-    source: "https://www.wabe.org/fulton-county-board-of-education-to-vote-on-possible-closure-of-two-elementary-schools/"
-
-  # ============================================================
-  # DENVER PUBLIC SCHOOLS (88k students, -16 closures, lost enrollment)
-  # NCES District ID: 0803360
-  # ============================================================
-
-  - district: "Denver Public Schools"
-    event_type: "closure"
-    date: "2022-11"
-    schools_affected:
-      - "Denver Discovery School"
-      - "Fairview Elementary School"
-      - "Math and Science Leadership Academy"
-    description: >
-      Denver's school board voted to close three schools at the end of the
-      2022-23 school year after a contentious process that initially proposed
-      10 closures. The three schools had "critically low enrollment." Of the
-      closed buildings, two were in shared buildings still occupied by other
-      schools; Fairview Elementary was repurposed as a special education program
-      (Next Steps by Chancelight). Enrollment had declined from 86,949 in 2019
-      to 82,997 in 2022.
-    source: "https://denverite.com/2022/11/10/denver-public-schools-closure-consolidation-unification-update/"
-
-  - district: "Denver Public Schools"
-    event_type: "closure"
-    date: "2024-11"
-    schools_affected:
-      - "7 schools closed"
-      - "3 schools partially closed (grade restructure)"
-    description: >
-      The Denver school board voted to shutter seven schools and shrink three
-      more at the end of the 2024-25 school year. The closures eliminate nearly
-      4,000 vacant seats and save $6.6 million annually. The changes affect
-      1,087 students (~1% of ~90,000 enrollment). Students of color and
-      low-income families are disproportionately impacted -- seven of 10 schools
-      serve higher percentages of students of color than the district average.
-      Partial closures: Kunsmiller Creative Arts Academy loses elementary grades;
-      Dora Moore ECE-8 loses middle school grades; Denver Center for International
-      Studies loses high school grades.
-    source: "https://www.chalkbeat.org/colorado/2024/11/22/denver-school-closures-board-votes-to-shutter-or-shrink-10-schools/"
-
-  - district: "Denver Public Schools"
-    event_type: "renovation"
-    date: "2025-04"
-    schools_affected:
-      - "Palmer Elementary (converted to preschool center)"
-      - "Columbian Elementary (reuse pending)"
-      - "3 other closed buildings (reuse pending)"
-    description: >
-      Denver Public Schools announced repurposing plans for closed elementary
-      buildings. Palmer Elementary at 995 Grape St. will become a preschool
-      center for 2025-26, expanding from three to four preschool classrooms.
-      Plans for Columbian Elementary and other closed buildings remain
-      undetermined. Repurposing funds come from a separate bond measure Denver
-      voters approved in 2024 earmarked for school reconfigurations. The district
-      is managing multiple vacant properties, including Rosedale Elementary
-      (leased to Catholic Archdiocese in 2021, now St. John Paul the Great HS).
-    source: "https://www.chalkbeat.org/colorado/2025/04/02/how-denver-will-repurpose-closing-school-buildings/"
-
-  # ============================================================
-  # DOUGLAS COUNTY SCHOOL DISTRICT (61k students)
-  # NCES District ID: 0803450
-  # ============================================================
-
-  - district: "Douglas County School District"
-    event_type: "bond"
-    date: "2024-11"
-    schools_affected:
-      - "2 new elementary schools (RidgeGate and Sterling Ranch)"
-      - "Sierra Middle School (expansion)"
-      - "All schools (safety/security updates)"
-    description: >
-      Douglas County voters approved a $490 million bond (Ballot Issue 5A) with
-      59% support -- after rejecting a bond request in 2023. The bond allocates
-      $150 million for new school construction in RidgeGate and Sterling Ranch
-      and expansion of Sierra Middle School; $178.9 million for capital renewal
-      and replacement; and $38.2 million for career and technical education (CTE)
-      programs. No property tax increase required -- the district will
-      restructure debt to maintain the current 5.2 mill tax rate. This is the
-      seventh bond since 1984, and the largest since a $250 million package in
-      2018. More than 62,000 students attend 90 schools.
-    source: "https://www.coloradopolitics.com/colorado-politics/douglas-county-school-bond-results/article_d683ad1f-7096-57d9-a42e-8f8485615174.html"
-
-  # ============================================================
-  # JEFFERSON COUNTY PUBLIC SCHOOLS (74k students, lost 10k (-12%), -19 schools!)
-  # NCES District ID: 0804800
-  # ============================================================
-
-  - district: "Jefferson County Public Schools"
-    event_type: "closure"
-    date: "2022-11"
-    schools_affected:
-      - "Emory Elementary"
-      - "Peck Elementary"
-      - "Thomson Elementary"
-      - "Campbell Elementary"
-      - "Peiffer Elementary"
-      - "Colorow Elementary"
-      - "Green Mountain Elementary"
-      - "Bergen Meadow K-2"
-      - "Molholm Elementary"
-      - "Glennon Heights Elementary"
-      - "Parr Elementary"
-      - "Sheridan Green Elementary"
-      - "Witt Elementary"
-      - "Vivian Elementary"
-      - "Wilmore Davis Elementary"
-      - "Kullerstrand Elementary"
-    description: >
-      The Jeffco Board of Education voted unanimously on November 10, 2022 to
-      close 16 elementary schools -- the largest mass closure in the district's
-      history. Enrollment dropped from 87,700 in 2000 to 77,205 by fall 2022,
-      with capacity for 96,000 students across 157 schools. The closures
-      affected 2,400+ children and 422 full-time employees. The district faced
-      a budget deficit and had drawn $32 million from reserves. Closures were
-      expected to save up to $12 million annually. Criteria required enrollment
-      below 220 students or capacity utilization below 45%.
-    source: "https://www.denverpost.com/2022/11/10/jeffco-elementary-school-closures-approved/"
-
-  - district: "Jefferson County Public Schools"
-    event_type: "closure"
-    date: "2023-10"
-    schools_affected:
-      - "Coal Creek Canyon K-8"
-      - "Arvada K-8"
-      - "Moore Middle School (consolidated with Pomona HS to become Jr/Sr HS)"
-    description: >
-      The school board voted to close two additional K-8 schools and consolidate
-      a middle school, bringing total closures to 21 since 2021. Coal Creek
-      Canyon K-8 was the lowest-enrolled school with fewer than 85 students (45%
-      decline since 2019). Arvada K-8 used only 60% capacity with fewer than 560
-      students. Moore Middle was consolidated with Pomona High to create Pomona
-      Jr/Sr High (grades 6-12). Jefferson Academy was authorized to open a
-      replication site in the Coal Creek Canyon building.
-    source: "https://www.chalkbeat.org/colorado/2023/10/12/23915246/jeffco-k8-school-closing-board-vote-coal-creek-arvada-parents/"
-
-  - district: "Jefferson County Public Schools"
-    event_type: "closure"
-    date: "2025-02"
-    schools_affected:
-      - "Jefferson Jr./Sr. High School (Edgewater, proposed transition)"
-    description: >
-      Jeffco began considering closing Jefferson Jr./Sr. High School (grades
-      7-12) and converting it into a specialized career-focused high school. A
-      boundary study found the school unsustainable with projected enrollment of
-      only 372 students by 2027-28 -- with 47% of boundary families already
-      choosing other schools. The district frames it as a "transition" rather
-      than closure, though board members noted it "sounds a lot like closing a
-      school." The district manages 22 closed school properties, with maintenance
-      costing ~$150,000 per year per building. Eight properties found new
-      owners; 14 remain unsold.
-    source: "https://www.chalkbeat.org/colorado/2025/02/06/jefferson-jr-sr-jeffco-school-district-draft-plan-to-address-declining-enrollment/"
-
-  # ============================================================
-  # CLARK COUNTY SCHOOL DISTRICT (309k students, lost 23k)
-  # NCES District ID: 3200060
-  # ============================================================
-
-  - district: "Clark County School District"
-    event_type: "bond"
-    date: "2021-06"
-    schools_affected:
-      - "20 new schools built"
-      - "37 classroom additions"
-      - "18 replacement schools"
-      - "82 modernization projects"
-    description: >
-      By mid-2021, the 2015 Capital Improvement Program (authorized through
-      Senate Bills 119 and 207) had completed or begun dozens of projects
-      including 20 new schools, 37 classroom additions, 18 replacement schools,
-      five phased replacement schools, and 82 modernization projects. The
-      original 10-year program estimated at $4.1 billion was later extended
-      through 2035 by the state Legislature. The school board gave final approval
-      for $3.5 billion in facility projects for the next 14 years.
-    source: "https://www.reviewjournal.com/local/education/school-board-gives-final-ok-for-3-5b-in-facility-projects-2488839/"
-
-  - district: "Clark County School District"
-    event_type: "closure"
-    date: "2025-04"
-    schools_affected:
-      - "10 schools (construction paused)"
-      - "125 aging facilities under review"
-    description: >
-      CCSD Trustees voted unanimously to pause construction on 10 schools for
-      one year due to project bids increasing 60% and material costs rising 40%.
-      Paused projects include Indian Springs and Cashman Middle School, Northwest
-      Comprehensive High School, and Southeast Choice High School. The district
-      has 125 schools classified as "aging facilities" and projects losing 3,600
-      students annually. The district needs $15.3 billion in capital bonds but
-      has only $7.3 billion available. CannonDesign was hired for $5 million to
-      assess all school facilities. A Facility Master Plan with closure/reuse
-      recommendations is expected in early 2026.
-    source: "https://www.fox5vegas.com/2025/04/25/ccsd-trustees-vote-pause-construction-new-schools/"
-
-  # ============================================================
-  # NEVADA STATE-SPONSORED CHARTER SCHOOLS (grew by 14k students, 30%!)
-  # NCES District ID: 3200010
-  # ============================================================
-
-  - district: "Nevada State Public Charter School Authority"
-    event_type: "expansion"
-    date: "2025-01"
-    schools_affected:
-      - "6 CCSD charter schools absorbed"
-      - "5 new charter schools opening 2025-26"
-      - "80 charter school campuses statewide"
-    description: >
-      The SPCSA expanded significantly, absorbing six Clark County School
-      District-run charter schools in January 2025 (marking CCSD's complete exit
-      from charter school operation) and planning five new charter school
-      openings for 2025-26. Total enrollment surpassed the Washoe County School
-      District, reaching ~69,000 students with projections above 70,000. The
-      expansion adds over 8,000 students, positioning SPCSA as Nevada's
-      second-largest local education agency. 79% of new campuses opened in the
-      last five years are Title I schools. SPCSA schools have an 83.3%
-      graduation rate, with 26 of 27 high schools exceeding the statewide rate.
-    source: "https://charterschools.nv.gov/"
-
-  - district: "Nevada State Public Charter School Authority"
-    event_type: "bond"
-    date: "2025-06"
-    schools_affected:
-      - "All Nevada public schools including charters"
-    description: >
-      The Nevada Legislature passed SB500 securing $12.9 billion for K-12
-      funding (2025-27 biennium), providing historic investment levels. AB398
-      allocated $128 million for teacher raises including charter school
-      teachers (previously excluded). SB468 allocated $7 million for charter
-      school student transportation. Cities of Henderson and North Las Vegas
-      were approved as new charter school authorizers under Gov. Lombardo's
-      Assembly Bill 400, allowing municipalities to sponsor and oversee charter
-      schools within their boundaries.
-    source: "https://nevadapoliticaljournal.com/stories/education2025"
+- event_id: NC-37047200-bond-202211-wake-county-public-school-syst
+  district: Wake County Public School System
+  state: NC
+  leaid: '37047200'
+  event_type: bond
+  date: 2022-11
+  schools_affected:
+  - name: 5 new schools
+  - name: 7 school renovations
+  description: Wake County voters approved a $530.7 million school bond referendum on November 8, 2022,
+    as part of over $1 billion in bond approvals. The bond funds construction of five new schools (elementary
+    schools in Apex, Fuquay-Varina, and Wendell; a middle school in Morrisville; and a high school serving
+    west Cary/Morrisville) plus major renovations at seven existing schools. Property tax impact was 1
+    cent per $100 of assessed value. The bond supplements a 7-year building plan (FY 2023-2029) totaling
+    $2.632 billion for 11 new schools and 10 major renovations.
+  sources:
+  - url: https://abc11.com/wake-county-election-results-bonds-parks/12434777/
+  causes:
+  - budget_fiscal
+  - new_construction
+  - political_governance
+- event_id: NC-37047200-expansion-202508-wake-county-public-school-syst
+  district: Wake County Public School System
+  state: NC
+  leaid: '37047200'
+  event_type: expansion
+  date: 2025-08
+  schools_affected:
+  - name: Bowling Road Elementary (Fuquay-Varina)
+  - name: Pleasant Plains Elementary (Apex)
+  - name: Rex Road Elementary (Holly Springs)
+  - name: Felton Grove High School (Apex)
+  description: Four new schools opened for the 2025-26 school year to address tremendous growth in Southern
+    Wake County. Rex Road Elementary is a 133,000 sq ft campus designed for 800 K-5 students. The four
+    new schools bring the district total to 203 schools serving 161,115+ students. The district forecasts
+    growth to 170,000+ students over the next 10 years, with five more schools planned in that period.
+    In 2021-22, 11% of teaching spaces were in 894 mobile/modular classrooms.
+  sources:
+  - url: https://abc11.com/post/wake-county-public-school-systems-is-opening-new-schools-tremendous-growth-southern/17394214/
+  causes:
+  - new_construction
+  - population_growth
+- event_id: NC-37047200-expansion-202708-wake-county-public-school-syst
+  district: Wake County Public School System
+  state: NC
+  leaid: '37047200'
+  event_type: expansion
+  date: 2027-08
+  schools_affected:
+  - name: Morrisville High School (Little/Davis Drive site)
+  description: Morrisville High School is planned to open for the 2027-2028 school year with students
+    in grades 9-10. Prior to that, Wake Early College of Information and Biotechnologies will occupy a
+    portion of the building beginning as early as November 2025. A Parkside Middle School is planned to
+    open no earlier than the 2028-2029 school year.
+  sources:
+  - url: https://www.wcpss.net/about-us/school-facilities/design-and-construction/morrisville-projects-updates
+  causes:
+  - population_growth
+- event_id: NC-37029700-bond-202311-charlotte-mecklenburg-schools
+  district: Charlotte-Mecklenburg Schools
+  state: NC
+  leaid: '37029700'
+  event_type: bond
+  date: 2023-11
+  schools_affected:
+  - name: 30 bond projects across the district
+  description: Mecklenburg County voters approved a historic $2.5 billion school bond, the largest school
+    bond in North Carolina history. The bond covers 30 projects including new middle schools in Huntersville,
+    south and southwest Charlotte; a new health-sciences magnet high school in uptown Charlotte; a new
+    regional athletic facility in west Charlotte; and 25 renovation and replacement projects. Funded by
+    a 3-cent property tax increase phased in during 2025, 2028, and 2029. As enrollment growth slows,
+    the bond shifts focus from new construction to replacing existing aging schools.
+  sources:
+  - url: https://www.wfae.org/education/2023-10-31/heres-everything-you-need-to-know-about-the-2-5-billion-cms-bond-vote-on-nov-7
+  causes:
+  - budget_fiscal
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: NC-37029700-renovation-202508-charlotte-mecklenburg-schools
+  district: Charlotte-Mecklenburg Schools
+  state: NC
+  leaid: '37029700'
+  event_type: renovation
+  date: 2025-08
+  schools_affected:
+  - name: Billingsville Elementary (renovation)
+  - name: Sedgefield Elementary (renovation to Montessori magnet)
+  - name: Marie G. Davis School (renovation to Montessori 7-12 magnet)
+  description: The first projects from the 2023 $2.5 billion bond were completed by August 2025. Billingsville
+    and Sedgefield elementaries and Marie G. Davis School were renovated and reopened as Montessori magnet
+    schools, replacing the older Chantilly, Park Road, and J.T. Williams buildings. Sedgefield moved pre-K-2
+    students into the Dilworth building in August 2024 as part of the transition.
+  sources:
+  - url: https://www.wfae.org/education/2024-05-29/cms-gives-construction-schedules-for-12-school-bond-projects
+  causes:
+  - facility_condition
+- event_id: NC-37029700-renovation-202708-charlotte-mecklenburg-schools
+  district: Charlotte-Mecklenburg Schools
+  state: NC
+  leaid: '37029700'
+  event_type: renovation
+  date: 2027-08
+  schools_affected:
+  - name: South Mecklenburg High School (replacement of 1958 building)
+  description: South Mecklenburg High School replacement of a 1958 classroom building is scheduled for
+    completion in August 2027, funded with both 2017 and 2023 bonds. The replacement of North Mecklenburg
+    High School (opened 1951) is the most expensive project at approximately $228.5 million, scheduled
+    for 2028-2030.
+  sources:
+  - url: https://www.lakenormanpublications.com/articles/north-mecklenburg-cms-bond-projects-move-forward-with-3-in-design-phase/
+  causes:
+  - facility_condition
+- event_id: NC-37029700-expansion-202808-charlotte-mecklenburg-schools
+  district: Charlotte-Mecklenburg Schools
+  state: NC
+  leaid: '37029700'
+  event_type: expansion
+  date: 2028-08
+  schools_affected:
+  - name: New middle school (Stumptown Road, Huntersville)
+  description: 'A new middle school on Stumptown Road in Huntersville is scheduled for completion in August
+    2028. It will relieve crowding in northern schools, allow the district to add magnet seats, and absorb
+    students from Davidson K-8 when that school converts to an elementary school. CMS is also converting
+    several schools: Thomasboro PreK-8 becomes elementary only, University Park Creative Arts becomes
+    a full K-5 arts magnet, and Rea Farms STEAM becomes a full K-8 magnet.'
+  sources:
+  - url: https://www.wfae.org/education/2023-01-20/big-cms-bond-big-changes-whats-planned-for-your-school
+  causes:
+  - population_growth
+- event_id: VA-51012600-bond-202311-fairfax-county-public-schools
+  district: Fairfax County Public Schools
+  state: VA
+  leaid: '51012600'
+  event_type: bond
+  date: 2023-11
+  schools_affected:
+  - name: 7 elementary school renovations
+  - name: 8 elementary school designs
+  - name: 1 middle school design
+  - name: 25+ schools (security vestibules)
+  description: Fairfax County voters approved a $435 million school bond referendum with 67% support on
+    November 7, 2023. Funds support renovation of seven elementary schools, planning/design of eight additional
+    elementary schools and one middle school, three modular relocations, and security vestibule installation
+    at 25+ schools. FCPS maintains a triple-A bond rating, saving taxpayers an estimated $1 billion in
+    financing costs. School facilities are valued at nearly $6.5 billion.
+  sources:
+  - url: https://www.fcps.edu/Bond2023
+  causes:
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: VA-51012600-renovation-202408-fairfax-county-public-schools
+  district: Fairfax County Public Schools
+  state: VA
+  leaid: '51012600'
+  event_type: renovation
+  date: 2024-08
+  schools_affected:
+  - name: Braddock Elementary
+  - name: Louise Archer Elementary
+  - name: Crossfield Elementary
+  - name: Mosby Woods Elementary
+  - name: Bonnie Brae Elementary
+  - name: Cooper Middle School
+  - name: Falls Church High School
+  description: Major renovation projects continued across FCPS as part of the FY 2025-29 CIP. Braddock
+    Elementary ($35.6M) and Louise Archer Elementary ($29.4M) renovations were completed. Crossfield,
+    Mosby Woods, and Bonnie Brae elementaries completed or neared completion. Cooper Middle School and
+    Falls Church High School renovations were underway. FCPS operates on a 41-year renovation cycle for
+    its facilities.
+  sources:
+  - url: https://www.fcps.edu/building-our-future-capital-project-status
+  causes:
+  - facility_condition
+- event_id: VA-51012600-expansion-202601-fairfax-county-public-schools
+  district: Fairfax County Public Schools
+  state: VA
+  leaid: '51012600'
+  event_type: expansion
+  date: 2026-01
+  schools_affected:
+  - name: Dunn Loring Elementary (new, from administrative center)
+  - name: Silver Line Elementary (new)
+  - name: Western High School (acquisition and renovation)
+  description: The FY 2027-2031 CIP requires $1.1 billion over five years for renovation, maintenance,
+    and construction. Plans include repurposing the Dunn Loring Administrative Center into a new elementary
+    school to relieve overcrowding in the Dunn Loring/Falls Church/Tysons area, constructing a new Silver
+    Line Elementary, and acquiring and renovating Western High School. Enrollment is expected to decline
+    from ~177,000 to ~171,000 by 2030-31.
+  sources:
+  - url: https://www.ffxnow.com/2026/01/13/fcps-anticipates-construction-on-three-new-schools-in-proposed-capital-plan/
+  causes:
+  - population_growth
+- event_id: VA-51022500-expansion-202508-prince-william-county-public-s
+  district: Prince William County Public Schools
+  state: VA
+  leaid: '51022500'
+  event_type: expansion
+  date: 2025-08
+  schools_affected:
+  - name: Woodbridge Area Elementary School (new)
+  description: A new elementary school in the Woodbridge area opened for the 2025-26 school year. The
+    district's CIP 2025-2030 was reassessed based on projected enrollment declines, with several projects
+    slated for delay including the 14th high school and Brentsville District High School renovations.
+  sources:
+  - url: https://www.pwcs.edu/news/2024/01/proposedcip25-30
+  causes:
+  - charter_competition
+  - enrollment_decline
+- event_id: VA-51022500-closure-202602-prince-william-county-public-s
+  district: Prince William County Public Schools
+  state: VA
+  leaid: '51022500'
+  event_type: closure
+  date: 2026-02
+  schools_affected:
+  - name: 14th High School (cancelled)
+  description: Prince William County officially cancelled plans for its 14th high school, which had been
+    delayed multiple times due to declining enrollment. PWCS data showed the county anticipates 1,030
+    vacant seats across existing 13 high schools by 2029. The district projects a decrease of approximately
+    3,776 students over the next five years. Northern Virginia experienced its first population decline
+    since 1970, as residents move to Richmond and exurbs due to housing costs and remote work.
+  sources:
+  - url: https://northernvirginiamag.com/family/education/2026/02/06/prince-william-county-cancels-plans-for-new-high-school/
+  causes:
+  - enrollment_decline
+- event_id: MD-24004800-renovation-202510-montgomery-county-public-schoo
+  district: Montgomery County Public Schools
+  state: MD
+  leaid: '24004800'
+  event_type: renovation
+  date: 2025-10
+  schools_affected:
+  - name: 162 school buildings over 25 years old
+  - name: 40 HVAC systems not functioning properly
+  description: MCPS unveiled its "Hard Truths About Our School Buildings" presentation, revealing that
+    nearly two-thirds of its 238 school buildings (162 buildings) are more than 25 years old, with $740
+    million in overdue projects including 40 non-functioning HVAC systems. The district needs $175 million
+    to replace roofs older than 20 years. To reach long-term goals, MCPS would need to renovate 6-7 elementary
+    schools and 3 middle/high schools every year for 20 years; currently averaging only 5 schools per
+    year.
+  sources:
+  - url: https://mocoshow.com/2025/10/14/mcps-presentation-hard-truths-about-our-school-buildings-outlines-major-overhaul-of-school-facilities-plan/
+  causes:
+  - facility_condition
+- event_id: MD-24004800-bond-202511-montgomery-county-public-schoo
+  district: Montgomery County Public Schools
+  state: MD
+  leaid: '24004800'
+  event_type: bond
+  date: 2025-11
+  schools_affected:
+  - name: 13 Major Capital Projects (4 HS, 2 MS, 7 ES)
+  description: The Board of Education accepted a $2.78 billion Capital Improvements Program (FY 2027-2032)
+    targeting aging buildings, critical systems, and infrastructure. Includes 13 Major Capital Projects
+    (four high schools, two middle schools, seven elementary schools) for completion within six years,
+    plus $521.4 million for HVAC/roof replacements and $303.8 million for other infrastructure renewal.
+    County Executive Marc Elrich proposed $2.1 billion for MCPS in the county's $6.6 billion CIP -- a
+    record allocation.
+  sources:
+  - url: https://mocoshow.com/2025/11/20/mcps-board-of-education-advances-major-capital-recommendation-to-modernize-schools-and-address-long-standing-facility-needs/
+  causes:
+  - facility_condition
+  - new_construction
+- event_id: MD-24004800-expansion-202708-montgomery-county-public-schoo
+  district: Montgomery County Public Schools
+  state: MD
+  leaid: '24004800'
+  event_type: expansion
+  date: 2027-08
+  schools_affected:
+  - name: Crown High School (Gaithersburg, new)
+  - name: Charles W. Woodward High School (reopening)
+  description: Crown High School in Gaithersburg is expected to open in 2027, along with the reopening
+    of Charles W. Woodward High School and an expansion of Damascus High School for the 2027-2028 year.
+    Parents raised concerns about plans to initially use Crown as a "holding school." The openings require
+    comprehensive boundary studies with at least seven options being considered for attendance zone redraws.
+  sources:
+  - url: https://bethesdamagazine.com/2026/02/04/taylor-boundary-program-recommendation/
+  causes:
+  - redistricting_rezoning
+- event_id: MD-24004800-closure-202512-montgomery-county-public-schoo
+  district: Montgomery County Public Schools
+  state: MD
+  leaid: '24004800'
+  event_type: closure
+  date: 2025-12
+  schools_affected:
+  - name: Silver Spring International Middle School (proposed closure 2030)
+  description: The MCPS superintendent proposed closing the 90-year-old Silver Spring International Middle
+    School in 2030 and converting it to a holding school. In December 2025, the school board suspended
+    consideration of the closure, choosing to incorporate the decision into a future holistic study of
+    elementary school boundaries. Enrollment has dropped to a 10-year low, with steeper declines projected
+    due to lower birth rates and fewer international students. The district has not shuttered a campus
+    in decades.
+  sources:
+  - url: https://wjla.com/news/local/silver-spring-international-montgomery-county-boundary-study-education-new-action-proposed-closure-middle-school-holding-facility-construction-renovated-enrollment-students-programs-blair-high
+  causes:
+  - redistricting_rezoning
+- event_id: MD-24005100-bond-202309-prince-georges-county-public-s
+  district: Prince George's County Public Schools
+  state: MD
+  leaid: '24005100'
+  event_type: bond
+  date: 2023-09
+  schools_affected:
+  - name: 8 new schools (6 elementary, 2 K-8)
+  description: PGCPS brought more than $660 million in taxable sustainable revenue bonds to fast-track
+    construction of eight new schools via a public-private partnership (P3) -- the second P3 package for
+    the district but the first using taxable municipal bonds. The eight schools (six elementary and two
+    K-8) comprise 1.03 million sq ft with enrolling capacity of approximately 8,150 students. Prince George's
+    County contributes $69 million annually to the P3 fund.
+  sources:
+  - url: https://www.bondbuyer.com/news/prince-georges-county-md-school-p3-brings-660m-of-sustainable-taxable-deal
+  causes:
+  - new_construction
+- event_id: MD-24001200-closure-202201-baltimore-city-public-schools
+  district: Baltimore City Public Schools
+  state: MD
+  leaid: '24001200'
+  event_type: closure
+  date: 2022-01
+  schools_affected:
+  - name: Eutaw-Marshburn Elementary (West Baltimore)
+  - name: Steuart Hill Academic Academy (Union Square)
+  - name: New Era Academy (South Baltimore)
+  description: The Baltimore City school board voted to permanently close three public schools during
+    summer 2023, citing low enrollment and deteriorating buildings. A fourth school, Dr. Bernard Harris
+    Elementary, was kept open as its facility issues were less severe. The board also voted unanimously
+    to develop a strategic plan for long-term enrollment and school closures.
+  sources:
+  - url: https://www.baltimoresun.com/2022/01/26/baltimore-city-school-board-votes-to-permanently-close-3-schools-in-summer-2023-citing-low-enrollment-building-conditions/
+  causes:
+  - charter_competition
+  - facility_condition
+  - political_governance
+  - underutilization
+- event_id: MD-24001200-renovation-202210-baltimore-city-public-schools
+  district: Baltimore City Public Schools
+  state: MD
+  leaid: '24001200'
+  event_type: renovation
+  date: 2022-10
+  schools_affected:
+  - name: Baltimore City College
+  - name: Frederick Douglass High School
+  - name: Baltimore Polytechnic Institute
+  - name: Western High School
+  description: Baltimore City invested $400 million in renovating its oldest school buildings as part
+    of the 21st Century School Buildings Program successor (Built to Learn Act of 2021). Baltimore City
+    College moved to the former Thurgood Marshall HS building for three years during construction. Frederick
+    Douglass HS moved to Garrison Middle for two years. Polytechnic Institute and Western High were slated
+    to move in 2025 to Northwestern and Chinquapin buildings respectively. The program has delivered 29
+    new or renovated schools at approximately $40 million each.
+  sources:
+  - url: https://www.wypr.org/wypr-news/2022-10-13/baltimore-city-schools-tackling-lack-of-a-c-and-heat-investing-400m-in-oldest-buildings
+  causes:
+  - facility_condition
+- event_id: MD-24000900-renovation-202306-baltimore-county-public-school
+  district: Baltimore County Public Schools
+  state: MD
+  leaid: '24000900'
+  event_type: renovation
+  date: 2023-06
+  schools_affected:
+  - name: Lansdowne High School (new, $26M state funds)
+  - name: Towson High School (renovation, $20M state funds)
+  - name: Deer Park Elementary (new, $15M state funds)
+  - name: Scott's Branch Elementary (new, $10M state funds)
+  - name: Dundalk High School (addition, $8M state funds)
+  - name: Pine Grove Middle School (addition, $1M state funds)
+  description: Baltimore County received $80 million in additional state grant funds to accelerate major
+    school construction projects. These are part of County Executive Olszewski's $3.3 billion plan to
+    improve every school in Baltimore County over 15 years, including almost $210 million in new spending
+    in 2023. Just under 80% of BCPS school buildings are 40+ years old. The Multi-Year Improvement Plan
+    for All Schools (MYIPAS) was commissioned in 2020 using CannonDesign consultants.
+  sources:
+  - url: https://www.baltimorecountymd.gov/county-news/2023/06/12/olszewski-announces-80-million-in-state-grant-funds-to-accelerate-key-school-construction-projects
+  causes:
+  - facility_condition
+- event_id: MD-24000900-closure-202503-baltimore-county-public-school
+  district: Baltimore County Public Schools
+  state: MD
+  leaid: '24000900'
+  event_type: closure
+  date: 2025-03
+  schools_affected:
+  - name: Campfield Early Learning Center (Gwynn Oak)
+  description: The Baltimore County Board of Education voted on March 11, 2025 to close Campfield Early
+    Learning Center at the end of the current academic year, earlier than the originally planned 2025-26
+    closure. With fewer than 60 students projected, officials determined students' needs could be better
+    met at home schools or nearby regional programs. The Campfield site was approved in January 2024 as
+    the future location of the Northwest Area Career and Technology Education Center. The original closure
+    was approved by a 6-5 board vote in September 2023.
+  sources:
+  - url: https://www.cbsnews.com/baltimore/news/maryland-campfield-early-learning-center-education-students-staff-redistricting/
+  causes:
+  - political_governance
+  - underutilization
+- event_id: GA-13025500-bond-202011-gwinnett-county-public-schools
+  district: Gwinnett County Public Schools
+  state: GA
+  leaid: '13025500'
+  event_type: bond
+  date: 2020-11
+  schools_affected:
+  - name: All GCPS schools (district-wide E-SPLOST continuation)
+  description: Gwinnett County voters approved continuation of the existing E-SPLOST (Education Special
+    Purpose Local Option Sales Tax) with 76.6% support. Since 1997, E-SPLOST has funded construction of
+    64 new schools and 101 school additions, plus technology upgrades and classroom modernization. GCPS
+    holds a "Aaa" bond rating from both Moody's and S&P -- one of only two Georgia school districts to
+    do so.
+  sources:
+  - url: https://gcps-foundation.org/recent-news/gwinnett-voters-approve-350-million-general-obligation-bond-referendum-for-gwinnett-school-system/
+  causes:
+  - new_construction
+  - political_governance
+- event_id: GA-13025500-expansion-202208-gwinnett-county-public-schools
+  district: Gwinnett County Public Schools
+  state: GA
+  leaid: '13025500'
+  event_type: expansion
+  date: 2022-08
+  schools_affected:
+  - name: Seckinger High School (new)
+  - name: Jones Middle School (two-story addition)
+  description: Seckinger High School opened as the biggest highlight of GCPS new facilities for fall 2022.
+    Jones Middle School received a new two-story addition. Both projects were funded by voter-approved
+    E-SPLOST sales tax and bonds from the 2018 GO Bond referendum ($350 million, approved with 78% support),
+    which also funded general building renovations, safety enhancements, and technology upgrades district-wide.
+  sources:
+  - url: https://www.gwinnettdailypost.com/local/gwinnett-county-schools-planning-to-show-off-several-facilities-expansions-renovations-this-fall/article_4d69cc1a-0d7f-11ed-b2bd-2f820c84e613.html
+  causes:
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: GA-13025500-renovation-202508-gwinnett-county-public-schools
+  district: Gwinnett County Public Schools
+  state: GA
+  leaid: '13025500'
+  event_type: renovation
+  date: 2025-08
+  schools_affected:
+  - name: Archer High School (three-story addition)
+  - name: Berkmar High School (cafeteria renovation)
+  - name: North Gwinnett High School (25-classroom addition)
+  - name: Trickum Middle School (25-classroom addition)
+  - name: 13 career and technical lab projects
+  description: Major summer 2025 construction included a three-story addition at Archer High and cafeteria
+    renovation at Berkmar High. HVAC systems were replaced at seven schools (Bethesda ES, Camp Creek ES,
+    Collins Hill HS, Crews MS, Creekland MS, Harris ES, Northbrook/Buice Centers). 13 career/tech lab
+    projects were completed at Brookwood HS, Archer HS, Dacula HS, Parkview HS, Pinckneyville MS, Shiloh
+    MS, and Maxwell HS of Technology. Murphy Middle School and a 20-classroom wing at Harbins Elementary
+    open August 2026.
+  sources:
+  - url: https://www.gcpsk12.org/get-connected/district-news-and-communication/gcps-essentials/spring-2025-essentials/e-splost-spring-2025
+  causes:
+  - facility_condition
+- event_id: GA-13012900-renovation-202501-cobb-county-school-district
+  district: Cobb County School District
+  state: GA
+  leaid: '13012900'
+  event_type: renovation
+  date: 2025-01
+  schools_affected:
+  - name: Pope High School (facility upgrades)
+  - name: Sprayberry High School (stadium improvements)
+  - name: South Cobb High School (stadium improvements)
+  description: Ed-SPLOST VI-funded renovations across the district include Pope High School receiving
+    front entry improvements, new flooring, locker removal, and substantial athletic facility upgrades
+    (renovated locker rooms, new baseball restroom/concessions building, field improvements) with completion
+    expected November 2025. Sprayberry and South Cobb High Schools received upgraded grandstands and ADA-compliant
+    stadium improvements by May 2025. Cobb Schools avoids bond financing entirely, relying on Ed-SPLOST's
+    one-penny sales tax and maintaining three Triple-A credit ratings.
+  sources:
+  - url: https://www.cobbk12.org/_ci/p/108602
+  causes:
+  - natural_disaster
+- event_id: GA-13017400-redistricting-202201-dekalb-county-school-district
+  district: DeKalb County School District
+  state: GA
+  leaid: '13017400'
+  event_type: redistricting
+  date: 2022-01
+  schools_affected:
+  - name: District-wide (138 schools)
+  description: DeKalb County unveiled a "reimagining" plan (student assignment planning) to serve as a
+    roadmap for the next decade. The plan recommended redistricting throughout the county by 2030, consolidation
+    of some elementary schools, creation of K-8 facilities in some areas, and rebuilding other schools
+    with sales tax funds. The district declined from 100,000+ students in 2016 to about 92,000, leaving
+    many buildings under-utilized. The process is expected to take 18 months to two years.
+  sources:
+  - url: https://www.ajc.com/education/dekalb-schools-considers-redistricting-program-changes/5XMGRLJCWJB3HLUMFATVRNDWY4/
+  causes:
+  - consolidation_efficiency
+  - new_construction
+  - redistricting_rezoning
+  - underutilization
+- event_id: GA-13017400-redistricting-202502-dekalb-county-school-district
+  district: DeKalb County School District
+  state: GA
+  leaid: '13017400'
+  event_type: redistricting
+  date: 2025-02
+  schools_affected:
+  - name: Idlewood Elementary
+  - name: Austin Elementary (new facility)
+  - name: Dunwoody Cluster elementary schools
+  description: The Board of Education approved redistricting for Idlewood Elementary on February 10, 2025.
+    A separate redistricting process determined new attendance lines for a new Austin Elementary facility
+    to better balance enrollment across Dunwoody Cluster elementary schools. An earlier process had established
+    lines for a new elementary school in Doraville for the 2020-21 school year to balance enrollment in
+    Chamblee and Cross Keys clusters.
+  sources:
+  - url: https://www.dekalbschoolsga.org/operations/planning/redistricting/
+  causes:
+  - redistricting_rezoning
+- event_id: GA-13022800-closure-202502-fulton-county-schools
+  district: Fulton County Schools
+  state: GA
+  leaid: '13022800'
+  event_type: closure
+  date: 2025-02
+  schools_affected:
+  - name: Spalding Drive Charter Elementary (Sandy Springs, opened 1966)
+  - name: Parklane Elementary (East Point, opened 1953)
+  description: The Fulton County School Board voted on February 20, 2025 to approve closure and redistricting
+    of Spalding Drive Charter Elementary and Parklane Elementary due to the cost of operations, declining
+    enrollment, and aging buildings. Community forums were held in fall 2024 to explain rationale and
+    draw potential new attendance zones for surrounding schools. The closures and new redistricting plan
+    take effect in the 2025-26 school year. FCS is now one of the only metro Atlanta districts free of
+    bond debt, having made its final bond payment, and relies on SPLOST for construction.
+  sources:
+  - url: https://www.wabe.org/fulton-county-board-of-education-to-vote-on-possible-closure-of-two-elementary-schools/
+  causes:
+  - charter_competition
+  - enrollment_decline
+  - facility_condition
+  - new_construction
+  - political_governance
+  - redistricting_rezoning
+- event_id: CO-08033600-closure-202211-denver-public-schools
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: closure
+  date: 2022-11
+  schools_affected:
+  - name: Denver Discovery School
+  - name: Fairview Elementary School
+  - name: Math and Science Leadership Academy
+  description: Denver's school board voted to close three schools at the end of the 2022-23 school year
+    after a contentious process that initially proposed 10 closures. The three schools had "critically
+    low enrollment." Of the closed buildings, two were in shared buildings still occupied by other schools;
+    Fairview Elementary was repurposed as a special education program (Next Steps by Chancelight). Enrollment
+    had declined from 86,949 in 2019 to 82,997 in 2022.
+  sources:
+  - url: https://denverite.com/2022/11/10/denver-public-schools-closure-consolidation-unification-update/
+  causes:
+  - political_governance
+  - underutilization
+- event_id: CO-08033600-closure-202411-denver-public-schools
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: closure
+  date: 2024-11
+  schools_affected:
+  - name: 7 schools closed
+  - name: 3 schools partially closed (grade restructure)
+  description: 'The Denver school board voted to shutter seven schools and shrink three more at the end
+    of the 2024-25 school year. The closures eliminate nearly 4,000 vacant seats and save $6.6 million
+    annually. The changes affect 1,087 students (~1% of ~90,000 enrollment). Students of color and low-income
+    families are disproportionately impacted -- seven of 10 schools serve higher percentages of students
+    of color than the district average. Partial closures: Kunsmiller Creative Arts Academy loses elementary
+    grades; Dora Moore ECE-8 loses middle school grades; Denver Center for International Studies loses
+    high school grades.'
+  sources:
+  - url: https://www.chalkbeat.org/colorado/2024/11/22/denver-school-closures-board-votes-to-shutter-or-shrink-10-schools/
+  causes:
+  - budget_fiscal
+  - political_governance
+  - racial_equity
+- event_id: CO-08033600-renovation-202504-denver-public-schools
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: renovation
+  date: 2025-04
+  schools_affected:
+  - name: Palmer Elementary (converted to preschool center)
+  - name: Columbian Elementary (reuse pending)
+  - name: 3 other closed buildings (reuse pending)
+  description: Denver Public Schools announced repurposing plans for closed elementary buildings. Palmer
+    Elementary at 995 Grape St. will become a preschool center for 2025-26, expanding from three to four
+    preschool classrooms. Plans for Columbian Elementary and other closed buildings remain undetermined.
+    Repurposing funds come from a separate bond measure Denver voters approved in 2024 earmarked for school
+    reconfigurations. The district is managing multiple vacant properties, including Rosedale Elementary
+    (leased to Catholic Archdiocese in 2021, now St. John Paul the Great HS).
+  sources:
+  - url: https://www.chalkbeat.org/colorado/2025/04/02/how-denver-will-repurpose-closing-school-buildings/
+  causes:
+  - consolidation_efficiency
+  - natural_disaster
+  - political_governance
+- event_id: CO-08034500-bond-202411-douglas-county-school-district
+  district: Douglas County School District
+  state: CO
+  leaid: 08034500
+  event_type: bond
+  date: 2024-11
+  schools_affected:
+  - name: 2 new elementary schools (RidgeGate and Sterling Ranch)
+  - name: Sierra Middle School (expansion)
+  - name: All schools (safety/security updates)
+  description: Douglas County voters approved a $490 million bond (Ballot Issue 5A) with 59% support --
+    after rejecting a bond request in 2023. The bond allocates $150 million for new school construction
+    in RidgeGate and Sterling Ranch and expansion of Sierra Middle School; $178.9 million for capital
+    renewal and replacement; and $38.2 million for career and technical education (CTE) programs. No property
+    tax increase required -- the district will restructure debt to maintain the current 5.2 mill tax rate.
+    This is the seventh bond since 1984, and the largest since a $250 million package in 2018. More than
+    62,000 students attend 90 schools.
+  sources:
+  - url: https://www.coloradopolitics.com/colorado-politics/douglas-county-school-bond-results/article_d683ad1f-7096-57d9-a42e-8f8485615174.html
+  causes:
+  - budget_fiscal
+  - new_construction
+  - political_governance
+- event_id: KY-21029900-closure-202211-jefferson-county-public-school
+  district: Jefferson County Public Schools
+  state: KY
+  leaid: '21029900'
+  event_type: closure
+  date: 2022-11
+  schools_affected:
+  - name: Emory Elementary
+  - name: Peck Elementary
+  - name: Thomson Elementary
+  - name: Campbell Elementary
+  - name: Peiffer Elementary
+  - name: Colorow Elementary
+  - name: Green Mountain Elementary
+  - name: Bergen Meadow K-2
+  - name: Molholm Elementary
+  - name: Glennon Heights Elementary
+  - name: Parr Elementary
+  - name: Sheridan Green Elementary
+  - name: Witt Elementary
+  - name: Vivian Elementary
+  - name: Wilmore Davis Elementary
+  - name: Kullerstrand Elementary
+  description: The Jeffco Board of Education voted unanimously on November 10, 2022 to close 16 elementary
+    schools -- the largest mass closure in the district's history. Enrollment dropped from 87,700 in 2000
+    to 77,205 by fall 2022, with capacity for 96,000 students across 157 schools. The closures affected
+    2,400+ children and 422 full-time employees. The district faced a budget deficit and had drawn $32
+    million from reserves. Closures were expected to save up to $12 million annually. Criteria required
+    enrollment below 220 students or capacity utilization below 45%.
+  sources:
+  - url: https://www.denverpost.com/2022/11/10/jeffco-elementary-school-closures-approved/
+  causes:
+  - budget_fiscal
+  - enrollment_decline
+  - political_governance
+  - underutilization
+- event_id: KY-21029900-closure-202310-jefferson-county-public-school
+  district: Jefferson County Public Schools
+  state: KY
+  leaid: '21029900'
+  event_type: closure
+  date: 2023-10
+  schools_affected:
+  - name: Coal Creek Canyon K-8
+  - name: Arvada K-8
+  - name: Moore Middle School (consolidated with Pomona HS to become Jr/Sr HS)
+  description: The school board voted to close two additional K-8 schools and consolidate a middle school,
+    bringing total closures to 21 since 2021. Coal Creek Canyon K-8 was the lowest-enrolled school with
+    fewer than 85 students (45% decline since 2019). Arvada K-8 used only 60% capacity with fewer than
+    560 students. Moore Middle was consolidated with Pomona High to create Pomona Jr/Sr High (grades 6-12).
+    Jefferson Academy was authorized to open a replication site in the Coal Creek Canyon building.
+  sources:
+  - url: https://www.chalkbeat.org/colorado/2023/10/12/23915246/jeffco-k8-school-closing-board-vote-coal-creek-arvada-parents/
+  causes:
+  - consolidation_efficiency
+  - political_governance
+  - underutilization
+- event_id: KY-21029900-closure-202502-jefferson-county-public-school
+  district: Jefferson County Public Schools
+  state: KY
+  leaid: '21029900'
+  event_type: closure
+  date: 2025-02
+  schools_affected:
+  - name: Jefferson Jr./Sr. High School (Edgewater, proposed transition)
+  description: Jeffco began considering closing Jefferson Jr./Sr. High School (grades 7-12) and converting
+    it into a specialized career-focused high school. A boundary study found the school unsustainable
+    with projected enrollment of only 372 students by 2027-28 -- with 47% of boundary families already
+    choosing other schools. The district frames it as a "transition" rather than closure, though board
+    members noted it "sounds a lot like closing a school." The district manages 22 closed school properties,
+    with maintenance costing ~$150,000 per year per building. Eight properties found new owners; 14 remain
+    unsold.
+  sources:
+  - url: https://www.chalkbeat.org/colorado/2025/02/06/jefferson-jr-sr-jeffco-school-district-draft-plan-to-address-declining-enrollment/
+  causes:
+  - redistricting_rezoning
+- event_id: NV-32000600-bond-202106-clark-county-school-district
+  district: Clark County School District
+  state: NV
+  leaid: '32000600'
+  event_type: bond
+  date: 2021-06
+  schools_affected:
+  - name: 20 new schools built
+  - name: 37 classroom additions
+  - name: 18 replacement schools
+  - name: 82 modernization projects
+  description: By mid-2021, the 2015 Capital Improvement Program (authorized through Senate Bills 119
+    and 207) had completed or begun dozens of projects including 20 new schools, 37 classroom additions,
+    18 replacement schools, five phased replacement schools, and 82 modernization projects. The original
+    10-year program estimated at $4.1 billion was later extended through 2035 by the state Legislature.
+    The school board gave final approval for $3.5 billion in facility projects for the next 14 years.
+  sources:
+  - url: https://www.reviewjournal.com/local/education/school-board-gives-final-ok-for-3-5b-in-facility-projects-2488839/
+  causes:
+  - new_construction
+  - political_governance
+- event_id: NV-32000600-closure-202504-clark-county-school-district
+  district: Clark County School District
+  state: NV
+  leaid: '32000600'
+  event_type: closure
+  date: 2025-04
+  schools_affected:
+  - name: 10 schools (construction paused)
+  - name: 125 aging facilities under review
+  description: CCSD Trustees voted unanimously to pause construction on 10 schools for one year due to
+    project bids increasing 60% and material costs rising 40%. Paused projects include Indian Springs
+    and Cashman Middle School, Northwest Comprehensive High School, and Southeast Choice High School.
+    The district has 125 schools classified as "aging facilities" and projects losing 3,600 students annually.
+    The district needs $15.3 billion in capital bonds but has only $7.3 billion available. CannonDesign
+    was hired for $5 million to assess all school facilities. A Facility Master Plan with closure/reuse
+    recommendations is expected in early 2026.
+  sources:
+  - url: https://www.fox5vegas.com/2025/04/25/ccsd-trustees-vote-pause-construction-new-schools/
+  causes:
+  - charter_competition
+  - facility_condition
+  - natural_disaster
+- event_id: US-000000-expansion-202501-nevada-state-public-charter-sc
+  district: Nevada State Public Charter School Authority
+  state: ''
+  leaid: ''
+  event_type: expansion
+  date: 2025-01
+  schools_affected:
+  - name: 6 CCSD charter schools absorbed
+  - name: 5 new charter schools opening 2025-26
+  - name: 80 charter school campuses statewide
+  description: The SPCSA expanded significantly, absorbing six Clark County School District-run charter
+    schools in January 2025 (marking CCSD's complete exit from charter school operation) and planning
+    five new charter school openings for 2025-26. Total enrollment surpassed the Washoe County School
+    District, reaching ~69,000 students with projections above 70,000. The expansion adds over 8,000 students,
+    positioning SPCSA as Nevada's second-largest local education agency. 79% of new campuses opened in
+    the last five years are Title I schools. SPCSA schools have an 83.3% graduation rate, with 26 of 27
+    high schools exceeding the statewide rate.
+  sources:
+  - url: https://charterschools.nv.gov/
+  causes:
+  - charter_competition
+  - new_construction
+- event_id: US-000000-bond-202506-nevada-state-public-charter-sc
+  district: Nevada State Public Charter School Authority
+  state: ''
+  leaid: ''
+  event_type: bond
+  date: 2025-06
+  schools_affected:
+  - name: All Nevada public schools including charters
+  description: The Nevada Legislature passed SB500 securing $12.9 billion for K-12 funding (2025-27 biennium),
+    providing historic investment levels. AB398 allocated $128 million for teacher raises including charter
+    school teachers (previously excluded). SB468 allocated $7 million for charter school student transportation.
+    Cities of Henderson and North Las Vegas were approved as new charter school authorizers under Gov.
+    Lombardo's Assembly Bill 400, allowing municipalities to sponsor and oversee charter schools within
+    their boundaries.
+  sources:
+  - url: https://nevadapoliticaljournal.com/stories/education2025
+  causes:
+  - charter_competition
+  - redistricting_rezoning

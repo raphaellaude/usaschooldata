@@ -1,10 +1,9 @@
 """Analyze consolidated facility events data.
 
-Reads the CSV produced by consolidate.py and prints summary statistics,
-cross-references with NCES directory data, and identifies trends.
+Reads events.csv and sources.csv produced by consolidate.py.
 
 Usage:
-    python -m collect.analyze [--directory-parquet PATH]
+    python -m collect.analyze
 """
 
 import csv
@@ -21,7 +20,7 @@ except ImportError:
     HAS_DUCKDB = False
 
 
-def load_events(csv_path: Path) -> list[dict]:
+def load_csv(csv_path: Path) -> list[dict]:
     with open(csv_path) as f:
         return list(csv.DictReader(f))
 
@@ -52,7 +51,10 @@ def analyze_by_year(events: list[dict]) -> None:
             continue
         year_events.setdefault(y, []).append(e)
 
-    header = f"  {'Year':<6} {'Total':>6} {'Close':>6} {'Expand':>7} {'Bond':>5} {'Reno':>5} {'Redistr':>8}"
+    header = (
+        f"  {'Year':<6} {'Total':>6} {'Close':>6} {'Expand':>7}"
+        f" {'Bond':>5} {'Reno':>5} {'Redistr':>8}"
+    )
     print(header)
     print("  " + "-" * len(header))
 
@@ -62,7 +64,7 @@ def analyze_by_year(events: list[dict]) -> None:
         print(
             f"  {year:<6} {len(evts):>6} "
             f"{types.get('closure', 0):>6} "
-            f"{types.get('expansion', 0) + types.get('new_construction', 0):>7} "
+            f"{types.get('expansion', 0):>7} "
             f"{types.get('bond', 0):>5} "
             f"{types.get('renovation', 0):>5} "
             f"{types.get('redistricting', 0):>8}"
@@ -107,48 +109,37 @@ def analyze_bonds(events: list[dict]) -> None:
             else "N/A"
         )
         print(
-            f"  {e['district_name'][:35]:<36} {e.get('year', '?'):>5} "
+            f"  {e['district'][:35]:<36} {e.get('year', '?'):>5} "
             f"{amt_str:>8} {status}"
         )
 
-    print(f"\n  Approved: {approved}  |  Rejected: {rejected}  |  Total: {len(bond_events)}")
+    print(
+        f"\n  Approved: {approved}  |  Rejected: {rejected}"
+        f"  |  Total: {len(bond_events)}"
+    )
     print(f"  Approved bond value: ~${total_approved_value / 1e9:.1f}B")
 
 
-def analyze_closures(events: list[dict]) -> None:
-    print_section("CLOSURES BY DISTRICT")
-    closures = [e for e in events if e["event_type"] == "closure"]
-    by_district = Counter(e["district_name"] for e in closures)
-    for name, cnt in by_district.most_common():
-        state = next(
-            (e["state"] for e in closures if e["district_name"] == name), ""
-        )
-        print(f"  {name[:42]:<44} ({state}) {cnt} event(s)")
-    print(f"\n  Total: {len(closures)} closure events across {len(by_district)} districts")
-
-
-def analyze_expansions(events: list[dict]) -> None:
-    print_section("EXPANSIONS BY DISTRICT")
-    expansions = [
-        e for e in events if e["event_type"] in ("expansion", "new_construction")
-    ]
-    by_district = Counter(e["district_name"] for e in expansions)
-    for name, cnt in by_district.most_common():
-        state = next(
-            (e["state"] for e in expansions if e["district_name"] == name), ""
-        )
-        print(f"  {name[:42]:<44} ({state}) {cnt} event(s)")
-    print(f"\n  Total: {len(expansions)} expansion events across {len(by_district)} districts")
-
-
-def analyze_sources(events: list[dict]) -> None:
+def analyze_sources(events: list[dict], sources: list[dict]) -> None:
     print_section("SOURCE COVERAGE")
-    has_source = sum(1 for e in events if e.get("source_url"))
-    print(f"  Events with source URLs: {has_source}/{len(events)} ({100 * has_source // len(events)}%)")
+    event_ids_with_sources = set(s["event_id"] for s in sources if s.get("url"))
+    covered = sum(1 for e in events if e["event_id"] in event_ids_with_sources)
+    print(f"  Events with sources:  {covered}/{len(events)}")
+    print(f"  Total source records: {len(sources)}")
 
-    domains: Counter[str] = Counter()
+    # Sources per event distribution
+    sources_per_event: Counter[int] = Counter()
+    src_counts: dict[str, int] = Counter(s["event_id"] for s in sources)
     for e in events:
-        url = e.get("source_url", "")
+        sources_per_event[src_counts.get(e["event_id"], 0)] += 1
+    print(f"\n  Sources-per-event distribution:")
+    for n in sorted(sources_per_event):
+        print(f"    {n} source(s): {sources_per_event[n]} events")
+
+    # Top source domains
+    domains: Counter[str] = Counter()
+    for s in sources:
+        url = s.get("url", "")
         if not url:
             continue
         match = re.search(r"https?://(?:www\.)?([^/]+)", url)
@@ -182,7 +173,10 @@ def cross_reference_nces(events: list[dict], parquet_path: str) -> None:
         GROUP BY leaid
     """).fetchall()
 
-    nces_data = {r[0]: {"open_2024": r[1], "open_2019": r[2], "nces_closed": r[3]} for r in result}
+    nces_data = {
+        r[0]: {"open_2024": r[1], "open_2019": r[2], "nces_closed": r[3]}
+        for r in result
+    }
 
     event_counts: dict[str, dict[str, int]] = {}
     for e in events:
@@ -194,7 +188,7 @@ def cross_reference_nces(events: list[dict], parquet_path: str) -> None:
         event_counts[lea]["total"] += 1
         if e["event_type"] == "closure":
             event_counts[lea]["closure"] += 1
-        elif e["event_type"] in ("expansion", "new_construction"):
+        elif e["event_type"] == "expansion":
             event_counts[lea]["expansion"] += 1
 
     matched = len(leas_with_events & set(nces_data.keys()))
@@ -208,43 +202,54 @@ def cross_reference_nces(events: list[dict], parquet_path: str) -> None:
     district_names = {}
     for e in events:
         if e["leaid"]:
-            district_names[e["leaid"]] = e["district_name"]
+            district_names[e["leaid"]] = e["district"]
 
-    for lea in sorted(nces_data, key=lambda x: nces_data[x]["nces_closed"], reverse=True):
+    for lea in sorted(
+        nces_data, key=lambda x: nces_data[x]["nces_closed"], reverse=True
+    ):
         nd = nces_data[lea]
         ec = event_counts.get(lea, {"total": 0, "closure": 0})
         name = district_names.get(lea, lea)[:34]
         change = nd["open_2024"] - nd["open_2019"]
         print(
-            f"  {name:<35} {nd['open_2019']:>7} {nd['open_2024']:>7} {change:>+5} "
+            f"  {name:<35} {nd['open_2019']:>7} {nd['open_2024']:>7}"
+            f" {change:>+5} "
             f"{nd['nces_closed']:>8} {ec['total']:>7} {ec['closure']:>7}"
         )
 
 
 def main() -> None:
     root = Path(__file__).parent.parent
-    csv_path = root / "data" / "facility_events.csv"
+    events_path = root / "data" / "events.csv"
+    sources_path = root / "data" / "sources.csv"
 
-    if not csv_path.exists():
-        print(f"Error: {csv_path} not found. Run consolidate.py first.", file=sys.stderr)
+    if not events_path.exists():
+        print(
+            f"Error: {events_path} not found. Run consolidate first.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
-    events = load_events(csv_path)
-    print(f"Loaded {len(events)} events from {csv_path.name}")
+    events = load_csv(events_path)
+    sources = load_csv(sources_path) if sources_path.exists() else []
+    print(f"Loaded {len(events)} events, {len(sources)} sources")
 
     analyze_categories(events)
     analyze_by_year(events)
     analyze_bonds(events)
-    analyze_closures(events)
-    analyze_expansions(events)
-    analyze_sources(events)
+    analyze_sources(events, sources)
 
     parquet_path = "/tmp/directory.parquet"
     if Path(parquet_path).exists():
         cross_reference_nces(events, parquet_path)
     else:
-        print("\n  [NCES cross-reference skipped: download directory.parquet first]")
-        print("  curl -o /tmp/directory.parquet https://data.usaschooldata.org/directory.parquet")
+        print(
+            "\n  [NCES cross-reference skipped: download directory.parquet first]"
+        )
+        print(
+            "  curl -o /tmp/directory.parquet"
+            " https://data.usaschooldata.org/directory.parquet"
+        )
 
 
 if __name__ == "__main__":

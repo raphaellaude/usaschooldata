@@ -1,724 +1,754 @@
-# School Facility Events Research: 2020-2025
-# Focus: Major school districts in TN, OH, WI, IN, MN, LA, NJ, NY and national trends
-# Generated from web research on 2026-02-08
-
 events:
-
-  # ============================================================================
-  # TENNESSEE
-  # ============================================================================
-
-  # --- Shelby County / Memphis-Shelby County Schools (MSCS) ---
-
-  - district_name: "Memphis-Shelby County Schools"
-    district_nces_id: "4700148"
-    state: "TN"
-    event_type: "closure"
-    date: "2024-06-01"
-    schools_affected:
-      - "Humes Middle School"
-    description: >
-      Humes Middle School, a former Achievement School District charter school,
-      closed at the end of the 2023-24 school year after the district denied its
-      charter renewal application. Students were redirected to Booker T. Washington
-      Middle and High School. The building is under consideration for reuse by
-      nonprofit New Ballet as an arts-focused school.
-    source_url: "https://www.chalkbeat.org/tennessee/2025/09/24/memphis-leaders-eye-four-schools-for-closure/"
-
-  - district_name: "Memphis-Shelby County Schools"
-    district_nces_id: "4700148"
-    state: "TN"
-    event_type: "closure"
-    date: "2024-06-01"
-    schools_affected:
-      - "ASD Charter School 1 (Frayser Community Schools)"
-      - "ASD Charter School 2"
-      - "ASD Charter School 3"
-      - "ASD Charter School 4"
-    description: >
-      Four Achievement School District charter schools closed when their charter
-      contracts expired in summer 2024 after the MSCS board denied renewal
-      applications. Five ASD charter schools had faced uncertain futures; the
-      board approved only two charter applications for 2024-25 while denying
-      seven others. The ASD model was widely acknowledged as a failure by
-      Tennessee lawmakers.
-    source_url: "https://www.chalkbeat.org/tennessee/2023/7/17/23797481/memphis-shelby-county-schools-tennessee-achievement-school-district-new-charters-turnaround/"
-
-  - district_name: "Memphis-Shelby County Schools"
-    district_nces_id: "4700148"
-    state: "TN"
-    event_type: "closure_planned"
-    date: "2025-09-24"
-    schools_affected:
-      - "Georgian Hills Elementary"
-      - "3 additional schools (names pending board vote)"
-    description: >
-      MSCS leaders recommended closing four schools and transferring one to a
-      neighboring suburban district by end of academic year 2025-26. Schools in
-      Northwest and Southwest regions were chosen due to underenrollment and high
-      deferred maintenance. The district faces over $1.6 billion in building
-      repairs over the next decade, with 10 buildings reaching end of useful life.
-      Eight MSCS schools enrolled fewer than 150 students in 2023-24.
-    source_url: "https://www.chalkbeat.org/tennessee/2025/09/24/memphis-leaders-eye-four-schools-for-closure/"
-
-  - district_name: "Memphis-Shelby County Schools"
-    district_nces_id: "4700148"
-    state: "TN"
-    event_type: "closure_planned"
-    date: "2025-12-18"
-    schools_affected:
-      - "Up to 15 schools by 2028 (10 additional beyond first 5)"
-    description: >
-      Long-term facilities plan released December 2025 calls for closing up to
-      15 schools by 2028. Five already recommended for 2026 closure. Remaining
-      10 closures planned for 2027-2028, mostly in Northwest and Southwest
-      regions with the most chronically underenrolled and oldest buildings.
-      The ad hoc facilities committee recommended asking Shelby County Commission
-      for $750 million to fund repairs and closures over 10 years.
-    source_url: "https://www.chalkbeat.org/tennessee/2025/12/18/memphis-school-closure-superintendent-richmond-recommends-15-by-2028/"
-
-  - district_name: "Memphis-Shelby County Schools"
-    district_nces_id: "4700148"
-    state: "TN"
-    event_type: "new_construction"
-    date: "2024-05-02"
-    schools_affected:
-      - "New Cordova Area High School"
-      - "New Frayser High School"
-    description: >
-      MSCS asked Shelby County for over $200 million for construction of two
-      new high schools -- one in Cordova area (construction began mid-2024,
-      target completion fall 2026) and one for Frayser community. The Cordova
-      school replaces capacity lost from state-mandated transfer of Germantown
-      schools (3G schools). The board approved land purchase in February 2023.
-      This will be the district's first new high school in over a decade.
-    source_url: "https://www.chalkbeat.org/tennessee/2024/05/02/memphis-shelby-county-schools-building-capital-funding-request-frayser/"
-
-  # --- Metro Nashville Public Schools (MNPS) ---
-
-  - district_name: "Metro Nashville Public Schools"
-    district_nces_id: "4701740"
-    state: "TN"
-    event_type: "closure"
-    date: "2020-05-19"
-    schools_affected:
-      - "Buena Vista Elementary"
-      - "Robert E. Lillard Elementary"
-      - "Joelton Middle"
-      - "Cohn Learning Center"
-    description: >
-      Nashville school board unanimously voted to close four schools under the
-      ReimaginED consolidation plan, saving an estimated $3.4 million annually.
-      Closures driven by declining enrollment due to school choice and charter
-      school expansion. At Buena Vista, 62.4% of zoned students exercised
-      school choice (39% to charters, 61% to other district schools).
-    source_url: "https://tennesseelookout.com/2020/05/19/school-board-votes-to-close-north-nashville-schools-under-consolidation-plan/"
-
-  - district_name: "Metro Nashville Public Schools"
-    district_nces_id: "4701740"
-    state: "TN"
-    event_type: "new_construction"
-    date: "2025-08-01"
-    schools_affected:
-      - "Percy Priest Elementary (new $42.3M building)"
-      - "Lakeview Elementary (new $41.7M building)"
-      - "Paragon Mills Elementary (new $36.4M building)"
-    description: >
-      Three new replacement elementary school buildings opened for the 2025-26
-      school year totaling over $120M in investment. Percy Priest (800 students,
-      Pre-K-5) at 1700 Otter Creek Road features new gymnasium, larger cafeteria,
-      wireless projectors. Lakeview (811 students) in Antioch features state-of-
-      the-art technology. Paragon Mills also rebuilt on existing campus. Districts
-      served saw 12-18% population growth from 2010-2020.
-    source_url: "https://www.mnps.org/about/news/news-details/~board/mnps-homepage-news/post/beautiful-and-sustainable-mnps-opens-new-percy-priest-elementary"
-
-  - district_name: "Metro Nashville Public Schools"
-    district_nces_id: "4701740"
-    state: "TN"
-    event_type: "rezoning"
-    date: "2025-10-21"
-    schools_affected:
-      - "Julia Green Elementary (rezoned to Percy Priest)"
-      - "Antioch cluster schools"
-      - "Glencliff cluster schools"
-      - "Hillsboro cluster schools"
-    description: >
-      For 2025-26, MNPS proposed rezoning changes for Antioch, Glencliff, and
-      Hillsboro clusters related to new school openings. A portion of Julia Green
-      zone rezoned to new Percy Priest Elementary (approx. 28 students affected).
-      Ida B. Wells students to be rezoned to Jere Baxter Middle and Maplewood
-      High beginning 2026-27 to eliminate split feeder pattern.
-    source_url: "https://www.wsmv.com/2024/10/21/these-are-proposed-rezoning-changes-some-metro-nashville-schools/"
-
-  # ============================================================================
-  # OHIO
-  # ============================================================================
-
-  # --- Columbus City Schools ---
-
-  - district_name: "Columbus City Schools"
-    district_nces_id: "3904378"
-    state: "OH"
-    event_type: "closure"
-    date: "2024-12-17"
-    schools_affected:
-      - "Columbus Alternative High School"
-      - "Buckeye Middle School"
-      - "Broadleigh Elementary"
-      - "Moler Elementary"
-      - "West Broad Elementary"
-    description: >
-      Columbus Board of Education voted to close five schools after months of
-      debate. Combined, they enroll over 2,000 students and employ over 120
-      teachers. Closures driven by enrollment at less than half of peak levels
-      (from 110K to ~47K). A 28-member facilities task force initially considered
-      20 schools; the board spared North Linden and Lindbergh. West Broad closure
-      contingent on funding for replacement. District downtown offices at
-      270 E. State St. also closed, consolidating to South Side building.
-      Earliest closures take effect 2026.
-    source_url: "https://www.wosu.org/news/2024-12-17/columbus-city-schools-votes-to-close-5-school-buildings-districts-downtown-administration-building"
-
-  - district_name: "Columbus City Schools"
-    district_nces_id: "3904378"
-    state: "OH"
-    event_type: "closure"
-    date: "2025-06-01"
-    schools_affected:
-      - "Duxberry Park Arts Impact Elementary"
-      - "Fairwood Alternative Elementary"
-      - "Como Elementary"
-      - "Columbus Gifted Academy (former Everett Middle)"
-    description: >
-      As part of $50.4 million in budget cuts, the Columbus Board of Education
-      voted to close four additional schools and eliminate numerous staff positions.
-      Ohio public schools face $2 billion in state funding cuts over two years.
-      The district teachers union issued a scathing statement saying the board
-      "should feel shame."
-    source_url: "https://www.10tv.com/article/news/local/columbus-city-schools-board-votes-50-million-budget-cuts/530-9fbeed5f-ea5b-435d-9091-c0982ce0c146"
-
-  # ============================================================================
-  # WISCONSIN
-  # ============================================================================
-
-  # --- Milwaukee Public Schools ---
-
-  - district_name: "Milwaukee Public Schools"
-    state: "WI"
-    event_type: "facilities_plan"
-    date: "2024-10-01"
-    schools_affected:
-      - "Brown Street Academy"
-      - "Clarke Street Academy"
-      - "Siefert School"
-      - "Starms Discovery Learning Center"
-      - "Auer Avenue School"
-      - "Hopkins Lloyd Community School"
-      - "Jackson Elementary School"
-      - "Dr. George Washington Carver Academy"
-      - "Oliver Wendell Holmes School"
-      - "Andrew S. Douglas Middle School"
-      - "Keefe Avenue School"
-      - "Robert M. LaFollette School"
-      - "William T. Sherman School"
-    description: >
-      MPS identified 13 schools for potential closure or merger as part of a
-      long-range facilities plan developed with consultant Perkins Eastman.
-      Enrollment down 32% over 20 years (from 100K+ to ~65K). Buildings average
-      80+ years old. Criteria: enrollment less than 50% of capacity, declining
-      enrollment over 5 years, less than 1 mile from another underenrolled school.
-      36 schools below 70% capacity, 14 schools less than half-full. Closures
-      not planned until 2027-28 school year. MPS superintendent said "much more
-      than 5" schools will eventually close or merge.
-    source_url: "https://www.wisn.com/article/milwaukee-public-schools-names-schools-to-consider-for-closure/62720137"
-
-  - district_name: "Milwaukee Public Schools"
-    state: "WI"
-    event_type: "bond_referendum"
-    date: "2024-04-01"
-    schools_affected: []
-    description: >
-      Milwaukee voters narrowly approved a $252 million school referendum to
-      support operations and facilities. The vote came as the district faces
-      severe financial pressure from declining enrollment and aging infrastructure.
-      Over three decades, building count decreased only 3.9% despite a 29.1%
-      drop in enrollment.
-    source_url: "https://urbanmilwaukee.com/2024/10/05/mps-considers-closing-merging-schools/"
-
-  # ============================================================================
-  # INDIANA
-  # ============================================================================
-
-  # --- Indianapolis Public Schools ---
-
-  - district_name: "Indianapolis Public Schools"
-    district_nces_id: "1804770"
-    state: "IN"
-    event_type: "closure"
-    date: "2023-06-01"
-    schools_affected:
-      - "Francis Bellamy PreK Center"
-      - "Floro Torrence School 83"
-      - "Paul Miller School 114"
-      - "Raymond Brandes School 65"
-      - "George Buck School 94"
-      - "Francis Parker Montessori School 56"
-    description: >
-      Under the Rebuilding Stronger plan unanimously approved by the IPS board,
-      six school buildings closed at end of 2022-23 school year, displacing over
-      1,200 students and 300 staff. Driven by enrollment decline from 27,988 in
-      2015-16 to 19,596 in 2022-23 in traditional schools. Four buildings
-      assigned reuse plans including partnership with Indiana School for the
-      Blind. District also reconfigured grades, expanded IB/Montessori/dual
-      language programs, and created standalone middle schools.
-    source_url: "https://www.wfyi.org/news/articles/its-time-to-say-goodbye-at-these-6-ips-schools-slated-to-close"
-
-  - district_name: "Indianapolis Public Schools"
-    district_nces_id: "1804770"
-    state: "IN"
-    event_type: "reopening"
-    date: "2024-08-01"
-    schools_affected:
-      - "Broad Ripple Middle School (in former Broad Ripple High School building)"
-    description: >
-      As part of Rebuilding Stronger, the former Broad Ripple High School
-      building (closed 2017) reopened as Broad Ripple Middle School serving
-      grades 6-8. This reflects IPS strategy of repurposing closed buildings
-      while implementing grade reconfigurations and four enrollment zones.
-    source_url: "https://mirrorindy.org/indianapolis-public-schools-broad-ripple-high-rebuilding-stronger-2024/"
-
-  - district_name: "Indianapolis Public Schools"
-    district_nces_id: "1804770"
-    state: "IN"
-    event_type: "legislative_threat"
-    date: "2025-01-01"
-    schools_affected:
-      - "50 IPS schools (proposed charter conversion)"
-    description: >
-      House Bill 1136 proposed converting 50 IPS schools to charter schools and
-      dissolving the district, along with Gary Community Schools and three other
-      districts, because more than 50% of students residing in their boundaries
-      attend non-district schools. A separate bill would change control over
-      school closures and buildings. IPS enrollment: 31,300 total (21,000 in
-      district-managed schools). Indianapolis has ~9,000 more seats than enrolled
-      students across IPS and charter schools.
-    source_url: "https://mirrorindy.org/legislation-would-dissolve-ips-four-other-school-districts/"
-
-  # ============================================================================
-  # MINNESOTA
-  # ============================================================================
-
-  # --- Minneapolis Public Schools ---
-
-  - district_name: "Minneapolis Public Schools"
-    district_nces_id: "2700025"
-    state: "MN"
-    event_type: "facilities_plan"
-    date: "2024-11-01"
-    schools_affected:
-      - "Potentially 20-30 schools (no specific schools named yet)"
-    description: >
-      MPS board passed a "transformation resolution" directing the district to
-      account for physical space. District built for 45,000 students had only
-      28,500 enrolled. 52% of buildings underutilized. Of 55,129 school-aged
-      children in Minneapolis, only 28,255 (51%) enrolled in MPS. Superintendent
-      Sayles-Adams asked to provide closure/consolidation recommendations by
-      April 2026. Budget gap projected at $84.3 million for FY2026. The district
-      expected to run out of reserve funds during 2025-26 school year.
-    source_url: "https://minnesotareformer.com/2025/10/20/minneapolis-school-board-signals-potential-school-closures/"
-
-  # --- St. Paul Public Schools ---
-
-  - district_name: "St. Paul Public Schools"
-    district_nces_id: "2721240"
-    state: "MN"
-    event_type: "closure"
-    date: "2022-06-01"
-    schools_affected:
-      - "Galtier Elementary"
-      - "Jackson Elementary"
-      - "John A. Johnson Elementary"
-      - "Parkway Elementary"
-      - "L'Etoile du Nord Lower Campus"
-    description: >
-      St. Paul school board voted 5-2 in December 2021 to close five schools by
-      June 2022, displacing approximately 2,040 students. Closures driven by
-      declining enrollment and excess of 8,000 empty seats. LEAP High School,
-      Wellstone, and Highwood Hills were spared after vocal opposition. Aimed
-      to create larger, more well-rounded schools with greater appeal to parents.
-    source_url: "https://www.twincities.com/2021/12/01/board-votes-to-close-six-st-paul-schools-over-two-years-moving-2040-students/"
-
-  - district_name: "St. Paul Public Schools"
-    district_nces_id: "2721240"
-    state: "MN"
-    event_type: "closure"
-    date: "2023-06-01"
-    schools_affected:
-      - "Barack and Michelle Obama Elementary"
-    description: >
-      As part of the December 2021 board vote, Barack and Michelle Obama
-      Elementary closed at end of 2022-23 school year. Cherokee Heights
-      Montessori merged into JJ Hill Montessori; JJ Hill later planned to
-      relocate to the renovated Obama building in 2024 or 2025.
-    source_url: "https://www.mprnews.org/story/2021/12/01/st-paul-school-board-approves-plan-that-closes-two-elementary-schools-merges-other-programs"
-
-  - district_name: "St. Paul Public Schools"
-    district_nces_id: "2721240"
-    state: "MN"
-    event_type: "budget_crisis"
-    date: "2024-04-01"
-    schools_affected: []
-    description: >
-      SPPS reported a $107 million budget deficit heading into 2024-25 school
-      year, the largest in district history. Plans to cut afterschool programs,
-      custodial, food service and support staff. Superintendent Joe Gothard
-      stated "the cuts we are facing are larger than we've ever faced before."
-    source_url: "https://www.wsws.org/en/articles/2024/04/05/evuo-a05.html"
-
-  # ============================================================================
-  # LOUISIANA
-  # ============================================================================
-
-  # --- East Baton Rouge Parish School System ---
-
-  - district_name: "East Baton Rouge Parish School System"
-    district_nces_id: "2200840"
-    state: "LA"
-    event_type: "closure"
-    date: "2025-04-28"
-    schools_affected:
-      - "Bernard Terrace Elementary"
-      - "Eva Legard Center"
-      - "Ryan Elementary"
-      - "Westminster Elementary"
-      - "Capitol Middle"
-      - "Winbourne Elementary"
-      - "J.K. Haynes Elementary"
-      - "IDEA Public Schools charter (2 campuses)"
-    description: >
-      EBR Parish School Board unanimously approved (7-0) a sweeping realignment
-      plan closing 9 schools, relocating 4, reconfiguring 7 grade structures,
-      and redrawing 12 attendance zones. Over 10,000 students and 1,400+ staff
-      affected. The district has capacity for 60,000+ students but educates
-      fewer than 40,000, with 20,000 excess seats. The closures remove nearly
-      half of the district's F-rated schools and three D-rated schools.
-      Superintendent LaMont Cole led the effort in his ninth month.
-    source_url: "https://www.wafb.com/2025/04/28/school-board-members-vote-approve-plan-close-consolidate-schools-ebr/"
-
-  - district_name: "East Baton Rouge Parish School System"
-    district_nces_id: "2200840"
-    state: "LA"
-    event_type: "grade_reconfiguration"
-    date: "2025-05-01"
-    schools_affected:
-      - "Melrose Elementary (to K-2 foundational learning center)"
-      - "Merrydale Elementary (to K-2 foundational learning center)"
-      - "Capitol Elementary (to grades 3-6)"
-      - "Glen Oaks Park Elementary (to grades 3-5)"
-      - "Scotlandville Middle (expansion from 200 to 400 students)"
-      - "Capitol High (moved to Capitol Middle site, grades 7-12)"
-    description: >
-      As part of the realignment, multiple schools received new grade
-      configurations. Melrose and Merrydale become K-2 "foundational learning
-      centers" with two teachers per classroom. Capitol and Glen Oaks Park
-      shift to upper elementary grades. Scotlandville Middle doubles capacity.
-      Capitol High relocates to Capitol Middle site as a 7-12 school.
-    source_url: "https://www.wafb.com/2025/04/15/ebr-schools-officials-new-release-details-about-proposed-school-realignment/"
-
-  # --- Jefferson Parish Schools ---
-
-  - district_name: "Jefferson Parish Schools"
-    district_nces_id: "2201560"
-    state: "LA"
-    event_type: "consolidation"
-    date: "2023-08-01"
-    schools_affected:
-      - "Grace King High School (closed, students to Bonnabel & Riverdale)"
-      - "Gretna Middle School (closed, students to Marrero Middle)"
-      - "Haynes Academy (relocated to Grace King site)"
-      - "Thomas Jefferson Academy (relocated to Gretna Middle site)"
-      - "St. Ville Elementary (students to Woodmere while new school built)"
-    description: >
-      Jefferson Parish School Board approved consolidating 7 schools, relocating
-      2 schools, creating 1 new Pre-K-8 school, and planning 2 new campuses as
-      part of an infrastructure and efficiency plan. Grace King HS and Gretna MS
-      absorbed into nearby schools. The closing schools showed lower scores than
-      the year before, among the lowest in the district. Part of effort to
-      address declining enrollment and shift students from aging buildings.
-    source_url: "https://www.wdsu.com/article/jefferson-parish-school-board-votes-in-favor-of-consolidating-schools/43524878"
-
-  - district_name: "Jefferson Parish Schools"
-    district_nces_id: "2201560"
-    state: "LA"
-    event_type: "new_construction"
-    date: "2024-01-01"
-    schools_affected:
-      - "New St. Ville Elementary (under construction at existing site)"
-      - "Second new campus (planned)"
-    description: >
-      Jefferson Parish in final stages of designing two new $48 million schools.
-      St. Ville Elementary students temporarily absorbed into Woodmere Elementary
-      while new school built at current St. Ville site. Superintendent James Gray
-      said no additional consolidations planned for 2024, but more likely
-      "near-term."
-    source_url: "https://www.nola.com/news/education/jefferson-parish-wont-close-more-schools-in-2024/article_748beb74-ab45-11ee-9fac-c7877cd3ad55.html"
-
-  # --- NOLA Public Schools (formerly Recovery School District) ---
-
-  - district_name: "NOLA Public Schools"
-    state: "LA"
-    event_type: "consolidation"
-    date: "2023-08-01"
-    schools_affected:
-      - "Six charter schools consolidated into three"
-    description: >
-      Charter leaders consolidated six schools into three schools in summer 2023,
-      following voluntary closure of two under-enrolled schools in summer 2022.
-      Since 2018-19, NOLA-PS has closed or changed operators at 14+ low-performing
-      charter schools. 21 schools (one in four New Orleans charters) faced
-      high-stakes renewal decisions in fall 2023.
-    source_url: "https://thelensnola.org/2024/12/10/tis-the-season-for-school-closures/"
-
-  - district_name: "NOLA Public Schools"
-    state: "LA"
-    event_type: "enrollment_decline"
-    date: "2024-10-01"
-    schools_affected: []
-    description: >
-      As of October 2024, 47,667 students enrolled in 70 NOLA Public Schools,
-      reflecting continued post-pandemic decline. District facing potential
-      $49 million budget shortfall driven by too many empty seats. "The budget
-      issue would not be as bad if we were fully enrolled," said FirstLine
-      Schools CEO. Further campus closures expected.
-    source_url: "https://lailluminator.com/2025/08/27/schools-katrina/"
-
-  # ============================================================================
-  # NEW JERSEY
-  # ============================================================================
-
-  - district_name: "Newark Public Schools"
-    state: "NJ"
-    event_type: "new_construction"
-    date: "2024-07-16"
-    schools_affected:
-      - "University High School (new $153M building planned)"
-      - "Hawthorne Avenue Elementary (relocated to existing University HS building)"
-    description: >
-      NJ Schools Development Authority to spend $153 million to build a new
-      South Ward high school (University High School) and relocate Hawthorne
-      Avenue Elementary students to the existing HS building, with demolition
-      of the old Hawthorne Ave building. Part of state plan to replace 13 of
-      Newark's 33 school buildings built before 1920 (20 still need replacement).
-      District estimated $2 billion needed for full repairs.
-    source_url: "https://www.chalkbeat.org/newark/2024/07/16/nj-will-pay-153-million-to-build-new-high-school-demolish-elementary-school/"
-
-  - district_name: "New Jersey Statewide"
-    state: "NJ"
-    event_type: "legislative_action"
-    date: "2024-09-01"
-    schools_affected: []
-    description: >
-      State Sen. Vin Gopal drafting legislation to mandate consolidation of some
-      of NJ's 590+ school districts, particularly those with fewer than 500
-      students. NJ has the highest property taxes in the country with school
-      taxes accounting for 52% of local property taxes ($15B in school aid =
-      25% of state spending). Henry Hudson Regional merger (Highlands + Atlantic
-      Highlands, 2023 referendum) cited as success model.
-    source_url: "https://newjerseymonitor.com/2025/12/04/nj-mandatory-school-merger-bill/"
-
-  # ============================================================================
-  # NEW YORK
-  # ============================================================================
-
-  # --- NYC Department of Education / NYC Public Schools ---
-
-  - district_name: "New York City Public Schools"
-    state: "NY"
-    event_type: "new_construction"
-    date: "2024-09-01"
-    schools_affected:
-      - "24 new school buildings (11,010 new seats)"
-    description: >
-      Mayor Adams and SCA opened 24 new school buildings for 2024-25 school year
-      -- the most new K-12 seats since 2003. Distribution: 9 in Brooklyn, 8 in
-      Bronx, 1 in Manhattan, 6 in Queens. Features include modern classrooms,
-      advanced technology, green spaces. Addresses overcrowding and state-mandated
-      smaller class sizes. In addition to 20,000+ seats added earlier in Adams
-      administration. 2025-29 Capital Plan funds another 33,417 seats.
-    source_url: "https://www.nyc.gov/office-of-the-mayor/news/675-24/mayor-adams-opens-24-new-school-buildings-ahead-2024-2025-school-year"
-
-  - district_name: "New York City Public Schools"
-    state: "NY"
-    event_type: "merger"
-    date: "2024-10-25"
-    schools_affected:
-      - "13 school mergers/grade removals approved in 2024 (most since 2018)"
-    description: >
-      NYC quietly accelerated school mergers as enrollment dropped. Over past
-      six years, 35 proposals to merge, close, or remove grades from schools
-      passed. 13 approved in 2024 alone (the most in any year since at least
-      2018). Roughly two-thirds of affected schools in Brooklyn or Bronx.
-      Schools affected had higher proportions of Black, Latino, and low-income
-      students than the median city school.
-    source_url: "https://www.chalkbeat.org/newyork/2024/10/25/nyc-quietly-accelerates-mergers-of-small-schools-as-enrollment-drops/"
-
-  - district_name: "New York City Public Schools"
-    state: "NY"
-    event_type: "closure"
-    date: "2025-05-01"
-    schools_affected:
-      - "M.S. 394 (17K394) in Crown Heights"
-    description: >
-      Panel for Educational Policy voted to close M.S. 394, a Pre-K-8 school
-      in Crown Heights, phased out over three school years. Only the third
-      closure approved under Mayor Adams. A new Central Brooklyn Literacy
-      Academy (for students with dyslexia) will open in the same building --
-      the second city-operated school designed for reading challenges.
-    source_url: "https://www.chalkbeat.org/newyork/2025/05/01/pep-votes-to-close-ms-394-open-central-brooklyn-literacy-academy/"
-
-  - district_name: "New York City Public Schools"
-    state: "NY"
-    event_type: "enrollment_decline"
-    date: "2025-11-01"
-    schools_affected:
-      - "112 schools with fewer than 150 students (up from 80 two years ago)"
-      - "190 schools with fewer than 200 students (up from 81 in 2016)"
-    description: >
-      NYC K-12 enrollment fell ~130,000 students (14%) since fall 2016. As of
-      Oct 2025, 884,400 students enrolled, down 22,000 (2.4%) year-over-year.
-      Nearly two-thirds of ~1,600 schools had fewer students than projected.
-      SCA projects enrollment will fall 200,000+ (26%) over next decade.
-      Immigration slowdown under federal enforcement has sharply reduced
-      migrant enrollment that previously offset declines.
-    source_url: "https://www.chalkbeat.org/newyork/2025/11/03/nyc-schools-held-harmless-avoid-midyear-budget-clawback/"
-
-  # ============================================================================
-  # NATIONAL TRENDS
-  # ============================================================================
-
-  - district_name: "National (multiple districts)"
-    state: "US"
-    event_type: "national_trend"
-    date: "2024-01-01"
-    schools_affected: []
-    description: >
-      NATIONAL ENROLLMENT DECLINE: Public school enrollment decreased 2.5% from
-      2019-2023, with NCES projecting loss of another 2.7 million students by
-      2031-32. Operating schools decreased from 99,297 (2023-24) to 99,073
-      (2024-25). Factors include record-low birth rates, shift to charter schools
-      (2.1M to 3.7M students 2011-2021), homeschooling 56% higher than pre-
-      pandemic, and declining public satisfaction (12 percentage point drop
-      2019-2025).
-    source_url: "https://www.educationnext.org/school-enrollment-shifts-five-years-after-pandemic-public-education-shrinking-middle-schools/"
-
-  - district_name: "National (multiple districts)"
-    state: "US"
-    event_type: "national_trend"
-    date: "2024-08-01"
-    schools_affected: []
-    description: >
-      BELLWETHER ANALYSIS - SYSTEMS UNDER STRAIN: Among 9,500 school systems
-      studied, 68% experienced enrollment declines between 2019-20 and 2023-24,
-      representing loss of ~2 million students. Yet fewer than 1% of schools
-      closed. West (76%) and Northeast (73%) had highest share of declining
-      districts. "Hold harmless" state funding and federal pandemic relief
-      delayed closures, but relief funds expired September 2025, likely
-      triggering surge in closures.
-    source_url: "https://bellwether.org/publications/systems-under-strain/"
-
-  - district_name: "National (multiple districts)"
-    state: "US"
-    event_type: "national_trend"
-    date: "2024-01-15"
-    schools_affected: []
-    description: >
-      THOUSANDS AT RISK: Youth Today/The 74 exclusive data showed thousands of
-      schools at risk of closing due to enrollment loss. Schools with majority-
-      Black student bodies were about three times as likely to close as schools
-      with smaller proportions of Black students (2000-2018). California has
-      1,400+ schools where enrollment dropped at least 20% during pandemic.
-    source_url: "https://youthtoday.org/2024/01/exclusive-data-thousands-of-schools-at-risk-of-closing-due-to-enrollment-loss/"
-
-  - district_name: "California Statewide"
-    state: "CA"
-    event_type: "bond_referendum"
-    date: "2024-11-05"
-    schools_affected: []
-    description: >
-      California voters passed Proposition 2, a $10 billion state bond for
-      school construction -- the first since 2016. Passed with 56.8% support.
-      A record 252 school districts asked voters to pass local bonds totaling
-      $40 billion. Notable approvals: $9 billion in LAUSD, $900 million in
-      Pasadena Unified, $1.15 billion in San Jose Unified.
-    source_url: "https://edsource.org/2024/california-election-result-prop-2/721799"
-
-  - district_name: "Boston Public Schools"
-    state: "MA"
-    event_type: "merger"
-    date: "2023-05-24"
-    schools_affected:
-      - "Shaw Elementary (Dorchester) merged with Taylor (Mattapan) - Sept 2024"
-      - "Sumner Elementary (Roslindale) merged with Philbrick - Sept 2025"
-    description: >
-      Boston School Committee voted 6-0 to approve mergers of two pairs of
-      elementary schools, affecting nearly 1,200 students. Small schools targeted
-      lacked basic amenities like gyms, cafeterias, and libraries. District
-      leaders had unveiled a long-term facilities plan noting as many as half
-      the city's public schools could close as enrollment dropped 14%+ in
-      past decade. Critics raised concerns about disproportionate impact on
-      Black and Latino students.
-    source_url: "https://www.bostonglobe.com/2023/05/24/metro/boston-school-committee-tonight-will-decide-two-controversial-elementary-school-mergers/"
-
-  - district_name: "Oakland Unified School District"
-    state: "CA"
-    event_type: "consolidation"
-    date: "2024-08-01"
-    schools_affected:
-      - "New Highland Academy + RISE Community School merged into Highland Community School"
-      - "10+ additional schools planned for consolidation"
-    description: >
-      OUSD board voted on budget cuts including layoffs and consolidation of at
-      least 10 schools beginning 2024-25 school year. In 2023, New Highland
-      Academy and RISE Community School merged to form Highland Community School.
-      Ongoing financial challenges and enrollment decline driving further
-      consolidation.
-    source_url: "https://oaklandside.org/2023/02/28/oakland-school-mergers-closures-budget-ousd/"
-
-  - district_name: "San Francisco Unified School District"
-    state: "CA"
-    event_type: "facilities_plan"
-    date: "2024-01-01"
-    schools_affected:
-      - "Multiple schools under Resource Alignment Initiative"
-    description: >
-      SFUSD launched Resource Alignment Initiative to address portfolio of
-      schools where resources are "stretched too thin across too many sites."
-      Enrollment declined 4,000 since 2012-13 with projected additional 4,600
-      decline by 2032. Process includes potential school mergers, co-locations,
-      and closures.
-    source_url: "https://www.sfusd.edu/resource-alignment-initiative/resource-alignment-initiative-frequently-asked-questions-faqs"
-
-  - district_name: "Vermont Statewide"
-    state: "VT"
-    event_type: "legislative_action"
-    date: "2024-01-01"
-    schools_affected: []
-    description: >
-      Vermont, the most rural state, lost ~20% of K-12 enrollment in two
-      decades. Lawmakers pushing to reorganize 118 school districts (ranging
-      200-4,000 students) into larger systems of 4,000-8,000 students each.
-      In 2024, Vermonters facing double-digit property tax increases rejected
-      nearly one-third of school budgets.
-    source_url: "https://hechingerreport.org/schools-are-closing-across-rural-america-heres-how-a-battle-over-small-districts-is-playing-out-in-one-state/"
-
-  - district_name: "National (10+ states)"
-    state: "US"
-    event_type: "legislative_action"
-    date: "2025-01-01"
-    schools_affected: []
-    description: >
-      At least 10 states considered measures to mandate or incentivize district
-      mergers in the past three years. States include New Jersey, Vermont,
-      South Carolina, Indiana, and others. Driven by declining enrollment,
-      rising per-pupil costs, and property tax pressure. Opponents argue
-      evidence that consolidation saves money or helps students is mixed.
-    source_url: "https://www.edweek.org/policy-politics/states-consider-district-consolidations-as-student-enrollment-drops/2025/12"
+- event_id: TN-47001480-closure-202406-memphis-shelby-county-schools
+  district: Memphis-Shelby County Schools
+  state: TN
+  leaid: '47001480'
+  event_type: closure
+  date: '2024-06-01'
+  schools_affected:
+  - name: Humes Middle School
+  description: Humes Middle School, a former Achievement School District charter school, closed at the
+    end of the 2023-24 school year after the district denied its charter renewal application. Students
+    were redirected to Booker T. Washington Middle and High School. The building is under consideration
+    for reuse by nonprofit New Ballet as an arts-focused school.
+  sources:
+  - url: https://www.chalkbeat.org/tennessee/2025/09/24/memphis-leaders-eye-four-schools-for-closure/
+  causes:
+  - charter_competition
+- event_id: TN-47001480-closure-202406-memphis-shelby-county-schools-2
+  district: Memphis-Shelby County Schools
+  state: TN
+  leaid: '47001480'
+  event_type: closure
+  date: '2024-06-01'
+  schools_affected:
+  - name: ASD Charter School 1 (Frayser Community Schools)
+  - name: ASD Charter School 2
+  - name: ASD Charter School 3
+  - name: ASD Charter School 4
+  description: Four Achievement School District charter schools closed when their charter contracts expired
+    in summer 2024 after the MSCS board denied renewal applications. Five ASD charter schools had faced
+    uncertain futures; the board approved only two charter applications for 2024-25 while denying seven
+    others. The ASD model was widely acknowledged as a failure by Tennessee lawmakers.
+  sources:
+  - url: https://www.chalkbeat.org/tennessee/2023/7/17/23797481/memphis-shelby-county-schools-tennessee-achievement-school-district-new-charters-turnaround/
+  causes:
+  - charter_competition
+- event_id: TN-47001480-closure-202509-memphis-shelby-county-schools
+  district: Memphis-Shelby County Schools
+  state: TN
+  leaid: '47001480'
+  event_type: closure
+  date: '2025-09-24'
+  schools_affected:
+  - name: Georgian Hills Elementary
+  - name: 3 additional schools (names pending board vote)
+  description: MSCS leaders recommended closing four schools and transferring one to a neighboring suburban
+    district by end of academic year 2025-26. Schools in Northwest and Southwest regions were chosen due
+    to underenrollment and high deferred maintenance. The district faces over $1.6 billion in building
+    repairs over the next decade, with 10 buildings reaching end of useful life. Eight MSCS schools enrolled
+    fewer than 150 students in 2023-24.
+  sources:
+  - url: https://www.chalkbeat.org/tennessee/2025/09/24/memphis-leaders-eye-four-schools-for-closure/
+  causes:
+  - facility_condition
+  - underutilization
+- event_id: TN-47001480-closure-202512-memphis-shelby-county-schools
+  district: Memphis-Shelby County Schools
+  state: TN
+  leaid: '47001480'
+  event_type: closure
+  date: '2025-12-18'
+  schools_affected:
+  - name: Up to 15 schools by 2028 (10 additional beyond first 5)
+  description: Long-term facilities plan released December 2025 calls for closing up to 15 schools by
+    2028. Five already recommended for 2026 closure. Remaining 10 closures planned for 2027-2028, mostly
+    in Northwest and Southwest regions with the most chronically underenrolled and oldest buildings. The
+    ad hoc facilities committee recommended asking Shelby County Commission for $750 million to fund repairs
+    and closures over 10 years.
+  sources:
+  - url: https://www.chalkbeat.org/tennessee/2025/12/18/memphis-school-closure-superintendent-richmond-recommends-15-by-2028/
+  causes:
+  - underutilization
+- event_id: TN-47001480-expansion-202405-memphis-shelby-county-schools
+  district: Memphis-Shelby County Schools
+  state: TN
+  leaid: '47001480'
+  event_type: expansion
+  date: '2024-05-02'
+  schools_affected:
+  - name: New Cordova Area High School
+  - name: New Frayser High School
+  description: MSCS asked Shelby County for over $200 million for construction of two new high schools
+    -- one in Cordova area (construction began mid-2024, target completion fall 2026) and one for Frayser
+    community. The Cordova school replaces capacity lost from state-mandated transfer of Germantown schools
+    (3G schools). The board approved land purchase in February 2023. This will be the district's first
+    new high school in over a decade.
+  sources:
+  - url: https://www.chalkbeat.org/tennessee/2024/05/02/memphis-shelby-county-schools-building-capital-funding-request-frayser/
+  causes:
+  - new_construction
+- event_id: TN-47031800-closure-202005-metro-nashville-public-schools
+  district: Metro Nashville Public Schools
+  state: TN
+  leaid: '47031800'
+  event_type: closure
+  date: '2020-05-19'
+  schools_affected:
+  - name: Buena Vista Elementary
+  - name: Robert E. Lillard Elementary
+  - name: Joelton Middle
+  - name: Cohn Learning Center
+  description: Nashville school board unanimously voted to close four schools under the ReimaginED consolidation
+    plan, saving an estimated $3.4 million annually. Closures driven by declining enrollment due to school
+    choice and charter school expansion. At Buena Vista, 62.4% of zoned students exercised school choice
+    (39% to charters, 61% to other district schools).
+  sources:
+  - url: https://tennesseelookout.com/2020/05/19/school-board-votes-to-close-north-nashville-schools-under-consolidation-plan/
+  causes:
+  - charter_competition
+  - consolidation_efficiency
+  - enrollment_decline
+  - political_governance
+- event_id: TN-47031800-expansion-202508-metro-nashville-public-schools
+  district: Metro Nashville Public Schools
+  state: TN
+  leaid: '47031800'
+  event_type: expansion
+  date: '2025-08-01'
+  schools_affected:
+  - name: Percy Priest Elementary (new $42.3M building)
+  - name: Lakeview Elementary (new $41.7M building)
+  - name: Paragon Mills Elementary (new $36.4M building)
+  description: Three new replacement elementary school buildings opened for the 2025-26 school year totaling
+    over $120M in investment. Percy Priest (800 students, Pre-K-5) at 1700 Otter Creek Road features new
+    gymnasium, larger cafeteria, wireless projectors. Lakeview (811 students) in Antioch features state-of-
+    the-art technology. Paragon Mills also rebuilt on existing campus. Districts served saw 12-18% population
+    growth from 2010-2020.
+  sources:
+  - url: https://www.mnps.org/about/news/news-details/~board/mnps-homepage-news/post/beautiful-and-sustainable-mnps-opens-new-percy-priest-elementary
+  causes:
+  - new_construction
+  - population_growth
+- event_id: TN-47031800-redistricting-202510-metro-nashville-public-schools
+  district: Metro Nashville Public Schools
+  state: TN
+  leaid: '47031800'
+  event_type: redistricting
+  date: '2025-10-21'
+  schools_affected:
+  - name: Julia Green Elementary (rezoned to Percy Priest)
+  - name: Antioch cluster schools
+  - name: Glencliff cluster schools
+  - name: Hillsboro cluster schools
+  description: For 2025-26, MNPS proposed rezoning changes for Antioch, Glencliff, and Hillsboro clusters
+    related to new school openings. A portion of Julia Green zone rezoned to new Percy Priest Elementary
+    (approx. 28 students affected). Ida B. Wells students to be rezoned to Jere Baxter Middle and Maplewood
+    High beginning 2026-27 to eliminate split feeder pattern.
+  sources:
+  - url: https://www.wsmv.com/2024/10/21/these-are-proposed-rezoning-changes-some-metro-nashville-schools/
+  causes:
+  - redistricting_rezoning
+- event_id: OH-39043780-closure-202412-columbus-city-schools
+  district: Columbus City Schools
+  state: OH
+  leaid: '39043780'
+  event_type: closure
+  date: '2024-12-17'
+  schools_affected:
+  - name: Columbus Alternative High School
+  - name: Buckeye Middle School
+  - name: Broadleigh Elementary
+  - name: Moler Elementary
+  - name: West Broad Elementary
+  description: Columbus Board of Education voted to close five schools after months of debate. Combined,
+    they enroll over 2,000 students and employ over 120 teachers. Closures driven by enrollment at less
+    than half of peak levels (from 110K to ~47K). A 28-member facilities task force initially considered
+    20 schools; the board spared North Linden and Lindbergh. West Broad closure contingent on funding
+    for replacement. District downtown offices at 270 E. State St. also closed, consolidating to South
+    Side building. Earliest closures take effect 2026.
+  sources:
+  - url: https://www.wosu.org/news/2024-12-17/columbus-city-schools-votes-to-close-5-school-buildings-districts-downtown-administration-building
+  causes:
+  - consolidation_efficiency
+  - political_governance
+- event_id: OH-39043780-closure-202506-columbus-city-schools
+  district: Columbus City Schools
+  state: OH
+  leaid: '39043780'
+  event_type: closure
+  date: '2025-06-01'
+  schools_affected:
+  - name: Duxberry Park Arts Impact Elementary
+  - name: Fairwood Alternative Elementary
+  - name: Como Elementary
+  - name: Columbus Gifted Academy (former Everett Middle)
+  description: As part of $50.4 million in budget cuts, the Columbus Board of Education voted to close
+    four additional schools and eliminate numerous staff positions. Ohio public schools face $2 billion
+    in state funding cuts over two years. The district teachers union issued a scathing statement saying
+    the board "should feel shame."
+  sources:
+  - url: https://www.10tv.com/article/news/local/columbus-city-schools-board-votes-50-million-budget-cuts/530-9fbeed5f-ea5b-435d-9091-c0982ce0c146
+  causes:
+  - budget_fiscal
+  - political_governance
+- event_id: WI-55096000-facilities_plan-202410-milwaukee-public-schools
+  district: Milwaukee Public Schools
+  state: WI
+  leaid: '55096000'
+  event_type: facilities_plan
+  date: '2024-10-01'
+  schools_affected:
+  - name: Brown Street Academy
+  - name: Clarke Street Academy
+  - name: Siefert School
+  - name: Starms Discovery Learning Center
+  - name: Auer Avenue School
+  - name: Hopkins Lloyd Community School
+  - name: Jackson Elementary School
+  - name: Dr. George Washington Carver Academy
+  - name: Oliver Wendell Holmes School
+  - name: Andrew S. Douglas Middle School
+  - name: Keefe Avenue School
+  - name: Robert M. LaFollette School
+  - name: William T. Sherman School
+  description: 'MPS identified 13 schools for potential closure or merger as part of a long-range facilities
+    plan developed with consultant Perkins Eastman. Enrollment down 32% over 20 years (from 100K+ to ~65K).
+    Buildings average 80+ years old. Criteria: enrollment less than 50% of capacity, declining enrollment
+    over 5 years, less than 1 mile from another underenrolled school. 36 schools below 70% capacity, 14
+    schools less than half-full. Closures not planned until 2027-28 school year. MPS superintendent said
+    "much more than 5" schools will eventually close or merge.'
+  sources:
+  - url: https://www.wisn.com/article/milwaukee-public-schools-names-schools-to-consider-for-closure/62720137
+  causes:
+  - enrollment_decline
+  - facility_condition
+  - underutilization
+- event_id: WI-55096000-bond-202404-milwaukee-public-schools
+  district: Milwaukee Public Schools
+  state: WI
+  leaid: '55096000'
+  event_type: bond
+  date: '2024-04-01'
+  schools_affected: []
+  description: Milwaukee voters narrowly approved a $252 million school referendum to support operations
+    and facilities. The vote came as the district faces severe financial pressure from declining enrollment
+    and aging infrastructure. Over three decades, building count decreased only 3.9% despite a 29.1% drop
+    in enrollment.
+  sources:
+  - url: https://urbanmilwaukee.com/2024/10/05/mps-considers-closing-merging-schools/
+  causes:
+  - enrollment_decline
+  - facility_condition
+  - political_governance
+- event_id: IN-18047700-closure-202306-indianapolis-public-schools
+  district: Indianapolis Public Schools
+  state: IN
+  leaid: '18047700'
+  event_type: closure
+  date: '2023-06-01'
+  schools_affected:
+  - name: Francis Bellamy PreK Center
+  - name: Floro Torrence School 83
+  - name: Paul Miller School 114
+  - name: Raymond Brandes School 65
+  - name: George Buck School 94
+  - name: Francis Parker Montessori School 56
+  description: Under the Rebuilding Stronger plan unanimously approved by the IPS board, six school buildings
+    closed at end of 2022-23 school year, displacing over 1,200 students and 300 staff. Driven by enrollment
+    decline from 27,988 in 2015-16 to 19,596 in 2022-23 in traditional schools. Four buildings assigned
+    reuse plans including partnership with Indiana School for the Blind. District also reconfigured grades,
+    expanded IB/Montessori/dual language programs, and created standalone middle schools.
+  sources:
+  - url: https://www.wfyi.org/news/articles/its-time-to-say-goodbye-at-these-6-ips-schools-slated-to-close
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - natural_disaster
+  - new_construction
+- event_id: IN-18047700-expansion-202408-indianapolis-public-schools
+  district: Indianapolis Public Schools
+  state: IN
+  leaid: '18047700'
+  event_type: expansion
+  date: '2024-08-01'
+  schools_affected:
+  - name: Broad Ripple Middle School (in former Broad Ripple High School building)
+  description: As part of Rebuilding Stronger, the former Broad Ripple High School building (closed 2017)
+    reopened as Broad Ripple Middle School serving grades 6-8. This reflects IPS strategy of repurposing
+    closed buildings while implementing grade reconfigurations and four enrollment zones.
+  sources:
+  - url: https://mirrorindy.org/indianapolis-public-schools-broad-ripple-high-rebuilding-stronger-2024/
+  causes:
+  - charter_competition
+  - consolidation_efficiency
+  - new_construction
+- event_id: IN-18047700-legislative_threat-202501-indianapolis-public-schools
+  district: Indianapolis Public Schools
+  state: IN
+  leaid: '18047700'
+  event_type: legislative_threat
+  date: '2025-01-01'
+  schools_affected:
+  - name: 50 IPS schools (proposed charter conversion)
+  description: 'House Bill 1136 proposed converting 50 IPS schools to charter schools and dissolving the
+    district, along with Gary Community Schools and three other districts, because more than 50% of students
+    residing in their boundaries attend non-district schools. A separate bill would change control over
+    school closures and buildings. IPS enrollment: 31,300 total (21,000 in district-managed schools).
+    Indianapolis has ~9,000 more seats than enrolled students across IPS and charter schools.'
+  sources:
+  - url: https://mirrorindy.org/legislation-would-dissolve-ips-four-other-school-districts/
+  causes:
+  - charter_competition
+  - natural_disaster
+  - redistricting_rezoning
+- event_id: MN-27000250-facilities_plan-202411-minneapolis-public-schools
+  district: Minneapolis Public Schools
+  state: MN
+  leaid: '27000250'
+  event_type: facilities_plan
+  date: '2024-11-01'
+  schools_affected:
+  - name: Potentially 20-30 schools (no specific schools named yet)
+  description: MPS board passed a "transformation resolution" directing the district to account for physical
+    space. District built for 45,000 students had only 28,500 enrolled. 52% of buildings underutilized.
+    Of 55,129 school-aged children in Minneapolis, only 28,255 (51%) enrolled in MPS. Superintendent Sayles-Adams
+    asked to provide closure/consolidation recommendations by April 2026. Budget gap projected at $84.3
+    million for FY2026. The district expected to run out of reserve funds during 2025-26 school year.
+  sources:
+  - url: https://minnesotareformer.com/2025/10/20/minneapolis-school-board-signals-potential-school-closures/
+  causes:
+  - consolidation_efficiency
+  - underutilization
+- event_id: MN-000000-closure-202206-st-paul-public-schools
+  district: St. Paul Public Schools
+  state: MN
+  leaid: ''
+  event_type: closure
+  date: '2022-06-01'
+  schools_affected:
+  - name: Galtier Elementary
+  - name: Jackson Elementary
+  - name: John A. Johnson Elementary
+  - name: Parkway Elementary
+  - name: L'Etoile du Nord Lower Campus
+  description: St. Paul school board voted 5-2 in December 2021 to close five schools by June 2022, displacing
+    approximately 2,040 students. Closures driven by declining enrollment and excess of 8,000 empty seats.
+    LEAP High School, Wellstone, and Highwood Hills were spared after vocal opposition. Aimed to create
+    larger, more well-rounded schools with greater appeal to parents.
+  sources:
+  - url: https://www.twincities.com/2021/12/01/board-votes-to-close-six-st-paul-schools-over-two-years-moving-2040-students/
+  causes:
+  - enrollment_decline
+  - political_governance
+- event_id: MN-000000-closure-202306-st-paul-public-schools
+  district: St. Paul Public Schools
+  state: MN
+  leaid: ''
+  event_type: closure
+  date: '2023-06-01'
+  schools_affected:
+  - name: Barack and Michelle Obama Elementary
+  description: As part of the December 2021 board vote, Barack and Michelle Obama Elementary closed at
+    end of 2022-23 school year. Cherokee Heights Montessori merged into JJ Hill Montessori; JJ Hill later
+    planned to relocate to the renovated Obama building in 2024 or 2025.
+  sources:
+  - url: https://www.mprnews.org/story/2021/12/01/st-paul-school-board-approves-plan-that-closes-two-elementary-schools-merges-other-programs
+  causes:
+  - political_governance
+- event_id: MN-000000-budget_crisis-202404-st-paul-public-schools
+  district: St. Paul Public Schools
+  state: MN
+  leaid: ''
+  event_type: budget_crisis
+  date: '2024-04-01'
+  schools_affected: []
+  description: SPPS reported a $107 million budget deficit heading into 2024-25 school year, the largest
+    in district history. Plans to cut afterschool programs, custodial, food service and support staff.
+    Superintendent Joe Gothard stated "the cuts we are facing are larger than we've ever faced before."
+  sources:
+  - url: https://www.wsws.org/en/articles/2024/04/05/evuo-a05.html
+  causes:
+  - budget_fiscal
+- event_id: LA-22008400-closure-202504-east-baton-rouge-parish-school
+  district: East Baton Rouge Parish School System
+  state: LA
+  leaid: '22008400'
+  event_type: closure
+  date: '2025-04-28'
+  schools_affected:
+  - name: Bernard Terrace Elementary
+  - name: Eva Legard Center
+  - name: Ryan Elementary
+  - name: Westminster Elementary
+  - name: Capitol Middle
+  - name: Winbourne Elementary
+  - name: J.K. Haynes Elementary
+  - name: IDEA Public Schools charter (2 campuses)
+  description: EBR Parish School Board unanimously approved (7-0) a sweeping realignment plan closing
+    9 schools, relocating 4, reconfiguring 7 grade structures, and redrawing 12 attendance zones. Over
+    10,000 students and 1,400+ staff affected. The district has capacity for 60,000+ students but educates
+    fewer than 40,000, with 20,000 excess seats. The closures remove nearly half of the district's F-rated
+    schools and three D-rated schools. Superintendent LaMont Cole led the effort in his ninth month.
+  sources:
+  - url: https://www.wafb.com/2025/04/28/school-board-members-vote-approve-plan-close-consolidate-schools-ebr/
+  causes:
+  - consolidation_efficiency
+  - redistricting_rezoning
+- event_id: LA-22008400-renovation-202505-east-baton-rouge-parish-school
+  district: East Baton Rouge Parish School System
+  state: LA
+  leaid: '22008400'
+  event_type: renovation
+  date: '2025-05-01'
+  schools_affected:
+  - name: Melrose Elementary (to K-2 foundational learning center)
+  - name: Merrydale Elementary (to K-2 foundational learning center)
+  - name: Capitol Elementary (to grades 3-6)
+  - name: Glen Oaks Park Elementary (to grades 3-5)
+  - name: Scotlandville Middle (expansion from 200 to 400 students)
+  - name: Capitol High (moved to Capitol Middle site, grades 7-12)
+  description: As part of the realignment, multiple schools received new grade configurations. Melrose
+    and Merrydale become K-2 "foundational learning centers" with two teachers per classroom. Capitol
+    and Glen Oaks Park shift to upper elementary grades. Scotlandville Middle doubles capacity. Capitol
+    High relocates to Capitol Middle site as a 7-12 school.
+  sources:
+  - url: https://www.wafb.com/2025/04/15/ebr-schools-officials-new-release-details-about-proposed-school-realignment/
+  causes:
+  - redistricting_rezoning
+- event_id: LA-22015600-closure-202308-jefferson-parish-schools
+  district: Jefferson Parish Schools
+  state: LA
+  leaid: '22015600'
+  event_type: closure
+  date: '2023-08-01'
+  schools_affected:
+  - name: Grace King High School (closed, students to Bonnabel & Riverdale)
+  - name: Gretna Middle School (closed, students to Marrero Middle)
+  - name: Haynes Academy (relocated to Grace King site)
+  - name: Thomas Jefferson Academy (relocated to Gretna Middle site)
+  - name: St. Ville Elementary (students to Woodmere while new school built)
+  description: Jefferson Parish School Board approved consolidating 7 schools, relocating 2 schools, creating
+    1 new Pre-K-8 school, and planning 2 new campuses as part of an infrastructure and efficiency plan.
+    Grace King HS and Gretna MS absorbed into nearby schools. The closing schools showed lower scores
+    than the year before, among the lowest in the district. Part of effort to address declining enrollment
+    and shift students from aging buildings.
+  sources:
+  - url: https://www.wdsu.com/article/jefferson-parish-school-board-votes-in-favor-of-consolidating-schools/43524878
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - facility_condition
+  - new_construction
+- event_id: LA-22015600-expansion-202401-jefferson-parish-schools
+  district: Jefferson Parish Schools
+  state: LA
+  leaid: '22015600'
+  event_type: expansion
+  date: '2024-01-01'
+  schools_affected:
+  - name: New St. Ville Elementary (under construction at existing site)
+  - name: Second new campus (planned)
+  description: Jefferson Parish in final stages of designing two new $48 million schools. St. Ville Elementary
+    students temporarily absorbed into Woodmere Elementary while new school built at current St. Ville
+    site. Superintendent James Gray said no additional consolidations planned for 2024, but more likely
+    "near-term."
+  sources:
+  - url: https://www.nola.com/news/education/jefferson-parish-wont-close-more-schools-in-2024/article_748beb74-ab45-11ee-9fac-c7877cd3ad55.html
+  causes:
+  - consolidation_efficiency
+- event_id: LA-000000-closure-202308-nola-public-schools
+  district: NOLA Public Schools
+  state: LA
+  leaid: ''
+  event_type: closure
+  date: '2023-08-01'
+  schools_affected:
+  - name: Six charter schools consolidated into three
+  description: Charter leaders consolidated six schools into three schools in summer 2023, following voluntary
+    closure of two under-enrolled schools in summer 2022. Since 2018-19, NOLA-PS has closed or changed
+    operators at 14+ low-performing charter schools. 21 schools (one in four New Orleans charters) faced
+    high-stakes renewal decisions in fall 2023.
+  sources:
+  - url: https://thelensnola.org/2024/12/10/tis-the-season-for-school-closures/
+  causes:
+  - accountability
+  - charter_competition
+  - consolidation_efficiency
+  - underutilization
+- event_id: LA-000000-enrollment_decline-202410-nola-public-schools
+  district: NOLA Public Schools
+  state: LA
+  leaid: ''
+  event_type: enrollment_decline
+  date: '2024-10-01'
+  schools_affected: []
+  description: As of October 2024, 47,667 students enrolled in 70 NOLA Public Schools, reflecting continued
+    post-pandemic decline. District facing potential $49 million budget shortfall driven by too many empty
+    seats. "The budget issue would not be as bad if we were fully enrolled," said FirstLine Schools CEO.
+    Further campus closures expected.
+  sources:
+  - url: https://lailluminator.com/2025/08/27/schools-katrina/
+  causes:
+  - budget_fiscal
+  - covid_pandemic
+- event_id: NJ-34126900-expansion-202407-newark-public-schools
+  district: Newark Public Schools
+  state: NJ
+  leaid: '34126900'
+  event_type: expansion
+  date: '2024-07-16'
+  schools_affected:
+  - name: University High School (new $153M building planned)
+  - name: Hawthorne Avenue Elementary (relocated to existing University HS building)
+  description: NJ Schools Development Authority to spend $153 million to build a new South Ward high school
+    (University High School) and relocate Hawthorne Avenue Elementary students to the existing HS building,
+    with demolition of the old Hawthorne Ave building. Part of state plan to replace 13 of Newark's 33
+    school buildings built before 1920 (20 still need replacement). District estimated $2 billion needed
+    for full repairs.
+  sources:
+  - url: https://www.chalkbeat.org/newark/2024/07/16/nj-will-pay-153-million-to-build-new-high-school-demolish-elementary-school/
+  causes:
+  - population_growth
+- event_id: NJ-000000-legislative_action-202409-new-jersey-statewide
+  district: New Jersey Statewide
+  state: NJ
+  leaid: ''
+  event_type: legislative_action
+  date: '2024-09-01'
+  schools_affected: []
+  description: State Sen. Vin Gopal drafting legislation to mandate consolidation of some of NJ's 590+
+    school districts, particularly those with fewer than 500 students. NJ has the highest property taxes
+    in the country with school taxes accounting for 52% of local property taxes ($15B in school aid =
+    25% of state spending). Henry Hudson Regional merger (Highlands + Atlantic Highlands, 2023 referendum)
+    cited as success model.
+  sources:
+  - url: https://newjerseymonitor.com/2025/12/04/nj-mandatory-school-merger-bill/
+  causes:
+  - budget_fiscal
+  - consolidation_efficiency
+  - political_governance
+  - underutilization
+- event_id: NY-000000-expansion-202409-new-york-city-public-schools
+  district: New York City Public Schools
+  state: NY
+  leaid: ''
+  event_type: expansion
+  date: '2024-09-01'
+  schools_affected:
+  - name: 24 new school buildings (11,010 new seats)
+  description: 'Mayor Adams and SCA opened 24 new school buildings for 2024-25 school year -- the most
+    new K-12 seats since 2003. Distribution: 9 in Brooklyn, 8 in Bronx, 1 in Manhattan, 6 in Queens. Features
+    include modern classrooms, advanced technology, green spaces. Addresses overcrowding and state-mandated
+    smaller class sizes. In addition to 20,000+ seats added earlier in Adams administration. 2025-29 Capital
+    Plan funds another 33,417 seats.'
+  sources:
+  - url: https://www.nyc.gov/office-of-the-mayor/news/675-24/mayor-adams-opens-24-new-school-buildings-ahead-2024-2025-school-year
+  causes:
+  - population_growth
+- event_id: NY-000000-merger-202410-new-york-city-public-schools
+  district: New York City Public Schools
+  state: NY
+  leaid: ''
+  event_type: merger
+  date: '2024-10-25'
+  schools_affected:
+  - name: 13 school mergers/grade removals approved in 2024 (most since 2018)
+  description: NYC quietly accelerated school mergers as enrollment dropped. Over past six years, 35 proposals
+    to merge, close, or remove grades from schools passed. 13 approved in 2024 alone (the most in any
+    year since at least 2018). Roughly two-thirds of affected schools in Brooklyn or Bronx. Schools affected
+    had higher proportions of Black, Latino, and low-income students than the median city school.
+  sources:
+  - url: https://www.chalkbeat.org/newyork/2024/10/25/nyc-quietly-accelerates-mergers-of-small-schools-as-enrollment-drops/
+  causes:
+  - enrollment_decline
+  - natural_disaster
+- event_id: NY-000000-closure-202505-new-york-city-public-schools
+  district: New York City Public Schools
+  state: NY
+  leaid: ''
+  event_type: closure
+  date: '2025-05-01'
+  schools_affected:
+  - name: M.S. 394 (17K394) in Crown Heights
+  description: Panel for Educational Policy voted to close M.S. 394, a Pre-K-8 school in Crown Heights,
+    phased out over three school years. Only the third closure approved under Mayor Adams. A new Central
+    Brooklyn Literacy Academy (for students with dyslexia) will open in the same building -- the second
+    city-operated school designed for reading challenges.
+  sources:
+  - url: https://www.chalkbeat.org/newyork/2025/05/01/pep-votes-to-close-ms-394-open-central-brooklyn-literacy-academy/
+  causes:
+  - enrollment_decline
+- event_id: NY-000000-enrollment_decline-202511-new-york-city-public-schools
+  district: New York City Public Schools
+  state: NY
+  leaid: ''
+  event_type: enrollment_decline
+  date: '2025-11-01'
+  schools_affected:
+  - name: 112 schools with fewer than 150 students (up from 80 two years ago)
+  - name: 190 schools with fewer than 200 students (up from 81 in 2016)
+  description: NYC K-12 enrollment fell ~130,000 students (14%) since fall 2016. As of Oct 2025, 884,400
+    students enrolled, down 22,000 (2.4%) year-over-year. Nearly two-thirds of ~1,600 schools had fewer
+    students than projected. SCA projects enrollment will fall 200,000+ (26%) over next decade. Immigration
+    slowdown under federal enforcement has sharply reduced migrant enrollment that previously offset declines.
+  sources:
+  - url: https://www.chalkbeat.org/newyork/2025/11/03/nyc-schools-held-harmless-avoid-midyear-budget-clawback/
+  causes:
+  - enrollment_decline
+- event_id: US-000000-national_trend-202401-national-multiple-districts
+  district: National (multiple districts)
+  state: US
+  leaid: ''
+  event_type: national_trend
+  date: '2024-01-01'
+  schools_affected: []
+  description: 'NATIONAL ENROLLMENT DECLINE: Public school enrollment decreased 2.5% from 2019-2023, with
+    NCES projecting loss of another 2.7 million students by 2031-32. Operating schools decreased from
+    99,297 (2023-24) to 99,073 (2024-25). Factors include record-low birth rates, shift to charter schools
+    (2.1M to 3.7M students 2011-2021), homeschooling 56% higher than pre- pandemic, and declining public
+    satisfaction (12 percentage point drop 2019-2025).'
+  sources:
+  - url: https://www.educationnext.org/school-enrollment-shifts-five-years-after-pandemic-public-education-shrinking-middle-schools/
+  causes:
+  - charter_competition
+  - covid_pandemic
+  - enrollment_decline
+- event_id: US-000000-national_trend-202408-national-multiple-districts
+  district: National (multiple districts)
+  state: US
+  leaid: ''
+  event_type: national_trend
+  date: '2024-08-01'
+  schools_affected: []
+  description: 'BELLWETHER ANALYSIS - SYSTEMS UNDER STRAIN: Among 9,500 school systems studied, 68% experienced
+    enrollment declines between 2019-20 and 2023-24, representing loss of ~2 million students. Yet fewer
+    than 1% of schools closed. West (76%) and Northeast (73%) had highest share of declining districts.
+    "Hold harmless" state funding and federal pandemic relief delayed closures, but relief funds expired
+    September 2025, likely triggering surge in closures.'
+  sources:
+  - url: https://bellwether.org/publications/systems-under-strain/
+  causes:
+  - covid_pandemic
+  - enrollment_decline
+- event_id: US-000000-national_trend-202401-national-multiple-districts-2
+  district: National (multiple districts)
+  state: US
+  leaid: ''
+  event_type: national_trend
+  date: '2024-01-15'
+  schools_affected: []
+  description: 'THOUSANDS AT RISK: Youth Today/The 74 exclusive data showed thousands of schools at risk
+    of closing due to enrollment loss. Schools with majority- Black student bodies were about three times
+    as likely to close as schools with smaller proportions of Black students (2000-2018). California has
+    1,400+ schools where enrollment dropped at least 20% during pandemic.'
+  sources:
+  - url: https://youthtoday.org/2024/01/exclusive-data-thousands-of-schools-at-risk-of-closing-due-to-enrollment-loss/
+  causes:
+  - covid_pandemic
+  - enrollment_decline
+  - underutilization
+- event_id: CA-000000-bond-202411-california-statewide
+  district: California Statewide
+  state: CA
+  leaid: ''
+  event_type: bond
+  date: '2024-11-05'
+  schools_affected: []
+  description: 'California voters passed Proposition 2, a $10 billion state bond for school construction
+    -- the first since 2016. Passed with 56.8% support. A record 252 school districts asked voters to
+    pass local bonds totaling $40 billion. Notable approvals: $9 billion in LAUSD, $900 million in Pasadena
+    Unified, $1.15 billion in San Jose Unified.'
+  sources:
+  - url: https://edsource.org/2024/california-election-result-prop-2/721799
+  causes:
+  - political_governance
+- event_id: MA-25027900-merger-202305-boston-public-schools
+  district: Boston Public Schools
+  state: MA
+  leaid: '25027900'
+  event_type: merger
+  date: '2023-05-24'
+  schools_affected:
+  - name: Shaw Elementary (Dorchester) merged with Taylor (Mattapan) - Sept 2024
+  - name: Sumner Elementary (Roslindale) merged with Philbrick - Sept 2025
+  description: Boston School Committee voted 6-0 to approve mergers of two pairs of elementary schools,
+    affecting nearly 1,200 students. Small schools targeted lacked basic amenities like gyms, cafeterias,
+    and libraries. District leaders had unveiled a long-term facilities plan noting as many as half the
+    city's public schools could close as enrollment dropped 14%+ in past decade. Critics raised concerns
+    about disproportionate impact on Black and Latino students.
+  sources:
+  - url: https://www.bostonglobe.com/2023/05/24/metro/boston-school-committee-tonight-will-decide-two-controversial-elementary-school-mergers/
+  causes:
+  - enrollment_decline
+  - racial_equity
+  - underutilization
+- event_id: CA-000000-closure-202408-oakland-unified-school-distric
+  district: Oakland Unified School District
+  state: CA
+  leaid: ''
+  event_type: closure
+  date: '2024-08-01'
+  schools_affected:
+  - name: New Highland Academy + RISE Community School merged into Highland Community School
+  - name: 10+ additional schools planned for consolidation
+  description: OUSD board voted on budget cuts including layoffs and consolidation of at least 10 schools
+    beginning 2024-25 school year. In 2023, New Highland Academy and RISE Community School merged to form
+    Highland Community School. Ongoing financial challenges and enrollment decline driving further consolidation.
+  sources:
+  - url: https://oaklandside.org/2023/02/28/oakland-school-mergers-closures-budget-ousd/
+  causes:
+  - budget_fiscal
+  - consolidation_efficiency
+  - enrollment_decline
+  - political_governance
+- event_id: CA-000000-facilities_plan-202401-san-francisco-unified-school-d
+  district: San Francisco Unified School District
+  state: CA
+  leaid: ''
+  event_type: facilities_plan
+  date: '2024-01-01'
+  schools_affected:
+  - name: Multiple schools under Resource Alignment Initiative
+  description: SFUSD launched Resource Alignment Initiative to address portfolio of schools where resources
+    are "stretched too thin across too many sites." Enrollment declined 4,000 since 2012-13 with projected
+    additional 4,600 decline by 2032. Process includes potential school mergers, co-locations, and closures.
+  sources:
+  - url: https://www.sfusd.edu/resource-alignment-initiative/resource-alignment-initiative-frequently-asked-questions-faqs
+  causes:
+  - enrollment_decline
+- event_id: VT-000000-legislative_action-202401-vermont-statewide
+  district: Vermont Statewide
+  state: VT
+  leaid: ''
+  event_type: legislative_action
+  date: '2024-01-01'
+  schools_affected: []
+  description: Vermont, the most rural state, lost ~20% of K-12 enrollment in two decades. Lawmakers pushing
+    to reorganize 118 school districts (ranging 200-4,000 students) into larger systems of 4,000-8,000
+    students each. In 2024, Vermonters facing double-digit property tax increases rejected nearly one-third
+    of school budgets.
+  sources:
+  - url: https://hechingerreport.org/schools-are-closing-across-rural-america-heres-how-a-battle-over-small-districts-is-playing-out-in-one-state/
+  causes:
+  - budget_fiscal
+  - consolidation_efficiency
+  - enrollment_decline
+- event_id: US-000000-legislative_action-202501-national-10-states
+  district: National (10+ states)
+  state: US
+  leaid: ''
+  event_type: legislative_action
+  date: '2025-01-01'
+  schools_affected: []
+  description: At least 10 states considered measures to mandate or incentivize district mergers in the
+    past three years. States include New Jersey, Vermont, South Carolina, Indiana, and others. Driven
+    by declining enrollment, rising per-pupil costs, and property tax pressure. Opponents argue evidence
+    that consolidation saves money or helps students is mixed.
+  sources:
+  - url: https://www.edweek.org/policy-politics/states-consider-district-consolidations-as-student-enrollment-drops/2025/12
+  causes:
+  - budget_fiscal
+  - consolidation_efficiency
+  - enrollment_decline
+  - natural_disaster
