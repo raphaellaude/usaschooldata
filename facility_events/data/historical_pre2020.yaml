@@ -433,7 +433,7 @@ events:
   sources:
   - url: https://www.edweek.org/leadership/memphis-shelby-schools-merge-amid-uncertainty/2013/07
   - url: https://www.actionnews5.com/story/22736163/scs-mcs-officially-merge-into-one-school-district/
-  - url: http://www.cnn.com/2011/US/08/08/tennessee.memphis.schools/index.html
+  - url: https://www.npr.org/2011/03/07/134324082/Memphis-Voters-To-Decide-School-Merger-Proposal
   - url: https://en.wikipedia.org/wiki/Memphis-Shelby_County_Schools
   causes:
   - charter_competition
@@ -648,7 +648,7 @@ events:
     '
   sources:
   - url: https://denvergazette.com/news/education/denver-public-schools-billions-debt-bond-measures/article_35cbb909-459d-40f8-9fed-adefe571a043.html
-  - url: http://bond.dpsk12.org/category/news/
+  - url: https://ballotpedia.org/Denver_Public_Schools_District_Bond_Question_(November_2012)
   causes:
   - budget_fiscal
   - facility_condition
