@@ -1,0 +1,1054 @@
+events:
+- event_id: TX-4828350-expansion-202308-two-new-schools-2023
+  district: Frisco ISD
+  state: TX
+  leaid: '4828350'
+  event_type: expansion
+  date: 2023-08
+  title: Two New Schools Open for 2023-24
+  schools_affected:
+  - name: Richard A. Wilkinson Middle School
+  - name: Shana K. Wortham Intermediate
+  description: 'Frisco ISD opened two new schools for the 2023-24 school year, bringing the district total
+    to 77 campuses. Wortham Intermediate was the first of its kind in the district, serving 5th and 6th
+    graders. The openings came as seven campuses were already at capacity, including four elementary and
+    three middle schools.
+
+    '
+  sources:
+  - url: https://www.friscoisd.org/news/article/2023/08/08/frisco-isd-opens-two-new-schools-for-the-2023-24-school-year
+  - url: https://communityimpact.com/dallas-fort-worth/frisco/education/2022/10/17/frisco-isd-plans-for-2023-24-shift-in-attendance-zones-ahead-of-new-school-openings/
+  causes:
+  - new_construction
+- event_id: TX-4828350-intervention-202411-vatre-rejected-open-enrollment
+  district: Frisco ISD
+  state: TX
+  leaid: '4828350'
+  event_type: intervention
+  date: 2024-11
+  title: VATRE Rejected; District Shifts to Open Enrollment
+  schools_affected:
+  - name: District-wide (77 campuses)
+  description: 'Frisco ISD voters rejected a Voter Approval Tax Rate Election (VATRE) with 57.45% voting
+    against. The district faced a $30.8 million budget shortfall for 2024-25. In response, the district
+    launched the "Access Frisco" program to open enrollment to K-7 students from surrounding areas in
+    2025-26, seeking $750,000 in state funding per 100 additional students to compensate for plateauing
+    local growth.
+
+    '
+  sources:
+  - url: https://communityimpact.com/dallas-fort-worth/frisco/education/2024/11/19/frisco-isd-to-open-enrollment-for-area-students-in-2025-26-school-year/
+  - url: https://www.nbcdfw.com/news/local/frisco-isd-opens-enrollment/3702482/
+  causes:
+  - budget_fiscal
+  - charter_competition
+  - political_governance
+  - population_growth
+- event_id: TX-4827060-bond-202305-698-million-bond
+  district: Leander ISD
+  state: TX
+  leaid: '4827060'
+  event_type: bond
+  date: 2023-05
+  title: $698 Million Bond Approved
+  schools_affected:
+  - name: District-wide (42+ schools, 40,000+ students)
+  description: 'Leander ISD voters approved all three propositions of the 2023 bond election. Proposition
+    A authorized $698.3 million for school facilities, including three new schools (Elementary Schools
+    31 and 32 and High School 7), an early childhood center, and modernization projects at Cedar Park
+    HS, Vista Ridge HS, and Running Brushy MS. The bond did not require a tax rate increase due to continued
+    growth in the district''s tax base.
+
+    '
+  sources:
+  - url: https://www.leanderisd.org/bond2023_overview/
+  - url: https://www.leanderisd.org/bond2023_results/
+  causes:
+  - budget_fiscal
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: TX-4827060-expansion-202408-hisle-elementary
+  district: Leander ISD
+  state: TX
+  leaid: '4827060'
+  event_type: expansion
+  date: 2024-08
+  title: Hisle Elementary School Opens
+  schools_affected:
+  - name: Hisle Elementary School (Elementary School 30)
+  description: 'Hisle Elementary School, funded by the 2023 bond, opened to students on August 14, 2024,
+    located near Devine Lake Park in the northwest part of the district. The new school provided enrollment
+    relief to overcrowded Bagdad and Plain elementary schools.
+
+    '
+  sources:
+  - url: https://www.leanderisd.org/bond_elementaryschool30/
+  - url: https://news.leanderisd.org/board-briefs-feb-1-2024/
+  causes:
+  - charter_competition
+  - population_growth
+- event_id: TX-4812150-expansion-202308-three-new-schools
+  district: Conroe ISD
+  state: TX
+  leaid: '4812150'
+  event_type: expansion
+  date: 2023-08
+  title: Three New Schools Open for 2023-24
+  schools_affected:
+  - name: Christopher J. Hines Elementary
+  - name: Veterans Memorial Intermediate
+  - name: Grangerland Intermediate
+  description: 'Conroe ISD opened three new campuses for the 2023-24 school year to address overcrowding
+    as enrollment topped 73,000 students. Veterans Memorial Intermediate in Grangerland has a capacity
+    of 1,050 students serving the Caney Creek HS feeder zone. Grangerland Intermediate expanded student
+    capacity to 1,600.
+
+    '
+  sources:
+  - url: https://www.yourconroenews.com/neighborhood/moco/news/article/conroe-isd-new-schools-opening-overcrowding-18175280.php
+  - url: https://hellowoodlands.com/conroe-isd-names-3-new-schools/
+  causes:
+  - charter_competition
+  - new_construction
+  - population_growth
+- event_id: TX-4812150-bond-202311-1-8-billion-bond
+  district: Conroe ISD
+  state: TX
+  leaid: '4812150'
+  event_type: bond
+  date: 2023-11
+  title: $1.8 Billion Bond Approved
+  schools_affected:
+  - name: District-wide (eight new schools plus eight additions/renovations)
+  description: 'Conroe ISD voters approved propositions A, B, and C of a $1.9 billion bond package in
+    November 2023 (Proposition D was rejected). Proposition A set aside $1.8 billion for eight new schools
+    including Timber Mill High School (3,800-student capacity), multiple elementary schools, and junior
+    high schools, plus additions and renovations to existing campuses. The district covers 348 square
+    miles including The Woodlands.
+
+    '
+  sources:
+  - url: https://www.houstonchronicle.com/neighborhood/conroe/article/conroe-isd-new-schools-growth-2023-bond-18677985.php
+  - url: https://communityimpact.com/houston/conroe-montgomery/education/2025/04/17/conroe-isd-asks-public-to-submit-names-for-new-schools-opening-2026-27/
+  causes:
+  - new_construction
+  - political_governance
+- event_id: TX-4843590-bond-202411-932-million-bond
+  district: Round Rock ISD
+  state: TX
+  leaid: '4843590'
+  event_type: bond
+  date: 2024-11
+  title: $932 Million Bond Approved (Athletics Prop Rejected)
+  schools_affected:
+  - name: District-wide (average campus age 30 years)
+  description: 'Round Rock ISD voters approved $932.2 million in three of four bond propositions on November
+    5, 2024. Proposition A ($798.3 million) covers maintenance including HVAC, roofing, and plumbing.
+    Voters rejected Prop D for athletic facility upgrades. This was the district''s first bond in six
+    years. The bond would actually lower the tax rate by about 2.5 cents due to growth in the tax base.
+    First-year projects include an Early College High School and a new CTE center.
+
+    '
+  sources:
+  - url: https://www.kvue.com/article/news/education/schools/round-rock-isd-932-million-school-upgrades-reject-athletics-upgrades/269-c5601b0b-0fd8-4301-98cb-1c52337823d6
+  - url: https://www.kut.org/education/2024-11-06/round-rock-isd-bond-package-election-results-prop-a-b-c-d-austin-tx
+  causes:
+  - budget_fiscal
+  - facility_condition
+  - political_governance
+  - population_growth
+- event_id: FL-1200270-expansion-202408-two-k8-schools
+  district: St. Johns County School District
+  state: FL
+  leaid: ''
+  event_type: expansion
+  date: 2024-08
+  title: Two New K-8 Schools Open
+  schools_affected:
+  - name: K-8 School (Shearwater community, CR 16A)
+  - name: K-8 School (Beacon Lakes area, CR 210)
+  description: 'St. Johns County opened two new K-8 schools in August 2024, each serving about 1,500 students.
+    The district is one of the fastest-growing in Florida with over 600 portable classrooms housing about
+    13,000 students. At least 10 of 51 schools were over capacity. Each new school cost approximately
+    $68 million to build.
+
+    '
+  sources:
+  - url: https://www.news4jax.com/news/local/2024/11/15/st-johns-county-plans-to-build-three-more-schools-to-keep-up-with-massive-growth/
+  - url: https://jaxtoday.org/2023/10/26/st-johns-county-is-building-schools-as-fast-as-it-can/
+  causes:
+  - population_growth
+- event_id: FL-1200180-expansion-202308-spring-park-elementary
+  district: Clay County District Schools
+  state: FL
+  leaid: ''
+  event_type: expansion
+  date: 2023-08
+  title: Spring Park Elementary Opens
+  schools_affected:
+  - name: Spring Park Elementary School
+  description: 'Clay County''s 43rd and newest school, Spring Park Elementary in Green Cove Springs, opened
+    for the 2023-24 school year. The 104,000 square foot prototype school cost over $40 million, includes
+    48 classrooms, and serves 800+ students in grades K-6. Built on budget, on time, and debt free. The
+    district is forecasting 7,000-10,000 more students over the next decade due to completion of the First
+    Coast Expressway.
+
+    '
+  sources:
+  - url: https://jaxtoday.org/2023/07/19/clay-county-opens-a-new-school-spring-park-elementary/
+  - url: https://www.news4jax.com/news/local/2023/07/19/spring-park-elementary-opens-in-green-cove-springs-ahead-of-new-school-year/
+  causes:
+  - population_growth
+- event_id: FL-1200390-expansion-202408-new-k8-lakewood-ranch
+  district: Manatee County School District
+  state: FL
+  leaid: ''
+  event_type: expansion
+  date: 2024-08
+  title: Five New Schools Planned; K-8 Construction Begins
+  schools_affected:
+  - name: New K-8 School (Lakewood Ranch, Academic Avenue)
+  - name: New Middle School (North River Ranch)
+  - name: New High School (Lakewood Ranch area, planned 2027)
+  - name: Rye Ranch Elementary (planned 2026)
+  - name: Artisan Lakes Elementary (planned 2026)
+  description: 'Manatee County began construction on a $104.6 million K-8 school in Lakewood Ranch with
+    a capacity of 1,620 students, set to open in 2025. The district plans to open five new schools by
+    2027 to address rapid growth in eastern Manatee County, including a $200 million high school. The
+    district projects 7,077 additional students over the next decade. A new middle school at North River
+    Ranch will cost $68.7 million.
+
+    '
+  sources:
+  - url: https://www.mysuncoast.com/2024/02/07/construction-set-begin-new-manatee-county-school/
+  - url: https://www.asumag.com/planning-design/new-construction/article/55142069/manatee-county-florida-district-plans-to-build-5-schools
+  causes:
+  - population_growth
+- event_id: GA-1301590-expansion-202305-new-cherokee-hs
+  district: Cherokee County School District
+  state: GA
+  leaid: '1301590'
+  event_type: expansion
+  date: 2023-05
+  title: $179M New Cherokee High School Approved
+  schools_affected:
+  - name: Cherokee High School (replacement campus)
+  description: 'The Cherokee County School District Board approved construction of a new Cherokee High
+    School campus in May 2023 at a cost of $179 million — the largest contract ever for a CCSD high school.
+    The new campus covers 88 acres and 473,761 square feet, designed for 3,000+ students with 152 classrooms
+    and state-of-the-art CTAE labs. The original campus dates to 1956 and is the oldest and most expensive
+    to maintain in the county. Funded via Ed-SPLOST revenue with $31 million from the state.
+
+    '
+  sources:
+  - url: https://cherokeehighnews.com/2024/05/13/new-cherokee-high-school/
+  - url: https://www.cherokeek12.net/post-detail/~board/ccsd-comms/post/board-business-briefs-school-board-reviews-budget-approves-construction-of-new-cherokee-hs
+  causes:
+  - new_construction
+- event_id: NC-3702100-bond-202411-120-million-bond
+  district: Johnston County Public Schools
+  state: NC
+  leaid: '3702100'
+  event_type: bond
+  date: 2024-11
+  title: $120 Million School Bond Approved
+  schools_affected:
+  - name: District-wide (48 schools, 36,879 students)
+  description: 'Johnston County voters approved a $120 million general obligation bond by a 56.75% margin
+    on November 5, 2024. Johnston County is the fastest-growing county in North Carolina and 9th fastest
+    nationally. The district has 167 mobile classrooms and 72% of schools are at or over capacity. Bond
+    proceeds fund new construction, additions/renovations at eight elementary schools, fire panel replacements,
+    and HVAC upgrades. The Board had originally sought $285 million.
+
+    '
+  sources:
+  - url: https://www.friendsofjcps.com/
+  - url: https://jocoreport.com/novembers-county-bond-referendum-150-million/
+  causes:
+  - facility_condition
+  - natural_disaster
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: NC-3704590-bond-202411-union-county-bond
+  district: Union County Public Schools
+  state: NC
+  leaid: '3704590'
+  event_type: bond
+  date: 2024-11
+  title: School Construction Bond Referendum
+  schools_affected:
+  - name: Parkwood High School (pre-construction for new school)
+  - name: East Union Middle School (relocation to Forest Hills HS campus)
+  description: 'Union County Public Schools placed a school construction bond referendum on the November
+    2024 ballot to invest in pre-construction for a new Parkwood High School and relocate East Union Middle
+    School to the Forest Hills High campus. The bond builds on previous investments to modernize aging
+    schools in one of North Carolina''s fastest-growing suburban counties near Charlotte.
+
+    '
+  sources:
+  - url: https://ucps.k12.nc.us/bond2024
+  - url: https://www.wcnc.com/article/news/education/union-county-public-schools-information-sessions-school-construction-bond/275-7626b194-1636-4e26-84f7-8f11b7c71b87
+  causes:
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: AZ-0400390-bond-202311-bond-rejected
+  district: Gilbert Public Schools
+  state: AZ
+  leaid: ''
+  event_type: bond
+  date: 2023-11
+  title: $325M Bond Rejected by Voters
+  schools_affected:
+  - name: District-wide
+  description: 'Gilbert Public Schools voters rejected a $325 million bond question in November 2023,
+    part of a broader trend in Maricopa County where voters in Gilbert, Mesa ($500M), and Queen Creek
+    ($98M for the third consecutive year) all rejected school bond proposals. 2023 was a record-setting
+    year for Arizona school bond questions, with 23 districts requesting over $3.56 billion statewide.
+    The rejections reflected growing voter skepticism toward school bonds despite facility needs.
+
+    '
+  sources:
+  - url: https://azbex.com/budgets-funding/record-setting-year-at-the-ballot-for-bonds-across-arizona/
+  - url: https://www.12news.com/article/news/education/mixed-results-valley-school-bonds-and-overrides-chandler-higley-queen-creek-deer-valley/75-52af04e2-2ccf-4606-83c5-a15daa2d8191
+  causes:
+  - political_governance
+  - population_growth
+- event_id: AZ-0400690-bond-202411-chandler-bond-rejected
+  district: Chandler Unified School District
+  state: AZ
+  leaid: ''
+  event_type: bond
+  date: 2024-11
+  title: Infrastructure Bond Measure Rejected
+  schools_affected:
+  - name: District-wide
+  description: 'Chandler USD voters rejected a school infrastructure improvements bond measure in the
+    November 2024 election. The rejection reflects declining enrollment making the district ineligible
+    for Arizona School Facilities Division funds for new schools. Concerns were raised about Chandler
+    taxpayers funding schools physically located in Gilbert (Perry HS) and Queen Creek (Casteel HS) due
+    to the district''s geographic expansion across city lines.
+
+    '
+  sources:
+  - url: https://ballotpedia.org/Chandler_Unified_School_District,_Arizona,_Question,_School_Infrastructure_Improvements_Bond_Measure_(November_2024)
+  - url: https://www.yourvalley.net/chandler-independent/stories/the-bond-is-broken-voters-demand-a-right-sizing-of-chandler-unified,548586
+  causes:
+  - enrollment_decline
+  - facility_condition
+  - new_construction
+  - political_governance
+- event_id: UT-4900390-bond-202211-475-million-bond
+  district: Davis School District
+  state: UT
+  leaid: ''
+  event_type: bond
+  date: 2022-11
+  title: $475 Million Building Generations Bond
+  schools_affected:
+  - name: New Elementary School (West Point)
+  - name: New Elementary School (Sunset)
+  - name: Island View Elementary (rebuild)
+  description: 'Davis School District voters approved a $475 million "Building Generations" bond to fund
+    new school construction and improvements. Construction in West Point and Sunset was in full swing
+    by June 2023 with steel and concrete walls going up at the new elementary schools. The district, serving
+    students in Davis County north of Salt Lake City, continues to experience growth requiring bonds every
+    two years.
+
+    '
+  sources:
+  - url: https://www.dsdbond.org/
+  - url: https://www.ksl.com/article/50510236/heres-what-davis-school-district-plans-for-475-million-bond-if-approved
+  causes:
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: ID-1600870-expansion-202408-new-star-elementary
+  district: West Ada School District
+  state: ID
+  leaid: ''
+  event_type: expansion
+  date: 2024-08
+  title: New Elementary School in Star Opens
+  schools_affected:
+  - name: New Elementary School (south of SH-44 in Star)
+  description: 'West Ada School District, Idaho''s largest (35,000+ students), broke ground on a new elementary
+    school in Star funded by HB 521 facilities funds ($150 million total received by the district). The
+    $20 million school, built for 700 students, gives children south of State Highway 44 a neighborhood
+    school, ending 7-mile bus rides to Eagle. The district projects 11,000 new students over the next
+    decade and plans to seek bonds every two years to keep pace with growth.
+
+    '
+  sources:
+  - url: https://www.idahoednews.org/top-news/west-ada-breaks-ground-on-new-elementary-mayor-calls-it-critical-infrastructure/
+  - url: https://www.ktvb.com/article/news/local/idaho-press/west-ada-outlines-need-8-additional-school/277-669394a5-6bf9-4bb9-9070-aefd5ab71f36
+  causes:
+  - population_growth
+- event_id: NY-3626070-closure-202310-11-schools-closed
+  district: Rochester City School District
+  state: NY
+  leaid: '3626070'
+  event_type: closure
+  date: 2023-10
+  title: Board Votes to Close 11 Schools and 5 Buildings
+  schools_affected:
+  - name: School No. 20
+  - name: School No. 29
+  - name: School No. 39
+  - name: School No. 44
+  - name: School No. 106
+  - name: Montessori Academy (School No. 53, relocated)
+  - name: Rochester Early College International HS (relocated)
+  - name: Additional schools (11 total)
+  description: 'The Rochester City School District Board of Education voted in October 2023 to close 11
+    schools and vacate five buildings. Superintendent Carmine Peluso cited enrollment declines, poor school
+    performance, building conditions, and projections that the district would fall below 14,000 students
+    within 10 years without action. Rochester kept schools closed for in-person instruction during the
+    pandemic longer than any other NY district besides Buffalo, accelerating enrollment losses to charters
+    and homeschooling.
+
+    '
+  sources:
+  - url: https://spectrumlocalnews.com/nys/rochester/news/2023/10/20/rcsd-board-of-education-votes-to-close-11-schools
+  - url: https://www.propublica.org/article/school-closures-students-charter-schools-home-schooling-rochester
+  - url: https://www.wxxinews.org/local-news/2023-09-13/rcsd-considers-shuttering-five-buildings-in-revamp-affecting-more-than-a-dozen-schools
+  causes:
+  - charter_competition
+  - covid_pandemic
+  - enrollment_decline
+  - facility_condition
+  - political_governance
+  - underutilization
+- event_id: OH-3904378-closure-202512-29-schools-consolidation
+  district: Cleveland Metropolitan School District
+  state: OH
+  leaid: '3904378'
+  event_type: closure
+  date: 2025-12
+  title: Building Brighter Futures -- 29 Schools Merged, 18 Buildings Close
+  schools_affected:
+  - name: 29 schools merged (61 elementary to 45; 27 high schools to 14)
+  - name: 18 school buildings closed entirely
+  description: 'The CMSD Board unanimously approved the "Building Brighter Futures" consolidation plan
+    to merge 39 schools, reducing by 29, and close 18 buildings. Enrollment dropped from 70,000 in 2004
+    to 34,000 in 2024, with buildings at half or one-third capacity. The district faces a budget deficit
+    by 2028 without change and needs to save $150 million. The plan saves $30 million/year and affects
+    about 5,000 students for 2026-27. Ohio''s expanded voucher and charter programs contributed to enrollment
+    losses.
+
+    '
+  sources:
+  - url: https://www.k12dive.com/news/cleveland-metropolitan-school-district-to-close-or-merge-29-schools-by-2026/807943/
+  - url: https://fox8.com/news/cleveland-metropolitan-school-district-board-unanimously-approves-consolidation-plan/
+  - url: https://www.ideastream.org/education/2025-04-28/cleveland-says-it-needs-to-close-schools-here-are-4-takeaways
+  causes:
+  - budget_fiscal
+  - charter_competition
+  - consolidation_efficiency
+  - enrollment_decline
+- event_id: OH-3904557-closure-202401-akron-right-sizing
+  district: Akron Public Schools
+  state: OH
+  leaid: '3904557'
+  event_type: closure
+  date: 2024-01
+  title: Firestone Park Elementary Closed in Right-Sizing Plan
+  schools_affected:
+  - name: Firestone Park Elementary School
+  - name: Essex Early Learning Program (terminated)
+  - name: Stewart Early Learning Program (terminated)
+  description: 'The Akron Board of Education approved a redistricting plan that closed Firestone Park
+    Elementary and terminated early learning programs at Essex and Stewart as part of a "right-sizing"
+    effort. Some buildings had less than 50% enrollment, putting them at risk under Ohio law that would
+    put under-used buildings up for sale to charter schools. Four additional buildings are planned for
+    closure in a phased approach through 2027.
+
+    '
+  sources:
+  - url: https://www.wkyc.com/article/news/local/akron/akron-public-schools-approves-redistricting-plan-closures-student-transfers/95-780bea64-8aff-488b-877a-4328cc1a08a3
+  - url: https://www.ideastream.org/education/2023-12-11/akron-schools-to-right-size-district-due-to-declining-population-closing-facilities
+  causes:
+  - charter_competition
+  - consolidation_efficiency
+  - natural_disaster
+  - redistricting_rezoning
+- event_id: OH-3904557-closure-202412-cps-restructuring
+  district: Cincinnati Public Schools
+  state: OH
+  leaid: ''
+  event_type: redistricting
+  date: 2024-12
+  title: Historic Phase 2 Restructuring Approved
+  schools_affected:
+  - name: South Avondale School (becomes middle school)
+  - name: Ethel M. Taylor Academy (becomes junior high)
+  - name: Pleasant Hill Academy (becomes Pleasant Hill Middle School)
+  - name: Riverview East Academy (closed in Phase 1)
+  - name: William H. Taft Elementary (magnet status removed)
+  - name: Sayler Park (expands to K-12)
+  - name: 30 schools total affected by redistricting
+  description: 'The Cincinnati Public Schools board approved a sweeping Phase 2 restructuring during a
+    6.5-hour meeting, moving students at nearly 30 schools and creating six new middle schools. The plan
+    divides the district into three geographical corridors. Phase 1 closed Riverview East Academy. The
+    restructuring addresses a projected $215 million cost and follows declining enrollment patterns. No
+    teacher layoffs are expected.
+
+    '
+  sources:
+  - url: https://www.wcpo.com/news/local-news/cincinnati-public-school-board-passes-majority-of-restructuring-affecting-thousands-of-students
+  - url: https://www.wvxu.org/education/2024-10-28/cincinnati-school-board-district-restructuring-plan-phase-2
+  - url: https://local12.com/news/local/cincinnati-public-schools-district-vote-board-meeting-merger-closing-shutting-down-frederick-douglass-elementary-walnut-hills-merging-evanston-academy-history-historic-landmark-kids-students-transportation-ohio
+  causes:
+  - enrollment_decline
+- event_id: MO-2923580-closure-202507-37-school-closure-plan
+  district: St. Louis Public Schools
+  state: MO
+  leaid: '2923580'
+  event_type: closure
+  date: 2025-07
+  title: Plan to Close 37 of 68 Schools Proposed
+  schools_affected:
+  - name: 27 elementary schools
+  - name: 5 middle schools
+  - name: 5 high schools
+  description: 'Architecture firm Cordogan, Clark & Associates presented a master plan to the St. Louis
+    Public School Board proposing closure of 37 of 68 schools by 2026-27. Enrollment peaked at 115,000
+    students in 1967 and has fallen to about 18,122. The district has capacity for 30,000+ students. Closures
+    would save $42 million in 2026-27 alone. A May 2025 tornado ($63 million in damage) further complicated
+    the situation, threatening to displace more families from the district.
+
+    '
+  sources:
+  - url: https://www.ksdk.com/article/news/education/updated-master-plan-suggests-closing-37-st-louis-public-schools-2026-school-year/63-b11d4327-9aa0-4f77-9bc7-fe95c88e1dfa
+  - url: https://www.stlpr.org/news-briefs/2025-07-21/report-proposes-closing-over-half-st-louis-public-schools-population-decline
+  - url: https://www.stlamerican.com/news/local-news/slps-may-close-38-schools/
+  causes:
+  - budget_fiscal
+  - natural_disaster
+- event_id: MI-2612000-closure-202310-four-buildings-phased
+  district: Flint Community Schools
+  state: MI
+  leaid: '2612000'
+  event_type: closure
+  date: 2023-10
+  title: Board Approves Phased Closure of Four Schools
+  schools_affected:
+  - name: Pierce Elementary (closed 2024-25)
+  - name: Neithercut Elementary (closed 2025-26)
+  - name: Two additional buildings (through 2027)
+  description: 'Flint Community Schools Board approved closing four buildings in a phased approach from
+    2024-2027. Building utilization averaged 55% vs. the state-recommended 85%. With enrollment at 2,823
+    students, the district maintained nearly 451,000 sq ft of unnecessary space costing $3.6-4.5 million
+    annually. The district carried $56 million in debt and a $14.4 million operational deficit. ESSER
+    funding of $150 million since 2021 ended in September 2024.
+
+    '
+  sources:
+  - url: https://flintbeat.com/flint-schools-to-close-four-buildings-starting-with-pierce-elementary/
+  - url: https://www.eastvillagemagazine.org/2023/10/20/pierce-school-to-close-in-2024-25-neithercut-in-2025-26-as-flint-school-board-moves-toward-right-sizing/
+  causes:
+  - enrollment_decline
+- event_id: MI-2613710-closure-202312-10-buildings-reimagine
+  district: Grand Rapids Public Schools
+  state: MI
+  leaid: '2613710'
+  event_type: closure
+  date: 2023-12
+  title: Reimagine GRPS -- 10 Schools to Close by 2028
+  schools_affected:
+  - name: East Leonard Elementary (closed 2024)
+  - name: Stocking Elementary (closed 2024)
+  - name: Southeast Career Pathways/Jefferson (closing 2025)
+  - name: Brookside Elementary (closing 2026)
+  - name: Palmer Elementary (closing 2027)
+  - name: Aberdeen Academy (closing 2027)
+  - name: Westwood Middle School (closing 2028)
+  - name: Three additional schools (closing 2025-2026)
+  description: 'Grand Rapids Public Schools Board unanimously approved the "Reimagine GRPS" facilities
+    master plan to close 10 school buildings between 2024 and 2028. The closures save $60+ million in
+    maintenance and repair costs for underutilized buildings. Voters approved a $305 million bond in 2023
+    to improve remaining schools. East Leonard and Stocking Elementary were the first to close at the
+    end of 2023-24.
+
+    '
+  sources:
+  - url: https://www.schoolnewsnetwork.org/2023/12/19/grps-board-approves-school-closures/
+  - url: https://www.crainsgrandrapids.com/news/real-estate/10-grand-rapids-school-closings-create-redevelopment-opportunities/
+  - url: https://www.fox17online.com/news/local-news/grps-announces-timeline-for-future-of-closed-elementary-schools
+  causes:
+  - budget_fiscal
+  - political_governance
+  - underutilization
+- event_id: RI-4400780-closure-202402-360-high-school
+  district: Providence Public School District
+  state: RI
+  leaid: '4400780'
+  event_type: closure
+  date: 2024-02
+  title: 360 High School Closed and Merged
+  schools_affected:
+  - name: 360 High School (merged into Juanita Sanchez High School)
+  description: 'Providence''s 360 High School was closed and merged with Juanita Sanchez High School at
+    the end of the 2023-24 year, creating the Juanita Sanchez Life Sciences Institute. Superintendent
+    Montanez cited decreased enrollment making it "increasingly difficult to provide equitable opportunities
+    in smaller high schools." Parents sued to block the closure, arguing it violated the Equal Educational
+    Opportunity Act by harming Spanish-speaking students. Students protested inside the school. The district
+    has been under state control since 2019.
+
+    '
+  sources:
+  - url: https://turnto10.com/news/crisis-in-the-classroom/360-high-school-closing-end-of-school-year-merging-with-juanita-sanchez-high-providence-district-merger-protest-enrollment-february-7-2024
+  - url: https://rhodeislandcurrent.com/2024/03/26/whose-school-is-it-anyway-pending-360-high-school-closure-leaves-community-waiting-for-answers/
+  - url: https://www.asumag.com/facilities-management/article/55020769/lawsuit-aims-to-block-closure-of-high-school-in-providence-rhode-island
+  causes:
+  - legal_challenges
+  - underutilization
+- event_id: VA-5101350-closure-202301-five-school-closure-proposal
+  district: Richmond Public Schools
+  state: VA
+  leaid: ''
+  event_type: closure
+  date: 2023-01
+  title: Five-School Closure Proposal Rejected
+  schools_affected:
+  - name: Five schools identified (not named publicly before rejection)
+  description: 'Richmond School Board Member Jonathan Young proposed closing five schools to save $5 million,
+    citing 8,600 vacant seats across the district. The proposal failed in February 2023 after opposition
+    from board members, parents, and the Richmond NAACP, who questioned the equity of closing schools
+    in predominantly African American neighborhoods. Board member Kenya Gibson stated "I do not support
+    any school closures."
+
+    '
+  sources:
+  - url: https://www.12onyourside.com/2023/01/30/richmond-school-board-member-proposes-closing-five-schools-over-budget-concerns/
+  - url: https://www.12onyourside.com/2023/02/02/proposal-close-five-richmond-schools-over-budget-concerns-fails/
+  causes:
+  - budget_fiscal
+  - racial_equity
+- event_id: VA-5101410-closure-202411-norfolk-10-schools
+  district: Norfolk Public Schools
+  state: VA
+  leaid: ''
+  event_type: closure
+  date: 2024-11
+  title: Efficiency Initiative Launched to Close 10 Schools
+  schools_affected:
+  - name: Ghent School
+  - name: Tarrallton Elementary
+  - name: Willoughby Early Childhood Center
+  - name: Norview Elementary
+  - name: Oceanair Elementary (repurposed)
+  - name: Five additional schools (through 2034)
+  description: 'Norfolk Public Schools launched an efficiency and modernization initiative targeting 10
+    school closures after enrollment fell from 32,000 (2014-15) to 26,000. A consultant found the district
+    operated 3-17 more schools than necessary since 2013, wasting an estimated $81 million. City Council
+    requested an action plan by 2026-27. The Board voted 6-1 in October 2025 to close 9 schools by 2033-34
+    under the Consolidation and Equity Transition Plan.
+
+    '
+  sources:
+  - url: https://www.13newsnow.com/article/news/local/mycity/norfolk/norfolk-schools-face-closures-and-rebuilds-as-board-approves-plan/291-ce02f1a7-619f-493a-abdd-79e39512c639
+  - url: https://www.pilotonline.com/2024/11/22/norfolk-school-closure-committee/
+  - url: https://virginiamercury.com/2025/04/02/norfolk-school-board-faces-deadline-to-create-action-plan-for-closing-consolidating-10-schools/
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - new_construction
+  - political_governance
+  - racial_equity
+- event_id: VT-0000000-merger-202007-act46-supreme-court
+  district: Multiple Vermont Districts
+  state: VT
+  leaid: ''
+  event_type: merger
+  date: 2020-07
+  title: Supreme Court Upholds Act 46 Forced Mergers
+  schools_affected:
+  - name: 120+ districts statewide (reduced from 276 pre-merger)
+  description: 'The Vermont Supreme Court narrowly ruled against school districts fighting forced mergers
+    under Act 46, upholding the state-imposed consolidation that reduced districts from 276 to 120 and
+    eliminated over 150 school boards. 63% of K-12 students live in new union districts. However, a Yale
+    study found no significant savings in per-pupil spending — savings were absorbed by higher salaries
+    and busing costs. Some communities like Halifax-Readsboro successfully demerged.
+
+    '
+  sources:
+  - url: https://vtdigger.org/2020/07/10/vermont-supreme-court-upholds-act-46-mandated-district-mergers/
+  - url: https://www.wcax.com/2020/10/21/is-vermont-act-46-school-merger-law-working/
+  - url: https://education.vermont.gov/vermont-schools/school-governance/merger-activity
+  causes:
+  - consolidation_efficiency
+  - legal_challenges
+- event_id: KS-2003090-closure-202405-healy-dissolution
+  district: Healy USD 468
+  state: KS
+  leaid: ''
+  event_type: closure
+  date: 2024-05
+  title: Kansas' Smallest District Plans Dissolution
+  schools_affected:
+  - name: Healy School (estimated 19 students)
+  description: 'Healy USD 468, Kansas'' smallest school district with an estimated 19 students in grades
+    5-8, developed a plan to dissolve and consolidate after years of declining enrollment. Eight other
+    K-12 districts in Kansas have fewer than 100 students and 28 have fewer than 200. The state has no
+    blueprint for dealing with dissolution. The case caught lawmakers'' attention as a harbinger of broader
+    rural decline.
+
+    '
+  sources:
+  - url: https://kansasreflector.com/2024/05/24/kansas-smallest-school-district-prepares-to-close-in-warning-sign-for-rural-communities/
+  - url: https://kansasreflector.com/2023/07/14/after-school-shutdown-rural-kansas-community-tries-to-divorce-district/
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - underutilization
+- event_id: KS-2000720-closure-202308-usd112-disorganization
+  district: Central Plains USD 112
+  state: KS
+  leaid: ''
+  event_type: closure
+  date: 2023-08
+  title: Disorganization Vote After High School Closure
+  schools_affected:
+  - name: Wilson High School (73 students, 50% decline over 10 years)
+  description: 'Barton County residents voted on August 1, 2023, on whether to disorganize USD 112 after
+    the closure of Wilson''s high school, which had seen a 50% enrollment decline over 10 years. The vote
+    was described as "brand new territory" for the Kansas Department of Education and State Board. The
+    Wetmore community also faced its third school closure in 10 years, highlighting the cascading impact
+    on rural communities.
+
+    '
+  sources:
+  - url: https://kansasreflector.com/2023/07/14/after-school-shutdown-rural-kansas-community-tries-to-divorce-district/
+  - url: https://nrea.net/how-to-destroy-public-education-and-rural-communities-at-the-same-time/
+  causes:
+  - enrollment_decline
+- event_id: SD-4600000-merger-202205-oldham-ramona-rutland
+  district: Oldham-Ramona and Rutland School Districts
+  state: SD
+  leaid: ''
+  event_type: merger
+  date: 2022-05
+  title: Two Rural Districts Vote to Consolidate
+  schools_affected:
+  - name: Oldham-Ramona School
+  - name: Rutland School
+  - name: New K-12 school (planned on Highway 81)
+  description: 'The Oldham-Ramona and Rutland school districts in Kingsbury, Miner, Lake, Moody, and Brookings
+    counties voted to consolidate in 2022, planning to build a new K-12 school along Highway 81 for all
+    students by 2025-26. The consolidation was projected to reduce combined operational costs from $4
+    million to $3 million. The merger reflects ongoing rural South Dakota population decline.
+
+    '
+  sources:
+  - url: https://dakotafreepress.com/2022/05/12/oldham-ramona-and-rutland-to-consolidate-school-districts-in-2023/
+  causes:
+  - consolidation_efficiency
+- event_id: WV-5400000-closure-202412-statewide-school-closures
+  district: Multiple West Virginia Districts
+  state: WV
+  leaid: ''
+  event_type: closure
+  date: 2024-12
+  title: State Board Approves Closures Across Six Counties
+  schools_affected:
+  - name: Clay County Middle School (consolidated)
+  - name: Fellowsville Elementary (Preston County, merged into South Preston)
+  - name: Rowlesburg School (Preston County, merged into Aurora)
+  - name: Hundred High School (Wetzel County, merged into Valley HS)
+  - name: Paden City High School (Wetzel County, merged into Magnolia HS)
+  - name: Belle Elementary (Kanawha County)
+  - name: Malden Elementary (Kanawha County)
+  - name: Mary Ingles Elementary (Kanawha County)
+  - name: Midland Trail Elementary (Kanawha County)
+  description: 'The West Virginia Board of Education approved school closures across Clay, Preston, Wetzel,
+    and Kanawha counties in December 2024. Fifty-three schools closed in the prior five years, with 25
+    more proposed in 2024. Clay County lost nearly a third of enrolled students in under 10 years. Fellowsville
+    Elementary saw 50.8% enrollment decline over a decade. The Hope Scholarship voucher program (10,000+
+    students) and charter expansion (2,277 students) accelerated public school enrollment losses.
+
+    '
+  sources:
+  - url: https://www.wtap.com/2024/12/11/west-virginia-board-education-approves-school-closures-consolidations/
+  - url: https://wvpolicy.org/tracking-public-school-closures-in-wv/
+  - url: https://pv4ps.org/west-virginia-is-closing-its-public-schools-your-state-may-be-next/
+  causes:
+  - charter_competition
+  - enrollment_decline
+- event_id: MS-2801980-closure-202312-jackson-13-schools
+  district: Jackson Public Schools
+  state: MS
+  leaid: '2801980'
+  event_type: closure
+  date: 2023-12
+  title: Board Votes to Close 13 Schools
+  schools_affected:
+  - name: Obama Elementary (consolidated with Northwest IB)
+  - name: Wells APAC Elementary (consolidated with Bailey APAC)
+  - name: 11 additional schools closed or consolidated
+  description: 'The Jackson Public Schools Board voted 5-1 to close or consolidate 13 schools effective
+    for the 2024-25 school year after months of community forums. JPS lost about 10,000 students and had
+    400+ staffing vacancies over the prior decade. The plan saves $17+ million annually and $174 million
+    in renovation costs. State Rep. Chris Bell supported the plan to avoid renewed state takeover due
+    to financial distress. Initial proposal targeted 16 schools but was reduced.
+
+    '
+  sources:
+  - url: https://www.asumag.com/facilities-management/article/21279723/jackson-mississippi-district-is-closing-13-schools
+  - url: https://www.mississippifreepress.org/jackson-public-school-board-of-trustees-votes-to-close-or-consolidate-13-schools/
+  - url: https://www.the74million.org/article/jackson-public-schools-board-votes-to-close-13-school-buildings/
+  causes:
+  - accountability
+  - budget_fiscal
+  - consolidation_efficiency
+  - enrollment_decline
+  - political_governance
+- event_id: AZ-0406270-bond-202311-tusd-480-million
+  district: Tucson Unified School District
+  state: AZ
+  leaid: '0406270'
+  event_type: bond
+  date: 2023-11
+  title: $480 Million Bond Approved After 20-Year Drought
+  schools_affected:
+  - name: District-wide (87 schools, 40,000+ students, average building age 55 years)
+  description: 'Tucson Unified voters approved a $480 million bond by a 59-41% margin in November 2023,
+    breaking a 20-year bond drought (last passed in 2004; a 2017 attempt failed). Funds cover $263.9M
+    for facility upgrades, $75.5M for security and safety, $66.4M for technology, $43M for classroom improvements,
+    and $31.2M for transportation. Rincon/University HS receives the most funding (~$16M). Average school
+    age is 55 years, with some buildings over 100 years old.
+
+    '
+  sources:
+  - url: https://tucson.com/news/local/article_fec2410c-7ce8-11ee-9e36-cbd1bdd133f6.html
+  - url: https://tucson.com/news/local/education/k-12-education-tusd-tucson-unified-school-district-election-2023/article_08b896f4-0bcc-11ee-8c21-936e729837ad.html
+  - url: https://bond2023.tusd1.org/
+  causes:
+  - facility_condition
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: TX-4815010-closure-202411-episd-8-schools
+  district: El Paso ISD
+  state: TX
+  leaid: '4815010'
+  event_type: closure
+  date: 2024-11
+  title: Board Votes 4-3 to Close 8 Elementary Schools
+  schools_affected:
+  - name: Carlos Rivera Elementary (closing 2025-26)
+  - name: Lamar Elementary (closing 2025-26)
+  - name: Newman Elementary (closing 2025-26)
+  - name: Putnam Elementary (closing 2025-26)
+  - name: Rusk Elementary (closing 2025-26)
+  - name: Zavala Elementary (closing 2025-26)
+  - name: Travis Elementary (closing 2026-27)
+  - name: Stanton Elementary (closing 2026-27)
+  description: 'El Paso ISD Board voted 4-3 to close eight elementary schools during a 5.5-hour meeting
+    in November 2024 under the "Destination District Redesign" plan. The district faces a $32.2 million
+    budget deficit; closures reduce it by nearly 66%. Children born in El Paso County in 2023 were 21%
+    fewer than in 2013. EPISD had already closed nine elementary schools between 2018-21. U.S. Rep. Veronica
+    Escobar called for delay, with her office receiving 1,200+ constituent messages opposing the closures.
+
+    '
+  sources:
+  - url: https://kvia.com/news/education/2024/11/20/episd-votes-to-close-8-elementary-schools-amid-financial-crisis/
+  - url: https://elpasomatters.org/2024/11/19/episd-school-closures-vote/
+  - url: https://elpasomatters.org/2024/10/21/episd-closures-what-school-will-my-child-attend-busing/
+  causes:
+  - budget_fiscal
+  - political_governance
+- event_id: KS-2026190-closure-202403-wichita-6-schools
+  district: Wichita Public Schools
+  state: KS
+  leaid: '2026190'
+  event_type: closure
+  date: 2024-03
+  title: Board Votes to Close Six Schools
+  schools_affected:
+  - name: Hadley Middle School
+  - name: Jardine STEM and Career Exploration Academy
+  - name: Clark Elementary
+  - name: Cleaveland Traditional Magnet Elementary
+  - name: Payne Elementary
+  - name: Park Elementary
+  description: 'Wichita Public Schools Board voted 5-2 to close two middle schools and four elementary
+    schools to address a $42 million budget gap caused by declining enrollment (a trend since 2016 worsened
+    by COVID-19), the end of pandemic relief funding, and building maintenance needs. The closures save
+    about $16 million. Average elementary enrollment was 380 students versus the 600 needed to run at
+    district standards. A subsequent $450 million bond proposal was narrowly defeated in February 2025.
+
+    '
+  sources:
+  - url: https://thebeaconnews.org/stories/2024/02/13/6-usd-259-school-closings-2024/
+  - url: https://www.kwch.com/2024/03/04/wichita-school-board-votes-close-6-schools-district/
+  - url: https://www.asumag.com/facilities-management/article/55136633/wichita-kansas-approves-facilities-plan-that-calls-for-closing-and-consolidating-many-schools
+  causes:
+  - budget_fiscal
+  - covid_pandemic
+  - enrollment_decline
+  - political_governance
+- event_id: OK-4073590-intervention-202311-state-urges-closures
+  district: Tulsa Public Schools
+  state: OK
+  leaid: '4073590'
+  event_type: intervention
+  date: 2023-11
+  title: State Board Urges School Closures for Low-Performing Sites
+  schools_affected:
+  - name: Multiple low-performing sites (not yet specified)
+  description: 'Oklahoma State Superintendent Ryan Walters and the State Board of Education called for
+    Tulsa Public Schools to identify low-performing school sites for closure during mandatory monthly
+    status updates. Interim Superintendent Ebony Johnson confirmed closures were under consideration as
+    part of a broader consolidation effort. State officials analyzed TPS staffing data and school sizes.
+    TPS stated any closures would be "a local decision" requiring board approval.
+
+    '
+  sources:
+  - url: https://tulsaworld.com/news/local/education/tulsa-schools-ryan-walters/article_55857fa0-8d64-11ee-aa54-f340eac10995.html
+  - url: https://www.publicradiotulsa.org/local-regional/2023-12-01/state-board-urges-tulsa-to-close-low-performing-schools-alleges-excuses-from-school-financial-team
+  causes:
+  - accountability
+  - consolidation_efficiency
+- event_id: NE-3100990-expansion-202308-bluestem-middle
+  district: Omaha Public Schools
+  state: NE
+  leaid: '3100990'
+  event_type: expansion
+  date: 2023-08
+  title: Bluestem Middle School Opens
+  schools_affected:
+  - name: Bluestem Middle School
+  description: 'Omaha Public Schools opened Bluestem Middle School in August 2023, the fifth and final
+    new school built under the district''s $409.9 million Phase 2 bond (approved 2018). The $48.8 million
+    school at 5910 S. 42nd St. opened with 6th and 7th graders, adding 8th grade in 2024. All five new
+    Phase 2 schools totaling nearly $270 million were completed on time and within budget, including Buena
+    Vista HS, Westview HS, Forest Station ES, and Pine ES (opened 2022).
+
+    '
+  sources:
+  - url: https://omaha.com/news/local/education/check-out-five-new-schools-opening-in-ops-in-2022-and-2023/article_98a70de6-6cc1-11ec-900c-afabed04239d.html
+  - url: https://www.ops.org/bond
+  causes:
+  - population_growth
+- event_id: IA-1900000-closure-202410-des-moines-reimagining
+  district: Des Moines Public Schools
+  state: IA
+  leaid: ''
+  event_type: closure
+  date: 2024-10
+  title: Reimagining Education Plan -- Three Schools Close
+  schools_affected:
+  - name: Howe Elementary
+  - name: Walnut Street Elementary
+  - name: Harding Middle School
+  description: 'Des Moines Public Schools unveiled the "Reimagining Education" 10-year plan to address
+    2,200+ student enrollment decline over seven years, aging buildings, and loss of pandemic funding.
+    The revised plan scaled back closures from seven to three schools (Howe ES, Walnut Street ES, and
+    Harding MS) with a $265 million price tag, down from $500 million. The plan also expands full-day
+    preschool and creates eight "signature schools." A $265 million bond passed in November 2025.
+
+    '
+  sources:
+  - url: https://www.weareiowa.com/article/news/education/dmps-state-of-the-schools-closures-elementary-middle-map-district/524-1233a020-4a11-4314-9230-15491313a387
+  - url: https://www.kcci.com/article/fewer-schools-to-close-under-revised-des-moines-education-proposal/65356925
+  - url: https://who13.com/news/dmps-strategic-plan-includes-school-closures-expanded-pre-k-and-signature-schools/
+  causes:
+  - covid_pandemic
+  - enrollment_decline
+  - facility_condition
+- event_id: AR-0501230-closure-202405-three-schools-closed
+  district: Little Rock School District
+  state: AR
+  leaid: '0501230'
+  event_type: closure
+  date: 2024-05
+  title: Three Schools Close at End of 2023-24
+  schools_affected:
+  - name: Baseline Academy (elementary)
+  - name: Cloverdale Middle School
+  - name: West High School of Innovation
+  description: 'Three Little Rock School District campuses closed at the end of the 2023-24 school year
+    as the district addressed declining enrollment (about 19,000 students for 23,000 seats). The Arkansas
+    LEARNS Act (2023) allowed districts in financial distress to be taken over by charter companies, creating
+    urgency to cut costs. In December 2024, the board further voted 5-4 to merge Carver Elementary with
+    Washington Elementary and relocate Brady Elementary students.
+
+    '
+  sources:
+  - url: https://www.thv11.com/article/news/local/little-rock-school-district-closing-consolidating-schools/91-0f115e44-b9c7-468d-97a3-ab0f5b152d01
+  - url: https://www.arkansasonline.com/news/2024/may/27/3-lr-schools-finish-their-last-year/
+  - url: https://www.ualrpublicradio.org/local-regional-news/2024-12-19/little-rock-school-board-votes-to-consolidate-more-elementary-schools
+  causes:
+  - accountability
+  - budget_fiscal
+  - enrollment_decline
+  - political_governance
+- event_id: AR-0501230-closure-202412-additional-consolidations
+  district: Little Rock School District
+  state: AR
+  leaid: '0501230'
+  event_type: closure
+  date: 2024-12
+  title: Board Approves Additional Elementary Consolidations
+  schools_affected:
+  - name: Carver Elementary (merged with Washington Elementary)
+  - name: Brady Elementary (students relocated district-wide)
+  description: 'The Little Rock School Board voted 5-4 in December 2024 to consolidate more elementary
+    schools, merging Carver and Washington Elementary into Washington Carver Elementary and relocating
+    Brady Elementary students across the district. The consolidations save up to $3 million. The Brady
+    building will become a Parent Center with registration and special education offices. Board member
+    Bolley opposed, saying closing schools "destroyed intentional communities."
+
+    '
+  sources:
+  - url: https://www.ualrpublicradio.org/local-regional-news/2024-12-19/little-rock-school-board-votes-to-consolidate-more-elementary-schools
+  - url: https://arktimes.com/arkansas-blog/2024/12/20/little-rock-school-board-approves-more-elementary-school-consolidations
+  causes:
+  - budget_fiscal
+  - consolidation_efficiency
+  - political_governance
+- event_id: SC-4501920-bond-202309-170-million-bonds
+  district: Greenville County School District
+  state: SC
+  leaid: '4501920'
+  event_type: bond
+  date: 2023-09
+  title: $170 Million Bond Issuance for Capital Improvements
+  schools_affected:
+  - name: District-wide (77,000+ students, 11 accelerated improvement projects)
+  description: 'The School District of Greenville County, South Carolina''s largest district (77,000+
+    students, 809 sq mi), issued $170 million in general obligation bonds in September 2023 to finance
+    capital improvements, rated MIG 1 by Moody''s and A-1+ by S&P. The Long-Range Facilities Plan was
+    updated to accelerate 11 school improvement projects. Since 2001, the district has built or begun
+    38 new schools and renovated 19, while Greenville County''s population grew by nearly 40%.
+
+    '
+  sources:
+  - url: https://www.munichain.com/news/south-carolina-school-district-sells-170-mln-in-bonds
+  causes:
+  - new_construction
+- event_id: CT-0900000-closure-202300-statewide-closures
+  district: Multiple Connecticut Districts
+  state: CT
+  leaid: ''
+  event_type: closure
+  date: 2023-01
+  title: Five Connecticut Schools Close in 2023
+  schools_affected:
+  - name: Two Mansfield elementary schools (consolidated into one)
+  - name: Three additional schools across the state
+  description: 'Five Connecticut schools closed in 2023, including two Mansfield elementary schools consolidated
+    into one. The state has closed 75+ public schools over the past decade while losing 36,000 students
+    (from 550,000 to 513,000 enrollment). Most closures have occurred in areas with large populations
+    of students of color, including Hartford and New Haven. At least 81 schools statewide require some
+    kind of transition before the fifth grade.
+
+    '
+  sources:
+  - url: https://ctmirror.org/2024/01/07/ct-school-districts-k-12-enrollment/
+  - url: https://www.asumag.com/facilities-management/article/20855966/10-school-buildings-would-close-in-hartford-conn-consolidation-plan
+  causes:
+  - consolidation_efficiency

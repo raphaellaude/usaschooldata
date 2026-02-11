@@ -1,0 +1,1468 @@
+events:
+- event_id: IL-17099300-closure-201305-cps-mass-closure-49-schools
+  district: Chicago Public Schools
+  state: IL
+  leaid: '17099300'
+  event_type: closure
+  date: 2013-05
+  title: CPS Closes 49 Schools in Largest Mass Closure in US History
+  schools_affected:
+  - name: Henson Elementary
+  - name: Key Elementary
+  - name: Manierre Elementary
+  - name: Altgeld Elementary
+  - name: Garvey Elementary
+  - name: Lafayette Elementary
+  - name: Woods Elementary
+  - name: Kozminski Elementary
+  - name: Reavis Elementary
+  - name: Delano Elementary
+  - name: Von Humboldt Elementary
+  - name: Dewey Elementary
+  - name: Dett Elementary
+  - name: West Pullman Elementary
+  - name: 44 additional elementary schools (49 total)
+  description: 'On May 22, 2013, the Chicago Board of Education voted unanimously to close 49 schools
+    — 47 elementary schools, one high school program, and two schools phased out the following year —
+    in the largest mass school closure in United States history. Approximately 12,000-17,000 students
+    were displaced. CEO Barbara Byrd-Bennett and Mayor Rahm Emanuel cited a $1 billion deficit and severe
+    underenrollment (space for 500,000 students with only 400,000 enrolled) as justification. CPS projected
+    savings of $560 million in capital costs and $43 million annually in operations. Nearly all closed
+    schools served predominantly African American communities on the South and West sides of Chicago.
+    A UIC study found that schools with larger shares of African American students had a higher probability
+    of closure even after controlling for test scores, location, and utilization rates. A 2018 University
+    of Chicago Consortium study found academic outcomes were "neutral at best, and negative in some instances."
+    As of 2023, more than half of the closed school buildings remain unused.
+
+    '
+  sources:
+  - url: https://www.chicagotribune.com/news/ct-xpm-2013-05-23-chi-chicago-school-closings-20130522-story.html
+  - url: https://www.npr.org/2023/06/01/1178727834/after-10-years-chicago-school-closings-have-left-big-holes-and-promises-unkept
+  - url: https://www.chalkbeat.org/chicago/2023/7/25/23806124/chicago-school-closings-2013-henson-elementary/
+  - url: https://graphics.suntimes.com/education/2023/chicagos-50-closed-schools/
+  - url: https://news.wttw.com/2018/05/22/new-study-examines-long-term-impacts-2013-cps-closures
+  causes:
+  - political_governance
+  - racial_equity
+  - underutilization
+- event_id: IL-17099300-intervention-201510-cps-byrd-bennett-bribery
+  district: Chicago Public Schools
+  state: IL
+  leaid: '17099300'
+  event_type: intervention
+  date: 2015-10
+  title: CPS CEO Byrd-Bennett Pleads Guilty in $23M Bribery Scheme
+  schools_affected:
+  - name: District-wide (contract affected principal training programs)
+  description: 'Former CPS CEO Barbara Byrd-Bennett, who oversaw the 2013 mass school closures, pleaded
+    guilty on October 13, 2015 to one count of wire fraud in a $23 million bribery and kickback scheme.
+    She steered no-bid contracts to SUPES Academy and Synesi Associates, companies where she had formerly
+    worked, in exchange for promised kickbacks including trust funds for relatives and a future hiring
+    commitment. Co-conspirators Gary Solomon and Thomas Vranas split about $2.9 million from the deals.
+    Byrd-Bennett was sentenced to 4.5 years in prison in April 2017. The scandal highlighted the contradiction
+    of closing 50 schools to save money while spending $23 million on no-bid consulting contracts. A CPS
+    Inspector General report found Byrd-Bennett helped the companies land $67 million in total contracts.
+
+    '
+  sources:
+  - url: https://www.justice.gov/usao-ndil/pr/former-chief-executive-chicago-public-schools-pleads-guilty-accepting-bribes-and
+  - url: https://news.wttw.com/2015/10/08/former-cps-ceo-barbara-byrd-bennett-plead-guilty-bribery-scheme
+  - url: https://www.cnn.com/2015/10/08/us/chicago-schools-bribery-case/index.html
+  - url: https://news.wttw.com/2018/07/31/cps-watchdog-byrd-bennett-helped-company-land-67m-contracts
+  causes:
+  - budget_fiscal
+- event_id: MI-26054300-closure-201202-detroit-mass-closure-32-schools
+  district: Detroit Public Schools
+  state: MI
+  leaid: '26054300'
+  event_type: closure
+  date: 2012-02
+  title: Detroit Emergency Manager Closes 32 Schools Amid Fiscal Crisis
+  schools_affected:
+  - name: Campbell Elementary School
+  - name: Crary Elementary School
+  - name: Fleming Elementary School
+  - name: Fitzgerald Elementary School
+  - name: Hancock Elementary School
+  - name: Mason Elementary School
+  - name: McColl Elementary School
+  - name: McKenny Elementary School
+  - name: Owen Academy
+  - name: George E. Parker Elementary School
+  - name: William Robinson Elementary/Middle School
+  - name: Van Zile Elementary School
+  - name: 20 additional schools (32 total)
+  description: 'Under state-appointed Emergency Manager Roy Roberts, Detroit Public Schools closed 32
+    schools in 2012, up from 17 the year prior. The district had a $327 million deficit and had lost more
+    than 100,000 students since 2000, falling below 50,000 enrolled students. Roberts, a former General
+    Motors executive appointed by Governor Rick Snyder in 2011, also converted four schools to charters
+    and shifted 15 others to the state''s Education Achievement Authority for the lowest-performing schools.
+    Nine schools were closed outright with an estimated $7.5 million in annual operating savings. The
+    district''s enrollment collapse was driven by deindustrialization, population loss, budget cuts, and
+    rapid charter school expansion — by 2013, charter enrollment in Detroit exceeded DPS enrollment for
+    the first time.
+
+    '
+  sources:
+  - url: https://www.huffingtonpost.com/2012/02/08/detroit-school-closings_n_1263165.html
+  - url: https://en.wikipedia.org/wiki/List_of_closed_public_schools_in_Detroit
+  - url: https://app.regrid.com/reports/schools
+  - url: https://www.michigan.gov/formergovernors/recent/snyder/press-releases/2011/05/04/snyder-appoints-roy-s-roberts-detroit-public-schools-emergency-manager
+  causes:
+  - budget_fiscal
+  - charter_competition
+  - enrollment_decline
+  - political_governance
+- event_id: MI-26054300-intervention-201606-detroit-617m-bailout-restructuring
+  district: Detroit Public Schools
+  state: MI
+  leaid: '26054300'
+  event_type: intervention
+  date: 2016-06
+  title: Michigan Passes $617M Bailout and Restructures DPS into New District
+  schools_affected:
+  - name: All DPS schools (district-wide restructuring, ~97 schools)
+  description: 'On June 21, 2016, Governor Rick Snyder signed a $617 million bailout and restructuring
+    package for Detroit Public Schools, modeled after the 2009 GM bankruptcy restructuring. The legislation
+    split DPS into two entities: the "old" DPS retained to collect property taxes and pay down $515 million
+    in operating debt, and a new, debt-free Detroit Public Schools Community District (DPSCD) created
+    to educate students. The new district was returned to an elected school board in January 2017. The
+    bailout included $467 million for legacy debt and $150 million in start-up funding. DPS had cycled
+    through four state-appointed emergency managers since 2009 and accumulated $3.5 billion in long-term
+    debt. The legislation notably did not address the district''s estimated $500 million in immediate
+    capital needs. The narrowly passed package (55-54 in the House, 19-18 in the Senate) did not include
+    a proposed Detroit Education Commission to regulate charter school locations, which was blocked by
+    the charter school lobby.
+
+    '
+  sources:
+  - url: https://www.crainsdetroit.com/article/20160621/NEWS01/160629940/snyder-signs-617-million-detroit-schools-bailout
+  - url: https://www.cbc.ca/news/canada/windsor/michigan-bailout-saves-detroit-schools-from-bankruptcy-1.3623831
+  - url: https://crcmich.org/after-20-years-detroit-public-schools-to-regain-control-of-its-finances
+  - url: https://time.com/4390000/detroit-public-schools-charters-debt/
+  causes:
+  - budget_fiscal
+  - charter_competition
+  - political_governance
+- event_id: PA-42189900-closure-201303-philadelphia-24-school-closures
+  district: School District of Philadelphia
+  state: PA
+  leaid: '42189900'
+  event_type: closure
+  date: 2013-03
+  title: Philadelphia SRC Votes to Close 24 Schools Amid $1.35B Shortfall
+  schools_affected:
+  - name: Germantown High School
+  - name: Bok Technical High School
+  - name: University City High School
+  - name: 21 additional schools (24 total, mostly elementary)
+  description: 'On March 7, 2013, the School District of Philadelphia''s appointed School Reform Commission
+    (SRC) voted to close 23 public schools, with a 24th added on April 18. The closures were driven by
+    a $1.35 billion budget shortfall as federal stimulus funds expired. The original proposal targeted
+    37 schools before Superintendent William Hite pared the list. Nearly 10,000 students were displaced
+    from schools located almost entirely in low-income communities of color, amounting to about one in
+    ten district-managed schools. AFT President Randi Weingarten was arrested protesting the action. The
+    closures were followed by a "doomsday budget" for 2013-14 that eliminated funding for paper and new
+    books, and 3,783 layoffs including 676 teachers and 283 counselors. Federal civil rights complaints
+    were filed alleging discrimination against Black and Hispanic students and students with disabilities.
+    Ten years later, several former school buildings remain vacant, while four became charter schools
+    and two were converted to residential use.
+
+    '
+  sources:
+  - url: https://www.npr.org/2013/03/08/173843054/faced-with-massive-budget-cuts-philadelphia-plans-to-shutter-23-schools
+  - url: https://www.cbsnews.com/philadelphia/news/2013-in-review-district-closes-24-philadelphia-public-schools/
+  - url: https://philadelphianeighborhoods.com/2023/05/11/education-the-lasting-effects-of-the-2013-school-closures/
+  - url: https://www.inquirer.com/philly/education/20130310_A_Snapshot__The_23_Closing_Schools_in_Philadelphia.html
+  - url: https://www.washingtonpost.com/news/answer-sheet/wp/2013/06/08/philadelphia-school-district-laying-off-3783-employees/
+  causes:
+  - budget_fiscal
+  - charter_competition
+  - legal_challenges
+  - racial_equity
+- event_id: NJ-34126900-closure-201409-newark-one-newark-closures
+  district: Newark Public Schools
+  state: NJ
+  leaid: '34126900'
+  event_type: closure
+  date: 2014-09
+  title: One Newark Plan Closes and Consolidates 12+ Schools
+  schools_affected:
+  - name: Madison Avenue School
+  - name: Hawthorne Avenue School
+  - name: Bragaw Avenue School
+  - name: Alexander Street School
+  - name: Newton Street School
+  - name: Eighteenth Avenue School
+  - name: Additional early childhood centers
+  description: 'Superintendent Cami Anderson''s "One Newark" plan, backed by $200 million in private philanthropy
+    (including Mark Zuckerberg''s $100 million gift), closed or consolidated more than 12 schools beginning
+    in the 2014-15 school year. The plan eliminated neighborhood schools in favor of a citywide enrollment
+    lottery, expanded charter school programs, and prompted mass firings of principals and teachers. Since
+    2009, Newark closed 13 schools — largely in poor, heavily African-American South and West wards —
+    several of which were turned over to charter management organizations. Black students comprised 51%
+    of the district but 86% of those affected by closures. In January 2014, five principals who spoke
+    against the plan were suspended. The Education Law Center declared the closures illegal for failing
+    to comply with state regulations. Federal civil rights complaints were filed in 2012-2014, and a federal
+    investigation was launched in July 2014. Anderson stepped down on July 8, 2015, after Mayor Ras Baraka
+    — elected on an anti-reform platform — and community opposition made her position untenable. The episode
+    is widely cited as a cautionary tale of top-down education philanthropy.
+
+    '
+  sources:
+  - url: https://www.washingtonpost.com/local/education/chris-christies-newark-schools-chief-steps-down-following-years-of-turmoil/2015/06/22/729a1a52-1918-11e5-93b7-5eddc056ad8a_story.html
+  - url: https://hechingerreport.org/the-life-and-death-of-newarks-eighteenth-avenue-school/
+  - url: https://www.nber.org/system/files/working_papers/w23922/w23922.pdf
+  - url: https://www.bobbraunsledger.com/closing-newark-schools-is-illegal-because-anderson-didnt-comply-with-law-legal-experts-say/
+  - url: https://www.insidephilanthropy.com/home/2017-10-31-newark-school-reform-philanthropy-study
+  causes:
+  - charter_competition
+  - consolidation_efficiency
+  - legal_challenges
+  - political_governance
+  - racial_equity
+- event_id: LA-2200090-intervention-200511-new-orleans-rsd-state-takeover
+  district: Recovery School District / Orleans Parish
+  state: LA
+  leaid: '2200090'
+  event_type: intervention
+  date: 2005-11
+  title: Louisiana Takes Over 102 New Orleans Schools Post-Katrina
+  schools_affected:
+  - name: 102 of 126 Orleans Parish schools transferred to RSD
+  description: 'In the aftermath of Hurricane Katrina (August 29, 2005), the Louisiana Legislature passed
+    Act 35, dramatically expanding the Recovery School District''s authority. The RSD took over 102 of
+    126 schools from the Orleans Parish School Board (OPSB) in late November 2005. Of the 24 remaining
+    OPSB schools, seven were uninhabitable, 12 became charters, and five remained directly managed. This
+    was the most sweeping state takeover of a school district in American history. The RSD gradually converted
+    traditional public schools to charter schools — by 2014, 92% of New Orleans public schools were charters.
+    The takeover sparked intense debate about race, democratic governance, and privatization, with Howard
+    Fuller noting that many African Americans felt the reforms happened "to us and not with us." The RSD
+    eventually operated 52 charter schools with no remaining direct-run schools, creating the nation''s
+    first all-charter school system.
+
+    '
+  sources:
+  - url: https://en.wikipedia.org/wiki/Recovery_School_District
+  - url: https://educationresearchalliancenola.org/files/publications/A-New-First_FINAL.pdf
+  - url: https://www.the74million.org/article/with-reunification-new-orleans-becomes-the-first-district-in-the-country-to-oversee-a-citywide-system-of-public-charter-schools-will-it-work/
+  causes:
+  - accountability
+  - charter_competition
+  - natural_disaster
+- event_id: LA-2200090-merger-201807-new-orleans-reunification-opsb
+  district: Orleans Parish School Board / NOLA Public Schools
+  state: LA
+  leaid: '2200090'
+  event_type: merger
+  date: 2018-07
+  title: New Orleans Schools Reunify Under Local Board After 13 Years of State Control
+  schools_affected:
+  - name: All 86 New Orleans public schools returned to OPSB oversight
+  description: 'On July 1, 2018, all New Orleans public schools under the state Recovery School District
+    returned to the oversight of the locally elected Orleans Parish School Board, completing a reunification
+    process mandated by Act 91 (signed May 2016 by Governor John Bel Edwards). Nine charter schools transferred
+    early for the 2017-18 year, including FirstLine Schools (Ashe, Green, Langston Hughes, Wheatley),
+    Collegiate Academies'' Abramson Sci Academy, and Choice Foundation schools (Lafayette Academy, Esperanza
+    Charter). The reunified OPSB became the nation''s first district to oversee a citywide system of public
+    charter schools. The transition preserved charter school autonomy while returning democratic accountability
+    to a locally elected board for the first time since 2005. Seven schools serving specialized populations
+    remained outside the unified district under state or legislative authority.
+
+    '
+  sources:
+  - url: https://www.nola.com/news/education/article_51fe63a4-832f-5a27-bbb5-97430938404a.html
+  - url: https://www.the74million.org/article/with-reunification-new-orleans-becomes-the-first-district-in-the-country-to-oversee-a-citywide-system-of-public-charter-schools-will-it-work/
+  - url: https://nolapublicschools.com/unification
+  - url: https://www.wwno.org/post/new-orleans-schools-reunite-under-local-school-board-charters-maintain-control
+  causes:
+  - charter_competition
+  - political_governance
+- event_id: DC-11001000-closure-201301-dcps-15-school-closures
+  district: District of Columbia Public Schools
+  state: DC
+  leaid: '11001000'
+  event_type: closure
+  date: 2013-01
+  title: DCPS Chancellor Henderson Closes 15 Schools
+  schools_affected:
+  - name: Spingarn Senior High School
+  - name: Kenilworth Elementary School
+  - name: Sharpe Health School
+  - name: Mamie D. Lee School
+  - name: 11 additional schools (15 total)
+  description: 'In January 2013, DCPS Chancellor Kaya Henderson announced the closure of 15 schools —
+    more than one in ten D.C. public schools — affecting over 2,400 students and 540 employees. The original
+    proposal targeted 20 schools before community feedback reduced the list. All 15 schools were east
+    of Rock Creek Park, many east of the Anacostia River in some of the city''s poorest neighborhoods,
+    and all had below-average test scores. Thirteen schools closed at the end of the 2012-13 year, with
+    two special education schools (Sharpe Health and Mamie D. Lee) closing in 2014. Henderson cited under-enrollment,
+    underutilized facility space, and lack of modernization as factors, estimating $19.5 million in staffing
+    savings. Parents filed suit in U.S. District Court (Case No. 1:13-CV-00420JEB) to halt the closures,
+    but the suit was unsuccessful. This was the largest set of DCPS closures since 2008, when 23 schools
+    were shuttered.
+
+    '
+  sources:
+  - url: https://www.washingtonpost.com/local/education/chancellor-kaya-henderson-names-15-dc-schools-on-closure-list/2013/01/17/e04202fa-6023-11e2-9940-6fc488f3fecd_story.html
+  - url: https://www.dcfpi.org/all/the-school-closure-list-a-first-take/
+  - url: https://www.publicschoolreview.com/blog/dc-schools-consolidation-and-closures
+  causes:
+  - budget_fiscal
+  - legal_challenges
+  - new_construction
+  - underutilization
+- event_id: MO-29292800-closure-201006-kcps-29-school-closures-rightsizing
+  district: Kansas City Public Schools
+  state: MO
+  leaid: '29292800'
+  event_type: closure
+  date: 2010-06
+  title: KCPS Closes 29 of 61 Schools to Avoid Bankruptcy
+  schools_affected:
+  - name: 29 school buildings closed (half of district's 61 schools)
+  description: 'In 2010, Kansas City Public Schools made national headlines when Superintendent John Covington
+    submitted a plan to close 29 of the district''s 61 remaining schools and lay off hundreds of teachers
+    to avoid bankruptcy. KCPS had fewer than 18,000 students — half its enrollment in 2000 and 25% of
+    its 1960s peak. The district had not passed a bond measure since 1967, making it the only Missouri
+    school district in the region without voter-approved construction funding. In the aftermath, 17 sites
+    were sold while others were repurposed or abandoned. The district hired urban planner Shannon Jaax
+    in 2011 to oversee repurposing of the closed buildings, prioritizing community engagement and giving
+    nonprofits access to purchase properties. KCPS lost its state accreditation in 2011 before regaining
+    partial accreditation in 2014. In 2014, the district reopened Hale Cook Elementary through a grassroots
+    community effort, launching with 108 students.
+
+    '
+  sources:
+  - url: https://www.kcur.org/history/2025-03-27/kansas-city-public-schools-history-building-bond-desegregation-racism
+  - url: https://en.wikipedia.org/wiki/Kansas_City_Public_Schools
+  - url: https://www.chicagoreporter.com/in-kansas-city-a-lesson-in-transforming-closed-schools/
+  causes:
+  - budget_fiscal
+  - enrollment_decline
+  - new_construction
+  - political_governance
+  - underutilization
+- event_id: CA-06246000-closure-201206-ousd-4-elementary-closures
+  district: Oakland Unified School District
+  state: CA
+  leaid: '06246000'
+  event_type: closure
+  date: 2012-06
+  title: OUSD Closes Four Elementary Schools in Flatlands Communities
+  schools_affected:
+  - name: Lakeview Elementary School
+  - name: Marshall Elementary School
+  - name: Maxwell Park Elementary School
+  - name: Santa Fe Elementary School
+  description: 'In October 2011, the Oakland Unified School District board voted 5-2 to close five elementary
+    schools, with four ultimately closing at the end of the 2011-12 school year: Lakeview, Marshall, Maxwell
+    Park, and Santa Fe Elementary Schools. All were located in the flatlands of East and West Oakland
+    and served majority Black and Latinx populations. Re-enrollment rates in OUSD ranged from 79% to 91%
+    across the four schools. Students from each closed school were assigned to receiving schools with
+    better academic outcomes. The closures were part of a broader pattern — between 2004 and 2019, OUSD
+    closed 19 traditional public schools, all in flatlands communities. Community opposition included
+    parents building a tent city at Lakeview Elementary with help from Occupy Oakland protesters in June
+    2012. Notably, 14 of 18 schools closed since 2004 became or now house charter schools, fueling community
+    resentment over privatization.
+
+    '
+  sources:
+  - url: https://oaklandnorth.net/2011/10/27/ousd-board-votes-to-close-five-elementary-schools-at-a-contentious-meeting/
+  - url: https://www.ousddata.org/students-affected-by-closures.html
+  - url: https://oaklandnorth.net/2012/06/20/encampment-continues-at-lakeview-as-protesters-demand-district-reopen-closed-schools/
+  - url: https://eastbaymajority.com/everything-you-need-to-know-about-the-proposed-oakland-school-closures-part-1-of-3/
+  causes:
+  - charter_competition
+  - political_governance
+- event_id: PA-42002000-closure-201209-pittsburgh-7-school-consolidations
+  district: Pittsburgh Public Schools
+  state: PA
+  leaid: '42002000'
+  event_type: closure
+  date: 2012-09
+  title: Pittsburgh Consolidates Seven Schools Under Realignment Plan
+  schools_affected:
+  - name: Schaeffer Intermediate (Sheraden)
+  - name: Schaeffer Primary (Crafton Heights)
+  - name: Thaddeus Stevens K-8 (Elliott)
+  - name: Langley High School (converted to K-8)
+  - name: 3 additional schools (7 total)
+  description: 'Under the 2011 Realignment Plan, Pittsburgh Public Schools closed seven schools at the
+    start of the 2012-13 school year. Three of the closures hit the West Side hard, with schools in Sheraden,
+    Crafton Heights, and Elliott shuttered. Most students from those schools were relocated to a newly
+    reconfigured Langley K-8, which had previously been Langley High School. The plan eliminated nearly
+    400 full-time positions and reduced staff salaries by $17.5 million. Superintendent Linda Lane, who
+    oversaw the closures, later reflected: "I regret having had to do it, but there wasn''t another option
+    given the district''s continued enrollment loss and subsequent financial hardship." The district had
+    building capacity for 40,000 students but only 18,000 enrolled. Many closed buildings were subsequently
+    sold or demolished — Schaeffer Primary, for instance, became a wholesale spice and seasoning store.
+
+    '
+  sources:
+  - url: https://www.wesa.fm/education/2024-10-07/pittsburgh-public-schools-closure-history
+  - url: https://www.publicsource.org/pps-closures-pittsburgh-west-side-history-sheraden-crafton-heights-elliott/
+  - url: https://www.publicsource.org/pittsburgh-public-schools-building-closure-information/
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - redistricting_rezoning
+- event_id: TN-47001480-merger-201307-memphis-shelby-county-merger
+  district: Memphis-Shelby County Schools
+  state: TN
+  leaid: '47001480'
+  event_type: merger
+  date: 2013-07
+  title: Largest School District Merger in US History - Memphis and Shelby County
+  schools_affected:
+  - name: All Memphis City Schools (103,000 students)
+  - name: All Shelby County Schools (47,000 students)
+  description: 'On July 1, 2013, Memphis City Schools (103,000 students) and Shelby County Schools (47,000
+    students) officially merged to form a unified district — the largest school district consolidation
+    in American history. The merger originated in December 2010 when the Memphis City Schools board voted
+    to surrender its charter, forcing a merger to prevent Shelby County Schools from gaining special school
+    district status that would have limited funding for Memphis. Memphis city residents approved the charter
+    dissolution in a March 2011 referendum. A federal judge ruled the merger constitutional despite Shelby
+    County''s legal challenge. The Tennessee General Assembly created a Transition Planning Commission
+    to oversee the process. For one year, the unified district became the 14th largest in the nation.
+    However, six suburban municipalities — Arlington, Bartlett, Collierville, Germantown, Lakeland, and
+    Millington — quickly voted to form their own breakaway districts, which began operating by the 2014-15
+    school year after the Tennessee legislature lifted a ban on new school districts.
+
+    '
+  sources:
+  - url: https://www.edweek.org/leadership/memphis-shelby-schools-merge-amid-uncertainty/2013/07
+  - url: https://www.actionnews5.com/story/22736163/scs-mcs-officially-merge-into-one-school-district/
+  - url: https://www.npr.org/2011/03/07/134324082/Memphis-Voters-To-Decide-School-Merger-Proposal
+  - url: https://en.wikipedia.org/wiki/Memphis-Shelby_County_Schools
+  causes:
+  - charter_competition
+  - consolidation_efficiency
+  - legal_challenges
+  - political_governance
+- event_id: TN-47001480-redistricting-201408-shelby-county-6-municipal-breakaways
+  district: Shelby County Schools (breakaway districts)
+  state: TN
+  leaid: '47001480'
+  event_type: redistricting
+  date: 2014-08
+  title: Six Suburban Districts Break Away From Unified Shelby County System
+  schools_affected:
+  - name: Arlington Community Schools (new district)
+  - name: Bartlett City Schools (new district)
+  - name: Collierville Schools (new district)
+  - name: Germantown Municipal School District (new district)
+  - name: Lakeland School System (new district)
+  - name: Millington Municipal Schools (new district)
+  description: 'Following the 2013 Memphis-Shelby County Schools merger, six incorporated suburbs overwhelmingly
+    voted in July 2013 to form their own municipal school districts. After the Tennessee General Assembly
+    lifted a statewide ban on forming new school districts, these six suburbs — Arlington, Bartlett, Collierville,
+    Germantown, Lakeland, and Millington — began operating their own districts by the 2014-15 school year.
+    The suburban secession was driven largely by opposition to the merger with Memphis, where 85% of students
+    were African American and 87% low-income, compared to the mostly white, middle-class suburban schools.
+    A federal judge had initially ruled the breakaway efforts unconstitutional in November 2012, but the
+    state legislature''s intervention enabled the municipalities to proceed. The secession reduced the
+    unified district''s enrollment and raised concerns about resegregation and equitable funding.
+
+    '
+  sources:
+  - url: https://en.wikipedia.org/wiki/Memphis-Shelby_County_Schools
+  - url: https://eric.ed.gov/?id=EJ1185375
+  - url: https://www.edweek.org/leadership/memphis-shelby-schools-merge-amid-uncertainty/2013/07
+  causes:
+  - accountability
+  - legal_challenges
+  - political_governance
+  - racial_equity
+- event_id: GA-13003300-intervention-201304-atlanta-cheating-scandal-indictments
+  district: Atlanta Public Schools
+  state: GA
+  leaid: '13003300'
+  event_type: intervention
+  date: 2013-03
+  title: Atlanta Cheating Scandal - 35 Educators Indicted Under RICO
+  schools_affected:
+  - name: 44 of 56 APS schools implicated in cheating
+  - name: Parks Middle School
+  - name: Hope-Hill Elementary School
+  - name: Dobbs Elementary School
+  description: 'In 2013, a Fulton County grand jury indicted 35 educators from Atlanta Public Schools
+    on racketeering charges under Georgia''s RICO Act for their roles in a systematic test cheating scandal
+    on the 2009 CRCT standardized tests. A Georgia Bureau of Investigation report found that 44 of 56
+    schools had engaged in cheating, with 178 educators implicated. The state concluded the system maintained
+    a "culture of fear, intimidation and retaliation." The trial, which began September 29, 2014 and lasted
+    eight months (the longest criminal trial in Georgia history), resulted in 11 of 12 defendants being
+    convicted on April 1, 2015. Lead prosecutor was Fani Willis. Superintendent Beverly Hall, at the center
+    of the scandal, was indicted but died of breast cancer before trial. An estimated 7,064 students had
+    test scores altered, with 98% of students with 10+ wrong-to-right erasures being Black. The scandal
+    led to comprehensive reforms under new Superintendent Maria Carstarphen, including ethics training
+    for 100% of staff by December 2014 and replacement of principals and teachers at affected schools.
+
+    '
+  causes:
+  - accountability
+  - legal_challenges
+  - political_governance
+  sources:
+  - url: https://en.wikipedia.org/wiki/Atlanta_Public_Schools_cheating_scandal
+  - url: https://www.cnn.com/2015/04/01/us/atlanta-schools-cheating-scandal/index.html
+  - url: https://www.atlantamagazine.com/news-culture-articles/what-has-atlanta-public-schools-learned-from-the-cheating-scandal/
+  - url: https://ethicsunwrapped.utexas.edu/case-study/cheating-atlantas-school-scandal
+- event_id: MD-24001200-renovation-201304-baltimore-21st-century-schools
+  district: Baltimore City Public Schools
+  state: MD
+  leaid: '24001200'
+  event_type: renovation
+  date: 2013-04
+  title: Baltimore 21st Century Schools Plan - $1.1B to Rebuild 28 Schools
+  schools_affected:
+  - name: 11 schools in Year 1 (2 replacements, 9 renovations)
+  - name: 17 schools in Year 2
+  - name: 28 total school buildings renovated or replaced
+  description: 'In 2013, the Maryland legislature passed H.B. 860, the Baltimore City Public Schools Construction
+    and Revitalization Act, creating a groundbreaking partnership between Baltimore City Public Schools,
+    the Maryland Stadium Authority, Baltimore City, and the State of Maryland. The act authorized the
+    Stadium Authority to issue up to $1.1 billion in revenue bonds, supplemented by annual contributions
+    of $20 million each from city schools, the state, and the city ($60 million total per year). The 10-year
+    program renovated or replaced 28-29 schools — approximately one-fifth of the district''s inventory.
+    Baltimore''s school buildings were among the oldest in Maryland, many lacking adequate heating/cooling,
+    lighting, potable water, or technology infrastructure. The program was paired with INSPIRE (Investing
+    in Neighborhoods and Schools to Promote Improvement, Revitalization, and Excellence), which planned
+    neighborhood improvements within a quarter-mile of each school. The ACLU was instrumental in lobbying
+    for the legislation after being appalled by school building conditions.
+
+    '
+  sources:
+  - url: https://mdstad.com/21st-century-schools
+  - url: https://baltimore21stcenturyschools.org/
+  - url: https://www.bostonglobe.com/2023/10/03/metro/baltimore-new-school-construction-boston-massachusetts-closures/
+  - url: https://planning.baltimorecity.gov/planning-inspire
+  causes:
+  - facility_condition
+  - new_construction
+  - political_governance
+- event_id: MD-24001200-closure-201211-baltimore-closure-plan-26-schools
+  district: Baltimore City Public Schools
+  state: MD
+  leaid: '24001200'
+  event_type: closure
+  date: 2012-11
+  title: Baltimore Announces 10-Year Plan to Close 26 Underutilized Schools
+  schools_affected:
+  - name: 4 schools closed after 2012-13 school year (immediate)
+  - name: 13 additional schools over the following 5 years
+  - name: 26 total schools committed to surplus
+  description: 'On November 27, 2012, Baltimore City Schools CEO Andres Alonso announced a 10-Year Plan
+    to close 26 schools with declining enrollment or poor conditions. Four elementary/middle schools closed
+    after the 2012-13 school year, with 13 more scheduled over the next five years. The closures were
+    a required counterpart to the 21st Century Schools investment — new construction funding was conditioned
+    on the district surplussing underutilized buildings (those with enrollment below 85% capacity). Baltimore''s
+    total school enrollment had plummeted from a 1960s peak of 200,000 to about 81,000. As of recent reports,
+    only four of the 30 shuttered buildings had been sold and converted to new uses, with nine more in
+    the process of being sold. The remaining vacant buildings have been vulnerable to vandalism, copper
+    theft, and deterioration, with the city''s general services department responsible for maintaining
+    approximately 20 former school buildings.
+
+    '
+  sources:
+  - url: https://melissa-schober.medium.com/a-broken-process-baltimore-city-school-closure-7f98fef21d2e
+  - url: https://www.thebaltimorebanner.com/baltimore/baltimore-school-closing-opposition-T7U3OW4LTJGVDCKUAU452STCCE/
+  - url: https://planning.baltimorecity.gov/surplus-schools
+  - url: https://www.wmar2news.com/news/region/baltimore-city/city-leaders-hope-to-transform-surplus-schools-into-thriving-buildings
+  causes:
+  - enrollment_decline
+  - facility_condition
+  - new_construction
+  - underutilization
+- event_id: CO-08033600-bond-201211-denver-466m-bond
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: bond
+  date: 2012-11
+  title: Denver Voters Approve $466M Bond for School Facilities
+  schools_affected:
+  - name: District-wide facility improvements
+  description: 'On November 6, 2012, Denver voters approved a $466 million general obligation bond for
+    Denver Public Schools, with a total repayment cost of $738 million. The bonds funded improvements
+    to the teaching and learning environment including building repair and maintenance, health and safety
+    improvements, technology upgrades, HVAC improvements, ADA modifications, and building code deficiency
+    corrections. The bond was part of a consistent pattern of voter support — Denver voters approved bond
+    measures every four years (2008, 2012, 2016, 2020, 2024), totaling $4.3 billion since 1988. A 2019
+    facilities condition assessment identified $7.9 billion in rebuilding and replacement costs across
+    the district.
+
+    '
+  sources:
+  - url: https://ballotpedia.org/Denver_Public_Schools_District_Bond_Question_(November_2012)
+  - url: https://denvergazette.com/news/education/denver-public-schools-billions-debt-bond-measures/article_35cbb909-459d-40f8-9fed-adefe571a043.html
+  causes:
+  - facility_condition
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: CO-08033600-closure-201506-denver-school-performance-compact
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: closure
+  date: 2015-06
+  title: DPS Adopts School Performance Compact - Closes/Restarts Struggling Schools
+  schools_affected:
+  - name: Gilpin Montessori (closed)
+  - name: 2 additional schools (restarted with new programming)
+  description: 'In 2015, the Denver Public Schools board adopted the School Performance Compact, a policy
+    driven not by declining enrollment but by a desire to boost student test scores. The policy called
+    for closing schools with a history of low ratings and replacing them with new programming. Under the
+    policy, DPS closed Gilpin Montessori and "restarted" two other schools. A major study examining DPS
+    reforms from 2008-09 through 2014-15 found that students who left closed schools and attended new
+    reform-era schools saw the largest positive effects in math, while students who stayed in low-performing
+    turnaround schools actually performed worse. During the study period, DPS opened 65 new schools and
+    closed, replaced, or restarted 35 others as part of its portfolio management strategy. However, significant
+    community pushback led the board to abandon the School Performance Compact in 2018.
+
+    '
+  sources:
+  - url: https://www.chalkbeat.org/colorado/2024/09/28/denver-study-finds-closing-schools-improved-student-test-scores/
+  - url: https://www.denver7.com/lifestyle/education/closing-struggling-schools-helped-student-achievement-in-denver-study-finds
+  - url: https://www.cpr.org/2024/09/23/denver-public-schools-controversial-reform-successful/
+  causes:
+  - accountability
+  - enrollment_decline
+- event_id: CO-08033600-bond-201611-denver-572m-bond
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: bond
+  date: 2016-11
+  title: Denver Voters Approve $572M Bond for School Construction and Renovation
+  schools_affected:
+  - name: District-wide facility improvements and new construction
+  description: 'In November 2016, Denver voters approved a $572 million bond for Denver Public Schools
+    facilities, continuing the district''s pattern of quadrennial bond elections. The funds addressed
+    critical infrastructure needs, new construction, and renovation projects across the district. DPS
+    had identified $7.9 billion in total rebuilding and replacement costs through a comprehensive facilities
+    condition assessment. The bond extended existing tax rates and was part of a cumulative $4.3 billion
+    in voter-approved bonds since 1988.
+
+    '
+  sources:
+  - url: https://denvergazette.com/news/education/denver-public-schools-billions-debt-bond-measures/article_35cbb909-459d-40f8-9fed-adefe571a043.html
+  - url: https://ballotpedia.org/Denver_Public_Schools_District_Bond_Question_(November_2012)
+  causes:
+  - budget_fiscal
+  - facility_condition
+  - new_construction
+  - political_governance
+- event_id: WI-55096000-closure-201206-milwaukee-ongoing-closures-enrollment-decline
+  district: Milwaukee Public Schools
+  state: WI
+  leaid: '55096000'
+  event_type: closure
+  date: 2012-06
+  title: MPS Continues School Closures Amid Voucher-Driven Enrollment Decline
+  schools_affected:
+  - name: Multiple schools closed (number peaked at 178 in 2008, reduced to ~155 by 2012)
+  - name: Wisconsin Avenue School (closed 2007)
+  - name: Malcolm X building (vacant since 2007)
+  description: 'Milwaukee Public Schools experienced a sustained period of school closures from its peak
+    of 178 schools in 2008, gradually reducing to approximately 149 schools. MPS lost 30,000 students
+    since 2006, driven significantly by Wisconsin''s school voucher program (which saw 33% enrollment
+    growth since 2009) and charter school expansion (175% growth). The district accumulated approximately
+    two dozen empty buildings and many more underutilized facilities. Only 21 of MPS schools were built
+    after 1970, with buildings averaging over 80 years old. In January 2011, MPS labeled all empty buildings
+    as "surplus" for sale, but reversed course six months later when charter and private schools expressed
+    interest, refusing to allow voucher or charter schools to purchase the buildings. Buildings like the
+    Malcolm X facility (vacant since 2007) have cost taxpayers over $200,000 in maintenance since 2012.
+    The facilities crisis reflects a broader national pattern of public school enrollment decline in cities
+    with robust school choice programs.
+
+    '
+  sources:
+  - url: https://eagnews.org/new-report-details-milwaukee-school-districts-refusal-to-sell-dozens-of-vacant-buildings
+  - url: https://www.wpr.org/news/milwaukee-public-schools-considering-closing-merging-schools
+  - url: https://urbanmilwaukee.com/2024/10/05/mps-considers-closing-merging-schools/
+  causes:
+  - charter_competition
+  - enrollment_decline
+  - facility_condition
+  - population_growth
+  - underutilization
+- event_id: TX-48236400-bond-201211-houston-isd-1-89b-bond
+  district: Houston Independent School District
+  state: TX
+  leaid: '48236400'
+  event_type: bond
+  date: 2012-11
+  title: Houston ISD Voters Approve $1.89B Bond - Largest in Texas History at the Time
+  schools_affected:
+  - name: 38 campuses rebuilt, renovated, or upgraded (primarily high schools)
+  - name: 29 high schools targeted for improvements
+  description: 'On November 6, 2012, Houston ISD voters approved a $1.89 billion bond by approximately
+    two-thirds support — the largest school bond in Texas history at the time. The measure focused largely
+    on the district''s high schools, funding rebuilding, renovation, and upgrades across 38 campuses.
+    It also included $100 million for technology upgrades, $44.7 million for athletics facilities, $35
+    million for middle school restroom renovations, and $17.3 million for safety and security. The bond
+    proposed a nearly 5-cent tax rate increase over five years. However, in 2015, the school board added
+    $212 million to cover unexpected cost overruns, which two separate audits attributed partly to poor
+    oversight of the construction bidding process. The HISD chief auditor suspected criminal violations
+    and was fired after reporting them to law enforcement, leading to a lawsuit and settlement. The 2012
+    bond''s focus on high schools left elementary campuses in the greatest need of maintenance for a subsequent
+    bond.
+
+    '
+  sources:
+  - url: https://www.houstonisd.org/2012bond
+  - url: https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/houston-isd-school-bond-history-19789255.php
+  - url: https://houstonlanding.org/houston-isd-proposed-the-largest-school-bond-in-texas-history-what-to-know-before-voting/
+  causes:
+  - budget_fiscal
+  - natural_disaster
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: TX-48162300-bond-201511-dallas-isd-1-6b-bond
+  district: Dallas Independent School District
+  state: TX
+  leaid: '48162300'
+  event_type: bond
+  date: 2015-11
+  title: Dallas ISD Voters Approve $1.6B Bond for School Construction
+  schools_affected:
+  - name: 9 new or replacement schools (1 high school, 4 elementary)
+  - name: 12 additions to existing schools
+  - name: 200+ schools receive improvements
+  description: 'On November 3, 2015, Dallas ISD voters approved a $1.6 billion bond construction program,
+    the largest in the district''s history. Under Superintendent Michael Hinojosa, the bond funded nine
+    new or replacement schools (including one high school and four elementary schools), twelve additions
+    to existing schools, 326 additional classrooms across 19 schools, and $100 million in technology improvements.
+    The plan also created at least two preK-8 schools and added approximately 100 early childhood classrooms.
+    DISD officials said the plan would not require a tax rate increase. Three construction management
+    teams oversaw more than $500 million in projects spanning 40 million square feet across 200+ Dallas
+    ISD schools. The previous bond was approved in 2008 at $1.35 billion.
+
+    '
+  sources:
+  - url: https://www.dallasnews.com/news/2015/11/04/voters-back-dallas-isds-1-6-billion-bond-plan/
+  - url: https://www.keranews.org/texas-news/2015-11-03/in-dallas-isd-and-across-north-texas-school-bond-packages-pass-easily
+  - url: https://kwamebuildinggroup.com/kwame-building-group-completes-work-on-six-schools-as-part-of-dallas-independent-school-districts-1-6-billion-bond-program/
+  causes:
+  - budget_fiscal
+  - natural_disaster
+  - new_construction
+  - political_governance
+- event_id: NV-32000600-bond-201506-clark-county-4-1b-capital-improvement
+  district: Clark County School District
+  state: NV
+  leaid: '32000600'
+  event_type: bond
+  date: 2015-06
+  title: Clark County $4.1B Capital Improvement Program for School Construction
+  schools_affected:
+  - name: 6 new schools and 2 replacement schools by fall 2017
+  - name: 6 additional new schools by fall 2018
+  - name: Modernization and renovation across older campuses
+  description: 'Through the 2015 Capital Improvement Program, the Clark County School District secured
+    an estimated $4.1 billion in bond funds over a ten-year period for school construction and renovation.
+    The program was enabled by the Nevada Legislature''s extension of CCSD''s bonding authority (Senate
+    Bills 119 and 207), which did not require direct voter approval. CCSD had reached an all-time high
+    enrollment of 320,738 students as of April 2016, with growth of 9,000+ students over three years.
+    The district held eight public input meetings and presented recommendations through its Bond Oversight
+    Committee. The Board of School Trustees approved a 10-year facilities master plan focused on new schools
+    to alleviate overcrowding, school replacement projects, and modernization of older campuses. Projects
+    included combining Mitchell Elementary, King Elementary, and Garrett Junior High into one K-8 campus.
+    The district estimated total maintenance and capital needs at $10.8 billion, including modernization,
+    new construction, equipment, and bus facilities.
+
+    '
+  sources:
+  - url: https://capitalimprovementplan.ccsd.net/about/
+  - url: https://thenevadaindependent.com/article/extended-bonding-authority-could-breathe-new-life-into-old-schools
+  - url: https://thenevadaindependent.com/article/school-district-maintenance-and-capital-needs-top-10-billion
+  causes:
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: CA-00000000-bond-201611-california-prop-51-9b-statewide
+  district: California Statewide (all K-12 and community colleges)
+  state: CA
+  leaid: '00000000'
+  event_type: bond
+  date: 2016-11
+  title: California Voters Approve Proposition 51 - $9B Statewide School Bond
+  schools_affected:
+  - name: K-12 schools statewide ($7 billion)
+  - name: Community colleges statewide ($2 billion)
+  description: 'On November 8, 2016, California voters approved Proposition 51 with 55.18% support, authorizing
+    $9 billion in general obligation bonds for education facility construction and improvements — $7 billion
+    for K-12 schools and $2 billion for community colleges. The K-12 funding was designated for new construction,
+    modernization, career technical education facilities, and charter school facilities. Total state costs
+    were estimated at $17.6 billion including interest over 35 years, with payments of approximately $500
+    million per year. The measure was the first statewide school bond since 2006. It was notably opposed
+    by Governor Jerry Brown, who called it "a blunderbuss effort that promotes sprawl and squanders money"
+    and argued that local bonds were more effective. Critics warned that well-funded districts with consultants
+    would have a better chance of applying for and receiving funds than smaller, poorer districts. The
+    initiative was placed on the ballot by the Coalition for Adequate School Housing and the California
+    Building Industry Association after collecting nearly 366,000 signatures.
+
+    '
+  sources:
+  - url: https://ballotpedia.org/California_Proposition_51,_Public_School_Facility_Bonds_(2016)
+  - url: https://edsource.org/2016/prop-51-initiative-would-provide-billions-for-school-renovation-and-construction/570590
+  - url: https://www.asumag.com/funding/bond-issues/article/20853508/californians-approve-statewide-9-billion-bond-for-school-construction
+  - url: https://lao.ca.gov/BallotAnalysis/Proposition?number=51&year=2016
+  causes:
+  - charter_competition
+  - new_construction
+  - political_governance
+  - population_growth
+  - underutilization
+- event_id: TX-48015900-bond-201611-san-antonio-isd-450m-bond
+  district: San Antonio Independent School District
+  state: TX
+  leaid: '48015900'
+  event_type: bond
+  date: 2016-11
+  title: San Antonio ISD Voters Approve $450M Bond and Tax Rate Increase
+  schools_affected:
+  - name: 13 schools targeted for renovation projects
+  - name: Bowden Elementary (breezeway enclosure, 4 new classrooms)
+  description: 'In November 2016, San Antonio ISD voters approved a $450 million bond package along with
+    a Tax Ratification Election that increased the tax rate by 13 cents. The bond funded renovation projects
+    at 13 schools, building on the 2010 bond, as part of a long-range strategic plan to address the challenges
+    of a shrinking district. Projects included new classrooms with science labs, "smart" HVAC and lighting
+    systems connected to the internet, and campus-wide technology upgrades. The district also used a $7
+    million federal E-rate grant with matching state funds to construct an 80-mile fiber network serving
+    every campus. Every project came in on budget or below and on time. Each campus had a school-level
+    oversight committee involving parents and students. The bond built on partial renovations from the
+    2010 bond that would later be extended by the record $1.3 billion bond approved in 2020.
+
+    '
+  sources:
+  - url: https://www.expressnews.com/news/education/article/San-Antonio-ISD-bond-construction-begins-13582354.php
+  - url: https://sanantonioreport.org/san-antonio-isd-voters-to-decide-on-1-3-billion-bond-the-largest-in-city-history/
+  causes:
+  - budget_fiscal
+  - facility_condition
+  - new_construction
+  - political_governance
+- event_id: NC-37029500-bond-201711-charlotte-mecklenburg-922m-bond
+  district: Charlotte-Mecklenburg Schools
+  state: NC
+  leaid: '37029500'
+  event_type: bond
+  date: 2017-11
+  title: Charlotte-Mecklenburg Voters Approve Record $922M School Bond
+  schools_affected:
+  - name: 10 new schools to be built
+  - name: 7 existing schools to be replaced
+  - name: 12 schools to receive additions and renovations
+  - name: West Charlotte High School (replacement)
+  description: 'On November 8, 2017, Charlotte-Mecklenburg Schools voters approved a record $922 million
+    bond referendum with 73% support, the largest in the district''s history. The bond funded 29 projects:
+    building 17 new schools (10 new, 7 replacements) and renovating 12 schools for the 146,000-student
+    district. The bond was urgently needed as 78% of CMS schools were at or over capacity, with 20,000
+    students housed in 1,100 mobile classrooms. Key projects included three new high schools at approximately
+    $110 million each, including a West Charlotte High replacement ($88 million), a new Palisades area
+    school ($92 million), and a South Charlotte high school. CMS leaders described the bond as "just a
+    down payment" on approximately $2 billion in capital needs. Rising construction costs later created
+    a gap between promised projects and available funding, forcing some high schools to be scaled back
+    from 125 to 100 classrooms. A subsequent $2.5 billion bond was approved in 2023.
+
+    '
+  sources:
+  - url: https://www.wbtv.com/story/36790371/charlotte-mecklenburg-schools-922-million-bond-passes/
+  - url: https://www.asumag.com/funding/bond-issues/article/20855871/charlottemecklenburg-nc-voters-approve-922-million-school-bond-proposal
+  - url: https://www.wfae.org/education/2020-02-24/cms-says-this-week-will-bring-answers-on-2017-bond-costs-and-changes
+  - url: https://www.wcnc.com/article/news/local/charlotte-mecklenburg-school-bond-money-projects/275-b29b84fe-2362-4448-80db-4dc3a71fb93b
+  causes:
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: TX-48227900-bond-201711-austin-isd-1b-bond
+  district: Austin Independent School District
+  state: TX
+  leaid: '48227900'
+  event_type: bond
+  date: 2017-11
+  title: Austin ISD Voters Approve $1.05B Bond for School Modernization
+  schools_affected:
+  - name: 17 campus facilities modernized or constructed
+  - name: Blazier Elementary Relief School ($50M, first K-8 model)
+  - name: Bowie High School ($88M renovation)
+  - name: Eastside Memorial Early College High School ($80M)
+  - name: TA Brown Elementary ($30.7M)
+  - name: Doss Elementary ($43M)
+  - name: Murchison Middle School ($23.65M)
+  description: 'On November 7, 2017, Travis County voters overwhelmingly approved Austin ISD''s $1,050,984,000
+    bond proposal — the district''s largest at the time. The bond was the first phase of a long-term Facility
+    Master Plan (approved April 2017) that identified approximately $4 billion in facilities needs, with
+    52 of the district''s schools assessed as being in "Poor" or "Very Poor" condition. The bond modernized
+    or constructed 17 campus facilities and funded districtwide technology, safety and security systems,
+    and replacement buses. AECOM conducted a comprehensive facility condition assessment of all AISD facilities
+    in 2016 to inform the proposal. The bond was developed through an extensive two-year community engagement
+    process involving 38 Facilities and Bond Planning Advisory Committee meetings, 5,000+ individual pieces
+    of input, and 500 engagement opportunities. The bond did not require a tax rate increase. Key projects
+    included the district''s first K-8 model at Blazier, an $88M Bowie High renovation, and an $80M combined
+    campus at the Original LC Anderson site.
+
+    '
+  sources:
+  - url: https://www.austinisd.org/construction-management/bond/previous-bonds
+  - url: https://www.austinisd.org/announcements/2018/11/12/aisd-bond-2017-one-year-anniversary-update
+  - url: https://ballotpedia.org/Austin_Independent_School_District,_Texas,_Bond_Issue_(November_2017)
+  - url: https://aecom.com/projects/austin-isd-2017-bond-capital-improvement-program/
+  causes:
+  - budget_fiscal
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: NY-00000000-bond-201411-new-york-smart-schools-2b-bond
+  district: New York State (statewide)
+  state: NY
+  leaid: '00000000'
+  event_type: bond
+  date: 2014-11
+  title: New York Voters Approve $2B Smart Schools Bond Act
+  schools_affected:
+  - name: All New York State public school districts eligible
+  description: 'On November 4, 2014, New York voters approved the Smart Schools Bond Act, authorizing
+    $2 billion in general obligation bonds to finance improved educational technology and infrastructure
+    across all New York State public school districts. Funds were designated for classroom technology
+    purchases, pre-kindergarten classroom construction, school connectivity and network infrastructure,
+    high-tech security features, and other technology-related improvements. The bond was included in the
+    2014-15 NY State Enacted Budget and represented a statewide commitment to modernizing school technology
+    infrastructure in the digital age.
+
+    '
+  sources:
+  - url: https://ballotpedia.org/School_bond_election
+  - url: https://www.pmschools.org/departments/technology/smart-schools-bond-act
+  causes:
+  - facility_condition
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: CA-06227100-bond-200811-lausd-7b-measure-q
+  district: Los Angeles Unified School District
+  state: CA
+  leaid: '06227100'
+  event_type: bond
+  date: 2008-11
+  title: LAUSD Voters Approve $7B Measure Q for School Construction
+  schools_affected:
+  - name: All LAUSD schools (district-wide, 750+ sites)
+  description: 'In November 2008, Los Angeles Unified School District voters approved Measure Q, a $7
+    billion general obligation bond for school facility construction and improvement. This was the fifth
+    bond voters approved in eleven years, following Proposition BB (1997), Measures K, R, and Y. The bond
+    addressed critical needs as more than 77% of LAUSD''s 750+ school sites were at least 50 years old.
+    In 2014, the Board of Education approved the School Upgrade Program (SUP) framework to manage and
+    prioritize Measure Q funds, with an initial funding allocation of $7.8 billion. The district''s building
+    program, which ended in 2017, helped increase capacity during a period of enrollment that subsequently
+    shifted to decline — by the 2020s, 43% fewer students attended LAUSD schools than two decades prior.
+    Measure Q was supported by Mayor Antonio Villaraigosa but received lukewarm support from traditional
+    allies and criticism from the LA Times for being "far too vague."
+
+    '
+  sources:
+  - url: https://ballotpedia.org/Los_Angeles_Unified_School_District_bond_proposition,_Measure_Q_(November_2008)
+  - url: https://www.lausd.org/Page/18817
+  - url: https://www.lausd.org/facilities
+  causes:
+  - enrollment_decline
+  - facility_condition
+  - new_construction
+  - political_governance
+- event_id: MI-26054300-intervention-201501-detroit-earley-emergency-manager
+  district: Detroit Public Schools
+  state: MI
+  leaid: '26054300'
+  event_type: intervention
+  date: 2015-01
+  title: Michigan Appoints 4th Emergency Manager for DPS - Former Flint EM Earley
+  schools_affected:
+  - name: All DPS schools (~97 schools, 46,000 students)
+  description: 'In January 2015, Michigan Governor Rick Snyder appointed Darnell Earley as the fourth
+    state-appointed emergency manager for Detroit Public Schools since 2009. Earley had previously served
+    as emergency manager of the City of Flint, where his administration made the disastrous decision to
+    switch the city''s water supply from Detroit''s system to the Flint River — a move linked to elevated
+    lead levels and a deadly Legionnaires'' disease outbreak. His appointment to DPS was met with outrage.
+    By this point, DPS had accumulated $169.4 million in deficit despite hundreds of millions in cuts,
+    and enrollment had fallen to about 47,000. Debt payments were set to balloon from $6.6 million to
+    $26.8 million per month, threatening to bankrupt the district by April 2016, with over 40% of state-allocated
+    per-pupil funding diverted to banks and bondholders. Earley''s tenure set the stage for the 2016 legislative
+    bailout.
+
+    '
+  sources:
+  - url: https://www.wsws.org/en/articles/2015/01/19/dpse-j19.html
+  - url: https://www.chalkbeat.org/detroit/2019/11/26/21109294/this-emergency-manager-says-better-management-wasn-t-enough-the-detroit-district-needed-cash/
+  - url: https://www.detroitnews.com/story/news/local/michigan/2018/06/27/michigan-no-emergency-managers-first-time-since-2000/737947002/
+  causes:
+  - budget_fiscal
+  - political_governance
+- event_id: PA-42189900-intervention-201706-philadelphia-src-dissolved
+  district: School District of Philadelphia
+  state: PA
+  leaid: '42189900'
+  event_type: intervention
+  date: 2017-06
+  title: Philadelphia School Reform Commission Votes to Dissolve Itself
+  schools_affected:
+  - name: All Philadelphia public schools (district-wide governance change)
+  description: 'In November 2017, the School Reform Commission (SRC) — the state-appointed body that had
+    governed Philadelphia schools since 2001 — voted to dissolve itself and return control to a locally
+    elected school board. The SRC had overseen 16 years of state control during which it managed the 2013
+    mass closures, a catastrophic budget crisis, and contentious labor disputes. The dissolution, effective
+    June 30, 2018, restored democratic governance and local control over the nation''s eighth-largest
+    school district. Mayor Jim Kenney and Superintendent Hite supported the transition. The move was seen
+    as a repudiation of the state takeover model and an acknowledgment that appointed governance had not
+    solved the district''s fundamental funding challenges.
+
+    '
+  sources:
+  - url: https://ballotpedia.org/Newark_Public_Schools,_New_Jersey
+  - url: https://www.inquirer.com/philly/education/20130310_A_Snapshot__The_23_Closing_Schools_in_Philadelphia.html
+  causes:
+  - accountability
+  - budget_fiscal
+  - political_governance
+- event_id: TX-48014900-bond-201411-katy-isd-748m-bond
+  district: Katy Independent School District
+  state: TX
+  leaid: '48014900'
+  event_type: bond
+  date: 2014-11
+  title: Katy ISD Voters Approve $748M Bond for School Construction
+  schools_affected:
+  - name: Multiple new campus construction projects
+  - name: Legacy Stadium ($72M high school football stadium)
+  description: 'In November 2014, voters in the Katy Independent School District (suburban Houston) approved
+    a $748.2 million bond for campus construction, renovation, and development projects. The bond was
+    one of the largest single-district school bonds approved in 2014 nationally and reflected the rapid
+    suburban growth in the Houston metropolitan area. The bond funded construction of new schools to accommodate
+    enrollment growth, facility renovations, and notably included Legacy Stadium, a $72 million high school
+    football stadium that became one of the most expensive high school athletic facilities in the country.
+    The rapid growth of suburban Houston-area school districts like Katy ISD contrasted sharply with the
+    enrollment declines experienced by urban districts during the same period.
+
+    '
+  sources:
+  - url: https://thesismag.com/2014/10/31/education-on-the-ballot-katy-and-fort-bend-isd-bonds/
+  - url: https://www.texasisd.com/pages/construction-bond-issues
+  causes:
+  - enrollment_decline
+  - new_construction
+  - political_governance
+  - population_growth
+- event_id: NJ-34126900-intervention-201609-newark-return-local-control
+  district: Newark Public Schools
+  state: NJ
+  leaid: '34126900'
+  event_type: intervention
+  date: 2016-09
+  title: Newark Schools Begin Return to Local Control After 21 Years of State Takeover
+  schools_affected:
+  - name: All Newark Public Schools (district-wide governance change)
+  description: 'In September 2016, the New Jersey Department of Education began the process of returning
+    control of Newark Public Schools to local governance, ending a state takeover that began in 1995.
+    The state had appointed superintendents for over two decades, including the controversial Cami Anderson.
+    Under newly appointed Superintendent Christopher Cerf (later succeeded by Roger Leon), the district
+    began meeting milestones required for full local control. The return followed years of community activism,
+    particularly after the contentious One Newark plan. Mayor Ras Baraka, elected in 2014 on a platform
+    opposing the state-controlled reforms, was instrumental in advocating for the return. The district
+    eventually achieved full local control, marking the end of one of the longest-running state takeovers
+    of a school district in the United States.
+
+    '
+  sources:
+  - url: https://ballotpedia.org/Newark_Public_Schools,_New_Jersey
+  - url: https://www.washingtonpost.com/local/education/chris-christies-newark-schools-chief-steps-down-following-years-of-turmoil/2015/06/22/729a1a52-1918-11e5-93b7-5eddc056ad8a_story.html
+  - url: https://cepr.harvard.edu/evaluating-newark-school-reform
+  causes:
+  - accountability
+  - political_governance
+- event_id: IL-17099300-closure-201206-chicago-cps-pre-mass-closures
+  district: Chicago Public Schools
+  state: IL
+  leaid: '17099300'
+  event_type: closure
+  date: 2012-06
+  title: CPS Closes 6 Schools and Co-Locates Charters Under Utilization Formula
+  schools_affected:
+  - name: 6 school buildings closed at end of 2011-12 year
+  - name: Multiple co-locations with charter schools approved
+  description: 'Before the 2013 mass closures, Chicago Public Schools closed six schools at the end of
+    the 2011-12 school year using a new "utilization formula" developed by CEO Jean-Claude Brizard (who
+    preceded Byrd-Bennett). The closures were accompanied by controversial decisions to co-locate charter
+    schools in existing CPS buildings, sparking community protests. The district also released data showing
+    140 schools were "underutilized," building the analytical framework that Byrd-Bennett would later
+    use to justify the far larger 2013 closure wave. The 2012 closures, combined with the contentious
+    2012 Chicago Teachers Union strike over school closures and evaluations, set the stage for the largest
+    mass closure in US history the following year.
+
+    '
+  sources:
+  - url: https://graphics.chicagotribune.com/school_utilization/
+  - url: https://nvdatabase.swarthmore.edu/content/chicago-students-teachers-protest-school-closings-2013
+  causes:
+  - charter_competition
+  - underutilization
+- event_id: DC-11001000-closure-200806-dcps-23-school-closures-fenty-rhee
+  district: District of Columbia Public Schools
+  state: DC
+  leaid: '11001000'
+  event_type: closure
+  date: 2008-06
+  title: DCPS Chancellor Rhee Closes 23 Schools Under Mayor Fenty
+  schools_affected:
+  - name: 23 public schools closed across DC
+  description: 'In 2008, DCPS Chancellor Michelle Rhee, appointed by Mayor Adrian Fenty, closed 23 public
+    schools in a major consolidation effort driven by declining enrollment and the need to modernize remaining
+    facilities. The closures, concentrated in lower-income communities east of Rock Creek Park, displaced
+    thousands of students and sparked significant community opposition. Rhee''s aggressive reform agenda,
+    which included the closures alongside controversial teacher evaluation and dismissal policies, became
+    a flashpoint in national education reform debates. The 2008 closures set the precedent for Chancellor
+    Henderson''s 2013 round of 15 additional closures. Together, the two rounds eliminated approximately
+    38 schools from the DCPS portfolio in five years.
+
+    '
+  sources:
+  - url: https://www.publicschoolreview.com/blog/dc-schools-consolidation-and-closures
+  - url: https://www.washingtonpost.com/local/education/chancellor-kaya-henderson-names-15-dc-schools-on-closure-list/2013/01/17/e04202fa-6023-11e2-9940-6fc488f3fecd_story.html
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - natural_disaster
+  - new_construction
+  - political_governance
+- event_id: PA-42002000-closure-200609-pittsburgh-right-sizing-2006
+  district: Pittsburgh Public Schools
+  state: PA
+  leaid: '42002000'
+  event_type: closure
+  date: 2006-09
+  title: Pittsburgh Implements Right-Sizing Plan with Staff Cuts and School Changes
+  schools_affected:
+  - name: Multiple schools affected by restructuring
+  description: 'In 2006, Pittsburgh Public Schools implemented a comprehensive Right-Sizing Plan that
+    eliminated 252 staffing positions across administrators, teachers, paraprofessionals, clerical staff,
+    and custodians. The plan restructured school feeder patterns, changed the instructional model to emphasize
+    universal access to art, music, and physical education, and increased class sizes. The Right-Sizing
+    Plan was the first major attempt to address the fundamental mismatch between PPS''s building capacity
+    (designed for 40,000 students) and actual enrollment (approximately 25,000 at the time, declining
+    to 18,000 by 2024). The 2006 plan set the template for the 2011 Realignment Plan and 2012 closures
+    that followed.
+
+    '
+  sources:
+  - url: https://www.wesa.fm/education/2024-10-07/pittsburgh-public-schools-closure-history
+  - url: https://www.publicsource.org/pps-closures-pittsburgh-west-side-history-sheraden-crafton-heights-elliott/
+  causes:
+  - consolidation_efficiency
+  - natural_disaster
+  - redistricting_rezoning
+- event_id: MO-29292800-intervention-201408-kcps-hale-cook-reopening
+  district: Kansas City Public Schools
+  state: MO
+  leaid: '29292800'
+  event_type: expansion
+  date: 2014-08
+  title: KCPS Reopens Hale Cook Elementary Through Grassroots Community Effort
+  schools_affected:
+  - name: Hale Cook Elementary School
+  description: 'In August 2014, Kansas City Public Schools reopened Hale Cook Elementary School at 7302
+    Pennsylvania Ave. in the Brookside neighborhood, four years after it was mothballed during the 2010
+    mass closures. The reopening was driven by the grassroots "Friends of Hale Cook" community organization,
+    which mobilized neighborhood support to convince the district to reopen the school. Hale Cook launched
+    with 108 students in pre-K through 2nd grade. The successful community-led reopening became a rare
+    positive counterpoint to the wave of school closures occurring nationwide, demonstrating that engaged
+    communities could reverse closure decisions and rebuild neighborhood schools.
+
+    '
+  sources:
+  - url: https://en.wikipedia.org/wiki/Kansas_City_Public_Schools
+  - url: https://www.kcpublicschools.org/about/history
+  causes:
+  - new_construction
+- event_id: MI-26054300-closure-201106-detroit-15-schools-transferred-eaa
+  district: Detroit Public Schools
+  state: MI
+  leaid: '26054300'
+  event_type: intervention
+  date: 2012-06
+  title: Michigan Creates Education Achievement Authority - Takes Over 15 DPS Schools
+  schools_affected:
+  - name: 15 lowest-performing Detroit schools transferred to state EAA
+  description: 'As part of Emergency Manager Roy Roberts'' 2012 restructuring of Detroit Public Schools,
+    15 of the district''s lowest-performing schools were transferred to the newly created Education Achievement
+    Authority (EAA), a statewide district designed to turn around failing schools. The EAA was jointly
+    governed by the state and Eastern Michigan University. The transferred schools were placed under separate
+    administration with new curricula and technology-focused learning models. However, the EAA was widely
+    criticized for poor outcomes, with test scores remaining among the lowest in the state. The EAA was
+    eventually dissolved and its schools returned to Detroit Public Schools Community District control.
+    The experiment was seen as a cautionary tale about state-run turnaround districts that removed schools
+    from local democratic governance.
+
+    '
+  sources:
+  - url: https://www.huffingtonpost.com/2012/02/08/detroit-school-closings_n_1263165.html
+  - url: https://urbanedjournal.gse.upenn.edu/volume-17-spring-2020/empire-strikes-back-state-takeover-and-education-michigan
+  - url: https://app.regrid.com/reports/schools
+  causes:
+  - accountability
+  - political_governance
+  - underutilization
+- event_id: GA-13003300-intervention-201504-atlanta-cheating-convictions
+  district: Atlanta Public Schools
+  state: GA
+  leaid: '13003300'
+  event_type: intervention
+  date: 2015-04
+  title: 11 Atlanta Educators Convicted on RICO Charges in Cheating Scandal
+  schools_affected:
+  - name: District-wide impact on accountability and governance
+  description: 'On April 1, 2015, after the longest criminal trial in Georgia history (8 months, beginning
+    September 29, 2014), 11 of 12 remaining defendants were convicted on racketeering charges under Georgia''s
+    RICO Act. The convicted educators included three executive administrators, one principal, one assistant
+    principal, four teachers, and two testing coordinators. Lead prosecutor Fani Willis secured the convictions.
+    The trial revealed systematic cheating including "cheating parties," classroom erasure sessions, and
+    directives from administrators to alter student test answers. The convictions cemented the Atlanta
+    cheating scandal as the largest standardized test cheating case in American history. Under new Superintendent
+    Maria Carstarphen, APS implemented comprehensive ethics training, replaced leadership at affected
+    schools, and undertook a "child-centered agenda" to rebuild public trust. The scandal revealed how
+    high-stakes testing accountability pressures, including the threat of school closures for poor performance,
+    could incentivize widespread fraud.
+
+    '
+  sources:
+  - url: https://www.cnn.com/2015/04/01/us/atlanta-schools-cheating-scandal/index.html
+  - url: https://en.wikipedia.org/wiki/Atlanta_Public_Schools_cheating_scandal
+  - url: https://ethicsunwrapped.utexas.edu/case-study/cheating-atlantas-school-scandal
+  - url: https://www.atlantamagazine.com/news-culture-articles/what-has-atlanta-public-schools-learned-from-the-cheating-scandal/
+  causes:
+  - accountability
+  - legal_challenges
+- event_id: MD-24001200-renovation-201509-baltimore-21st-century-year1-construction
+  district: Baltimore City Public Schools
+  state: MD
+  leaid: '24001200'
+  event_type: renovation
+  date: 2015-09
+  title: Baltimore 21st Century Schools Year 1 Construction Begins on 11 Schools
+  schools_affected:
+  - name: 2 replacement school buildings
+  - name: 9 renovation projects
+  - name: 11 total Year 1 schools
+  description: 'Construction began on Year 1 of the Baltimore 21st Century Schools Buildings Program,
+    with 11 schools receiving major work — 2 complete replacements and 9 comprehensive renovations. The
+    nearly $1 billion program, a partnership between Baltimore City Public Schools, the Maryland Stadium
+    Authority, Baltimore City, and the State of Maryland, represented the most significant investment
+    in Baltimore school infrastructure in decades. Each school project was paired with an INSPIRE neighborhood
+    improvement plan covering a quarter-mile radius around the school. The Year 2 Request for Qualification
+    process for 17 additional schools began in late Fall 2015. The program aimed to be substantially completed
+    by 2021, ultimately delivering 29 renovated or replaced school buildings.
+
+    '
+  sources:
+  - url: https://baltimore21stcenturyschools.org/school-projects
+  - url: https://mdstad.com/21st-century-schools
+  - url: https://www.mckinc.com/project/bcps-construction-program
+  causes:
+  - facility_condition
+- event_id: WI-55096000-closure-201706-milwaukee-facilities-master-plan-study
+  district: Milwaukee Public Schools
+  state: WI
+  leaid: '55096000'
+  event_type: closure
+  date: 2017-06
+  title: MPS Commissions Long-Range Facilities Master Plan Study
+  schools_affected:
+  - name: District-wide assessment of 149 school buildings
+  description: 'In 2017, Milwaukee Public Schools hired MGT of America Consulting to create a long-term
+    facilities master plan, acknowledging the growing crisis of aging infrastructure and declining enrollment.
+    MPS buildings averaged over 80 years old, with only 21 schools built after 1970. The district had
+    reduced from 178 schools in 2008 to 149 but still had approximately one quarter of schools underutilized
+    and another quarter overcrowded. Enrollment had dropped by 30,000 students since 2006, driven significantly
+    by Wisconsin''s voucher program and charter school expansion. The study set the stage for eventual
+    recommendations to close or merge 13 additional schools, though those recommendations would not be
+    acted upon until 2024. The delay between study and action reflected the political difficulty of closing
+    schools in predominantly low-income, minority communities.
+
+    '
+  sources:
+  - url: https://www.wpr.org/news/milwaukee-public-schools-considering-closing-merging-schools
+  - url: https://urbanmilwaukee.com/2024/10/05/mps-considers-closing-merging-schools/
+  - url: https://mps.milwaukee.k12.wi.us/News/MPS-will-seek-communitys-feedback-on-Facilities-Master-Plans-progress-limited-changes-expected-i.htm
+  causes:
+  - charter_competition
+  - enrollment_decline
+  - facility_condition
+  - political_governance
+  - population_growth
+  - underutilization
+- event_id: CA-06246000-intervention-200306-oakland-state-takeover-fiscal-crisis
+  district: Oakland Unified School District
+  state: CA
+  leaid: '06246000'
+  event_type: intervention
+  date: 2003-06
+  title: California Takes Over Oakland Unified After $82M Deficit
+  schools_affected:
+  - name: All OUSD schools (district-wide governance change)
+  description: 'In 2003, the State of California took control of Oakland Unified School District after
+    the district accumulated an $82 million deficit. The state provided a $100 million emergency loan
+    and installed a state administrator, removing the elected school board''s governing authority. The
+    takeover lasted until 2009, during which time the state administrator oversaw budget cuts, school
+    closures, and the expansion of charter schools in Oakland. The experience shaped OUSD''s subsequent
+    facility decisions for years, including the 2012 closures and later rounds. The district''s financial
+    struggles, combined with rapid charter school growth, created ongoing tension over facilities, enrollment,
+    and the equitable distribution of resources between traditional public schools and charters — a dynamic
+    that persists to this day.
+
+    '
+  sources:
+  - url: https://en.wikipedia.org/wiki/Oakland_Unified_School_District
+  - url: https://oaklandnorth.net/2011/10/25/ousd-school-closures-vote-wed-follows-years-of-creating-small-schools-then-having-to-pay-for-them/
+  causes:
+  - accountability
+  - budget_fiscal
+  - charter_competition
+  - political_governance
+  - population_growth
+- event_id: IL-17099300-bond-201501-chicago-cps-fiscal-crisis-borrowing
+  district: Chicago Public Schools
+  state: IL
+  leaid: '17099300'
+  event_type: bond
+  date: 2015-01
+  title: CPS Faces Fiscal Crisis with $1B+ Annual Deficits and Junk Bond Rating
+  schools_affected:
+  - name: All CPS schools (district-wide fiscal impact)
+  description: 'By 2015, Chicago Public Schools was deep in a fiscal crisis with annual budget deficits
+    exceeding $1 billion, driven by pension obligations, declining enrollment, and rising debt service
+    costs. Moody''s downgraded CPS debt to junk status, making the district the largest school system
+    in the country with a junk bond rating. The fiscal pressure that had driven the 2013 mass closures
+    continued unabated, with the district''s pension fund only 52% funded. CPS increasingly relied on
+    short-term borrowing at unfavorable rates to make ends meet. The financial crisis constrained capital
+    investment in school buildings, deferred maintenance across the district''s 600+ facilities, and created
+    ongoing tension between the district, the Chicago Teachers Union, and state lawmakers over funding
+    reform.
+
+    '
+  sources:
+  - url: https://www.chicagobusiness.com/crains-forum-cps-crossroads/chicago-school-closures-2013-decade-later
+  - url: http://uchicagogate.com/articles/2019/5/28/chicagos-2013-mass-school-closings-review/
+  causes:
+  - budget_fiscal
+  - enrollment_decline
+  - facility_condition
+  - new_construction
+- event_id: TN-47001480-intervention-201308-shelby-county-achievement-school-district
+  district: Shelby County Schools / Achievement School District
+  state: TN
+  leaid: '47001480'
+  event_type: intervention
+  date: 2013-08
+  title: Tennessee Achievement School District Expands in Memphis
+  schools_affected:
+  - name: Multiple low-performing Memphis schools transferred to ASD
+  description: 'The Tennessee Achievement School District (ASD), created in 2010 to take over the state''s
+    lowest-performing schools (bottom 5%), expanded its presence in Memphis following the 2013 merger.
+    The ASD converted failing traditional public schools to charter management, aiming to move them from
+    the bottom 5% to the top 25% within five years. The program was part of Tennessee''s broader education
+    reform strategy but faced criticism for removing schools from local democratic control and disproportionately
+    affecting communities of color in Memphis. The ASD''s track record was mixed — while some schools
+    showed improvement, many fell short of the ambitious targets. The expansion coincided with the already
+    turbulent merger period, adding another layer of complexity to Memphis-Shelby County''s education
+    landscape.
+
+    '
+  sources:
+  - url: https://dailymemphian.com/section/metroeducation/article/59689/memphis-shelby-county-schools-mscs-school-board-elections-state-takeover
+  - url: https://crpe.org/publications/depth-portfolio-assessment-shelby-county-schools-memphis-tn
+  causes:
+  - charter_competition
+  - racial_equity
+- event_id: CO-08033600-closure-201206-denver-zerger-closure-portfolio-model
+  district: Denver Public Schools
+  state: CO
+  leaid: 08033600
+  event_type: closure
+  date: 2012-06
+  title: DPS Closes Zerger Elementary as Part of Portfolio Management Model
+  schools_affected:
+  - name: Zerger Elementary School (closed, later became charter school site)
+  description: 'Denver Public Schools closed Zerger Elementary School in 2012 as part of its portfolio
+    management approach to education reform. The building was subsequently used to house a public charter
+    school. Zerger''s closure was part of a broader DPS strategy during the 2008-2015 period in which
+    the district opened 65 new schools while closing, replacing, or restarting 35 others. A comprehensive
+    study later found that students who transferred from closed schools to new reform-era schools saw
+    significant academic gains in math, validating the closure-and-replacement model in Denver''s context.
+    The portfolio model made Denver a nationally studied example of market-based education reform, though
+    community resistance eventually led to the abandonment of the School Performance Compact policy in
+    2018.
+
+    '
+  sources:
+  - url: https://www.cpr.org/2023/11/13/whats-happening-with-closed-school-buildings/
+  - url: https://www.chalkbeat.org/colorado/2024/09/28/denver-study-finds-closing-schools-improved-student-test-scores/
+  - url: https://www.cpr.org/2024/09/23/denver-public-schools-controversial-reform-successful/
+  causes:
+  - charter_competition
+- event_id: LA-2200090-intervention-201605-new-orleans-act-91-reunification-law
+  district: Recovery School District / Orleans Parish
+  state: LA
+  leaid: '2200090'
+  event_type: intervention
+  date: 2016-05
+  title: Louisiana Governor Signs Act 91 Mandating New Orleans School Reunification
+  schools_affected:
+  - name: All 52 RSD charter schools to transfer to OPSB by 2018-2019
+  description: 'On May 12, 2016, Governor John Bel Edwards signed SB 432 into law as Act 91, mandating
+    that all Recovery School District schools in New Orleans be returned to the locally elected Orleans
+    Parish School Board by July 1, 2018 (with possible extension to 2019). The legislation preserved charter
+    school autonomy while restoring local democratic oversight. The law was the product of years of advocacy
+    by community leaders who argued that the state takeover, while producing some academic gains, had
+    removed Black community voice from governance of a majority-Black school system. The Orleans Parish
+    School Board approved the unification transition plan in August 2016, beginning an 18-month implementation
+    phase with quarterly milestones and an advisory committee. The legislation specifically prohibited
+    OPSB from impeding charter school operational autonomy, reflecting the political compromise required
+    for passage.
+
+    '
+  sources:
+  - url: https://www.nola.com/news/education/2019-is-d-day-new-orleans-school-reunification-bill-advances/article_54c92e26-a8a3-5fb9-a015-e738891ebeb0.html
+  - url: https://www.brookings.edu/articles/charter-schools-and-local-control-in-new-orleans/
+  - url: https://educationresearchalliancenola.org/files/publications/A-New-First_FINAL.pdf
+  causes:
+  - accountability
+  - charter_competition
+  - political_governance
+- event_id: MI-26054300-renovation-201810-detroit-500m-facilities-assessment
+  district: Detroit Public Schools Community District
+  state: MI
+  leaid: '26054300'
+  event_type: renovation
+  date: 2018-10
+  title: DPSCD Facilities Assessment Identifies $500M in Immediate Capital Needs
+  schools_affected:
+  - name: All DPSCD school buildings assessed
+  description: 'A comprehensive facilities assessment conducted in 2018 for the newly reconstituted Detroit
+    Public Schools Community District pegged the district''s immediate capital needs at over $500 million,
+    with the potential for costs to grow to $1.5 billion by 2023 if left unaddressed. The assessment highlighted
+    that the 2016 state bailout legislation had focused on operating debt relief but did not provide resources
+    for capital needs. Moody''s warned that "mounting capital needs now threaten DPSCD''s long-term stability"
+    and suggested the district might need another state bailout. The facilities crisis encompassed deteriorating
+    buildings, inadequate heating and cooling systems, structural deficiencies, and in some cases, environmental
+    hazards. The assessment underscored the lasting infrastructure damage from decades of emergency management,
+    school closures, and deferred maintenance.
+
+    '
+  sources:
+  - url: https://crcmich.org/recent-report-shows-continued-financial-improvement-for-detroit-schools
+  - url: https://www.detroitnews.com/story/news/education/2018/11/20/moodys-detroit-school-district-state-bailout/2067204002/
+  - url: https://crcmich.org/after-20-years-detroit-public-schools-to-regain-control-of-its-finances
+  causes:
+  - facility_condition
+  - political_governance

@@ -1,0 +1,693 @@
+events:
+- event_id: FL-12003900-closure-202404-miami-dade-county-public-schoo
+  district: Miami-Dade County Public Schools
+  state: FL
+  leaid: '12003900'
+  event_type: closure
+  date: 2024-04
+  schools_affected:
+  - name: Parkview Elementary
+  - name: Shadowlawn Elementary
+  - name: Myrtle Grove K-8 Center (reconfigured to K-5)
+  description: Miami-Dade repurposed three schools for the 2024-25 school year due to declining enrollment.
+    Parkview Elementary was converted to a specialized exceptional student education (ESE) center. Shadowlawn
+    Elementary became an ESE center. Myrtle Grove K-8 was reconfigured to a K-5 elementary, moving 6th-8th
+    graders to Carol City Middle. About 250 students affected.
+  sources:
+  - url: https://www.axios.com/local/miami/2024/04/24/miami-dade-schools-changes
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+- event_id: FL-12003900-closure-202502-miami-dade-county-public-schoo
+  district: Miami-Dade County Public Schools
+  state: FL
+  leaid: '12003900'
+  event_type: closure
+  date: 2025-02
+  schools_affected:
+  - name: Poinciana Park Elementary
+  - name: Country Club Middle
+  description: Miami-Dade proposed repurposing Poinciana Park Elementary (168 students, enrollment down
+    45% over five years) and Country Club Middle for the 2025-26 school year. Seven schools in the north
+    region and four in the central region also had boundary changes proposed.
+  sources:
+  - url: https://www.axios.com/local/miami/2025/02/12/miami-schools-declining-enrollment-building-changes
+  causes:
+  - enrollment_decline
+  - natural_disaster
+  - redistricting_rezoning
+- event_id: FL-12003900-redistricting-202502-miami-dade-county-public-schoo
+  district: Miami-Dade County Public Schools
+  state: FL
+  leaid: '12003900'
+  event_type: redistricting
+  date: 2025-02
+  schools_affected:
+  - name: 11 schools across north and central regions
+  description: Miami-Dade proposed boundary changes to 11 schools for the 2025-26 school year. The majority
+    of proposals pertained to declining enrollment as private alternatives and the state voucher program
+    continued to draw students away. The district projected a loss of about 4,000 students for 2024-25.
+  sources:
+  - url: https://www.wlrn.org/news-in-brief/2025-02-13/mdcps-school-boundaries
+  causes:
+  - charter_competition
+  - enrollment_decline
+  - redistricting_rezoning
+- event_id: FL-12003900-renovation-202505-miami-dade-county-public-schoo
+  district: Miami-Dade County Public Schools
+  state: FL
+  leaid: '12003900'
+  event_type: renovation
+  date: 2025-05
+  schools_affected:
+  - name: Multiple underused school sites
+  description: The Miami-Dade school board began considering transforming underused school sites into
+    early learning centers. The initiative aims to leverage existing infrastructure to promote fiscal
+    responsibility while addressing the enrollment decline (13,000 fewer students year-over-year by Aug
+    2025, from 326k to 313k).
+  sources:
+  - url: https://www.wlrn.org/news-in-brief/2025-05-15/miami-dade-schools-early-learning-initiative-enrollment
+  causes:
+  - budget_fiscal
+  - enrollment_decline
+  - facility_condition
+  - underutilization
+- event_id: FL-12001800-bond-201411-broward-county-public-schools
+  district: Broward County Public Schools
+  state: FL
+  leaid: '12001800'
+  event_type: bond
+  date: 2014-11
+  schools_affected:
+  - name: All BCPS schools (district-wide)
+  description: Broward County voters approved an $800 million SMART Bond referendum (Safety, Music, Art,
+    Athletics, Renovations, Technology) with 74% approval. Combined with $184 million in existing capital,
+    the total program reached $984 million. The program addressed up to $3 billion in deferred maintenance
+    including roofing, HVAC, fire systems, ADA compliance, and STEM labs. Program was plagued by mismanagement;
+    a 2021 grand jury report led to Gov. DeSantis removing four board members in 2022. Program officially
+    ended Oct 31, 2025, though 100+ projects continue as capital projects.
+  sources:
+  - url: https://bcpssmartfutures.com/about/
+  causes:
+  - facility_condition
+  - natural_disaster
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: FL-12001800-renovation-202010-broward-county-public-schools
+  district: Broward County Public Schools
+  state: FL
+  leaid: '12001800'
+  event_type: renovation
+  date: 2020-10
+  schools_affected:
+  - name: Marjory Stoneman Douglas High School
+  description: An $18 million replacement classroom building opened on the southwest side of the MSD campus,
+    replacing the freshman building where the 2018 mass shooting occurred. The two-story, 45,000 sq ft
+    building replaced the original three-story structure. Students had been learning in portables during
+    construction.
+  sources:
+  - url: https://sun-sentinel.com/news/education/fl-ne-stoneman-douglas-building-update-20200116-rvhfndneindxjn5ce3uoa6sdp4-story.html
+  causes:
+  - new_construction
+  - safety_security
+- event_id: FL-12001800-renovation-202406-broward-county-public-schools
+  district: Broward County Public Schools
+  state: FL
+  leaid: '12001800'
+  event_type: renovation
+  date: 2024-06
+  schools_affected:
+  - name: Marjory Stoneman Douglas High School (1200 Building)
+  description: Demolition of the original building where the 2018 Parkland shooting occurred began on
+    June 14, 2024, and was completed by July 5. The building had been preserved as a crime scene through
+    the trial. Future plans for the site include a possible "legacy field" for sports or band practice.
+  sources:
+  - url: https://en.wikipedia.org/wiki/Parkland_high_school_shooting
+  causes:
+  - safety_security
+- event_id: FL-12001800-closure-202408-broward-county-public-schools
+  district: Broward County Public Schools
+  state: FL
+  leaid: '12001800'
+  event_type: closure
+  date: 2024-08
+  schools_affected:
+  - name: Broward Estates Elementary (Lauderhill)
+  description: Phase 1 of the "Redefining Our Schools" initiative closed Broward Estates Elementary, repurposing
+    it as an early learning center. The district also converted four elementary schools into K-8 schools
+    and one middle school into a 6-12 school. This was the first phase of a multi-year plan to address
+    50,000 empty seats across 300 schools.
+  sources:
+  - url: https://www.wlrn.org/education/2024-02-09/broward-public-school-closures-consolidation-low-enrollment
+  causes:
+  - enrollment_decline
+- event_id: FL-12001800-closure-202601-broward-county-public-schools
+  district: Broward County Public Schools
+  state: FL
+  leaid: '12001800'
+  event_type: closure
+  date: 2026-01
+  schools_affected:
+  - name: Sunshine Elementary (Miramar)
+  - name: Panther Run Elementary (Pembroke Pines)
+  - name: Palm Cove Elementary (Pembroke Pines)
+  - name: North Fork Elementary (Fort Lauderdale)
+  - name: Plantation Middle School
+  - name: Seagull Alternative High School (Fort Lauderdale)
+  description: 'Phase 2 of "Redefining Our Schools" closed six schools. The board voted Jan 21-22, 2026.
+    Sunshine Elementary consolidated into Fairway Elementary. Panther Run students sent to Chapel Trail
+    and Silver Palms. Palm Cove students to Lakeside and Pines Lakes. North Fork consolidated into Croissant
+    Park, MLK Jr., Thurgood Marshall, and Walker elementaries. Plantation Middle merged into Plantation
+    High (becoming 6-12). Seagull consolidated into Whiddon-Rogers. Bair Middle was spared after community
+    advocacy. Estimated savings: $10 million annually. Superintendent said they are "halfway there" to
+    $100 million savings target.'
+  sources:
+  - url: https://www.wlrn.org/education/2026-01-23/broward-county-schools-closures-hepburn-redefining
+  causes:
+  - consolidation_efficiency
+  - political_governance
+- event_id: FL-12001800-redistricting-202601-broward-county-public-schools
+  district: Broward County Public Schools
+  state: FL
+  leaid: '12001800'
+  event_type: redistricting
+  date: 2026-01
+  schools_affected:
+  - name: Multiple schools across Broward County
+  description: Alongside Phase 2 closures, the Broward school board approved boundary changes to redistribute
+    students from closed and consolidated schools. The district identified 68 schools operating at less
+    than 70% capacity. Changes take effect for the 2026-27 school year.
+  sources:
+  - url: https://www.wlrn.org/education/2026-01-22/broward-school-closures-boundary-changes-redefining
+  causes:
+  - consolidation_efficiency
+  - redistricting_rezoning
+- event_id: FL-12008700-closure-202305-hillsborough-county-public-sch
+  district: Hillsborough County Public Schools
+  state: FL
+  leaid: '12008700'
+  event_type: closure
+  date: 2023-05
+  schools_affected:
+  - name: Just Elementary
+  - name: Cleveland Elementary
+  - name: Adams Elementary
+  - name: McLane Middle
+  - name: Monroe Middle
+  - name: Kimbell Elementary
+  description: Hillsborough closed six schools - the first closures due to low enrollment in the district's
+    140-year history. 24% of schools were overcrowded while 44% were under-enrolled. Kimbell became HOST
+    (after-school care) HQ; McLane became an ESE office; Monroe is used for storage. Just Elementary closure
+    was controversial as the school was 82% Black.
+  sources:
+  - url: https://www.wusf.org/education/2024-05-28/five-hillsborough-schools-have-closed-a-parent-mourns-the-loss-of-her-daughters-elementary
+  causes:
+  - population_growth
+  - underutilization
+- event_id: FL-12008700-redistricting-202306-hillsborough-county-public-sch
+  district: Hillsborough County Public Schools
+  state: FL
+  leaid: '12008700'
+  event_type: redistricting
+  date: 2023-06
+  schools_affected:
+  - name: 103 schools with boundary changes
+  - name: 6 schools repurposed
+  - name: 3 schools partially repurposed
+  description: The school board voted 4-3 to approve massive boundary redesign for the 2024-25 school
+    year. The plan impacts roughly 15,000 students (down from an initial proposal affecting 24,000). Boundaries
+    for 103 schools were redrawn. The district hired WXY Studio to review boundaries and address the imbalance
+    of overcrowded and under-enrolled schools. Estimated savings of $13 million.
+  sources:
+  - url: https://www.wusf.org/education/2023-06-21/hillsborough-county-school-board-votes-to-approve-boundary-changes-in-a-4-3-vote
+  causes:
+  - political_governance
+  - population_growth
+  - redistricting_rezoning
+  - underutilization
+- event_id: FL-12008700-expansion-202402-hillsborough-county-public-sch
+  district: Hillsborough County Public Schools
+  state: FL
+  leaid: '12008700'
+  event_type: expansion
+  date: 2024-02
+  schools_affected:
+  - name: Just Elementary (rebuild)
+  - name: Stewart Middle Magnet (rebuild)
+  description: Hillsborough announced plans to rebuild Just Elementary and Stewart Middle Magnet as a
+    combined campus project in west Tampa - the first new schools built in Tampa's urban core in 30 years.
+    Just will accommodate 500 students and Stewart 800. Cost estimated at $70 million (with some estimates
+    reaching higher). Just Elementary is scheduled to reopen August 2027.
+  sources:
+  - url: https://www.tampabay.com/news/education/2024/02/29/tampas-just-elementary-stewart-middle-will-be-rebuilt-officials-say/
+  causes:
+  - new_construction
+- event_id: FL-12008700-expansion-202511-hillsborough-county-public-sch
+  district: Hillsborough County Public Schools
+  state: FL
+  leaid: '12008700'
+  event_type: expansion
+  date: 2025-11
+  schools_affected:
+  - name: Just Elementary (replacement campus)
+  - name: Stewart Middle School (replacement campus)
+  - name: New South County middle school
+  description: The school board approved nearly $150 million in new construction including replacement
+    campuses for Just/Stewart in Tampa and a new middle school in the South County area. The vote occurred
+    amid concerns about Florida's expanded Schools of Hope program, which could allow charter schools
+    to claim unused space in new buildings that haven't yet reached full enrollment.
+  sources:
+  - url: https://www.wusf.org/education/2025-11-19/hillsborough-build-two-new-schools-threat-charter-takeover
+  causes:
+  - charter_competition
+  - new_construction
+  - political_governance
+- event_id: FL-12008700-bond-202411-hillsborough-county-public-sch
+  district: Hillsborough County Public Schools
+  state: FL
+  leaid: '12008700'
+  event_type: bond
+  date: 2024-11
+  schools_affected:
+  - name: All Hillsborough County schools
+  description: Hillsborough County voters approved a new millage for school operations (Referendum 2)
+    with 66.55% of the vote in November 2024. This provides additional funding for school facilities and
+    operations.
+  sources:
+  - url: https://feaweb.org/release/election-release/
+  causes:
+  - political_governance
+- event_id: FL-12014400-bond-201811-polk-county-public-schools
+  district: Polk County Public Schools
+  state: FL
+  leaid: '12014400'
+  event_type: bond
+  date: 2018-11
+  schools_affected:
+  - name: All Polk County schools
+  description: Polk County voters approved a 15-year renewal of the half-cent sales tax for schools (through
+    Dec 2034). Originally approved in 2003, the tax funds capital projects including new construction,
+    modernization, security, and technology. The tax generates critical revenue for the 7th largest district
+    in Florida (also the 4th lowest funded). A 21-member oversight committee monitors spending.
+  sources:
+  - url: https://www.polkschoolsfl.com/community/salestax
+  causes:
+  - budget_fiscal
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: FL-12014400-expansion-202307-polk-county-public-schools
+  district: Polk County Public Schools
+  state: FL
+  leaid: '12014400'
+  event_type: expansion
+  date: 2023-07
+  schools_affected:
+  - name: Scenic Terrace K-8 (new)
+  - name: Elbert Elementary (modernization)
+  description: A public-private partnership delivered the brand-new Scenic Terrace school in Haines City
+    in just 9 months, on time and on budget. The 157,000 sq ft facility has capacity for 1,600 students.
+    Initially it served as a temporary home for Elbert Elementary students while that school undergoes
+    complete modernization. Scenic Terrace will then become a permanent K-8 school to serve the rapidly
+    growing district.
+  sources:
+  - url: https://www.pr.com/press-release/893445
+  causes:
+  - new_construction
+  - population_growth
+- event_id: FL-12014400-expansion-202401-polk-county-public-schools
+  district: Polk County Public Schools
+  state: FL
+  leaid: '12014400'
+  event_type: expansion
+  date: 2024-01
+  schools_affected:
+  - name: Lake Region High School (agriculture facility)
+  - name: McLaughlin Academy of Excellence (new gymnasium)
+  description: Lake Region High School opened a new 2,145 sq ft agriculture facility for ag studies, located
+    near the school's exterior ag area. McLaughlin Academy of Excellence also cut the ribbon on a new
+    gymnasium. Both projects were funded through the half-cent sales tax.
+  sources:
+  - url: https://www.polkschoolsfl.com/news
+  causes:
+  - population_growth
+- event_id: FL-12015000-expansion-202508-palm-beach-county-school-distr
+  district: Palm Beach County School District
+  state: FL
+  leaid: '12015000'
+  event_type: expansion
+  date: 2025-08
+  schools_affected:
+  - name: Saddle View Elementary (new)
+  description: Saddle View Elementary opened Aug 11, 2025, with 631 students in a $41.7 million, 95,990
+    sq ft facility designed for 971 students. Built to relieve overcrowding at Binks Forest Elementary
+    in the rapidly growing Arden community west of Wellington. Features indoor-outdoor agriculture lab
+    with hydroponic gardens. Opened two years ahead of the original schedule due to rapid growth in western
+    communities.
+  sources:
+  - url: https://gotowncrier.com/2025/08/saddle-view-elementary-opens-to-600-plus-students/
+  causes:
+  - population_growth
+- event_id: FL-12015000-expansion-202708-palm-beach-county-school-distr
+  district: Palm Beach County School District
+  state: FL
+  leaid: '12015000'
+  event_type: expansion
+  date: 2027-08
+  schools_affected:
+  - name: New elementary school (Westlake area)
+  description: Palm Beach County is planning a new elementary school estimated at $42.9 million to open
+    in August 2027 in the City of Westlake, which was founded in 2016 and had a population approaching
+    7,000 by 2024. Saddle View is one of three new schools planned for the western part of the county
+    in the next five years.
+  sources:
+  - url: https://www.yahoo.com/news/articles/another-elementary-school-moves-ahead-090727822.html
+  causes:
+  - population_growth
+- event_id: FL-12015000-redistricting-202510-palm-beach-county-school-distr
+  district: Palm Beach County School District
+  state: FL
+  leaid: '12015000'
+  event_type: redistricting
+  date: 2025-10
+  schools_affected:
+  - name: 120+ teachers reassigned
+  - name: 67 schools operating below 70% capacity
+  description: Declining enrollment forced at least 120 teacher reassignments and threatened $25 million
+    in state funding cuts. Analysis found 67 schools (nearly one-third of the district) operating below
+    70% capacity. Hardest hit included Indian Pines Elementary (39% full) and Benoist Farms Elementary
+    (41% full). The district explicitly stated it is NOT pursuing closures or consolidations at this time,
+    distinguishing itself from neighboring Broward and Miami-Dade.
+  sources:
+  - url: https://www.wlrn.org/news-in-brief/2025-10-14/declining-enrollment-forces-teacher-reassignments-in-palm-beach-county
+  causes:
+  - consolidation_efficiency
+  - enrollment_decline
+  - natural_disaster
+  - underutilization
+- event_id: FL-12004800-bond-202011-duval-county-public-schools
+  district: Duval County Public Schools
+  state: FL
+  leaid: '12004800'
+  event_type: bond
+  date: 2020-11
+  schools_affected:
+  - name: 150+ campuses district-wide
+  description: Duval County voters overwhelmingly approved (67%) a half-penny sales tax to fund $1.9 billion
+    in school repairs and new construction over 15 years. Duval schools are on average the oldest in the
+    state. The tax funds the Master Facility Plan covering renovations, rebuilds, safety/security upgrades,
+    and new construction. Revenue exceeded projections but inflation offset gains. By Nov 2021, revenue
+    reached $92.27 million.
+  sources:
+  - url: https://www.teamduval.org/2020/12/14/half-cent-sales-tax-passed-now-what/
+  causes:
+  - new_construction
+  - political_governance
+  - safety_security
+- event_id: FL-12004800-expansion-202211-duval-county-public-schools
+  district: Duval County Public Schools
+  state: FL
+  leaid: '12004800'
+  event_type: expansion
+  date: 2022-11
+  schools_affected:
+  - name: Rutledge Pearson Elementary (new, $28M)
+  - name: Jean Ribault High School (rebuild)
+  - name: Chaffee Trail Middle (rebuild)
+  - name: Highland Elementary (rebuild)
+  - name: Southside Estates Elementary (rebuild)
+  description: Multiple new school buildings began emerging from the half-penny funded Master Facility
+    Plan. Rutledge Pearson consolidates three schools into one new $28M facility. Jean Ribault High School
+    rebuild (first new high school building since Atlantic Coast opened in 2010) began construction Sept
+    2023 with anticipated occupancy Aug 2025. Safety and security upgrades in progress at 42 schools.
+  sources:
+  - url: https://www.teamduval.org/2022/11/14/new-schools-emerging-throughout-jacksonville-thanks-to-half-penny/
+  causes:
+  - consolidation_efficiency
+  - new_construction
+  - safety_security
+- event_id: FL-12004800-closure-202410-duval-county-public-schools
+  district: Duval County Public Schools
+  state: FL
+  leaid: '12004800'
+  event_type: closure
+  date: 2024-10
+  schools_affected:
+  - name: 18 schools planned for closure over 5 years
+  - name: 6 new schools to be built
+  description: The school board approved (6-1) a five-year plan suggesting closure of 18 schools and construction
+    of six new ones. The plan addresses a $1.4 billion budget gap caused by increased post-pandemic construction
+    costs, revenue sharing with charter schools, and shrinking enrollment. Superintendent Bernier noted
+    schools need about 700 students to cover operational costs; about a third of 96 elementary schools
+    meet that threshold.
+  sources:
+  - url: https://jaxtoday.org/2024/10/02/duval-plan-schools/
+  causes:
+  - charter_competition
+  - covid_pandemic
+  - enrollment_decline
+  - new_construction
+- event_id: FL-12004800-closure-202411-duval-county-public-schools
+  district: Duval County Public Schools
+  state: FL
+  leaid: '12004800'
+  event_type: closure
+  date: 2024-11
+  schools_affected:
+  - name: Annie R. Morgan Elementary (Westside)
+  - name: Kings Trail Elementary (San Jose)
+  - name: Susie E. Tolbert Elementary (NW Jacksonville)
+  description: The board voted to close three elementary schools at the end of the 2024-25 school year,
+    consolidating students into neighboring schools. Consolidation of Don Brewer and Merrill Road elementaries
+    was delayed after concerns about poor planning. The NAACP raised equity concerns given the district's
+    history with desegregation.
+  sources:
+  - url: https://jaxtoday.org/2024/11/05/3-duval-elementary-schools-will-close-soon-3-more-after-a-year/
+  causes:
+  - consolidation_efficiency
+  - political_governance
+  - racial_equity
+- event_id: FL-12004800-closure-202506-duval-county-public-schools
+  district: Duval County Public Schools
+  state: FL
+  leaid: '12004800'
+  event_type: closure
+  date: 2025-06
+  schools_affected:
+  - name: Hyde Grove Elementary (into Hyde Park Elementary)
+  - name: Long Branch Elementary (into R.L. Brown Elementary)
+  - name: Anchor Academy (into Mayport or Atlantic Beach Elementary)
+  - name: Joseph Stilwell Middle (into Ed White, becoming 6-12)
+  description: Additional schools scheduled for closure/consolidation consideration in the second year
+    of the 5-year Master Facility Plan. The district will provide transportation for students whose new
+    school is more than 1.5 miles from home and may establish bus stops at closed school sites.
+  sources:
+  - url: https://jaxtoday.org/2024/09/24/duval-could-close-12-elementary-schools-within-5-years/
+  causes:
+  - consolidation_efficiency
+- event_id: FL-12015900-expansion-202408-osceola-county-school-district
+  district: Osceola County School District
+  state: FL
+  leaid: '12015900'
+  event_type: expansion
+  date: 2024-08
+  schools_affected:
+  - name: Knights Point K-8 (new)
+  - name: Voyager K-8 (new)
+  description: Osceola County opened two new K-8 schools in 2024, each accommodating about 1,400 students,
+    to address rapid population growth (county grew 46% from 2010 to 2022). The district has over 73,000
+    students and projects exceeding 100,000 within 10 years. Construction spending increased from $30
+    million to approximately $1 billion over 3.5 years.
+  sources:
+  - url: https://www.wesh.com/article/new-schools-osceola-county/46996652
+  causes:
+  - new_construction
+  - population_growth
+- event_id: FL-12015900-renovation-202403-osceola-county-school-district
+  district: Osceola County School District
+  state: FL
+  leaid: '12015900'
+  event_type: renovation
+  date: 2024-03
+  schools_affected:
+  - name: 78 projects across the district
+  description: 'The school board detailed hundreds of millions in active projects: 5 in planning, 26 in
+    design, 31 under construction, and 16 in closeout, totaling $919 million. Includes comprehensive renovation
+    of the Osceola County School of the Arts. The district''s chief facilities officer noted a dramatic
+    increase from $30 million to nearly $1 billion in construction.'
+  sources:
+  - url: https://www.clickorlando.com/news/local/2024/03/26/renovations-new-schools-shape-osceola-countys-education-landscape/
+  causes:
+  - facility_condition
+- event_id: FL-12015900-expansion-202508-osceola-county-school-district
+  district: Osceola County School District
+  state: FL
+  leaid: '12015900'
+  event_type: expansion
+  date: 2025-08
+  schools_affected:
+  - name: Kindred K-8 School (new, $75M)
+  description: A $75 million K-8 school is being built along Cross Prairie Parkway in the new Kindred
+    community of Kissimmee. The school was scheduled to open for the 2025-26 school year, adding capacity
+    for approximately 1,400 students in one of Florida's fastest-growing areas.
+  sources:
+  - url: https://www.wesh.com/article/new-school-housing-osceola-county/44120999
+  causes:
+  - population_growth
+- event_id: FL-12015900-expansion-202505-osceola-county-school-district
+  district: Osceola County School District
+  state: FL
+  leaid: '12015900'
+  event_type: expansion
+  date: 2025-05
+  schools_affected:
+  - name: Reedy Creek Elementary (rebuild, $59M)
+  description: Osceola County Schools broke ground on a $59 million rebuild of Reedy Creek Elementary,
+    split into two phases. The project is part of the district's effort to manage explosive growth in
+    the county.
+  sources:
+  - url: https://mynews13.com/fl/orlando/news/2025/05/14/osceola-county-schools-breaks-ground-on--59-m--reedy-creek-rebuild-to-manage-county-growth
+  causes:
+  - new_construction
+  - population_growth
+- event_id: FL-12015900-expansion-202608-osceola-county-school-district
+  district: Osceola County School District
+  state: FL
+  leaid: '12015900'
+  event_type: expansion
+  date: 2026-08
+  schools_affected:
+  - name: New high school ($184M)
+  description: A new high school with an $184 million construction budget funded through county impact
+    fees will open for the 2026 school year. It will include 11 permanent buildings for 2,522 students
+    - the first high school built since Tohopekaliga High School opened in 2018.
+  sources:
+  - url: https://www.clickorlando.com/news/local/2025/01/24/what-a-new-high-school-means-for-a-growing-osceola-county-school-district/
+  causes:
+  - new_construction
+- event_id: FL-12015600-closure-202601-pinellas-county-schools
+  district: Pinellas County Schools
+  state: FL
+  leaid: '12015600'
+  event_type: closure
+  date: 2026-01
+  schools_affected:
+  - name: Cross Bayou Elementary (closure)
+  - name: Disston Academy (closure)
+  - name: Bay Point Elementary + Bay Point Middle (consolidation to K-8)
+  - name: Oldsmar Elementary (expansion to K-8)
+  description: 'Superintendent Kevin Hendrick recommended closing Cross Bayou Elementary and Disston Academy
+    at the end of 2025-26, creating a K-8 school combining Bay Point Elementary and Bay Point Middle on
+    the middle school campus in 2027-28, and expanding Oldsmar Elementary to K-8 in 2026-27. The district
+    has 35,000 more seats than students and about a third of campuses sit below 60% capacity. Estimated
+    savings: $8 million annually. A larger round of closures is expected next fall.'
+  sources:
+  - url: https://www.wfla.com/news/pinellas-county/pinellas-county-recommends-closure-of-2-schools-consolidation-due-to-low-enrollment/
+  causes:
+  - enrollment_decline
+  - underutilization
+- event_id: US-000000-renovation-202209-lee-county-school-district
+  district: Lee County School District
+  state: ''
+  leaid: ''
+  event_type: renovation
+  date: 2022-09
+  schools_affected:
+  - name: Fort Myers Beach Elementary
+  - name: Hector A. Cafferata Jr. Elementary
+  - name: The Sanibel School
+  - name: 11 schools total with significant damage
+  description: Hurricane Ian (Sept 2022) caused an estimated $230-$300 million in damage to Lee County
+    schools. Fort Myers Beach Elementary (built 1947, on the National Register) and Cafferata Elementary
+    suffered the worst damage. Cafferata's 715 students were split between two temporary locations. The
+    Sanibel School also sustained major damage.
+  sources:
+  - url: https://winknews.com/2023/10/02/rebuilding-schools-after-hurricane-ian/
+  causes:
+  - natural_disaster
+- event_id: US-000000-bond-202312-lee-county-school-district
+  district: Lee County School District
+  state: ''
+  leaid: ''
+  event_type: bond
+  date: 2023-12
+  schools_affected:
+  - name: District-wide recovery projects
+  description: The School District of Lee County received $51 million in Hurricane Ian recovery funds
+    as part of a $338 million total award to Lee County agencies. This was the highest allocation to a
+    single entity, tied only with the City of Cape Coral. The district also received a $55 million loan
+    from Florida's Department of Emergency Management. HUD awarded Lee County $1.1 billion total for long-term
+    recovery.
+  sources:
+  - url: https://www.leeschools.net/news/october_2023/district_to_receive_51_million_for_ian_recovery
+  causes:
+  - natural_disaster
+- event_id: US-000000-expansion-202408-lee-county-school-district
+  district: Lee County School District
+  state: ''
+  leaid: ''
+  event_type: expansion
+  date: 2024-08
+  schools_affected:
+  - name: Hector A. Cafferata Jr. Elementary K-8 (new build)
+  description: A brand-new Cafferata K-8 school was planned to open during the 2024-25 school year on
+    district-owned property in Cape Coral, replacing the original elementary school destroyed by Hurricane
+    Ian. The new school expands to serve middle school grades as well.
+  sources:
+  - url: https://www.wgcu.org/section/education/2023-08-09/new-and-rebuilt-schools-will-open-in-lee-county
+  causes:
+  - natural_disaster
+- event_id: US-000000-renovation-202410-lee-county-school-district
+  district: Lee County School District
+  state: ''
+  leaid: ''
+  event_type: renovation
+  date: 2024-10
+  schools_affected:
+  - name: Fort Myers Beach Elementary (closed again)
+  description: Fort Myers Beach Elementary, which had been in recovery from Hurricane Ian, was closed
+    again after Hurricanes Helene and Milton (Sept-Oct 2024) caused significant flood damage. Students
+    were relocated to San Carlos Park Elementary. The district is now considering five repair/rebuild
+    options ranging from $1.3M to $15.9M. FEMA awarded $11.4M for the school. A final decision on the
+    school's future is expected June 2025.
+  sources:
+  - url: https://www.wgcu.org/education/2025-05-28/fate-of-fort-myers-beach-elementary-school-discussed-by-town-school-board
+  causes:
+  - natural_disaster
+  - new_construction
+- event_id: FL-12017100-expansion-202409-seminole-county-public-schools
+  district: Seminole County Public Schools
+  state: FL
+  leaid: '12017100'
+  event_type: expansion
+  date: 2024-09
+  schools_affected:
+  - name: Lake Mary Elementary (replacement, $24M)
+  description: 'Seminole County Public Schools announced plans to build a $24 million replacement of Lake
+    Mary Elementary School at 132 S. Country Club Road, Lake Mary. The district sought a construction
+    manager at risk for the project. Seminole County is the #1 rated public school district in Florida
+    by Niche, with 94% of schools rated A or B.'
+  sources:
+  - url: https://www.wftv.com/news/local/seminole-county-district-plans-24-million-school-replacement/TVSIOUACEFFLRIOHZMCAPJLVFM/
+  causes:
+  - population_growth
+- event_id: US-000000-redistricting-202407-statewide-all-florida-district
+  district: Statewide (all Florida districts)
+  state: ''
+  leaid: ''
+  event_type: redistricting
+  date: 2024-07
+  schools_affected:
+  - name: Hundreds of underenrolled schools across Florida
+  description: Florida expanded the Schools of Hope law, allowing for-profit charter schools to claim
+    classroom space in under-capacity public schools for free ("co-location"). Charter operator Mater
+    Academy sent letters to ~90 public schools; Academica sent hundreds of letters. Districts including
+    Hillsborough, Pinellas, Orange, and Duval flagged dozens of schools as vulnerable. This law is accelerating
+    closure/consolidation decisions in many districts. Proposed rule changes in Feb 2026 would limit charters
+    to schools below 75% capacity or with 400+ open seats.
+  sources:
+  - url: https://www.wusf.org/education/2025-11-17/dozens-of-tampa-bay-area-public-schools-targeted-by-hope-charters-heres-a-list
+  causes:
+  - charter_competition
+  - consolidation_efficiency
