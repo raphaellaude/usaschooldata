@@ -1,6 +1,5 @@
-import {useState, useEffect} from 'react';
-import {roomStore} from '../store';
-import {useDuckDB} from './useDuckDB';
+import {useMemo} from 'react';
+import {useSql} from '@sqlrooms/duckdb';
 
 const SY_STATUS_VALUES = [
   'Open', // 1
@@ -31,6 +30,8 @@ export interface SchoolDirectoryInfo {
   charter: string;
   state_code: string;
   state_leaid: string;
+  city?: string;
+  state_name?: string;
   grade_pk?: string | number | null;
   grade_kg?: string | number | null;
   grade_01?: string | number | null;
@@ -51,103 +52,59 @@ export interface SchoolDirectoryInfo {
   [key: string]: string | number | null | undefined;
 }
 
-/** Coerce Arrow cell values (DecimalBigNum, bigint) to plain JS values */
-function coerceArrowValue(value: unknown): unknown {
-  if (value == null) return value;
-  if (typeof value === 'bigint') return Number(value);
-  if (ArrayBuffer.isView(value)) return Number(String(value));
-  return value;
+interface DirectoryRow {
+  ncessch: string;
+  sch_name: string;
+  school_year: string;
+  sch_level: string;
+  sch_type: number;
+  sy_status: number;
+  sy_status_updated: number;
+  charter: string;
+  state_code: string;
+  state_leaid: string;
+  city?: string;
+  state_name?: string;
+  [key: string]: unknown;
 }
 
-/**
- * Extract a scalar value from an Arrow table using columnar access.
- */
-function getScalar(table: any, rowIndex: number, columnName: string): any {
-  const col = table.getChild(columnName);
-  if (!col) return null;
-  return coerceArrowValue(col.get(rowIndex));
-}
+const DATA_DIR = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
 
 export function useSchoolDirectory(ncessch: string | undefined, schoolYear: string | undefined) {
-  const [directoryInfo, setDirectoryInfo] = useState<SchoolDirectoryInfo | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
-  const {isInitialized} = useDuckDB();
+  const escapedNcessch = ncessch?.replace(/'/g, "''") || '';
+  const escapedYear = schoolYear?.replace(/'/g, "''") || '';
 
-  useEffect(() => {
-    setDirectoryInfo(null);
-    setError(null);
+  const {data, isLoading, error} = useSql<DirectoryRow>({
+    query: `
+      SELECT * REPLACE (
+        sch_type::INTEGER as sch_type,
+        sy_status::INTEGER as sy_status,
+        sy_status_updated::INTEGER as sy_status_updated
+      )
+      FROM read_parquet('${DATA_DIR}/directory.parquet')
+      WHERE ncessch = '${escapedNcessch}'
+        AND school_year = '${escapedYear}'
+      LIMIT 1
+    `,
+    enabled: !!ncessch && !!schoolYear,
+  });
 
-    if (!ncessch || !schoolYear || !isInitialized) {
-      return;
-    }
+  const directoryInfo = useMemo<SchoolDirectoryInfo | null>(() => {
+    if (!data || data.length === 0) return null;
+    const row = data.toArray()[0];
+    if (!row) return null;
 
-    async function fetchDirectoryInfo() {
-      if (!ncessch || !schoolYear) return;
-
-      setIsLoading(true);
-      try {
-        const connector = roomStore.getState().db.connector;
-        const table = await connector.query(`
-          SELECT *
-          FROM read_parquet('${dataDirectory}/directory.parquet')
-          WHERE ncessch = '${ncessch.replace(/'/g, "''")}'
-            AND school_year = '${schoolYear.replace(/'/g, "''")}'
-          LIMIT 1
-        `);
-
-        if (table.numRows === 0) {
-          setDirectoryInfo(null);
-          return;
-        }
-
-        const results = {
-          sch_name: getScalar(table, 0, 'sch_name'),
-          ncessch: getScalar(table, 0, 'ncessch'),
-          school_year: getScalar(table, 0, 'school_year'),
-          sch_level: getScalar(table, 0, 'sch_level'),
-          sch_type: SCH_TYPE_VALUES[getScalar(table, 0, 'sch_type') - 1],
-          sy_status: SY_STATUS_VALUES[getScalar(table, 0, 'sy_status') - 1],
-          sy_status_updated: SY_STATUS_VALUES[getScalar(table, 0, 'sy_status_updated') - 1],
-          charter: getScalar(table, 0, 'charter'),
-          state_code: getScalar(table, 0, 'state_code'),
-          state_leaid: getScalar(table, 0, 'state_leaid'),
-          grade_pk: getScalar(table, 0, 'grade_pk'),
-          grade_kg: getScalar(table, 0, 'grade_kg'),
-          grade_01: getScalar(table, 0, 'grade_01'),
-          grade_02: getScalar(table, 0, 'grade_02'),
-          grade_03: getScalar(table, 0, 'grade_03'),
-          grade_04: getScalar(table, 0, 'grade_04'),
-          grade_05: getScalar(table, 0, 'grade_05'),
-          grade_06: getScalar(table, 0, 'grade_06'),
-          grade_07: getScalar(table, 0, 'grade_07'),
-          grade_08: getScalar(table, 0, 'grade_08'),
-          grade_09: getScalar(table, 0, 'grade_09'),
-          grade_10: getScalar(table, 0, 'grade_10'),
-          grade_11: getScalar(table, 0, 'grade_11'),
-          grade_12: getScalar(table, 0, 'grade_12'),
-          grade_13: getScalar(table, 0, 'grade_13'),
-          grade_ug: getScalar(table, 0, 'grade_ug'),
-          grade_ae: getScalar(table, 0, 'grade_ae'),
-        } as SchoolDirectoryInfo;
-
-        setDirectoryInfo(results);
-      } catch (err) {
-        console.error('Error fetching directory info:', err);
-        setError(err instanceof Error ? err.message : 'Failed to fetch directory information');
-        setDirectoryInfo(null);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchDirectoryInfo();
-  }, [ncessch, schoolYear, dataDirectory, isInitialized]);
+    return {
+      ...row,
+      sch_type: SCH_TYPE_VALUES[(row.sch_type as number) - 1] || 'Unknown',
+      sy_status: SY_STATUS_VALUES[(row.sy_status as number) - 1] || 'Unknown',
+      sy_status_updated: SY_STATUS_VALUES[(row.sy_status_updated as number) - 1] || 'Unknown',
+    } as SchoolDirectoryInfo;
+  }, [data]);
 
   return {
     directoryInfo,
     isLoading,
-    error,
+    error: error?.message || null,
   };
 }
