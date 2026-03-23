@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
-import {duckDBService} from '../services/duckdb';
+import {roomStore} from '../store';
+import {useDuckDB} from './useDuckDB';
 
 const SY_STATUS_VALUES = [
   'Open', // 1
@@ -50,78 +51,88 @@ export interface SchoolDirectoryInfo {
   [key: string]: string | number | null | undefined;
 }
 
+/** Coerce Arrow cell values (DecimalBigNum, bigint) to plain JS values */
+function coerceArrowValue(value: unknown): unknown {
+  if (value == null) return value;
+  if (typeof value === 'bigint') return Number(value);
+  if (ArrayBuffer.isView(value)) return Number(String(value));
+  return value;
+}
+
+/**
+ * Extract a scalar value from an Arrow table using columnar access.
+ */
+function getScalar(table: any, rowIndex: number, columnName: string): any {
+  const col = table.getChild(columnName);
+  if (!col) return null;
+  return coerceArrowValue(col.get(rowIndex));
+}
+
 export function useSchoolDirectory(ncessch: string | undefined, schoolYear: string | undefined) {
   const [directoryInfo, setDirectoryInfo] = useState<SchoolDirectoryInfo | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
+  const {isInitialized} = useDuckDB();
 
   useEffect(() => {
-    // Reset state when inputs change
     setDirectoryInfo(null);
     setError(null);
 
-    // Don't fetch if we don't have required parameters
-    if (!ncessch || !schoolYear) {
+    if (!ncessch || !schoolYear || !isInitialized) {
       return;
     }
 
     async function fetchDirectoryInfo() {
-      // Double-check parameters inside async function
-      if (!ncessch || !schoolYear) {
-        return;
-      }
+      if (!ncessch || !schoolYear) return;
 
       setIsLoading(true);
       try {
-        // Query the directory parquet file directly for this school and year
-        // Don't assume the local table exists
-        const query = `
+        const connector = roomStore.getState().db.connector;
+        const table = await connector.query(`
           SELECT *
           FROM read_parquet('${dataDirectory}/directory.parquet')
           WHERE ncessch = '${ncessch.replace(/'/g, "''")}'
             AND school_year = '${schoolYear.replace(/'/g, "''")}'
           LIMIT 1
-        `;
+        `);
 
-        const table = await duckDBService.query(query);
+        if (table.numRows === 0) {
+          setDirectoryInfo(null);
+          return;
+        }
 
         const results = {
-          sch_name: duckDBService.getScalarValue(table, 0, 'sch_name'),
-          ncessch: duckDBService.getScalarValue(table, 0, 'ncessch'),
-          school_year: duckDBService.getScalarValue(table, 0, 'school_year'),
-          sch_level: duckDBService.getScalarValue(table, 0, 'sch_level'),
-          sch_type: SCH_TYPE_VALUES[duckDBService.getScalarValue(table, 0, 'sch_type') - 1],
-          sy_status: SY_STATUS_VALUES[duckDBService.getScalarValue(table, 0, 'sy_status') - 1],
-          sy_status_updated:
-            SY_STATUS_VALUES[duckDBService.getScalarValue(table, 0, 'sy_status_updated') - 1],
-          charter: duckDBService.getScalarValue(table, 0, 'charter'),
-          state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
-          state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
-          grade_pk: duckDBService.getScalarValue(table, 0, 'grade_pk'),
-          grade_kg: duckDBService.getScalarValue(table, 0, 'grade_kg'),
-          grade_01: duckDBService.getScalarValue(table, 0, 'grade_01'),
-          grade_02: duckDBService.getScalarValue(table, 0, 'grade_02'),
-          grade_03: duckDBService.getScalarValue(table, 0, 'grade_03'),
-          grade_04: duckDBService.getScalarValue(table, 0, 'grade_04'),
-          grade_05: duckDBService.getScalarValue(table, 0, 'grade_05'),
-          grade_06: duckDBService.getScalarValue(table, 0, 'grade_06'),
-          grade_07: duckDBService.getScalarValue(table, 0, 'grade_07'),
-          grade_08: duckDBService.getScalarValue(table, 0, 'grade_08'),
-          grade_09: duckDBService.getScalarValue(table, 0, 'grade_09'),
-          grade_10: duckDBService.getScalarValue(table, 0, 'grade_10'),
-          grade_11: duckDBService.getScalarValue(table, 0, 'grade_11'),
-          grade_12: duckDBService.getScalarValue(table, 0, 'grade_12'),
-          grade_13: duckDBService.getScalarValue(table, 0, 'grade_13'),
-          grade_ug: duckDBService.getScalarValue(table, 0, 'grade_ug'),
-          grade_ae: duckDBService.getScalarValue(table, 0, 'grade_ae'),
+          sch_name: getScalar(table, 0, 'sch_name'),
+          ncessch: getScalar(table, 0, 'ncessch'),
+          school_year: getScalar(table, 0, 'school_year'),
+          sch_level: getScalar(table, 0, 'sch_level'),
+          sch_type: SCH_TYPE_VALUES[getScalar(table, 0, 'sch_type') - 1],
+          sy_status: SY_STATUS_VALUES[getScalar(table, 0, 'sy_status') - 1],
+          sy_status_updated: SY_STATUS_VALUES[getScalar(table, 0, 'sy_status_updated') - 1],
+          charter: getScalar(table, 0, 'charter'),
+          state_code: getScalar(table, 0, 'state_code'),
+          state_leaid: getScalar(table, 0, 'state_leaid'),
+          grade_pk: getScalar(table, 0, 'grade_pk'),
+          grade_kg: getScalar(table, 0, 'grade_kg'),
+          grade_01: getScalar(table, 0, 'grade_01'),
+          grade_02: getScalar(table, 0, 'grade_02'),
+          grade_03: getScalar(table, 0, 'grade_03'),
+          grade_04: getScalar(table, 0, 'grade_04'),
+          grade_05: getScalar(table, 0, 'grade_05'),
+          grade_06: getScalar(table, 0, 'grade_06'),
+          grade_07: getScalar(table, 0, 'grade_07'),
+          grade_08: getScalar(table, 0, 'grade_08'),
+          grade_09: getScalar(table, 0, 'grade_09'),
+          grade_10: getScalar(table, 0, 'grade_10'),
+          grade_11: getScalar(table, 0, 'grade_11'),
+          grade_12: getScalar(table, 0, 'grade_12'),
+          grade_13: getScalar(table, 0, 'grade_13'),
+          grade_ug: getScalar(table, 0, 'grade_ug'),
+          grade_ae: getScalar(table, 0, 'grade_ae'),
         } as SchoolDirectoryInfo;
 
-        if (results) {
-          setDirectoryInfo(results);
-        } else {
-          setDirectoryInfo(null);
-        }
+        setDirectoryInfo(results);
       } catch (err) {
         console.error('Error fetching directory info:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch directory information');
@@ -132,7 +143,7 @@ export function useSchoolDirectory(ncessch: string | undefined, schoolYear: stri
     }
 
     fetchDirectoryInfo();
-  }, [ncessch, schoolYear, dataDirectory]);
+  }, [ncessch, schoolYear, dataDirectory, isInitialized]);
 
   return {
     directoryInfo,

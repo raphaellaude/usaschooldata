@@ -1,4 +1,5 @@
-import {duckDBService} from './duckdb';
+import type {Table} from 'apache-arrow';
+import {roomStore} from '../store';
 
 export interface MembershipQueryOptions {
   schoolCode?: string;
@@ -78,8 +79,62 @@ export class YearNotAvailableError extends Error {
   }
 }
 
+/**
+ * Coerce an Arrow cell value to a plain JS value.
+ *
+ * DuckDB SUM() on integer columns returns HUGEINT, which Arrow represents as
+ * Decimal(38,0,128). Arrow's col.get(i) for Decimal returns a DecimalBigNum —
+ * a Uint32Array subclass — whose toString() gives the correct string.
+ * Without this conversion, values leak as raw buffers like "498,0,0,0".
+ */
+function coerceArrowValue(value: unknown): unknown {
+  if (value == null) return value;
+  if (typeof value === 'bigint') return Number(value);
+  if (ArrayBuffer.isView(value)) return Number(String(value));
+  return value;
+}
+
+/**
+ * Safely convert an Arrow Table to an array of plain JS objects using
+ * columnar access. This avoids the stack overflow caused by Arrow's
+ * proxy-based toArray() + toJSON() pattern.
+ */
+function tableToRows(table: Table): Record<string, unknown>[] {
+  const fields = table.schema.fields;
+  const rows: Record<string, unknown>[] = [];
+  for (let i = 0; i < table.numRows; i++) {
+    const row: Record<string, unknown> = {};
+    for (const field of fields) {
+      const col = table.getChild(field.name);
+      if (col) {
+        row[field.name] = coerceArrowValue(col.get(i));
+      }
+    }
+    rows.push(row);
+  }
+  return rows;
+}
+
+/**
+ * Extract a scalar value from an Arrow Table using columnar access.
+ */
+function getScalar(table: Table, rowIndex: number, columnName: string): any {
+  if (table.numRows === 0) return null;
+  const col = table.getChild(columnName);
+  if (!col) return null;
+  return coerceArrowValue(col.get(rowIndex));
+}
+
+/** Execute a SQL query via the SQLRooms connector */
+async function query(sql: string): Promise<Table> {
+  const connector = roomStore.getState().db.connector;
+  return await connector.query(sql);
+}
+
 export class DataService {
   private dataDirectory: string;
+  /** Cache of in-flight table creation promises to prevent write-write conflicts */
+  private tableCreationCache = new Map<string, Promise<void>>();
   private availableYears = [
     '2023-2024',
     '2022-2023',
@@ -127,33 +182,38 @@ export class DataService {
   }
 
   /**
-   * Creates a reusable in-memory table for school membership data
-   * This table can then be used by summary functions without hitting storage again
+   * Creates a reusable in-memory table for school membership data.
+   * Uses a promise cache to prevent concurrent CREATE TABLE write-write conflicts.
    */
   async createSchoolMembershipTable(
     schoolCode: string,
     options: MembershipQueryOptions = {}
   ): Promise<void> {
-    const stateLeaid = schoolCode.substring(0, 2);
+    const cacheKey = `school_${schoolCode}_${options.schoolYear || 'all'}`;
+    const existing = this.tableCreationCache.get(cacheKey);
+    if (existing) return existing;
 
-    try {
-      // Generate file paths for the relevant state and year (if specified)
+    const promise = (async () => {
+      const stateLeaid = schoolCode.substring(0, 2);
       const years = options.schoolYear ? [options.schoolYear] : undefined;
       const filePaths = this.generateR2FilePaths([stateLeaid], years);
 
-      // Create a named table that can be reused
-      const createTableQuery = `
+      await query(`
         CREATE OR REPLACE TABLE school_membership_${schoolCode} AS
         SELECT * FROM read_parquet([${filePaths.join(', ')}])
         WHERE ncessch = '${schoolCode}'
         ${options.schoolYear ? `AND school_year = '${options.schoolYear}'` : ''}
-      `;
+      `);
+    })();
 
-      await duckDBService.query(createTableQuery);
+    this.tableCreationCache.set(cacheKey, promise);
+
+    try {
+      await promise;
     } catch (error) {
+      this.tableCreationCache.delete(cacheKey);
       console.error(`Failed to create school membership table for ${schoolCode}:`, error);
 
-      // Check if this is a "year not available" error
       if (this.isYearNotAvailableError(error) && options.schoolYear) {
         throw new YearNotAvailableError(options.schoolYear, this.availableYears);
       }
@@ -170,10 +230,8 @@ export class DataService {
     options: MembershipQueryOptions = {}
   ): Promise<any[]> {
     try {
-      // First ensure the table exists
       await this.createSchoolMembershipTable(schoolCode, options);
 
-      // Query the in-memory table with additional filters
       const selectQuery = `
         WITH grade_ordered AS (
           SELECT *,
@@ -207,8 +265,8 @@ export class DataService {
         ORDER BY school_year DESC, grade_order, race_ethnicity, sex
       `;
 
-      const table = await duckDBService.query(selectQuery);
-      return duckDBService.tableToArray(table);
+      const table = await query(selectQuery);
+      return tableToRows(table);
     } catch (error) {
       console.error(`Failed to query school membership for ${schoolCode}:`, error);
       throw error;
@@ -216,33 +274,38 @@ export class DataService {
   }
 
   /**
-   * Creates a reusable in-memory table for district membership data
-   * This table can then be used by summary functions without hitting storage again
+   * Creates a reusable in-memory table for district membership data.
+   * Uses a promise cache to prevent concurrent CREATE TABLE write-write conflicts.
    */
   async createDistrictMembershipTable(
     districtCode: string,
     options: MembershipQueryOptions = {}
   ): Promise<void> {
-    const stateLeaid = districtCode.substring(0, 2);
+    const cacheKey = `district_${districtCode}_${options.schoolYear || 'all'}`;
+    const existing = this.tableCreationCache.get(cacheKey);
+    if (existing) return existing;
 
-    try {
-      // Generate file paths for the relevant state and year (if specified)
+    const promise = (async () => {
+      const stateLeaid = districtCode.substring(0, 2);
       const years = options.schoolYear ? [options.schoolYear] : undefined;
       const filePaths = this.generateR2FilePaths([stateLeaid], years);
 
-      // Create a named table that can be reused
-      const createTableQuery = `
+      await query(`
         CREATE OR REPLACE TABLE district_membership_${districtCode} AS
         SELECT * FROM read_parquet([${filePaths.join(', ')}])
         WHERE leaid = '${districtCode}'
         ${options.schoolYear ? `AND school_year = '${options.schoolYear}'` : ''}
-      `;
+      `);
+    })();
 
-      await duckDBService.query(createTableQuery);
+    this.tableCreationCache.set(cacheKey, promise);
+
+    try {
+      await promise;
     } catch (error) {
+      this.tableCreationCache.delete(cacheKey);
       console.error(`Failed to create district membership table for ${districtCode}:`, error);
 
-      // Check if this is a "year not available" error
       if (this.isYearNotAvailableError(error) && options.schoolYear) {
         throw new YearNotAvailableError(options.schoolYear, this.availableYears);
       }
@@ -259,10 +322,8 @@ export class DataService {
     options: MembershipQueryOptions = {}
   ): Promise<any[]> {
     try {
-      // First ensure the table exists
       await this.createDistrictMembershipTable(districtCode, options);
 
-      // Query the in-memory table with additional filters and aggregation
       const selectQuery = `
         WITH grade_ordered AS (
           SELECT *,
@@ -303,8 +364,8 @@ export class DataService {
         ORDER BY school_year DESC, ncessch, grade_order, race_ethnicity, sex
       `;
 
-      const table = await duckDBService.query(selectQuery);
-      return duckDBService.tableToArray(table);
+      const table = await query(selectQuery);
+      return tableToRows(table);
     } catch (error) {
       console.error(`Failed to query district membership for ${districtCode}:`, error);
       throw error;
@@ -312,27 +373,32 @@ export class DataService {
   }
 
   /**
-   * Creates a reusable in-memory table for school membership data across all available years
-   * This enables historical trend analysis and multi-year aggregations
+   * Creates a reusable in-memory table for school membership data across all available years.
+   * Uses a promise cache to prevent concurrent CREATE TABLE write-write conflicts.
    */
   async createSchoolMembershipHistoricalTable(schoolCode: string): Promise<void> {
-    const stateLeaid = schoolCode.substring(0, 2);
+    const cacheKey = `school_historical_${schoolCode}`;
+    const existing = this.tableCreationCache.get(cacheKey);
+    if (existing) return existing;
 
-    try {
-      // Generate file paths for all available years
-      // R2 doesn't support glob patterns, so we enumerate all years explicitly
+    const promise = (async () => {
+      const stateLeaid = schoolCode.substring(0, 2);
       const filePaths = this.generateR2FilePaths([stateLeaid], this.availableYears);
 
-      // Create a named table that can be reused
-      const createTableQuery = `
+      await query(`
         CREATE OR REPLACE TABLE school_membership_${schoolCode}_historical AS
         SELECT * FROM read_parquet([${filePaths.join(', ')}])
         WHERE ncessch = '${schoolCode}'
         ORDER BY school_year DESC
-      `;
+      `);
+    })();
 
-      await duckDBService.query(createTableQuery);
+    this.tableCreationCache.set(cacheKey, promise);
+
+    try {
+      await promise;
     } catch (error) {
+      this.tableCreationCache.delete(cacheKey);
       console.error(
         `Failed to create historical school membership table for ${schoolCode}:`,
         error
@@ -343,17 +409,14 @@ export class DataService {
 
   /**
    * Get enrollment totals by year for a school
-   * This aggregates all students across all demographics for each year
    */
   async getHistoricalEnrollmentByYear(
     schoolCode: string
   ): Promise<{school_year: string; total_enrollment: number}[]> {
     try {
-      // Ensure the historical table exists
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
-      // Query total enrollment by year
-      const query = `
+      const sql = `
         SELECT
           school_year,
           SUM(student_count) as total_enrollment
@@ -362,13 +425,13 @@ export class DataService {
         ORDER BY school_year ASC
       `;
 
-      const table = await duckDBService.query(query);
+      const table = await query(sql);
 
       const result: {school_year: string; total_enrollment: number}[] = [];
       for (let i = 0; i < table.numRows; i++) {
         result.push({
-          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
-          total_enrollment: duckDBService.getScalarValue(table, i, 'total_enrollment'),
+          school_year: getScalar(table, i, 'school_year'),
+          total_enrollment: getScalar(table, i, 'total_enrollment'),
         });
       }
       return result;
@@ -380,7 +443,6 @@ export class DataService {
 
   /**
    * Get enrollment by year and race/ethnicity for a school
-   * Returns data suitable for stacked bar charts
    */
   async getHistoricalEnrollmentByRaceEthnicity(schoolCode: string): Promise<
     {
@@ -395,12 +457,9 @@ export class DataService {
     }[]
   > {
     try {
-      // Ensure the historical table exists
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
-      // Query enrollment by year and race/ethnicity using CASE WHEN
-      // This ensures we get a value for every race/ethnicity category in every year
-      const query = `
+      const sql = `
         SELECT
           school_year,
           SUM(CASE WHEN race_ethnicity = 'American Indian or Alaska Native' THEN student_count ELSE 0 END) as native_american,
@@ -415,7 +474,7 @@ export class DataService {
         ORDER BY school_year ASC
       `;
 
-      const table = await duckDBService.query(query);
+      const table = await query(sql);
 
       const result: {
         school_year: string;
@@ -429,14 +488,14 @@ export class DataService {
       }[] = [];
       for (let i = 0; i < table.numRows; i++) {
         result.push({
-          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
-          white: duckDBService.getScalarValue(table, i, 'white'),
-          black: duckDBService.getScalarValue(table, i, 'black'),
-          hispanic: duckDBService.getScalarValue(table, i, 'hispanic'),
-          asian: duckDBService.getScalarValue(table, i, 'asian'),
-          native_american: duckDBService.getScalarValue(table, i, 'native_american'),
-          pacific_islander: duckDBService.getScalarValue(table, i, 'pacific_islander'),
-          multiracial: duckDBService.getScalarValue(table, i, 'multiracial'),
+          school_year: getScalar(table, i, 'school_year'),
+          white: getScalar(table, i, 'white'),
+          black: getScalar(table, i, 'black'),
+          hispanic: getScalar(table, i, 'hispanic'),
+          asian: getScalar(table, i, 'asian'),
+          native_american: getScalar(table, i, 'native_american'),
+          pacific_islander: getScalar(table, i, 'pacific_islander'),
+          multiracial: getScalar(table, i, 'multiracial'),
         });
       }
       return result;
@@ -451,18 +510,14 @@ export class DataService {
 
   /**
    * Get enrollment by year and sex for a school
-   * Returns data suitable for stacked bar charts
    */
   async getHistoricalEnrollmentBySex(
     schoolCode: string
   ): Promise<{school_year: string; male: number; female: number}[]> {
     try {
-      // Ensure the historical table exists
       await this.createSchoolMembershipHistoricalTable(schoolCode);
 
-      // Query enrollment by year and sex using CASE WHEN
-      // This ensures we get a value for both Male and Female in every year
-      const query = `
+      const sql = `
         SELECT
           school_year,
           SUM(CASE WHEN sex = 'Male' THEN student_count ELSE 0 END) as male,
@@ -472,14 +527,14 @@ export class DataService {
         ORDER BY school_year ASC
       `;
 
-      const table = await duckDBService.query(query);
+      const table = await query(sql);
 
       const result: {school_year: string; male: number; female: number}[] = [];
       for (let i = 0; i < table.numRows; i++) {
         result.push({
-          school_year: duckDBService.getScalarValue(table, i, 'school_year'),
-          male: duckDBService.getScalarValue(table, i, 'male'),
-          female: duckDBService.getScalarValue(table, i, 'female'),
+          school_year: getScalar(table, i, 'school_year'),
+          male: getScalar(table, i, 'male'),
+          female: getScalar(table, i, 'female'),
         });
       }
       return result;
@@ -497,10 +552,8 @@ export class DataService {
     options: MembershipQueryOptions = {}
   ): Promise<{grade: string; student_count: number}[]> {
     try {
-      // Ensure the table exists first
       await this.createSchoolMembershipTable(schoolCode, options);
 
-      // Query students by grade with proper ordering
       const gradeQuery = `
         WITH grade_data AS (
           SELECT
@@ -534,14 +587,13 @@ export class DataService {
         ORDER BY grade_order
       `;
 
-      const table = await duckDBService.query(gradeQuery);
+      const table = await query(gradeQuery);
 
-      // Properly extract values using getScalarValue to handle Arrow typed arrays
       const result: {grade: string; student_count: number}[] = [];
       for (let i = 0; i < table.numRows; i++) {
         result.push({
-          grade: duckDBService.getScalarValue(table, i, 'grade'),
-          student_count: duckDBService.getScalarValue(table, i, 'student_count'),
+          grade: getScalar(table, i, 'grade'),
+          student_count: getScalar(table, i, 'student_count'),
         });
       }
       return result;
@@ -552,20 +604,17 @@ export class DataService {
   }
 
   /**
-   * Get summary statistics for a school - all aggregated in DuckDB
+   * Get summary statistics for a school
    */
   async getSchoolSummary(
     schoolCode: string,
     options: MembershipQueryOptions = {}
   ): Promise<SchoolSummary | null> {
     try {
-      // Ensure the table exists first
       await this.createSchoolMembershipTable(schoolCode, options);
 
-      // Get all summary stats from the in-memory table
       const summaryQuery = `
         SELECT
-          -- Basic stats
           SUM(student_count) as total_enrollment,
           MIN(school_year) as earliest_year,
           MAX(school_year) as latest_year,
@@ -581,45 +630,40 @@ export class DataService {
         FROM school_membership_${schoolCode}
       `;
 
-      const table = await duckDBService.query(summaryQuery);
+      const table = await query(summaryQuery);
 
-      if (table.numRows === 0 || duckDBService.getScalarValue(table, 0, 'total_enrollment') === 0) {
+      if (table.numRows === 0 || getScalar(table, 0, 'total_enrollment') === 0) {
         return null;
       }
 
       return {
         schoolCode,
-        totalEnrollment: duckDBService.getScalarValue(table, 0, 'total_enrollment'),
-        earliestYear: duckDBService.getScalarValue(table, 0, 'earliest_year'),
-        latestYear: duckDBService.getScalarValue(table, 0, 'latest_year'),
+        totalEnrollment: getScalar(table, 0, 'total_enrollment'),
+        earliestYear: getScalar(table, 0, 'earliest_year'),
+        latestYear: getScalar(table, 0, 'latest_year'),
         demographics: {
           byRaceEthnicity: {
-            White: duckDBService.getScalarValue(table, 0, 'white_count'),
-            'Black or African American': duckDBService.getScalarValue(table, 0, 'black_count'),
-            'Hispanic/Latino': duckDBService.getScalarValue(table, 0, 'hispanic_count'),
-            Asian: duckDBService.getScalarValue(table, 0, 'asian_count'),
-            'American Indian or Alaska Native': duckDBService.getScalarValue(
-              table,
-              0,
-              'native_american_count'
-            ),
-            'Native Hawaiian or Other Pacific Islander': duckDBService.getScalarValue(
+            White: getScalar(table, 0, 'white_count'),
+            'Black or African American': getScalar(table, 0, 'black_count'),
+            'Hispanic/Latino': getScalar(table, 0, 'hispanic_count'),
+            Asian: getScalar(table, 0, 'asian_count'),
+            'American Indian or Alaska Native': getScalar(table, 0, 'native_american_count'),
+            'Native Hawaiian or Other Pacific Islander': getScalar(
               table,
               0,
               'pacific_islander_count'
             ),
-            'Two or more races': duckDBService.getScalarValue(table, 0, 'multiracial_count'),
+            'Two or more races': getScalar(table, 0, 'multiracial_count'),
           },
           bySex: {
-            Male: duckDBService.getScalarValue(table, 0, 'male_count'),
-            Female: duckDBService.getScalarValue(table, 0, 'female_count'),
+            Male: getScalar(table, 0, 'male_count'),
+            Female: getScalar(table, 0, 'female_count'),
           },
         },
       };
     } catch (error) {
       console.error(`Failed to get school summary for ${schoolCode}:`, error);
 
-      // Check if this is a "year not available" error
       if (this.isYearNotAvailableError(error) && options.schoolYear) {
         throw new YearNotAvailableError(options.schoolYear, this.availableYears);
       }
@@ -629,17 +673,15 @@ export class DataService {
   }
 
   /**
-   * Get summary statistics for a district - all aggregated in DuckDB
+   * Get summary statistics for a district
    */
   async getDistrictSummary(
     districtCode: string,
     options: MembershipQueryOptions = {}
   ): Promise<DistrictSummary | null> {
     try {
-      // Ensure the table exists first
       await this.createDistrictMembershipTable(districtCode, options);
 
-      // Get all summary stats from the in-memory table
       const summaryQuery = `
         SELECT
           SUM(student_count) as total_enrollment,
@@ -658,46 +700,41 @@ export class DataService {
         FROM district_membership_${districtCode}
       `;
 
-      const table = await duckDBService.query(summaryQuery);
+      const table = await query(summaryQuery);
 
-      if (table.numRows === 0 || duckDBService.getScalarValue(table, 0, 'total_enrollment') === 0) {
+      if (table.numRows === 0 || getScalar(table, 0, 'total_enrollment') === 0) {
         return null;
       }
 
       return {
         districtCode,
-        totalEnrollment: duckDBService.getScalarValue(table, 0, 'total_enrollment'),
-        schoolCount: duckDBService.getScalarValue(table, 0, 'school_count'),
-        earliestYear: duckDBService.getScalarValue(table, 0, 'earliest_year'),
-        latestYear: duckDBService.getScalarValue(table, 0, 'latest_year'),
+        totalEnrollment: getScalar(table, 0, 'total_enrollment'),
+        schoolCount: getScalar(table, 0, 'school_count'),
+        earliestYear: getScalar(table, 0, 'earliest_year'),
+        latestYear: getScalar(table, 0, 'latest_year'),
         demographics: {
           byRaceEthnicity: {
-            White: duckDBService.getScalarValue(table, 0, 'white_count'),
-            'Black or African American': duckDBService.getScalarValue(table, 0, 'black_count'),
-            'Hispanic/Latino': duckDBService.getScalarValue(table, 0, 'hispanic_count'),
-            Asian: duckDBService.getScalarValue(table, 0, 'asian_count'),
-            'American Indian or Alaska Native': duckDBService.getScalarValue(
-              table,
-              0,
-              'native_american_count'
-            ),
-            'Native Hawaiian or Other Pacific Islander': duckDBService.getScalarValue(
+            White: getScalar(table, 0, 'white_count'),
+            'Black or African American': getScalar(table, 0, 'black_count'),
+            'Hispanic/Latino': getScalar(table, 0, 'hispanic_count'),
+            Asian: getScalar(table, 0, 'asian_count'),
+            'American Indian or Alaska Native': getScalar(table, 0, 'native_american_count'),
+            'Native Hawaiian or Other Pacific Islander': getScalar(
               table,
               0,
               'pacific_islander_count'
             ),
-            'Two or more races': duckDBService.getScalarValue(table, 0, 'multiracial_count'),
+            'Two or more races': getScalar(table, 0, 'multiracial_count'),
           },
           bySex: {
-            Male: duckDBService.getScalarValue(table, 0, 'male_count'),
-            Female: duckDBService.getScalarValue(table, 0, 'female_count'),
+            Male: getScalar(table, 0, 'male_count'),
+            Female: getScalar(table, 0, 'female_count'),
           },
         },
       };
     } catch (error) {
       console.error(`Failed to get district summary for ${districtCode}:`, error);
 
-      // Check if this is a "year not available" error
       if (this.isYearNotAvailableError(error) && options.schoolYear) {
         throw new YearNotAvailableError(options.schoolYear, this.availableYears);
       }

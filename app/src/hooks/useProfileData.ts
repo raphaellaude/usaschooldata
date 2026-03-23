@@ -39,7 +39,7 @@ export function useProfileData(
     }
 
     if (!isInitialized) {
-      return; // Wait for DuckDB to be initialized
+      return;
     }
 
     if (dbError) {
@@ -59,7 +59,6 @@ export function useProfileData(
     setAvailableYears(undefined);
 
     try {
-      // Load summary and membership data together (both are fast queries)
       if (entityType === 'school') {
         const [summaryData, membershipResults] = await Promise.all([
           dataService.getSchoolSummary(entityCode, options),

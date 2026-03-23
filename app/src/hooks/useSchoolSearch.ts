@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef, useCallback} from 'react';
-import {duckDBService} from '../services/duckdb';
+import {roomStore} from '../store';
+import {useDuckDB} from './useDuckDB';
 
 export interface SchoolSearchResult {
   ncessch: string;
@@ -21,6 +22,32 @@ export interface SearchFilters {
   charter?: string;
 }
 
+// Module-level singleton: ensures the search table is created exactly once.
+let searchTablePromise: Promise<void> | null = null;
+
+function ensureSearchTable(dataDirectory: string): Promise<void> {
+  if (!searchTablePromise) {
+    searchTablePromise = (async () => {
+      const connector = roomStore.getState().db.connector;
+      await connector.query(`
+        CREATE OR REPLACE TABLE school_directory AS
+        SELECT ncessch, sch_name, state_code, sch_type, sch_level, charter, school_year
+        FROM read_parquet('${dataDirectory}/directory.parquet')
+        WHERE school_year_no = 1
+      `);
+    })();
+  }
+  return searchTablePromise;
+}
+
+/** Coerce Arrow cell values (DecimalBigNum, bigint) to plain JS values */
+function coerceArrowValue(value: unknown): unknown {
+  if (value == null) return value;
+  if (typeof value === 'bigint') return Number(value);
+  if (ArrayBuffer.isView(value)) return Number(String(value));
+  return value;
+}
+
 export function useSchoolSearch(
   searchQuery: string,
   filters: SearchFilters = {},
@@ -31,36 +58,15 @@ export function useSchoolSearch(
   const [error, setError] = useState<string | null>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const queryInFlightRef = useRef(false);
-  const localTableCreated = useRef(false);
   const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
+  const {isInitialized} = useDuckDB();
 
   const sanitizeQuery = useCallback((query: string): string => {
-    // Escape single quotes to prevent SQL injection
     return query.replace(/'/g, "''");
   }, []);
 
-  const createSearchTable = useCallback(async () => {
-    // Create a local table with the most recent school data including filterable fields
-    const createTableQuery = `
-      CREATE OR REPLACE TABLE school_directory AS
-      SELECT
-        ncessch,
-        sch_name,
-        state_code,
-        sch_type,
-        sch_level,
-        charter,
-        school_year
-      FROM read_parquet('${dataDirectory}/directory.parquet')
-      WHERE school_year_no = 1
-    `;
-
-    await duckDBService.query(createTableQuery);
-  }, [dataDirectory]);
-
   const performSearch = useCallback(
     async (query: string, searchFilters: SearchFilters): Promise<SchoolSearchResult[]> => {
-      // Build filter conditions
       const filterConditions: string[] = [];
 
       if (query.length >= 3) {
@@ -86,44 +92,54 @@ export function useSchoolSearch(
       const whereClause =
         filterConditions.length > 0 ? `WHERE ${filterConditions.join(' AND ')}` : '';
 
-      const searchQuerySQL = `
-      SELECT
-        ncessch,
-        sch_name,
-        state_code,
-        sch_type,
-        sch_level,
-        charter,
-        school_year
-      FROM school_directory
-      ${whereClause}
-      ORDER BY sch_name
-      LIMIT 50
-    `;
+      const connector = roomStore.getState().db.connector;
+      const table = await connector.query(`
+        SELECT
+          ncessch,
+          sch_name,
+          state_code,
+          sch_type,
+          sch_level,
+          charter,
+          school_year
+        FROM school_directory
+        ${whereClause}
+        ORDER BY sch_name
+        LIMIT 50
+      `);
 
-      const table = await duckDBService.query(searchQuerySQL);
-      return duckDBService.tableToArray(table) as SchoolSearchResult[];
+      // Use columnar access to avoid Arrow proxy stack overflow
+      const fields = table.schema.fields;
+      const rows: SchoolSearchResult[] = [];
+      for (let i = 0; i < table.numRows; i++) {
+        const row: any = {};
+        for (const field of fields) {
+          const col = table.getChild(field.name);
+          if (col) {
+            row[field.name] = coerceArrowValue(col.get(i));
+          }
+        }
+        rows.push(row);
+      }
+      return rows;
     },
     [sanitizeQuery]
   );
 
   useEffect(() => {
-    // Clear any existing timeout
     if (searchTimeoutRef.current) {
       clearTimeout(searchTimeoutRef.current);
     }
 
     // Cancel any in-flight query
     if (queryInFlightRef.current) {
-      duckDBService.cancelPendingQuery().then(cancelled => {
-        if (cancelled) {
-          console.log('Cancelled previous search query');
-        }
-      });
+      const connector = roomStore.getState().db.connector;
+      if ('getConnection' in connector) {
+        (connector as any).getConnection()?.cancelSent?.();
+      }
       queryInFlightRef.current = false;
     }
 
-    // If query is less than 3 characters and no filters, clear results
     const hasFilters =
       filters.stateCode || filters.schoolType || filters.schoolLevel || filters.charter;
     if (searchQuery.length < 3 && !hasFilters) {
@@ -132,22 +148,16 @@ export function useSchoolSearch(
       return;
     }
 
-    // Debounce the search
+    if (!isInitialized) return;
+
     setIsSearching(true);
     searchTimeoutRef.current = setTimeout(async () => {
       try {
         setError(null);
 
-        // Create local table on first search (or if not already created)
-        if (!localTableCreated.current) {
-          await createSearchTable();
-          localTableCreated.current = true;
-        }
+        await ensureSearchTable(dataDirectory);
 
-        // Mark that a query is now in-flight
         queryInFlightRef.current = true;
-
-        // Perform the search
         const searchResults = await performSearch(searchQuery, filters);
         setResults(searchResults);
       } catch (err) {
@@ -160,17 +170,19 @@ export function useSchoolSearch(
       }
     }, debounceMs);
 
-    // Cleanup on unmount
     return () => {
       if (searchTimeoutRef.current) {
         clearTimeout(searchTimeoutRef.current);
       }
       if (queryInFlightRef.current) {
-        duckDBService.cancelPendingQuery();
+        const connector = roomStore.getState().db.connector;
+        if ('getConnection' in connector) {
+          (connector as any).getConnection()?.cancelSent?.();
+        }
         queryInFlightRef.current = false;
       }
     };
-  }, [searchQuery, filters, debounceMs, createSearchTable, performSearch]);
+  }, [searchQuery, filters, debounceMs, isInitialized, dataDirectory, performSearch]);
 
   return {
     results,

@@ -24,10 +24,6 @@ export interface HistoricalEnrollmentData {
 
 /**
  * Hook for fetching historical enrollment data for a school
- * Creates a historical membership table on mount and provides data for different breakdowns
- *
- * @param schoolCode - The NCES school code (12 characters)
- * @param enabled - Whether to start loading data (default: true). Set to false to defer loading.
  */
 export function useHistoricalEnrollment(
   schoolCode: string,
@@ -59,12 +55,12 @@ export function useHistoricalEnrollment(
     }
 
     if (!enabled) {
-      setIsLoading(true); // Keep loading state until enabled
+      setIsLoading(true);
       return;
     }
 
     if (!isInitialized) {
-      return; // Wait for DuckDB to be initialized
+      return;
     }
 
     if (dbError) {
@@ -82,18 +78,12 @@ export function useHistoricalEnrollment(
     setIsTableReady(false);
 
     try {
-      // First, create the historical table with all years
-      // This is the expensive operation that loads all the data
       await dataService.createSchoolMembershipHistoricalTable(schoolCode);
       setIsTableReady(true);
 
-      // Now fetch the default view (total enrollment by year)
-      // This is fast because it's querying from the in-memory table
       const yearData = await dataService.getHistoricalEnrollmentByYear(schoolCode);
       setByYear(yearData);
 
-      // Pre-fetch the breakdown data as well since the table is already loaded
-      // This makes switching between views instant
       const [raceData, sexData] = await Promise.all([
         dataService.getHistoricalEnrollmentByRaceEthnicity(schoolCode),
         dataService.getHistoricalEnrollmentBySex(schoolCode),
