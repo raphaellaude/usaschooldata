@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react';
-import {duckDBService} from '../services/duckdb';
+import {useMemo} from 'react';
+import {useSql} from '@sqlrooms/duckdb';
 
 const SY_STATUS_VALUES = [
   'Open', // 1
@@ -30,6 +30,8 @@ export interface SchoolDirectoryInfo {
   charter: string;
   state_code: string;
   state_leaid: string;
+  city?: string;
+  state_name?: string;
   grade_pk?: string | number | null;
   grade_kg?: string | number | null;
   grade_01?: string | number | null;
@@ -50,93 +52,59 @@ export interface SchoolDirectoryInfo {
   [key: string]: string | number | null | undefined;
 }
 
+interface DirectoryRow {
+  ncessch: string;
+  sch_name: string;
+  school_year: string;
+  sch_level: string;
+  sch_type: number;
+  sy_status: number;
+  sy_status_updated: number;
+  charter: string;
+  state_code: string;
+  state_leaid: string;
+  city?: string;
+  state_name?: string;
+  [key: string]: unknown;
+}
+
+const DATA_DIR = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
+
 export function useSchoolDirectory(ncessch: string | undefined, schoolYear: string | undefined) {
-  const [directoryInfo, setDirectoryInfo] = useState<SchoolDirectoryInfo | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const dataDirectory = import.meta.env.VITE_DATA_DIRECTORY || '/path/to/data';
+  const escapedNcessch = ncessch?.replace(/'/g, "''") || '';
+  const escapedYear = schoolYear?.replace(/'/g, "''") || '';
 
-  useEffect(() => {
-    // Reset state when inputs change
-    setDirectoryInfo(null);
-    setError(null);
+  const {data, isLoading, error} = useSql<DirectoryRow>({
+    query: `
+      SELECT * REPLACE (
+        sch_type::INTEGER as sch_type,
+        sy_status::INTEGER as sy_status,
+        sy_status_updated::INTEGER as sy_status_updated
+      )
+      FROM read_parquet('${DATA_DIR}/directory.parquet')
+      WHERE ncessch = '${escapedNcessch}'
+        AND school_year = '${escapedYear}'
+      LIMIT 1
+    `,
+    enabled: !!ncessch && !!schoolYear,
+  });
 
-    // Don't fetch if we don't have required parameters
-    if (!ncessch || !schoolYear) {
-      return;
-    }
+  const directoryInfo = useMemo<SchoolDirectoryInfo | null>(() => {
+    if (!data || data.length === 0) return null;
+    const row = data.toArray()[0];
+    if (!row) return null;
 
-    async function fetchDirectoryInfo() {
-      // Double-check parameters inside async function
-      if (!ncessch || !schoolYear) {
-        return;
-      }
-
-      setIsLoading(true);
-      try {
-        // Query the directory parquet file directly for this school and year
-        // Don't assume the local table exists
-        const query = `
-          SELECT *
-          FROM read_parquet('${dataDirectory}/directory.parquet')
-          WHERE ncessch = '${ncessch.replace(/'/g, "''")}'
-            AND school_year = '${schoolYear.replace(/'/g, "''")}'
-          LIMIT 1
-        `;
-
-        const table = await duckDBService.query(query);
-
-        const results = {
-          sch_name: duckDBService.getScalarValue(table, 0, 'sch_name'),
-          ncessch: duckDBService.getScalarValue(table, 0, 'ncessch'),
-          school_year: duckDBService.getScalarValue(table, 0, 'school_year'),
-          sch_level: duckDBService.getScalarValue(table, 0, 'sch_level'),
-          sch_type: SCH_TYPE_VALUES[duckDBService.getScalarValue(table, 0, 'sch_type') - 1],
-          sy_status: SY_STATUS_VALUES[duckDBService.getScalarValue(table, 0, 'sy_status') - 1],
-          sy_status_updated:
-            SY_STATUS_VALUES[duckDBService.getScalarValue(table, 0, 'sy_status_updated') - 1],
-          charter: duckDBService.getScalarValue(table, 0, 'charter'),
-          state_code: duckDBService.getScalarValue(table, 0, 'state_code'),
-          state_leaid: duckDBService.getScalarValue(table, 0, 'state_leaid'),
-          grade_pk: duckDBService.getScalarValue(table, 0, 'grade_pk'),
-          grade_kg: duckDBService.getScalarValue(table, 0, 'grade_kg'),
-          grade_01: duckDBService.getScalarValue(table, 0, 'grade_01'),
-          grade_02: duckDBService.getScalarValue(table, 0, 'grade_02'),
-          grade_03: duckDBService.getScalarValue(table, 0, 'grade_03'),
-          grade_04: duckDBService.getScalarValue(table, 0, 'grade_04'),
-          grade_05: duckDBService.getScalarValue(table, 0, 'grade_05'),
-          grade_06: duckDBService.getScalarValue(table, 0, 'grade_06'),
-          grade_07: duckDBService.getScalarValue(table, 0, 'grade_07'),
-          grade_08: duckDBService.getScalarValue(table, 0, 'grade_08'),
-          grade_09: duckDBService.getScalarValue(table, 0, 'grade_09'),
-          grade_10: duckDBService.getScalarValue(table, 0, 'grade_10'),
-          grade_11: duckDBService.getScalarValue(table, 0, 'grade_11'),
-          grade_12: duckDBService.getScalarValue(table, 0, 'grade_12'),
-          grade_13: duckDBService.getScalarValue(table, 0, 'grade_13'),
-          grade_ug: duckDBService.getScalarValue(table, 0, 'grade_ug'),
-          grade_ae: duckDBService.getScalarValue(table, 0, 'grade_ae'),
-        } as SchoolDirectoryInfo;
-
-        if (results) {
-          setDirectoryInfo(results);
-        } else {
-          setDirectoryInfo(null);
-        }
-      } catch (err) {
-        console.error('Error fetching directory info:', err);
-        setError(err instanceof Error ? err.message : 'Failed to fetch directory information');
-        setDirectoryInfo(null);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchDirectoryInfo();
-  }, [ncessch, schoolYear, dataDirectory]);
+    return {
+      ...row,
+      sch_type: SCH_TYPE_VALUES[(row.sch_type as number) - 1] || 'Unknown',
+      sy_status: SY_STATUS_VALUES[(row.sy_status as number) - 1] || 'Unknown',
+      sy_status_updated: SY_STATUS_VALUES[(row.sy_status_updated as number) - 1] || 'Unknown',
+    } as SchoolDirectoryInfo;
+  }, [data]);
 
   return {
     directoryInfo,
     isLoading,
-    error,
+    error: error?.message || null,
   };
 }
